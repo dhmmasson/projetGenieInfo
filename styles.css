@@ -1,0 +1,30 @@
+:root {
+  --gi-accent: #1f6f5f;
+  --gi-accent-soft: #e8f4f1;
+}
+
+.sidebar-item.active,
+a {
+  color: var(--gi-accent);
+}
+
+.callout.callout-style-default {
+  border-left-color: var(--gi-accent);
+}
+
+.quarto-title-banner {
+  background: linear-gradient(120deg, #f4fbf9 0%, #e9f1f6 100%);
+}
+
+/* Mermaid subgraph / cluster rectangles — default fill is too dark */
+svg .cluster rect {
+  fill: #f8fafc !important;
+  stroke: #94a3b8 !important;
+  stroke-width: 1px !important;
+}
+
+svg .cluster span,
+svg .cluster p {
+  color: #1e293b !important;
+  font-weight: 600;
+}
