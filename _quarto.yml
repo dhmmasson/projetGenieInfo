@@ -1,0 +1,59 @@
+project:
+  type: website
+
+website:
+  title: "Projet Génie Info"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: Getting-Started/Setup.qmd
+        text: Setup
+      - href: Features/Features.qmd
+        text: Features
+      - href: ProjectManagement/Evaluation.qmd
+        text: Evaluation
+      - href: Resources/Libraries.qmd
+        text: Libraries
+      - href: Resources/FAQ.qmd
+        text: FAQ
+  sidebar:
+    contents:
+      - href: index.qmd
+        text: "Home"
+      - section: "Getting Started"
+        contents:
+          - href: Getting-Started/Setup.qmd
+            text: "Setup"
+          - href: Getting-Started/First-Steps.qmd
+            text: "First Steps"
+      - section: "Features"
+        contents:
+          - href: Features/Features.qmd
+            text: "Milestones and Issues"
+      - section: "Project Management"
+        contents:
+          - href: ProjectManagement/Workflows.qmd
+            text: "Workflows and Onboarding"
+          - href: ProjectManagement/Evaluation.qmd
+            text: "Evaluation"
+          - href: ProjectManagement/TA-Validation-Checklist.qmd
+            text: "TA Validation Checklist"
+      - section: "Resources"
+        contents:
+          - href: Resources/Image-Data-Structure.qmd
+            text: "Image Data Structure"
+          - href: Resources/Libraries.qmd
+            text: "Libraries"
+          - href: Resources/Outputs.qmd
+            text: "Outputs"
+          - href: Resources/FAQ.qmd
+            text: "FAQ"
+
+format:
+  html:
+    theme:
+      - cosmo
+      - brand
+    css: styles.css
+    toc: true

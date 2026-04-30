@@ -1,0 +1,99 @@
+---
+title: "FAQ"
+---
+
+## Build fails immediately
+
+1. Run:
+
+```bash
+bash validconfig.sh
+```
+
+2. Fix missing tools or libraries reported by the script.
+3. Retry configure/build:
+
+```bash
+cmake -B build
+cmake --build build
+```
+
+## I cannot see issues in my repository
+
+1. Open GitHub Actions.
+2. Run `Import issues from Template` manually.
+3. Wait until the workflow completes.
+4. Refresh the Issues tab.
+
+## Which teammate should run onboarding actions
+
+Only one teammate should run issue import during setup. Other teammates should wait, then sync.
+
+## Path and encoding problems on Windows
+
+Keep your repository path simple:
+
+- No accents in folders
+- No very long nested paths
+- Avoid special characters
+
+## I am missing estia-image or getopt
+
+You need both library folders in the project root:
+
+- `estia-image/`
+- `getopt/`
+
+Without them, CMake configuration will fail.
+
+## How do I choose the right library package for my machine
+
+**The deciding factor is the CPU architecture prefix, not the mingw suffix.**
+
+Check your compiler target:
+
+```bash
+gcc -dumpmachine
+```
+
+Look at the **beginning** of the output:
+- **If it starts with `x86_64`** → download **`*-win10-mingw64.zip`** assets
+- **If it starts with `i686`** → download **`*-win10-mingw32.zip`** assets
+
+### Example
+
+If you see `x86_64-w64-mingw32`:
+- The `x86_64` prefix = 64-bit → download **`mingw64`** versions
+- The `mingw32` suffix = Just the API version (ignore for this decision)
+
+Packages are in:
+
+- [v2.0.1 release](https://github.com/Estia-1a/projetGenieInfo_public/releases/tag/v2.0.1)
+
+The validator also prints architecture hints based on your `gcc` target.
+
+## I extracted the zip but validation still says include is missing
+
+You probably kept the wrapper folder or zip file in the project root.
+
+Wrong:
+
+```text
+estia-image-v2.0.1-win10-mingw32/
+	estia-image/
+		include/
+		lib/
+```
+
+Correct:
+
+```text
+estia-image/
+	include/
+	lib/
+getopt/
+	include/
+	lib/
+```
+
+Move the inner `estia-image/` and `getopt/` folders directly to project root.

@@ -1,0 +1,83 @@
+---
+title: "First Steps"
+---
+
+## Helloworld example
+
+The following pattern is used in `main.c`:
+
+```c
+if ( strncmp( configuration.command, "helloworld", 10 ) == 0 ) {
+	/* helloworld() function is defined in feature.h and implemented in feature.c */
+	helloWorld();
+}
+```
+
+Command-line example:
+
+```bash
+./freud.exe --debug -f images/input/image.jpeg -c helloworld
+```
+
+## Configuration structure
+
+The command-line parser stores values in a `Config` structure:
+
+```c
+#define MAX_FILE_COUNT 10
+#define MAX_LENGTH_COMMAND 25
+#define MAX_ARGUMENT_COUNT 5
+
+typedef struct _config {
+	int debug_mode;
+	char command[MAX_LENGTH_COMMAND];
+	char* filenames[MAX_FILE_COUNT];
+	char* arguments[MAX_ARGUMENT_COUNT];
+} Config;
+```
+
+Important fields in `main.c`:
+
+- `configuration.command`
+- `configuration.filenames`
+
+## Where to code
+
+- Declare feature prototypes in `src/features.h`.
+- Implement features in `src/features.c`.
+- Add implemented feature names in `freud.manifest`.
+
+Example:
+
+```text
+helloworld
+dimension
+```
+
+## Recommended issue order
+
+1. Tutorial
+2. Statistics
+3. Colors
+
+See [Milestones and Issues](../Features/Features.qmd) for local specs.
+
+## Test your feature
+
+Before running commands, build and install the project:
+
+```bash
+cmake -B build
+cmake --build build
+cmake --install build
+```
+
+Then test with:
+
+```bash
+./freud.exe --debug -f <input file> -c <command>
+```
+
+## VS Code run configuration
+
+You can also update `.vscode/settings.json` `cmake.debugConfig.args` values to test another input file and command from the VS Code Run action.

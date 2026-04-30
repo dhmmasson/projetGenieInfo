@@ -1,0 +1,62 @@
+---
+title: "TA Validation Checklist"
+---
+
+## Purpose
+
+Use this checklist on a real Windows student setup to confirm onboarding is fully operational.
+
+## Pre-checks
+
+- Student accepted GitHub Classroom invitation.
+- Team was created/joined with the exact teacher-defined name.
+- Repository is visible on GitHub and cloned locally.
+
+## VS Code onboarding checks
+
+- Recommended extension prompt appears and can be accepted.
+- Required extensions are installed.
+- Default terminal on Windows opens as Git Bash.
+- Task `Estia: Validate your installation` runs successfully.
+
+## Script checks
+
+Run:
+
+```bash
+bash validconfig.sh
+```
+
+Expected:
+
+- Toolchain checks pass.
+- Library checks pass.
+- VS Code extension checks pass.
+- No hard failures.
+
+## Team leader activation checks
+
+Run:
+
+```bash
+bash validconfig.sh --activate-workflows
+```
+
+Expected:
+
+- Pull from `main` succeeds.
+- Optional workflow file rename is applied when applicable.
+- Activation commit is created only when needed.
+- Push to `main` succeeds.
+- Script prints a valid GitHub Actions URL.
+
+## GitHub Actions checks
+
+- `Import issues from Template` is visible in Actions tab.
+- Running workflow on `main` creates issues.
+- Issues appear in repository Issues tab.
+
+## Team sync checks
+
+- Other teammates pull latest `main`.
+- They can run local validation task without activating workflows again.

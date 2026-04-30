@@ -1,0 +1,61 @@
+---
+title: "Image Data Structure"
+---
+
+## Image buffer model
+
+Image data is stored in a flat `unsigned char*` buffer.
+
+- The image has `height` rows and `width` columns.
+- Each pixel has `N` components.
+- In this project, `N = 3` for RGB.
+- Data is row-major, from top-left to bottom-right.
+
+The buffer size is:
+
+```text
+width * height * N
+```
+
+## IO functions
+
+```c
+int read_image_data(const char *filename, unsigned char **data, int *width, int *height, int *nbChannels);
+int write_image_data(const char *filename, unsigned char *data, int width, int height);
+```
+
+Parameters:
+
+- `filename`: image file path
+- `data`: pixel buffer
+- `width`: image width
+- `height`: image height
+- `nbChannels`: number of channels
+
+## Pixel helper structure
+
+At the end of Milestone 1, you should introduce a helper structure:
+
+```c
+typedef struct _pixelRGB {
+  unsigned char R;
+  unsigned char G;
+  unsigned char B;
+} pixelRGB;
+```
+
+This structure simplifies component-level access and supports helper functions such as `getPixel(x, y)`.
+
+## Index formula
+
+For pixel at `(x, y)` with channel count `n`, the starting index in `data` is:
+
+```text
+(y * width + x) * n
+```
+
+Then channels are:
+
+- `R`: `data[idx]`
+- `G`: `data[idx + 1]`
+- `B`: `data[idx + 2]`

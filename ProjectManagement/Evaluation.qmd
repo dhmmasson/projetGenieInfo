@@ -1,0 +1,38 @@
+---
+title: "Evaluation"
+---
+
+## Daily evaluation
+
+The `main` branch is evaluated automatically on a daily basis.
+
+### Evaluation steps
+
+1. Checkout latest code from `main`.
+2. Compile sources in `src/`.
+3. Link against required libraries (`estia-image`, `getopt`, `math`).
+4. Run feature tests if build succeeds.
+5. Publish results through branch updates and a pull request report.
+
+### Advice
+
+- Ensure `main` compiles before end of day.
+- Do not use extra libraries beyond course requirements.
+- Keep source files under `src/`.
+- Avoid unnecessary files in `src/`.
+
+## Final evaluation
+
+Final evaluation uses the same logic on archived repositories at the end deadline.
+
+### Passing grade requirements
+
+- At least 3 milestones validated with at least 80% successful tests.
+- At least 10% of team commits authored by each student.
+- Presence in classes.
+- No plagiarism detected.
+
+### Advice
+
+- Keep `main` buildable and testable at all times.
+- Never copy code from internet, other teams, or AI output.

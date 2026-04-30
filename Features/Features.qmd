@@ -1,0 +1,25 @@
+---
+title: "Milestones and Issues"
+---
+
+## Overview
+
+Feature specifications are maintained as local markdown files generated from template repository issues.
+
+## Milestones
+
+- [Milestones summary](./milestone/milestones.md)
+- [Milestone 1: Tutorial](./milestone/milestone-1-tutorial.md)
+- [Milestone 2: Statistics](./milestone/milestone-2-statistics.md)
+- [Milestone 3: Colors](./milestone/milestone-3-colors.md)
+- [Milestone 4: Transform](./milestone/milestone-4-transform.md)
+- [Milestone 5: Resize](./milestone/milestone-5-resize.md)
+
+## Features index
+
+- [Features index](./issues/README.md)
+
+## Notes
+
+- Milestone pages already point to local feature files.
+- If new issues are added in the template repository, regenerate markdown pages before class sessions.

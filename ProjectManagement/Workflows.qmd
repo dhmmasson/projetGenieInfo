@@ -1,0 +1,51 @@
+---
+title: "Workflows and Onboarding"
+---
+
+## Workflow model for 2026
+
+- Workflow files are stored as disabled by default in the template (`*.yml.disabled`).
+- Team leader activation renames them to `.yml` and pushes once.
+- `classroom.yml` is then triggered by classroom infrastructure events.
+- `create-issues.yml` is manually triggered by students from the GitHub Actions tab.
+
+## Enable and run issue import
+
+1. Team leader runs:
+
+```bash
+bash validconfig.sh --activate-workflows
+```
+
+2. Open the repository on GitHub.
+3. Go to the Actions tab.
+4. Select `Import issues from Template`.
+5. Click `Run workflow` on branch `main`.
+6. Wait for completion, then confirm issues are visible in the Issues tab.
+
+## Team coordination rule
+
+Only one teammate should trigger issue import during onboarding.
+
+After issue creation:
+
+1. Teammate who triggered it announces completion.
+2. Everyone pulls latest changes locally.
+3. Team starts milestone 1 implementation.
+
+## Quick link from local repo to Actions page
+
+If your remote is:
+
+```bash
+git remote get-url origin
+```
+
+Then your actions URL is:
+
+- HTTPS remote: `https://github.com/<org>/<repo>/actions`
+- SSH remote: `git@github.com:<org>/<repo>.git` becomes `https://github.com/<org>/<repo>/actions`
+
+## Known caveat
+
+Classroom repositories are private and can have workflow behavior differences across academic years. If `Import issues from Template` is not visible, the team leader should notify the teacher immediately.

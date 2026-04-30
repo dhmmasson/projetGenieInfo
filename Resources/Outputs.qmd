@@ -1,0 +1,23 @@
+---
+title: "Outputs"
+---
+
+## Default output name
+
+By default, output images are written as `image_out.bmp`.
+
+```bash
+./freud -f image_in.png -c red
+ls
+# freud image_in.png image_out.bmp
+```
+
+## Custom output name
+
+Use `-o` to define output file name.
+
+```bash
+./freud -f image_in.png -c red -o redImage.bmp
+ls
+# freud image_in.png redImage.bmp
+```
