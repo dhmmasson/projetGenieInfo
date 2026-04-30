@@ -9,23 +9,30 @@ Before writing a single line of code, you need to understand the three spaces wh
 ```{mermaid}
 flowchart LR
     subgraph CL["🎓 GitHub Classroom"]
-        CL1["Invitation link<br>Join / create team"]
+        CL1["Invitation link<br/>Join / create team"]
+        GH3["Teacher triggers<br/>evaluation (CI)"]
     end
-    subgraph GH["☁️ GitHub Repository<br>github.com/Estia-1a/your-team"]
-        GH1["Source code<br>& branches"]
-        GH2["Issues<br>& milestones"]
-        GH3["GitHub Actions<br>(daily evaluation)"]
+    subgraph GH["☁️ GitHub Repository — github.com/Estia-1a/your-team"]
+
+        GH2["Issues & milestones"]
+        
+        GH1["Source code & branches"]
     end
-    subgraph LM["💻 Local Machine"]
-        LM1["VS Code<br>editor"]
-        LM2["gcc + CMake<br>compiler & build"]
-        LM3["Libraries<br>estia-image · getopt"]
+    subgraph M1["💻 Student 1's Machine (Team Leader)"]
+        LM1["VS Code · gcc · CMake · Libraries"]
+    end
+    subgraph M2["💻 Student 2's Machine"]
+        LM2["VS Code · gcc · CMake · Libraries"]
+    end
+    subgraph M3["💻 Student 3's Machine"]
+        LM3["VS Code · gcc · CMake · Libraries"]
     end
 
-    CL1 -->|"creates"| GH1
-    LM1 -->|"git push"| GH1
-    GH1 -->|"git clone / pull"| LM1
-    GH3 -.->|"evaluates"| GH2
+    CL1 -->|"creates"| GH
+    LM1 <-->|"git push / pull"| GH1
+    LM2 <-->|"git push / pull"| GH1
+    LM3 <-->|"git push / pull"| GH1
+    GH3 -.->|"reads main branch"| GH1
 ```
 
 ## GitHub Classroom
@@ -64,45 +71,68 @@ Every working session follows this cycle:
 
 ```{mermaid}
 sequenceDiagram
-    participant LM as Local Machine
-    participant GH as GitHub Repository
-    participant CI as GitHub Actions
+    participant LM as Your Machine
+    participant GH as GitHub (shared)
 
     LM->>LM: Edit code in VS Code
     LM->>LM: cmake --build build
     LM->>LM: ./freud.exe ... (test locally)
     LM->>GH: git commit + push
-    GH->>CI: triggers evaluation
-    CI->>GH: updates issue results
+    Note over GH: Code now visible to teammates<br/>and available for evaluation
     GH->>LM: teammates: git pull
 ```
 
 The cycle starts again on each edit. **Never end a session without pushing.**
 
+::: {.callout-note}
+**When is the code evaluated?** The teacher triggers evaluation via GitHub Classroom on a schedule (daily). Your push makes the code available — the CI run happens on the teacher's timeline, not immediately on push.
+:::
+
 ## The onboarding flow
 
 ```{mermaid}
-flowchart TD
-    classDef everyone fill:#dbeafe,stroke:#3b82f6
-    classDef leader fill:#fef3c7,stroke:#f59e0b
-    classDef oneperson fill:#dcfce7,stroke:#22c55e
-    classDef github fill:#f3e8ff,stroke:#a855f7
+sequenceDiagram
+    participant S1 as Student 1<br/>(Team Leader)
+    participant S2 as Student 2
+    participant S3 as Student 3
+    participant GH as GitHub
 
-    A1["Every student<br>Join GitHub Classroom<br>Join or create team"]:::everyone
-    A2["Every student<br>Clone repository<br>Open in VS Code<br>Install extensions"]:::everyone
-    A3["Every student<br>Download libraries<br>gcc -dumpmachine → pick zip<br>Extract inner folder to project root"]:::everyone
-    A4["Every student<br>bash validconfig.sh<br>Fix all errors<br>cmake + run helloworld"]:::everyone
-    B1["🔑 Team leader only<br>bash validconfig.sh<br>--activate-workflows"]:::leader
-    C1["☝️ One team member<br>GitHub Actions<br>Run: Import issues from Template"]:::oneperson
-    D1["GitHub<br>Issues created"]:::github
-    A9["Every student<br>git pull<br>Confirm issues visible"]:::everyone
-    A10["Start Milestone 1<br>see First Steps"]:::everyone
+    Note over S1,GH: Phase 1 — Register team on GitHub Classroom
+    S1->>GH: Create team
+    S2->>GH: Join team
+    S3->>GH: Join team
+    GH-->>S1: Repository created
+    GH-->>S2: Repository created
+    GH-->>S3: Repository created
 
-    A1 --> A2 --> A3 --> A4 --> B1 --> C1 --> D1 --> A9 --> A10
+    Note over S1,S3: Phases 2–4 — Each on their own machine (can work in parallel)
+    par S1 sets up their machine
+        S1->>S1: Clone · Install VS Code extensions
+        S1->>S1: Download libraries
+        S1->>S1: validconfig.sh → fix → build helloworld ✓
+    and S2 sets up their machine
+        S2->>S2: Clone · Install VS Code extensions
+        S2->>S2: Download libraries
+        S2->>S2: validconfig.sh → fix → build helloworld ✓
+    and S3 sets up their machine
+        S3->>S3: Clone · Install VS Code extensions
+        S3->>S3: Download libraries
+        S3->>S3: validconfig.sh → fix → build helloworld ✓
+    end
+
+    Note over S1,GH: Phase 5 — Activate workflows (team leader only)
+    S1->>GH: validconfig.sh --activate-workflows
+    Note over S2,S3: Wait for leader to confirm push
+    GH->>S2: git pull
+    GH->>S3: git pull
+
+    Note over S1,GH: Phase 6 — Import issues (one person)
+    S1->>GH: Actions → Import issues from Template
+    GH-->>GH: Issues created
+    GH->>S2: git pull
+    GH->>S3: git pull
+
+    Note over S1,S3: ✅ Setup complete — go to First Steps
 ```
-
-- **Blue** — every student does this on their own machine
-- **Yellow** — team leader only (one person, once)
-- **Green** — one team member triggers, rest wait then pull
 
 > Ready to begin? Go to [Setup](Setup.qmd).

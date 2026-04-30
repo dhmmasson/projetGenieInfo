@@ -1,0 +1,131 @@
+---
+title: "Collaboration Strategies"
+---
+
+Working as a team on code is a skill in itself. This page describes three strategies you can use at different stages of the project. They are not mutually exclusive — a good team switches between them depending on the situation.
+
+::: {.callout-warning}
+**The final exam is individual and closed-book.** Rotate strategies and roles so that every team member has personally written code, pushed commits, resolved build errors, and debugged output at least once before the exam.
+:::
+
+---
+
+## Strategy 1 — Mob programming
+
+*Best for: Milestone 1, learning something new, unblocking a stuck teammate.*
+
+Everyone works on the same problem at the same time. One person drives (keyboard), the others navigate (discuss, spot errors, suggest solutions). Rotate the driver regularly.
+
+```{mermaid}
+sequenceDiagram
+    participant S1 as Student 1 (driver)
+    participant S2 as Student 2 (navigator)
+    participant S3 as Student 3 (navigator)
+    participant GH as GitHub
+
+    Note over S1,S3: Everyone at the same screen
+    Note over S1,S3: Discuss the problem — agree on an approach
+    S1->>S1: Write code
+    S2-->>S1: Spot an error, suggest fix
+    S3-->>S1: Check against the spec
+    S1->>S1: Build · Run · Verify
+    S1->>GH: git commit + push
+
+    Note over S1,S3: Rotate driver → move to next student's machine
+    GH->>S1: git pull
+    Note over S2,S3: Next problem — Student 2 drives
+```
+
+**Rules:**
+- The driver writes, not the navigator. Navigators talk, not type.
+- Every person must drive at least once per session.
+- The whole team is responsible for understanding every line written.
+
+---
+
+## Strategy 2 — Integrator / Coder / Reviewer
+
+*Best for: Milestones 2–5, when the team is comfortable with the basics and wants to work in parallel.*
+
+Roles are assigned for a session or a sprint. They rotate so everyone practices each.
+
+| Role | Responsibilities |
+|---|---|
+| **Integrator** | Keeps `main` buildable. Merges branches. Resolves conflicts. Monitors CI results. Does not merge broken code. |
+| **Coder** | Implements an assigned feature. Writes in `features.c`, declares in `features.h`, registers in `freud.manifest`. Commits regularly. |
+| **Reviewer** | Tests the feature locally before it is merged. Checks output format against the issue spec. Reads the code for clarity. |
+
+```{mermaid}
+sequenceDiagram
+    participant I as Integrator
+    participant C as Coder
+    participant R as Reviewer
+    participant GH as GitHub
+
+    Note over I,GH: Start of session — gather to pick features and assign roles
+    I->>C: Assign feature from current milestone
+    C->>C: Write signature + stub → commit + push
+    GH->>I: git pull — verify main still builds
+    C->>C: Implement feature body
+    C->>C: Build · Run · Check output vs spec
+    C->>GH: commit + push (feature branch or main)
+    GH->>R: git pull
+    R->>R: Test locally · Check output format
+    R-->>C: Feedback if output wrong
+    GH->>I: Merge if main builds with feature
+    Note over I,GH: End of session — rotate roles for next session
+```
+
+::: {.callout-important}
+Rotate roles **every session**. Being integrator once, coder once, and reviewer once is the minimum before the exam. Staying in the same role the entire project is a risk.
+:::
+
+---
+
+## Strategy 3 — Test-driven feature work
+
+*Best for: Any milestone once the team is comfortable. Makes it much easier to verify your implementation is correct.*
+
+Before writing any code, prepare a known input and a known expected output. Then implement until the output matches.
+
+### How to do it
+
+**Step 1 — Choose a test image.**
+Pick a small image (or create one) whose pixel values you can calculate by hand or look up (e.g. a white image, a image with one red pixel). Place it in `images/input/`.
+
+::: {.callout-important}
+Use paint to generate the image, save it as bitmap file (**.bmp**, white.bmp or test_10x5.bmp) to ensure no compression.
+:::
+
+**Step 2 — Compute the expected output.**
+Read the issue spec carefully. Work out what `freud.exe` should print for your test image.
+
+Example for `dimension`:
+
+- Test image: `test_10x5.bmp` (10 pixels wide, 5 pixels tall)
+- Expected output: `dimension: 10 5`
+
+**Step 3 — Write the test in a comment before coding.**
+
+```c
+/* Test: freud.exe -f images/input/test_10x5.jpeg -c dimension
+   Expected output: dimension: 10 5 */
+void dimension(Config configuration) {
+    /* TODO */
+}
+```
+
+**Step 4 — Implement until the output matches.**
+Run the command after each change. When the output matches exactly (including spaces and newlines), the feature is done.
+
+**Step 5 — Keep the test image and expected values in a shared note.**
+Add a row to a team table so everyone knows which test image validates which feature.
+
+| Feature | Test image | Command | Expected output |
+|---|---|---|---|
+| `dimension` | `test_10x5.jpeg` | `-c dimension` | `dimension: 10 5` |
+| `max_pixel` | `test_known.jpeg` | `-c max_pixel` | `max_pixel (3,1): 255 200 100` |
+
+::: {.callout-tip}
+The CI evaluator uses its own test images. Your test image does not need to match it — the point is to verify your logic is correct before pushing.
+:::

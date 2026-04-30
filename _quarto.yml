@@ -45,6 +45,8 @@ website:
             text: "TA Validation Checklist"
       - section: "Resources"
         contents:
+          - href: Resources/Collaboration.qmd
+            text: "Collaboration Strategies"
           - href: Resources/Image-Data-Structure.qmd
             text: "Image Data Structure"
           - href: Resources/Libraries.qmd

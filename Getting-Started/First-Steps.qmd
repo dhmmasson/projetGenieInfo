@@ -95,34 +95,58 @@ sequenceDiagram
 
 ## Later milestones — Collaborative workflow {#later-milestones}
 
-Once everyone understands the basics from Milestone 1, you can distribute effort across features. **Distributing work does not mean working in isolation.**
+Once everyone understands the basics from Milestone 1, you can distribute effort across features. **Distributing work does not mean working in isolation.** Every feature starts with the whole team together.
 
-### Recommended per-feature workflow
+### Per-feature workflow
 
 ```{mermaid}
-flowchart TD
-    A["🤝 Team gathers<br>Choose next feature<br>Read the issue spec together"] --> B["✍️ One member writes:<br>• function signature in features.h<br>• stub call in main.c<br>(compiles but does nothing yet)"]
-    B --> C["git commit + push"]
-    C --> D["Everyone: git pull"]
-    D --> E["💻 Implement the feature body<br>in features.c"]
-    E --> F["Build · Run · Check output<br>against issue spec"]
-    F --> G["git commit + push"]
-    G --> H["Next feature →"]
+sequenceDiagram
+    participant S1 as Student 1
+    participant S2 as Student 2
+    participant S3 as Student 3
+    participant GH as GitHub
+
+    Note over S1,S3: All gather — read the issue spec together<br/>Agree on function signature and expected output
+
+    Note over S1,GH: One member writes the stub (example: Student 2)
+
+    Note over S2, S2: Integrator prepare the workflow
+    S2->>S2: Add signature of F1,F2, F3 to features.h
+    S2->>S2: Add function call F1,F2, F3 in main.c<br/>(compiles but does nothing yet)
+    S2->>S2: Add signature stubs in features.c<br/>( prepare space for implementation )
+    S2->>GH: git commit + push
+    GH->>S1: git pull
+    GH->>S3: git pull
+
+    Note over S1,S3: Now anyone can implement without conflicts
+
+    Note over S1,GH: Example: Student 1 implements feature F1
+    S1->>S1: Implement F1 in features.c
+    S2->>S2: Implement F2 in features.c
+    S3->>S3: Implement F3 in features.c 
+    S1->>S1: Build · Run · Check output vs spec
+    S1->>GH: git commit + push
+    S2->>S2: Build · Run · Check output vs spec
+    S2->>S2: git commit 
+    GH->>S2: git pull
+    S2->>GH: git push
+    S3->>S3: Build · Run · Check output vs spec : Not working
+    S3->>S3: Continue working
+    S3->>S3: Build · Run · Check output vs spec
+    S3->>GH: git commit
+    GH->>S3: git pull
+    S3->>S3: Resolve merge conflict (if any) — make sure main still builds
+    S3->>GH: git push
+    GH->>S1: git pull
+    GH->>S2: git pull
+
+
+    Note over S1,S3: Next feature → rotate who writes the stub
 ```
 
-**Why gather first?** Agreeing on the function signature before anyone codes prevents most merge conflicts and ensures the feature matches the spec.
+**Why agree on the signature first?** The function signature is the contract between teammates. Once it is committed and everyone has pulled, anyone can implement the body without causing merge conflicts. If you skip this step and two people modify `features.h` and `features.c` simultaneously, you will spend time resolving conflicts instead of coding.
 
-### Roles (rotate each session)
-
-| Role | What they do |
-|---|---|
-| **Integrator** | Merges branches, resolves conflicts, monitors CI results |
-| **Coder** | Implements a specific feature |
-| **Reviewer** | Tests locally, checks output format against the issue spec |
-
-::: {.callout-warning}
-**Rotate roles every session.** The final exam is individual and without any resources. Every student must have coded features, managed git, and debugged builds on their own at least once before the exam.
-:::
+For a deeper look at collaboration strategies — pair programming, integrator/coder roles, test-driven work — see [Collaboration Strategies](../Resources/Collaboration.qmd).
 
 ---
 
