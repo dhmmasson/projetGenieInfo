@@ -18,7 +18,3 @@ Feature specifications are maintained as local markdown files generated from tem
 
 - [Features index](./issues/README.md)
 
-## Notes
-
-- Milestone pages already point to local feature files.
-- If new issues are added in the template repository, regenerate markdown pages before class sessions.
