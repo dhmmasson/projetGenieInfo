@@ -2,37 +2,91 @@
 title: "Evaluation"
 ---
 
-## Daily evaluation
+## How grading works
 
-The `main` branch is evaluated automatically on a daily basis.
+You are evaluated on the number of features (issues) you implement and the milestones you complete.
 
-### Evaluation steps
+- **Passing grade (E):** complete at least the first 2 milestones (statistics + colors)
+- **Higher grades:** the more features you complete beyond that, the better your grade
 
-1. Checkout latest code from `main`.
-2. Compile sources in `src/`.
-3. Link against required libraries (`estia-image`, `getopt`, `math`).
-4. Run feature tests if build succeeds.
-5. Publish results through branch updates and a pull request report.
+You can check your own progress at any time by looking at the CI results on your GitHub repository.
 
-### Advice
+## Continuous integration
 
-- Ensure `main` compiles before end of day.
-- Do not use extra libraries beyond course requirements.
-- Keep source files under `src/`.
-- Avoid unnecessary files in `src/`.
+A **Continuous Integration (CI)** system is set up in your repository. The teacher triggers evaluation runs on a daily basis.
+
+### What the CI does
+
+1. Checks out the latest code from `main`.
+2. Compiles sources in `src/`.
+3. Links against the required libraries (`estia-image`, `getopt`, `math`).
+4. Runs feature tests if the build succeeds.
+5. Publishes results through branch updates and a pull request report.
+
+### How tests work
+
+Each test runs your program with a specific image and command, then compares your output against the output of our own reference implementation:
+
+```
+freud.exe -f images/input/test.jpg -c color_blue
+```
+
+If the output images differ, the test fails. If they are identical, the test passes.
+
+The CI also checks for **regression** — your new code must still pass tests from previous features, not just the new ones.
+
+### What to do if a test fails
+
+- Read the pull request report to see which feature failed
+- Reproduce the failing command locally with `build/freud.exe`
+- Fix your implementation and push to `main`
+
+::: {.callout-tip}
+## Bug in our version?
+
+If you believe the reference implementation has a bug, **open a GitHub issue** and describe the problem. If you find a confirmed bug in our version, your grade will positively reflect that contribution.
+:::
+
+### Daily advice
+
+- Ensure `main` compiles before end of day
+- Do not use extra libraries beyond course requirements
+- Keep source files under `src/`
 
 ## Final evaluation
 
-Final evaluation uses the same logic on archived repositories at the end deadline.
+Final evaluation uses the same CI logic on your archived repository at the deadline.
 
-### Passing grade requirements
+### Requirements
 
-- At least 3 milestones validated with at least 80% successful tests.
-- At least 10% of team commits authored by each student.
-- Presence in classes.
-- No plagiarism detected.
+- At least 3 milestones validated with at least 80% successful tests
+- At least 10% of team commits authored by each student
+- Presence in classes
+- No plagiarism detected
 
-### Advice
+## Academic integrity {#academic-integrity}
 
-- Keep `main` buildable and testable at all times.
-- Never copy code from internet, other teams, or AI output.
+::: {.callout-warning}
+## AI tools and plagiarism — read carefully
+
+The goal of this project is to develop your **own C programming skills**, not to practice copy-pasting from other sources.
+
+**Before the final evaluation, all code is run through plagiarism detection.** The tool identifies structural similarity between programs — it is not fooled by renaming variables, changing indentation, or reformatting. It operates at a higher level of abstraction and is very effective.
+
+Some degree of similarity is expected (you all have the same function signatures). However, at your experience level, actual implementation variability is very high. Low variability across long or repeated pieces of code is increasingly unlikely unless code was shared or copied.
+
+**You have no control over what an AI produces.** Two teams using AI for the same feature may receive identical code and both get flagged for plagiarism. This has happened.
+
+The policy is simple: if two pieces of code are identical or near-identical, it will be ruled plagiarism — regardless of how it happened. There are no exceptions for "we coded in the same room", "I just showed them my code to help", or "an AI wrote it".
+
+Consequences range from scaling the grade according to uniqueness, to failing all teams involved.
+:::
+
+### The right way to use resources
+
+- **Never copy-paste code** from any source (internet, another team, AI output)
+- **Never show your code** to anyone outside your team
+- **Ask for explanations, not solutions** — understand the idea, then implement it yourself
+- If you ask an AI for help: ask it to explain a concept or a similar situation, step by step. Then **write the code yourself** from that understanding
+
+The final exam is individual and without access to any coding tool. What you learn by writing the code yourself is what prepares you for it.

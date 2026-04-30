@@ -1,0 +1,159 @@
+---
+title: "Using the Command Line"
+---
+
+## What is a CLI?
+
+A **Command-Line Interface (CLI)** is a text-based interface where you interact with a program by typing commands in a terminal. Unlike an application with buttons and menus, a CLI program reads arguments you type and produces output in the terminal.
+
+This is the kind of program you are building: **freud** is a CLI tool.
+
+Each command you type follows the same structure:
+
+```
+prompt  command  options  arguments
+```
+
+For example:
+
+```bash
+$ build/freud.exe -f images/input/test.jpg -c color_blue
+```
+
+- `build/freud.exe` — the program to run
+- `-f images/input/test.jpg` — an option with a parameter (the input image file)
+- `-c color_blue` — an option with a parameter (the feature to apply)
+
+The `$` is the **prompt** shown by your terminal — you do not type it.
+
+## Options and arguments
+
+**Short options** are a single letter preceded by `-`:
+
+```bash
+-f images/input/test.jpg
+-c grayscale
+```
+
+**Long options** are a full word preceded by `--`:
+
+```bash
+--debug
+```
+
+**Positional arguments** follow the options without a flag — some freud features use them:
+
+```bash
+$ build/freud.exe -f input.jpg -c max_component R
+```
+
+Here `R` is a positional argument passed to the `max_component` feature.
+
+## freud — synopsis
+
+```
+freud.exe -f <image_path> -c <command> [--debug] [arguments...]
+```
+
+### Options
+
+| Option | Argument | Description |
+|--------|----------|-------------|
+| `-f` | `<image_path>` | Path to the input image file (JPEG or PNG) |
+| `-c` | `<command>` | Name of the feature to apply (see list below) |
+| `--debug` | — | Enable debug output |
+
+Additional positional arguments after the options are passed to the feature implementation. Which arguments are expected depends on the specific feature — check the issue description.
+
+### Examples
+
+Apply blue tint to an image:
+
+```bash
+$ build/freud.exe -f images/input/test.jpg -c color_blue
+```
+
+Keep only the red channel (max component):
+
+```bash
+$ build/freud.exe -f images/input/test.jpg -c max_component R
+```
+
+Convert to grayscale using luminance:
+
+```bash
+$ build/freud.exe -f images/input/test.jpg -c grayscale_luminance
+```
+
+Run with debug output:
+
+```bash
+$ build/freud.exe -f images/input/test.jpg -c color_blue --debug
+```
+
+### Output
+
+freud writes the result image to the path defined in the feature implementation. The evaluation tests compare the output image against a reference image produced by the teaching team's own implementation.
+
+## Building freud
+
+freud uses **CMake** as its build system. There are two steps:
+
+### Step 1 — Configure (once)
+
+```bash
+cmake -B build
+```
+
+This reads `CMakeLists.txt` and prepares the build system in the `build/` folder. Run this once after cloning, or again if you add/remove source files.
+
+### Step 2 — Compile
+
+```bash
+cmake --build build
+```
+
+This compiles your C sources and produces the executable at:
+
+```
+build/freud.exe
+```
+
+::: {.callout-warning}
+## Always use `build/freud.exe`, not `./freud.exe`
+
+Running `cmake --build build` updates `build/freud.exe`. There is also a `./freud.exe` at the project root, but it only gets updated when you run `cmake --install build`. If you do not run `cmake --install`, the root-level `./freud.exe` is **stale** and does not reflect your latest code.
+
+**Always test with `build/freud.exe`** after a `cmake --build build`.
+:::
+
+### Full build workflow
+
+```bash
+# After editing source files:
+cmake --build build
+build/freud.exe -f images/input/test.jpg -c your_feature
+```
+
+If there are compilation errors, CMake prints them with the file name and line number. Fix the error and run `cmake --build build` again.
+
+## Reading error messages
+
+When your code does not compile, gcc prints messages like:
+
+```
+src/features.c:42:5: error: use of undeclared identifier 'img'
+```
+
+This tells you:
+- File: `src/features.c`
+- Line: `42`, column `5`
+- Problem: `img` is not declared in that scope
+
+Fix the error in VS Code (the editor highlights it too), then rebuild.
+
+## Where to find the feature commands
+
+The list of valid `-c` command names is defined in `freud.manifest`. Each entry maps a command string to the corresponding C function you must implement in `src/features.c`.
+
+See [Milestones and Issues](../Features/Features.qmd) for the full list of features to implement.

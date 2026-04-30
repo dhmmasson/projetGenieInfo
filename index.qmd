@@ -1,8 +1,44 @@
 ---
-title: "Genie Info 2026"
+title: "Projet Génie Informatique — Freud Image Analyst"
 ---
 
-You will build an image processing tool in C, working as a team. Features are delivered incrementally, managed with GitHub issues, and evaluated automatically every day.
+## The project
+
+**Freud** is an image analyst — a [command-line tool](Resources/CLI.qmd) that performs actions on image files: rotate, crop, re-color, compute statistics, and more.
+
+You will build this tool in C, working as a team of three. The project is organized into **milestones** (groups of related features) and **issues** (individual features). You implement features one by one, incrementally, validating each against automated tests.
+
+```
+$ build/freud.exe -f images/input/test.jpg -c color_blue
+```
+
+> Not sure what a command line is? Start with [Using the Command Line](Resources/CLI.qmd).
+
+## Goals
+
+- Learn to **write C code** — structure, pointers, files, functions — by doing
+- Organize a software project with milestones and issues
+- Work as a team with Git and GitHub
+- Build and validate a C project with CMake
+- Prepare for individual coding in the final exam
+
+::: {.callout-important}
+## This project is about learning to code — not about using AI to code for you
+
+The goal is to develop your own C programming skills. **Do not use AI assistants (ChatGPT, GitHub Copilot, Gemini, etc.) to generate your code.** The final exam is individual and without any coding tool — what matters is what *you* have learned to write.
+
+See the [Academic Integrity](ProjectManagement/Evaluation.qmd#academic-integrity) section for full details on plagiarism and AI use policy.
+:::
+
+## How you are evaluated
+
+You are evaluated on the number of features (issues) you implement and the milestones you complete.
+
+- **Passing grade (E):** complete at least the first 2 milestones (statistics + colors)
+- **Higher grades:** the more features you complete beyond that, the better
+- **Automatic tests run daily** on your `main` branch — you can check your progress at any time
+
+→ See [Evaluation](ProjectManagement/Evaluation.qmd) for full details.
 
 ## Three spaces, one project
 
@@ -12,9 +48,7 @@ flowchart LR
     LM["💻 Local Machine<br>VS Code · gcc · CMake"] <-->|"git push / pull"| GH
 ```
 
-Every line you write lives locally until you push it. GitHub Actions compile and test what is on `main` every day — that is what gets graded.
-
-> New? Start with [The Project Ecosystem](Getting-Started/Ecosystem.qmd) to understand what connects what.
+Every line you write lives locally until you push it. GitHub Actions compile and test what is on `main` — that is what gets graded.
 
 ## Onboarding — follow in order
 
@@ -23,11 +57,3 @@ Do not skip ahead. Each step depends on the previous one.
 1. [The Project Ecosystem](Getting-Started/Ecosystem.qmd) — understand the three spaces and the overall flow
 2. [Setup](Getting-Started/Setup.qmd) — register team, clone, install tools, validate, activate workflows, import issues
 3. [First Steps](Getting-Started/First-Steps.qmd) — learn the dev loop, then start Milestone 1 together
-
-## Course goals
-
-- Organize a software project with milestones and issues
-- Work as a team with Git and GitHub Classroom
-- Build and validate a C project with VS Code and CMake
-- Implement image processing features incrementally
-- Prepare for individual coding in the final exam

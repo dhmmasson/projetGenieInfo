@@ -45,6 +45,8 @@ website:
             text: "TA Validation Checklist"
       - section: "Resources"
         contents:
+          - href: Resources/CLI.qmd
+            text: "Using the Command Line"
           - href: Resources/Collaboration.qmd
             text: "Collaboration Strategies"
           - href: Resources/Image-Data-Structure.qmd
