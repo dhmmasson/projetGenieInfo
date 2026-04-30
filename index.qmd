@@ -2,24 +2,32 @@
 title: "Genie Info 2026"
 ---
 
-Welcome to the class website for the 2026 software project.
+You will build an image processing tool in C, working as a team. Features are delivered incrementally, managed with GitHub issues, and evaluated automatically every day.
+
+## Three spaces, one project
+
+```{mermaid}
+flowchart LR
+    CL["🎓 GitHub Classroom<br>Register your team"] -->|"creates"| GH["☁️ GitHub Repository<br>Shared code · Issues · CI"]
+    LM["💻 Local Machine<br>VS Code · gcc · CMake"] <-->|"git push / pull"| GH
+```
+
+Every line you write lives locally until you push it. GitHub Actions compile and test what is on `main` every day — that is what gets graded.
+
+> New? Start with [The Project Ecosystem](Getting-Started/Ecosystem.qmd) to understand what connects what.
+
+## Onboarding — follow in order
+
+Do not skip ahead. Each step depends on the previous one.
+
+1. [The Project Ecosystem](Getting-Started/Ecosystem.qmd) — understand the three spaces and the overall flow
+2. [Setup](Getting-Started/Setup.qmd) — register team, clone, install tools, validate, activate workflows, import issues
+3. [First Steps](Getting-Started/First-Steps.qmd) — learn the dev loop, then start Milestone 1 together
 
 ## Course goals
 
-In this project you will learn how to:
-
-- Organize a software project with milestones and issues.
-- Work as a team with Git and GitHub Classroom.
-- Build and validate a C project with VS Code and CMake.
-- Implement image processing features incrementally.
-
-## Start here
-
-1. Read [Setup](Getting-Started/Setup.qmd).
-2. Follow [First Steps](Getting-Started/First-Steps.qmd).
-3. Make sure your team onboarding is complete in [Workflows and Onboarding](ProjectManagement/Workflows.qmd).
-4. Explore milestones in [Milestones and Issues](Features/Features.qmd).
-
-## Source material
-
-This website is migrated from the legacy wiki in ../projetGenieInfo_public.wiki and adapted for the 2026 workflow.
+- Organize a software project with milestones and issues
+- Work as a team with Git and GitHub Classroom
+- Build and validate a C project with VS Code and CMake
+- Implement image processing features incrementally
+- Prepare for individual coding in the final exam

@@ -2,120 +2,134 @@
 title: "Setup"
 ---
 
-## 1. Join GitHub Classroom and create teams
+Complete these six phases **in order**. Each ends with a checkpoint — do not proceed until you can confirm it.
 
-1. Every student joins the classroom invitation link shared by the teacher.
-2. One student creates the team using the exact teacher-defined team name.
-3. Other students search and join that exact team.
-4. Confirm your team repository has been created before moving on.
+> Not sure what all these pieces are for? Read [The Project Ecosystem](Ecosystem.qmd) first.
 
-## 2. Clone the repository
+---
 
-You can clone with SmartGit or VS Code.
+## Phase 1 — Register your team {#phase-1}
 
-### Option A: VS Code
+1. Every student opens the GitHub Classroom invitation link shared by the teacher.
+2. **One student** creates the team using the **exact teacher-defined team name**.
+3. Other students search for that exact team and join it.
+4. Confirm a repository named after your team has appeared under the `Estia-1a` organization on GitHub.
 
-1. Open command palette.
-2. Run `Git: Clone`.
+::: {.callout-important}
+Use the exact team name given by the teacher. A wrong name creates a separate team and a separate repository — there is no way to merge them afterward.
+:::
+
+**✓ Checkpoint:** Every teammate can visit `github.com/Estia-1a/<your-team>` and see the repository.
+
+---
+
+## Phase 2 — Clone and open in VS Code {#phase-2}
+
+### Clone with VS Code
+
+1. Open the command palette (`Ctrl+Shift+P` / `Cmd+Shift+P`).
+2. Run `Git: Clone` → `Clone from GitHub`.
 3. Select your team repository.
-4. Choose a local path without accents.
-5. Open the cloned folder in VS Code.
+4. Choose a local path **with no accents or special characters**.
+5. When VS Code asks to open the repository, click **Open**.
+6. When VS Code prompts to install recommended extensions, click **Install All**.
 
-### Option B: SmartGit
+### Clone with SmartGit (alternative)
 
-1. Clone your team repository.
-2. Open the cloned project folder in VS Code.
+1. Clone the repository.
+2. Open the cloned folder in VS Code and install recommended extensions when prompted.
 
-## 3. Install recommended extensions
+::: {.callout-warning}
+**Windows:** Keep your path short and accent-free (e.g., `C:\code\pgi-2026-teamname`). Accents and long paths cause compiler and CMake failures.
+:::
 
-Install at least:
+Required extensions (from `.vscode/extensions.json`):
 
 - GitHub Pull Requests and Issues
 - C/C++
 - CMake
 - CMake Tools
 
-The template includes `.vscode/extensions.json` recommendations. When VS Code prompts to install recommended extensions, accept it.
+**✓ Checkpoint:** VS Code shows the project files and all recommended extensions are installed.
 
-For Windows students, the template also sets Git Bash as default terminal profile in `.vscode/settings.json`.
+---
 
-## 4. Run environment validation
+## Phase 3 — Download and install libraries {#phase-3}
 
-From the repository root, run:
+Your project links against two prebuilt libraries that are **not included in the repository**. You must download and place them manually.
 
-```bash
-bash validconfig.sh
-```
+### Step 1 — Identify your compiler target
 
-The script checks git config, compiler tools, CMake, and required libraries.
-
-For students on Windows, run validation from a Git Bash terminal (configured by template settings).
-For teachers or TAs on macOS/Linux, the script can still be used for documentation checks, but onboarding behavior should be validated on a Windows student setup.
-
-If checks pass, the team leader can perform the onboarding activation flow:
-
-```bash
-bash validconfig.sh --activate-workflows
-```
-
-This command:
-
-1. Pulls latest `main`.
-2. Renames disabled workflow files (`*.yml.disabled`) into active `.yml` files.
-3. Creates a one-time onboarding marker commit if required.
-4. Pushes changes and prints the repository Actions URL.
-
-Until this step is done, `bash validconfig.sh` shows onboarding warnings to remind students to follow the feature import flow.
-
-You can run both from VS Code tasks:
-
-1. `Tasks: Run Task` -> `Estia: Validate your installation`
-2. Team leader only: `Tasks: Run Task` -> `Estia: Team leader activate workflows`
-
-## Library architecture and extraction
-
-The most common setup issue is using the wrong binary package for your compiler target. **The CPU architecture prefix determines the choice, not the mingw suffix.**
-
-1. Check your compiler target:
+Open a terminal and run:
 
 ```bash
 gcc -dumpmachine
 ```
 
-2. Look at the **beginning** of the output:
+Look at the **beginning** of the output to choose your package:
 
-- **If it starts with `x86_64`** → download `*-win10-mingw64.zip`
-- **If it starts with `i686`** → download `*-win10-mingw32.zip`
+| Output starts with | Download |
+|---|---|
+| `x86_64` | `*-win10-mingw64.zip` |
+| `i686` | `*-win10-mingw32.zip` |
 
-**Example**: If you see `x86_64-w64-mingw32`, download the **mingw64** versions, even though the output contains "mingw32" at the end. The `x86_64` prefix means 64-bit.
+::: {.callout-tip}
+**Common confusion:** `x86_64-w64-mingw32` → download **mingw64**. The `x86_64` prefix is the deciding factor, not the `mingw32` at the end.
+:::
 
-Get packages from: [v2.0.1 release](https://github.com/Estia-1a/projetGenieInfo_public/releases/tag/v2.0.1)
+### Step 2 — Download both packages
 
-3. After unzip, move only the inner library folder to project root.
+Get both from the [v2.0.1 release](https://github.com/Estia-1a/projetGenieInfo_public/releases/tag/v2.0.1):
 
-Correct:
+- `estia-image-v2.0.1-win10-mingw64.zip` (or `mingw32`)
+- `getopt-v2.0.1-win10-mingw64.zip` (or `mingw32`)
 
-```text
-estia-image/
-	include/
-	lib/
-getopt/
-	include/
-	lib/
-```
+### Step 3 — Extract and place correctly
 
-Wrong (common mistake):
+Unzip each archive. Move only the **inner folder** directly into your project root:
 
 ```text
-estia-image-v2.0.1-win10-mingw32/
-	estia-image/
-		include/
-		lib/
+✓ Correct:
+your-project/
+├── estia-image/
+│   ├── include/
+│   └── lib/
+├── getopt/
+│   ├── include/
+│   └── lib/
+└── src/
+
+✗ Wrong (wrapper folder left inside):
+your-project/
+└── estia-image-v2.0.1-win10-mingw32/
+    └── estia-image/
+        ├── include/
+        └── lib/
 ```
 
-If `validconfig.sh` detects this, it warns and tells you which folder to move.
+Do not leave zip files or wrapper folders in the project root.
 
-## 5. Build and run
+**✓ Checkpoint:** `estia-image/include/estia-image.h` and `getopt/include/getopt.h` both exist in your project root.
+
+---
+
+## Phase 4 — Validate and build {#phase-4}
+
+### Run the validator
+
+From the project root (use Git Bash on Windows):
+
+```bash
+bash validconfig.sh
+```
+
+This script checks your git config, compiler, CMake, and library presence. **Fix every error it reports before continuing.** It is your primary diagnostic tool throughout the project.
+
+::: {.callout-tip}
+From VS Code: `Tasks: Run Task` → `Estia: Validate your installation`
+:::
+
+### Build and run helloworld
 
 ```bash
 cmake -B build
@@ -124,6 +138,64 @@ cmake --install build
 ./freud.exe -f images/input/image.jpeg -c helloworld
 ```
 
-## 6. Team rule for onboarding commit
+**✓ Checkpoint:** The helloworld output appears in your terminal with no errors. Every teammate repeats this on their own machine.
 
-Only one teammate should perform workflow activation updates and push that commit. Other teammates should pull latest changes before continuing.
+---
+
+## Phase 5 — Activate GitHub workflows (team leader only) {#phase-5}
+
+::: {.callout-important}
+## Team leader only
+One person does this step. Other teammates **wait** until the leader confirms it is done, then run `git pull`.
+:::
+
+The team leader runs:
+
+```bash
+bash validconfig.sh --activate-workflows
+```
+
+Or from VS Code: `Tasks: Run Task` → `Estia: Team leader activate workflows`
+
+This command:
+
+1. Pulls latest `main`.
+2. Renames disabled workflow files (`*.yml.disabled`) to active `.yml`.
+3. Creates a one-time onboarding commit and pushes to GitHub.
+4. Prints the repository Actions URL.
+
+**Everyone else:** once the leader confirms the push succeeded, run:
+
+```bash
+git pull
+```
+
+**✓ Checkpoint:** Team leader confirms push succeeded. All teammates have pulled.
+
+---
+
+## Phase 6 — Import issues (one person) {#phase-6}
+
+::: {.callout-important}
+## One person triggers, everyone else waits
+Only one teammate runs the import. Others wait for completion, then pull.
+:::
+
+1. Open your repository on GitHub.
+2. Go to the **Actions** tab.
+3. Select **Import issues from Template**.
+4. Click **Run workflow** on branch `main`.
+5. Wait for the green checkmark.
+6. Check the **Issues** tab — issues should now be visible.
+
+**Everyone else:** once issues appear, run:
+
+```bash
+git pull
+```
+
+**✓ Checkpoint:** Issues are visible in the Issues tab. All teammates have pulled.
+
+---
+
+You are now ready to start coding. Go to [First Steps](First-Steps.qmd).

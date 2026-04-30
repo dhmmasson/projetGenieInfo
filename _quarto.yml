@@ -7,6 +7,8 @@ website:
     left:
       - href: index.qmd
         text: Home
+      - href: Getting-Started/Ecosystem.qmd
+        text: Ecosystem
       - href: Getting-Started/Setup.qmd
         text: Setup
       - href: Features/Features.qmd
@@ -23,6 +25,8 @@ website:
         text: "Home"
       - section: "Getting Started"
         contents:
+          - href: Getting-Started/Ecosystem.qmd
+            text: "The Project Ecosystem"
           - href: Getting-Started/Setup.qmd
             text: "Setup"
           - href: Getting-Started/First-Steps.qmd

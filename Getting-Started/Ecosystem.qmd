@@ -1,0 +1,108 @@
+---
+title: "The Project Ecosystem"
+---
+
+Before writing a single line of code, you need to understand the three spaces where the project lives and how they connect. Skipping this leads to the most common confusion: "I coded it, why does my grade not show it?"
+
+## Three spaces
+
+```{mermaid}
+flowchart LR
+    subgraph CL["🎓 GitHub Classroom"]
+        CL1["Invitation link<br>Join / create team"]
+    end
+    subgraph GH["☁️ GitHub Repository<br>github.com/Estia-1a/your-team"]
+        GH1["Source code<br>& branches"]
+        GH2["Issues<br>& milestones"]
+        GH3["GitHub Actions<br>(daily evaluation)"]
+    end
+    subgraph LM["💻 Local Machine"]
+        LM1["VS Code<br>editor"]
+        LM2["gcc + CMake<br>compiler & build"]
+        LM3["Libraries<br>estia-image · getopt"]
+    end
+
+    CL1 -->|"creates"| GH1
+    LM1 -->|"git push"| GH1
+    GH1 -->|"git clone / pull"| LM1
+    GH3 -.->|"evaluates"| GH2
+```
+
+## GitHub Classroom
+
+GitHub Classroom is the entry point. The teacher creates an assignment; you receive an invitation link. When you join and create or select your team, Classroom automatically creates a **private GitHub repository** for your team under the `Estia-1a` organization.
+
+**You interact with Classroom exactly once** — during team registration. After that, everything happens either in the GitHub repository or on your local machine.
+
+## Your GitHub repository
+
+Your team's repository is the **shared source of truth**. It holds:
+
+- Your source code (in `src/`)
+- Issues that describe every feature to implement
+- GitHub Actions that compile and test your `main` branch every day
+
+::: {.callout-important}
+**Pushing code is not optional.** Your grade is based on what is in the `main` branch on GitHub — not on your hard drive. If you do not push, your work does not exist for your teammates or the evaluator.
+:::
+
+## Your local machine
+
+Your local machine is where you write and compile code. It needs three things installed and working:
+
+| What | Role |
+|---|---|
+| **VS Code** | Editor — where you write code |
+| **gcc + CMake** | Compiler and build system — turn your C into an executable |
+| **estia-image + getopt** | Prebuilt libraries — downloaded separately, not in the repository |
+
+Changes you make locally are invisible to your team and the evaluator until you **commit and push** them.
+
+## The heartbeat: edit → build → push
+
+Every working session follows this cycle:
+
+```{mermaid}
+sequenceDiagram
+    participant LM as Local Machine
+    participant GH as GitHub Repository
+    participant CI as GitHub Actions
+
+    LM->>LM: Edit code in VS Code
+    LM->>LM: cmake --build build
+    LM->>LM: ./freud.exe ... (test locally)
+    LM->>GH: git commit + push
+    GH->>CI: triggers evaluation
+    CI->>GH: updates issue results
+    GH->>LM: teammates: git pull
+```
+
+The cycle starts again on each edit. **Never end a session without pushing.**
+
+## The onboarding flow
+
+```{mermaid}
+flowchart TD
+    classDef everyone fill:#dbeafe,stroke:#3b82f6
+    classDef leader fill:#fef3c7,stroke:#f59e0b
+    classDef oneperson fill:#dcfce7,stroke:#22c55e
+    classDef github fill:#f3e8ff,stroke:#a855f7
+
+    A1["Every student<br>Join GitHub Classroom<br>Join or create team"]:::everyone
+    A2["Every student<br>Clone repository<br>Open in VS Code<br>Install extensions"]:::everyone
+    A3["Every student<br>Download libraries<br>gcc -dumpmachine → pick zip<br>Extract inner folder to project root"]:::everyone
+    A4["Every student<br>bash validconfig.sh<br>Fix all errors<br>cmake + run helloworld"]:::everyone
+    B1["🔑 Team leader only<br>bash validconfig.sh<br>--activate-workflows"]:::leader
+    C1["☝️ One team member<br>GitHub Actions<br>Run: Import issues from Template"]:::oneperson
+    D1["GitHub<br>Issues created"]:::github
+    A9["Every student<br>git pull<br>Confirm issues visible"]:::everyone
+    A10["Start Milestone 1<br>see First Steps"]:::everyone
+
+    A1 --> A2 --> A3 --> A4 --> B1 --> C1 --> D1 --> A9 --> A10
+```
+
+- **Blue** — every student does this on their own machine
+- **Yellow** — team leader only (one person, once)
+- **Green** — one team member triggers, rest wait then pull
+
+> Ready to begin? Go to [Setup](Setup.qmd).
