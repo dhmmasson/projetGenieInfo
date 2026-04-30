@@ -64,7 +64,7 @@
     "href": "ProjectManagement/Workflows.html",
     "title": "Workflows and Onboarding",
     "section": "",
-    "text": "Workflow files are stored as disabled by default in the template (*.yml.disabled).\nTeam leader activation renames them to .yml and pushes once.\nclassroom.yml is then triggered by classroom infrastructure events.\ncreate-issues.yml is manually triggered by students from the GitHub Actions tab.",
+    "text": "Your team repository follows this naming pattern:\nhttps://github.com/Estia-1a/pgi-2026-the_adjective_noun\nReplace the_adjective_noun with your actual team name (e.g. the_brave_fox).\n\n\n\n\n\n\nTipNot sure of your exact URL?\n\n\n\nOpen your repository on GitHub, click the green Code button, and copy the HTTPS URL. Everything before /actions, /issues, etc. is your base URL.\n\n\nThe useful sub-pages you will visit often:\n\n\n\nPage\nURL\n\n\n\n\nIssues\nhttps://github.com/Estia-1a/pgi-2026-&lt;team&gt;/issues\n\n\nActions\nhttps://github.com/Estia-1a/pgi-2026-&lt;team&gt;/actions\n\n\nProjects\nhttps://github.com/Estia-1a/pgi-2026-&lt;team&gt;/projects",
     "crumbs": [
       "Home",
       "Project Management",
@@ -72,11 +72,11 @@
     ]
   },
   {
-    "objectID": "ProjectManagement/Workflows.html#workflow-model-for-2026",
-    "href": "ProjectManagement/Workflows.html#workflow-model-for-2026",
+    "objectID": "ProjectManagement/Workflows.html#your-repository",
+    "href": "ProjectManagement/Workflows.html#your-repository",
     "title": "Workflows and Onboarding",
     "section": "",
-    "text": "Workflow files are stored as disabled by default in the template (*.yml.disabled).\nTeam leader activation renames them to .yml and pushes once.\nclassroom.yml is then triggered by classroom infrastructure events.\ncreate-issues.yml is manually triggered by students from the GitHub Actions tab.",
+    "text": "Your team repository follows this naming pattern:\nhttps://github.com/Estia-1a/pgi-2026-the_adjective_noun\nReplace the_adjective_noun with your actual team name (e.g. the_brave_fox).\n\n\n\n\n\n\nTipNot sure of your exact URL?\n\n\n\nOpen your repository on GitHub, click the green Code button, and copy the HTTPS URL. Everything before /actions, /issues, etc. is your base URL.\n\n\nThe useful sub-pages you will visit often:\n\n\n\nPage\nURL\n\n\n\n\nIssues\nhttps://github.com/Estia-1a/pgi-2026-&lt;team&gt;/issues\n\n\nActions\nhttps://github.com/Estia-1a/pgi-2026-&lt;team&gt;/actions\n\n\nProjects\nhttps://github.com/Estia-1a/pgi-2026-&lt;team&gt;/projects",
     "crumbs": [
       "Home",
       "Project Management",
@@ -84,11 +84,11 @@
     ]
   },
   {
-    "objectID": "ProjectManagement/Workflows.html#enable-and-run-issue-import",
-    "href": "ProjectManagement/Workflows.html#enable-and-run-issue-import",
+    "objectID": "ProjectManagement/Workflows.html#what-are-features-and-milestones",
+    "href": "ProjectManagement/Workflows.html#what-are-features-and-milestones",
     "title": "Workflows and Onboarding",
-    "section": "Enable and run issue import",
-    "text": "Enable and run issue import\n\nTeam leader runs:\n\nbash validconfig.sh --activate-workflows\n\nOpen the repository on GitHub.\nGo to the Actions tab.\nSelect Import issues from Template.\nClick Run workflow on branch main.\nWait for completion, then confirm issues are visible in the Issues tab.",
+    "section": "What are features and milestones?",
+    "text": "What are features and milestones?\n\nFeatures = GitHub Issues\nEach feature you need to implement is tracked as a GitHub Issue in your repository. An issue contains:\n\na description of what the feature does\nthe exact command name and expected output format\nexample inputs and outputs to help you test your implementation\n\nThere are roughly 30 features spread across 5 milestones. You can see them all on the Features page.\n\n\nMilestones = groups of issues\nFeatures are grouped into Milestones. A milestone represents a coherent set of related features (e.g. Statistics, Color transformations, Geometric transforms). Completing a milestone means all its issues are closed and the CI passes for every feature in that group.\nMilestones are your main progress markers — both for your own tracking and for grading.",
     "crumbs": [
       "Home",
       "Project Management",
@@ -96,11 +96,11 @@
     ]
   },
   {
-    "objectID": "ProjectManagement/Workflows.html#team-coordination-rule",
-    "href": "ProjectManagement/Workflows.html#team-coordination-rule",
+    "objectID": "ProjectManagement/Workflows.html#step-1-load-the-issues-into-your-repository-onboarding",
+    "href": "ProjectManagement/Workflows.html#step-1-load-the-issues-into-your-repository-onboarding",
     "title": "Workflows and Onboarding",
-    "section": "Team coordination rule",
-    "text": "Team coordination rule\nOnly one teammate should trigger issue import during onboarding.\nAfter issue creation:\n\nTeammate who triggered it announces completion.\nEveryone pulls latest changes locally.\nTeam starts milestone 1 implementation.",
+    "section": "Step 1 — Load the issues into your repository (onboarding)",
+    "text": "Step 1 — Load the issues into your repository (onboarding)\nIssues do not appear in your repository automatically. The team leader must activate the workflows and trigger the import once.\n\nActivate the workflows\nIn your local clone, run:\nbash validconfig.sh --activate-workflows\nThis renames the disabled workflow files from *.yml.disabled to *.yml and commits them. Push the result to main.\n\n\nImport the issues\n\nOpen your repository on GitHub.\nGo to the Actions tab.\nSelect Import issues from Template in the left sidebar.\nClick Run workflow → choose branch main → click the green Run workflow button.\nWait for the green checkmark. Then open the Issues tab to confirm the issues are visible.\n\n\n\n\n\n\n\nWarningOne person only\n\n\n\nOnly one team member should trigger the import. Triggering it multiple times will create duplicate issues. After the import, announce to your teammates that it is done so they can pull the latest changes.",
     "crumbs": [
       "Home",
       "Project Management",
@@ -108,11 +108,35 @@
     ]
   },
   {
-    "objectID": "ProjectManagement/Workflows.html#quick-link-from-local-repo-to-actions-page",
-    "href": "ProjectManagement/Workflows.html#quick-link-from-local-repo-to-actions-page",
+    "objectID": "ProjectManagement/Workflows.html#step-2-work-with-issues",
+    "href": "ProjectManagement/Workflows.html#step-2-work-with-issues",
     "title": "Workflows and Onboarding",
-    "section": "Quick link from local repo to Actions page",
-    "text": "Quick link from local repo to Actions page\nIf your remote is:\ngit remote get-url origin\nThen your actions URL is:\n\nHTTPS remote: https://github.com/&lt;org&gt;/&lt;repo&gt;/actions\nSSH remote: git@github.com:&lt;org&gt;/&lt;repo&gt;.git becomes https://github.com/&lt;org&gt;/&lt;repo&gt;/actions",
+    "section": "Step 2 — Work with issues",
+    "text": "Step 2 — Work with issues\n\nRead the issue before you start\nEach issue contains the full specification for the feature. Before writing a single line of code:\n\nRead the description carefully.\nNote the exact command name, parameters, and expected output format.\nLook at the provided examples — they double as test cases.\n\n\n\nAssign the issue to yourself\nTo avoid two teammates working on the same feature simultaneously, assign the issue to whoever is implementing it:\n\nOpen the issue on GitHub.\nOn the right sidebar, click Assignees.\nSelect your name.\n\nThis makes it immediately visible to the rest of the team who is working on what.\n\n\nClose the issue when the feature is done\nAn issue should only be closed when:\n\nThe feature is implemented in src/features.c.\nIt compiles without errors.\nYou have tested it locally with build/freud.exe and the output matches the specification.\n\nYou can close the issue from the GitHub interface, or automatically from a commit message.",
+    "crumbs": [
+      "Home",
+      "Project Management",
+      "Workflows and Onboarding"
+    ]
+  },
+  {
+    "objectID": "ProjectManagement/Workflows.html#step-3-close-issues-automatically-with-commits",
+    "href": "ProjectManagement/Workflows.html#step-3-close-issues-automatically-with-commits",
+    "title": "Workflows and Onboarding",
+    "section": "Step 3 — Close issues automatically with commits",
+    "text": "Step 3 — Close issues automatically with commits\nWhen you push a commit whose message contains one of the following keywords followed by #&lt;issue_number&gt;, GitHub will automatically close the corresponding issue:\nclose #12\ncloses #12\nfix #12\nfixes #12\nresolve #12\nresolves #12\nExample commit message:\nimplement max_component feature, close #10\nThis is clean, traceable, and saves you from forgetting to close issues manually.",
+    "crumbs": [
+      "Home",
+      "Project Management",
+      "Workflows and Onboarding"
+    ]
+  },
+  {
+    "objectID": "ProjectManagement/Workflows.html#step-4-optional-but-recommended-set-up-a-kanban-board",
+    "href": "ProjectManagement/Workflows.html#step-4-optional-but-recommended-set-up-a-kanban-board",
+    "title": "Workflows and Onboarding",
+    "section": "Step 4 (optional but recommended) — Set up a Kanban board",
+    "text": "Step 4 (optional but recommended) — Set up a Kanban board\nA Kanban board is a visual board with columns like To Do, In Progress, and Done. GitHub Projects provides this out of the box and links directly to your issues.\n\nCreate a project board\n\nGo to your repository on GitHub.\nClick the Projects tab → New project.\nChoose the Board template (Kanban style).\nGive it a name (e.g. Sprint board).\nClick Create project.\n\n\n\nAdd your issues to the board\nIn the board, click + Add item at the bottom of the To Do column and type # to search for your issues. Add all of them.\n\n\nUse the board during the project\n\nMove an issue to In Progress when someone starts working on it.\nMove it to Done when the feature is implemented and tested (the issue will also close automatically if you used a close #N commit).\n\nThis gives your whole team a shared real-time view of progress without needing to ask each other “what are you working on?”.",
     "crumbs": [
       "Home",
       "Project Management",
@@ -124,7 +148,7 @@
     "href": "ProjectManagement/Workflows.html#known-caveat",
     "title": "Workflows and Onboarding",
     "section": "Known caveat",
-    "text": "Known caveat\nClassroom repositories are private and can have workflow behavior differences across academic years. If Import issues from Template is not visible, the team leader should notify the teacher immediately.",
+    "text": "Known caveat\nClassroom repositories are private and can have workflow behavior differences across academic years. If the Import issues from Template workflow is not visible in the Actions tab, the team leader should notify the teacher immediately.",
     "crumbs": [
       "Home",
       "Project Management",

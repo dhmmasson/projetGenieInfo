@@ -320,10 +320,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#workflow-model-for-2026" id="toc-workflow-model-for-2026" class="nav-link active" data-scroll-target="#workflow-model-for-2026">Workflow model for 2026</a></li>
-  <li><a href="#enable-and-run-issue-import" id="toc-enable-and-run-issue-import" class="nav-link" data-scroll-target="#enable-and-run-issue-import">Enable and run issue import</a></li>
-  <li><a href="#team-coordination-rule" id="toc-team-coordination-rule" class="nav-link" data-scroll-target="#team-coordination-rule">Team coordination rule</a></li>
-  <li><a href="#quick-link-from-local-repo-to-actions-page" id="toc-quick-link-from-local-repo-to-actions-page" class="nav-link" data-scroll-target="#quick-link-from-local-repo-to-actions-page">Quick link from local repo to Actions page</a></li>
+  <li><a href="#your-repository" id="toc-your-repository" class="nav-link active" data-scroll-target="#your-repository">Your repository</a></li>
+  <li><a href="#what-are-features-and-milestones" id="toc-what-are-features-and-milestones" class="nav-link" data-scroll-target="#what-are-features-and-milestones">What are features and milestones?</a>
+  <ul class="collapse">
+  <li><a href="#features-github-issues" id="toc-features-github-issues" class="nav-link" data-scroll-target="#features-github-issues">Features = GitHub Issues</a></li>
+  <li><a href="#milestones-groups-of-issues" id="toc-milestones-groups-of-issues" class="nav-link" data-scroll-target="#milestones-groups-of-issues">Milestones = groups of issues</a></li>
+  </ul></li>
+  <li><a href="#step-1-load-the-issues-into-your-repository-onboarding" id="toc-step-1-load-the-issues-into-your-repository-onboarding" class="nav-link" data-scroll-target="#step-1-load-the-issues-into-your-repository-onboarding">Step 1 — Load the issues into your repository (onboarding)</a>
+  <ul class="collapse">
+  <li><a href="#activate-the-workflows" id="toc-activate-the-workflows" class="nav-link" data-scroll-target="#activate-the-workflows">Activate the workflows</a></li>
+  <li><a href="#import-the-issues" id="toc-import-the-issues" class="nav-link" data-scroll-target="#import-the-issues">Import the issues</a></li>
+  </ul></li>
+  <li><a href="#step-2-work-with-issues" id="toc-step-2-work-with-issues" class="nav-link" data-scroll-target="#step-2-work-with-issues">Step 2 — Work with issues</a>
+  <ul class="collapse">
+  <li><a href="#read-the-issue-before-you-start" id="toc-read-the-issue-before-you-start" class="nav-link" data-scroll-target="#read-the-issue-before-you-start">Read the issue before you start</a></li>
+  <li><a href="#assign-the-issue-to-yourself" id="toc-assign-the-issue-to-yourself" class="nav-link" data-scroll-target="#assign-the-issue-to-yourself">Assign the issue to yourself</a></li>
+  <li><a href="#close-the-issue-when-the-feature-is-done" id="toc-close-the-issue-when-the-feature-is-done" class="nav-link" data-scroll-target="#close-the-issue-when-the-feature-is-done">Close the issue when the feature is done</a></li>
+  </ul></li>
+  <li><a href="#step-3-close-issues-automatically-with-commits" id="toc-step-3-close-issues-automatically-with-commits" class="nav-link" data-scroll-target="#step-3-close-issues-automatically-with-commits">Step 3 — Close issues automatically with commits</a></li>
+  <li><a href="#step-4-optional-but-recommended-set-up-a-kanban-board" id="toc-step-4-optional-but-recommended-set-up-a-kanban-board" class="nav-link" data-scroll-target="#step-4-optional-but-recommended-set-up-a-kanban-board">Step 4 (optional but recommended) — Set up a Kanban board</a>
+  <ul class="collapse">
+  <li><a href="#create-a-project-board" id="toc-create-a-project-board" class="nav-link" data-scroll-target="#create-a-project-board">Create a project board</a></li>
+  <li><a href="#add-your-issues-to-the-board" id="toc-add-your-issues-to-the-board" class="nav-link" data-scroll-target="#add-your-issues-to-the-board">Add your issues to the board</a></li>
+  <li><a href="#use-the-board-during-the-project" id="toc-use-the-board-during-the-project" class="nav-link" data-scroll-target="#use-the-board-during-the-project">Use the board during the project</a></li>
+  </ul></li>
   <li><a href="#known-caveat" id="toc-known-caveat" class="nav-link" data-scroll-target="#known-caveat">Known caveat</a></li>
   </ul>
 </nav>
@@ -350,52 +370,179 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="workflow-model-for-2026" class="level2">
-<h2 class="anchored" data-anchor-id="workflow-model-for-2026">Workflow model for 2026</h2>
+<section id="your-repository" class="level2">
+<h2 class="anchored" data-anchor-id="your-repository">Your repository</h2>
+<p>Your team repository follows this naming pattern:</p>
+<pre><code>https://github.com/Estia-1a/pgi-2026-the_adjective_noun</code></pre>
+<p>Replace <code>the_adjective_noun</code> with your actual team name (e.g.&nbsp;<code>the_brave_fox</code>).</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Not sure of your exact URL?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Open your repository on GitHub, click the green <strong>Code</strong> button, and copy the HTTPS URL. Everything before <code>/actions</code>, <code>/issues</code>, etc. is your base URL.</p>
+</div>
+</div>
+<p>The useful sub-pages you will visit often:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Page</th>
+<th>URL</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Issues</td>
+<td><code>https://github.com/Estia-1a/pgi-2026-&lt;team&gt;/issues</code></td>
+</tr>
+<tr class="even">
+<td>Actions</td>
+<td><code>https://github.com/Estia-1a/pgi-2026-&lt;team&gt;/actions</code></td>
+</tr>
+<tr class="odd">
+<td>Projects</td>
+<td><code>https://github.com/Estia-1a/pgi-2026-&lt;team&gt;/projects</code></td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="what-are-features-and-milestones" class="level2">
+<h2 class="anchored" data-anchor-id="what-are-features-and-milestones">What are features and milestones?</h2>
+<section id="features-github-issues" class="level3">
+<h3 class="anchored" data-anchor-id="features-github-issues">Features = GitHub Issues</h3>
+<p>Each <strong>feature</strong> you need to implement is tracked as a <strong>GitHub Issue</strong> in your repository. An issue contains:</p>
 <ul>
-<li>Workflow files are stored as disabled by default in the template (<code>*.yml.disabled</code>).</li>
-<li>Team leader activation renames them to <code>.yml</code> and pushes once.</li>
-<li><code>classroom.yml</code> is then triggered by classroom infrastructure events.</li>
-<li><code>create-issues.yml</code> is manually triggered by students from the GitHub Actions tab.</li>
+<li>a description of what the feature does</li>
+<li>the exact command name and expected output format</li>
+<li>example inputs and outputs to help you test your implementation</li>
+</ul>
+<p>There are roughly 30 features spread across 5 milestones. You can see them all on the <a href="../Features/Features.html">Features</a> page.</p>
+</section>
+<section id="milestones-groups-of-issues" class="level3">
+<h3 class="anchored" data-anchor-id="milestones-groups-of-issues">Milestones = groups of issues</h3>
+<p>Features are grouped into <strong>Milestones</strong>. A milestone represents a coherent set of related features (e.g.&nbsp;<em>Statistics</em>, <em>Color transformations</em>, <em>Geometric transforms</em>). Completing a milestone means all its issues are closed and the CI passes for every feature in that group.</p>
+<p>Milestones are your main progress markers — both for your own tracking and for grading.</p>
+<hr>
+</section>
+</section>
+<section id="step-1-load-the-issues-into-your-repository-onboarding" class="level2">
+<h2 class="anchored" data-anchor-id="step-1-load-the-issues-into-your-repository-onboarding">Step 1 — Load the issues into your repository (onboarding)</h2>
+<p>Issues do not appear in your repository automatically. The <strong>team leader</strong> must activate the workflows and trigger the import once.</p>
+<section id="activate-the-workflows" class="level3">
+<h3 class="anchored" data-anchor-id="activate-the-workflows">Activate the workflows</h3>
+<p>In your local clone, run:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> validconfig.sh <span class="at">--activate-workflows</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This renames the disabled workflow files from <code>*.yml.disabled</code> to <code>*.yml</code> and commits them. Push the result to <code>main</code>.</p>
+</section>
+<section id="import-the-issues" class="level3">
+<h3 class="anchored" data-anchor-id="import-the-issues">Import the issues</h3>
+<ol type="1">
+<li>Open your repository on GitHub.</li>
+<li>Go to the <strong>Actions</strong> tab.</li>
+<li>Select <strong>Import issues from Template</strong> in the left sidebar.</li>
+<li>Click <strong>Run workflow</strong> → choose branch <code>main</code> → click the green <strong>Run workflow</strong> button.</li>
+<li>Wait for the green checkmark. Then open the <strong>Issues</strong> tab to confirm the issues are visible.</li>
+</ol>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>One person only
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Only one team member should trigger the import. Triggering it multiple times will create duplicate issues. After the import, announce to your teammates that it is done so they can pull the latest changes.</p>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="step-2-work-with-issues" class="level2">
+<h2 class="anchored" data-anchor-id="step-2-work-with-issues">Step 2 — Work with issues</h2>
+<section id="read-the-issue-before-you-start" class="level3">
+<h3 class="anchored" data-anchor-id="read-the-issue-before-you-start">Read the issue before you start</h3>
+<p>Each issue contains the full specification for the feature. Before writing a single line of code:</p>
+<ul>
+<li>Read the description carefully.</li>
+<li>Note the exact <strong>command name</strong>, <strong>parameters</strong>, and <strong>expected output format</strong>.</li>
+<li>Look at the provided examples — they double as test cases.</li>
 </ul>
 </section>
-<section id="enable-and-run-issue-import" class="level2">
-<h2 class="anchored" data-anchor-id="enable-and-run-issue-import">Enable and run issue import</h2>
+<section id="assign-the-issue-to-yourself" class="level3">
+<h3 class="anchored" data-anchor-id="assign-the-issue-to-yourself">Assign the issue to yourself</h3>
+<p>To avoid two teammates working on the same feature simultaneously, <strong>assign the issue</strong> to whoever is implementing it:</p>
 <ol type="1">
-<li>Team leader runs:</li>
+<li>Open the issue on GitHub.</li>
+<li>On the right sidebar, click <strong>Assignees</strong>.</li>
+<li>Select your name.</li>
 </ol>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> validconfig.sh <span class="at">--activate-workflows</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<ol start="2" type="1">
-<li>Open the repository on GitHub.</li>
-<li>Go to the Actions tab.</li>
-<li>Select <code>Import issues from Template</code>.</li>
-<li>Click <code>Run workflow</code> on branch <code>main</code>.</li>
-<li>Wait for completion, then confirm issues are visible in the Issues tab.</li>
+<p>This makes it immediately visible to the rest of the team who is working on what.</p>
+</section>
+<section id="close-the-issue-when-the-feature-is-done" class="level3">
+<h3 class="anchored" data-anchor-id="close-the-issue-when-the-feature-is-done">Close the issue when the feature is done</h3>
+<p>An issue should only be closed when:</p>
+<ol type="1">
+<li>The feature is <strong>implemented</strong> in <code>src/features.c</code>.</li>
+<li>It <strong>compiles</strong> without errors.</li>
+<li>You have <strong>tested it locally</strong> with <code>build/freud.exe</code> and the output matches the specification.</li>
+</ol>
+<p>You can close the issue from the GitHub interface, or automatically from a commit message.</p>
+<hr>
+</section>
+</section>
+<section id="step-3-close-issues-automatically-with-commits" class="level2">
+<h2 class="anchored" data-anchor-id="step-3-close-issues-automatically-with-commits">Step 3 — Close issues automatically with commits</h2>
+<p>When you push a commit whose message contains one of the following keywords followed by <code>#&lt;issue_number&gt;</code>, GitHub will <strong>automatically close</strong> the corresponding issue:</p>
+<pre><code>close #12
+closes #12
+fix #12
+fixes #12
+resolve #12
+resolves #12</code></pre>
+<p>Example commit message:</p>
+<pre><code>implement max_component feature, close #10</code></pre>
+<p>This is clean, traceable, and saves you from forgetting to close issues manually.</p>
+<hr>
+</section>
+<section id="step-4-optional-but-recommended-set-up-a-kanban-board" class="level2">
+<h2 class="anchored" data-anchor-id="step-4-optional-but-recommended-set-up-a-kanban-board">Step 4 (optional but recommended) — Set up a Kanban board</h2>
+<p>A <strong>Kanban board</strong> is a visual board with columns like <em>To Do</em>, <em>In Progress</em>, and <em>Done</em>. GitHub Projects provides this out of the box and links directly to your issues.</p>
+<section id="create-a-project-board" class="level3">
+<h3 class="anchored" data-anchor-id="create-a-project-board">Create a project board</h3>
+<ol type="1">
+<li>Go to your repository on GitHub.</li>
+<li>Click the <strong>Projects</strong> tab → <strong>New project</strong>.</li>
+<li>Choose the <strong>Board</strong> template (Kanban style).</li>
+<li>Give it a name (e.g.&nbsp;<em>Sprint board</em>).</li>
+<li>Click <strong>Create project</strong>.</li>
 </ol>
 </section>
-<section id="team-coordination-rule" class="level2">
-<h2 class="anchored" data-anchor-id="team-coordination-rule">Team coordination rule</h2>
-<p>Only one teammate should trigger issue import during onboarding.</p>
-<p>After issue creation:</p>
-<ol type="1">
-<li>Teammate who triggered it announces completion.</li>
-<li>Everyone pulls latest changes locally.</li>
-<li>Team starts milestone 1 implementation.</li>
-</ol>
+<section id="add-your-issues-to-the-board" class="level3">
+<h3 class="anchored" data-anchor-id="add-your-issues-to-the-board">Add your issues to the board</h3>
+<p>In the board, click <strong>+ Add item</strong> at the bottom of the <em>To Do</em> column and type <code>#</code> to search for your issues. Add all of them.</p>
 </section>
-<section id="quick-link-from-local-repo-to-actions-page" class="level2">
-<h2 class="anchored" data-anchor-id="quick-link-from-local-repo-to-actions-page">Quick link from local repo to Actions page</h2>
-<p>If your remote is:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote get-url origin</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Then your actions URL is:</p>
+<section id="use-the-board-during-the-project" class="level3">
+<h3 class="anchored" data-anchor-id="use-the-board-during-the-project">Use the board during the project</h3>
 <ul>
-<li>HTTPS remote: <code>https://github.com/&lt;org&gt;/&lt;repo&gt;/actions</code></li>
-<li>SSH remote: <code>git@github.com:&lt;org&gt;/&lt;repo&gt;.git</code> becomes <code>https://github.com/&lt;org&gt;/&lt;repo&gt;/actions</code></li>
+<li>Move an issue to <strong>In Progress</strong> when someone starts working on it.</li>
+<li>Move it to <strong>Done</strong> when the feature is implemented and tested (the issue will also close automatically if you used a <code>close #N</code> commit).</li>
 </ul>
+<p>This gives your whole team a shared real-time view of progress without needing to ask each other “what are you working on?”.</p>
+<hr>
+</section>
 </section>
 <section id="known-caveat" class="level2">
 <h2 class="anchored" data-anchor-id="known-caveat">Known caveat</h2>
-<p>Classroom repositories are private and can have workflow behavior differences across academic years. If <code>Import issues from Template</code> is not visible, the team leader should notify the teacher immediately.</p>
+<p>Classroom repositories are private and can have workflow behavior differences across academic years. If the <strong>Import issues from Template</strong> workflow is not visible in the Actions tab, the team leader should notify the teacher immediately.</p>
 
 
 </section>
