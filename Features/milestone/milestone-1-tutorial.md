@@ -1,12 +1,13 @@
 # Milestone 1: Tutorial
 
-- Number: 2
-- State: open
-- Open issues: 5
-- Closed issues: 0
-- Due on: N/A
-- Description: Learn how to use pixels arrays in C with simple tasks.
-- URL: https://github.com/Estia-1a/projetGenieInfo_template/milestone/2
+The goal of this milestone is for you to understand : 
+ - what freud is (a command-line image processing tool) and how to use it,
+ - how to implement a new feature (declare it, implement it, add it to the manifest, add a dispatch branch in main.c), 
+ - how to compile and run the project,
+ - how to use the estia-image library to read pixel data from an image
+ - how to collaborate as a team of three to implement features together and use version control to collaborate. I
+ 
+ In this milestone work as [mob programming](Resources/Collaboration.qmd#strategy-1-mob-programming) — all three of you on the same machine, working on the same code, at the same time. You can rotate driver/navigator roles as you wish.
 
 ## Issues
 - [#3](../issues/feature-3-dimension.md) Dimension (OPEN)

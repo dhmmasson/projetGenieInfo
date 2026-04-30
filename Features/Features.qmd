@@ -8,7 +8,6 @@ Feature specifications are maintained as local markdown files generated from tem
 
 ## Milestones
 
-- [Milestones summary](./milestone/milestones.md)
 - [Milestone 1: Tutorial](./milestone/milestone-1-tutorial.md)
 - [Milestone 2: Statistics](./milestone/milestone-2-statistics.md)
 - [Milestone 3: Colors](./milestone/milestone-3-colors.md)
