@@ -955,48 +955,28 @@
     "href": "Resources/FAQ.html",
     "title": "FAQ",
     "section": "",
-    "text": "Exactly one thing that no one else should do: run workflow activation.\nbash validconfig.sh --activate-workflows\nThis renames disabled workflow files and pushes an onboarding commit. Do this after every teammate has passed bash validconfig.sh and built helloworld successfully.\nAfter pushing, announce to your team. Everyone else runs git pull.\n\n\n\nRun git pull. You do not need to run --activate-workflows yourself.\n\n\n\nOne person. Open GitHub → Actions → Import issues from Template → Run workflow. Everyone else waits, then runs git pull once issues appear.\n\n\n\nNo. Milestone 1 is designed to be solved together using mob programming (everyone at one screen, rotating who types). See First Steps — Milestone 1 for the rotation rhythm.\nWorking in parallel on Milestone 1 means some teammates never learn to open an image, access pixels, or add a feature — which will hurt them in the individual final exam.",
-    "crumbs": [
-      "Home",
-      "Tools",
-      "FAQ"
-    ]
+    "text": "This page has been merged into Debugging & Troubleshooting."
   },
   {
     "objectID": "Resources/FAQ.html#team-coordination",
     "href": "Resources/FAQ.html#team-coordination",
     "title": "FAQ",
-    "section": "",
-    "text": "Exactly one thing that no one else should do: run workflow activation.\nbash validconfig.sh --activate-workflows\nThis renames disabled workflow files and pushes an onboarding commit. Do this after every teammate has passed bash validconfig.sh and built helloworld successfully.\nAfter pushing, announce to your team. Everyone else runs git pull.\n\n\n\nRun git pull. You do not need to run --activate-workflows yourself.\n\n\n\nOne person. Open GitHub → Actions → Import issues from Template → Run workflow. Everyone else waits, then runs git pull once issues appear.\n\n\n\nNo. Milestone 1 is designed to be solved together using mob programming (everyone at one screen, rotating who types). See First Steps — Milestone 1 for the rotation rhythm.\nWorking in parallel on Milestone 1 means some teammates never learn to open an image, access pixels, or add a feature — which will hurt them in the individual final exam.",
-    "crumbs": [
-      "Home",
-      "Tools",
-      "FAQ"
-    ]
+    "section": "Team coordination",
+    "text": "Team coordination\n\nWhat does the team leader need to do?\nExactly one thing that no one else should do: run workflow activation.\nbash validconfig.sh --activate-workflows\nThis renames disabled workflow files and pushes an onboarding commit. Do this after every teammate has passed bash validconfig.sh and built helloworld successfully.\nAfter pushing, announce to your team. Everyone else runs git pull.\n\n\nMy teammate already activated workflows. What do I do?\nRun git pull. You do not need to run --activate-workflows yourself.\n\n\nWho should trigger the issue import?\nOne person. Open GitHub → Actions → Import issues from Template → Run workflow. Everyone else waits, then runs git pull once issues appear.\n\n\nCan we split Milestone 1 issues and work in parallel?\nNo. Milestone 1 is designed to be solved together using mob programming (everyone at one screen, rotating who types). See First Steps — Milestone 1 for the rotation rhythm.\nWorking in parallel on Milestone 1 means some teammates never learn to open an image, access pixels, or add a feature — which will hurt them in the individual final exam."
   },
   {
     "objectID": "Resources/FAQ.html#build-problems",
     "href": "Resources/FAQ.html#build-problems",
     "title": "FAQ",
     "section": "Build problems",
-    "text": "Build problems\n\nBuild fails immediately\n\nRun:\n\nbash validconfig.sh\n\nFix every error the script reports.\nRetry:\n\ncmake -B build\ncmake --build build\n\n\nI am missing estia-image or getopt\nYou need both library folders in the project root:\n\nestia-image/\ngetopt/\n\nWithout them, CMake configuration fails. See Setup — Phase 3 for download and extraction instructions.\n\n\nHow do I choose the right library package?\nThe deciding factor is the CPU architecture prefix, not the mingw suffix.\ngcc -dumpmachine\n\n\n\nOutput starts with\nDownload\n\n\n\n\nx86_64\n*-win10-mingw64.zip\n\n\ni686\n*-win10-mingw32.zip\n\n\n\nIf you see x86_64-w64-mingw32: the x86_64 prefix means 64-bit → download mingw64.\nPackages are in the v2.0.1 release.\n\n\nI extracted the zip but validation still says include is missing\nYou probably kept the wrapper folder. Move only the inner folder to your project root.\n✗ Wrong:\nestia-image-v2.0.1-win10-mingw32/\n    estia-image/\n        include/\n        lib/\n\n✓ Correct:\nestia-image/\n    include/\n    lib/\ngetopt/\n    include/\n    lib/\n\n\nPath and encoding problems on Windows\nKeep your repository path simple:\n\nNo accents in folders\nNo very long nested paths\nAvoid special characters",
-    "crumbs": [
-      "Home",
-      "Tools",
-      "FAQ"
-    ]
+    "text": "Build problems\n\nBuild fails immediately\n\nRun:\n\nbash validconfig.sh\n\nFix every error the script reports.\nRetry:\n\ncmake -B build\ncmake --build build\n\n\nI am missing estia-image or getopt\nYou need both library folders in the project root:\n\nestia-image/\ngetopt/\n\nWithout them, CMake configuration fails. See Setup — Phase 3 for download and extraction instructions.\n\n\nHow do I choose the right library package?\nThe deciding factor is the CPU architecture prefix, not the mingw suffix.\ngcc -dumpmachine\n\n\n\nOutput starts with\nDownload\n\n\n\n\nx86_64\n*-win10-mingw64.zip\n\n\ni686\n*-win10-mingw32.zip\n\n\n\nIf you see x86_64-w64-mingw32: the x86_64 prefix means 64-bit → download mingw64.\nPackages are in the v2.0.1 release.\n\n\nI extracted the zip but validation still says include is missing\nYou probably kept the wrapper folder. Move only the inner folder to your project root.\n✗ Wrong:\nestia-image-v2.0.1-win10-mingw32/\n    estia-image/\n        include/\n        lib/\n\n✓ Correct:\nestia-image/\n    include/\n    lib/\ngetopt/\n    include/\n    lib/\n\n\nPath and encoding problems on Windows\nKeep your repository path simple:\n\nNo accents in folders\nNo very long nested paths\nAvoid special characters"
   },
   {
     "objectID": "Resources/FAQ.html#github-and-actions",
     "href": "Resources/FAQ.html#github-and-actions",
     "title": "FAQ",
     "section": "GitHub and Actions",
-    "text": "GitHub and Actions\n\nI cannot see issues in my repository\n\nOpen GitHub Actions.\nRun Import issues from Template manually.\nWait until the workflow completes (green checkmark).\nRefresh the Issues tab.",
-    "crumbs": [
-      "Home",
-      "Tools",
-      "FAQ"
-    ]
+    "text": "GitHub and Actions\n\nI cannot see issues in my repository\n\nOpen GitHub Actions.\nRun Import issues from Template manually.\nWait until the workflow completes (green checkmark).\nRefresh the Issues tab."
   },
   {
     "objectID": "Resources/CLI.html",
@@ -1315,7 +1295,7 @@
     "href": "Resources/Troubleshooting.html",
     "title": "Debugging & Troubleshooting",
     "section": "",
-    "text": "This page covers the most common problems students encounter during the project, organized by when they tend to appear.\nFor setup issues (library not found, path errors, workflow activation), see the FAQ.",
+    "text": "NoteWhere are you stuck?\n\n\n\nJump to the right section:\n\nCan’t get started — Git not recognized, path errors, MinGW, libraries not found\nCode won’t compile — CMake errors, compiler errors, feature not dispatched\nCode runs but behaves wrong — black image, crash, wrong output\nGit or GitHub problem — push rejected, merge conflict, issues not visible, CI failing\nTeam coordination question — workflow activation, issue import, Milestone 1",
     "crumbs": [
       "Home",
       "Learn",
@@ -1323,11 +1303,11 @@
     ]
   },
   {
-    "objectID": "Resources/Troubleshooting.html#build-errors",
-    "href": "Resources/Troubleshooting.html#build-errors",
+    "objectID": "Resources/Troubleshooting.html#sec-environment",
+    "href": "Resources/Troubleshooting.html#sec-environment",
     "title": "Debugging & Troubleshooting",
-    "section": "Build errors",
-    "text": "Build errors\n\ncmake -B build fails — CMake cannot find a library\nCMake Error: Could not find a package configuration file provided by \"estia-image\"\nCause: The estia-image/ or getopt/ folder is missing or misplaced.\nFix: Check that both folders exist at the root of your project (next to src/, CMakeLists.txt):\npgi-2026-your-team/\n├── estia-image/\n│   ├── include/\n│   └── lib/\n├── getopt/\n│   ├── include/\n│   └── lib/\n├── src/\n└── CMakeLists.txt\nIf the structure is wrong, re-read Setup — Phase 3.\n\n\n\ncmake --build build fails — compiler error\nBefore reading the full error log, run bash validconfig.sh — it checks common configuration mistakes and gives actionable messages.\nThe compiler always reports the first error. Fix it, rebuild, then move to the next.\nCommon patterns:\n\n\n\n\n\n\n\nError message\nLikely cause\n\n\n\n\nimplicit declaration of function 'foo'\nfoo declared in .h but not included in .c\n\n\nundeclared identifier 'foo'\nMissing #include or typo in name\n\n\nerror: expected ';'\nMissing semicolon — usually one line before the error\n\n\nundefined reference to 'foo'\nFunction declared but not implemented, or not listed in CMakeLists.txt\n\n\ntoo few/many arguments\nFunction signature in .h does not match the call\n\n\n\n\n\n\nFeature builds but is not dispatched\nYour feature compiles but freud.exe -c my_feature prints nothing or the wrong output.\nCheck main.c: Every feature requires a dispatch branch:\nif (strcmp(conf.command, \"my_feature\") == 0) {\n    my_feature(conf.filenames[0]);\n}\nIf this if block is missing, your function is never called.\n\n\n\nFeature builds but is not recognized by the CI\nCheck freud.manifest: The command name must appear exactly on its own line:\nhelloworld\ndimension\nmy_feature\nNo spaces, no quotes, no extra characters. The CI reads this file to know which features to test.",
+    "section": "1. Can’t get started",
+    "text": "1. Can’t get started\nProblems before you write any code: environment, tools, libraries.\n\nPath and encoding — project won’t compile\nNo accents or special characters anywhere in your path.\n✗ C:\\Users\\elodie.bouzekri\\Documents\\Ma bibliothèque\\Génie Info\\\n✓ C:\\projetInfo\\pgi-2026-your-team\\\nClone your project into a short, accent-free path like C:\\projetInfo\\pgi-2026-your-team.\n\n\n\nMinGW not found or too old\nCheck that MinGW is installed at C:\\MinGW\\bin:\n\nIf missing, download: mingw-19.0.exe\nIf present but not working, add C:\\MinGW\\bin to your Path environment variable, then restart VS Code\n\n\n\n\nGit not recognized in VS Code\nIf Git: Clone does nothing in the command palette:\n\nCheck that Git is installed at C:\\MinGW\\git\\bin\n\nIf missing, download: Git-2.36.1-64-bit.exe\nIf present, add C:\\MinGW\\git\\bin to your Path environment variable\n\nCheck that your folder is marked as trusted in VS Code:\n\nClick the gear icon (bottom-left) → Manage Workspace Trust → Trust\n\n\n\n\n\nGit authentication fails\nIf Git asks for credentials repeatedly or is not authorized with GitHub:\ngit config --global credential.useHttpPath true\nThis forces Git to open a browser to set up authentication.\n\n\n\nCMake version too old\nIf CMake reports a version mismatch, lower the minimum required version in CMakeLists.txt:\n# Change:\ncmake_minimum_required(VERSION 3.20)\n# To:\ncmake_minimum_required(VERSION 3.15)\n\n\n\nLibraries not found by CMake\nCMake Error: Could not find a package configuration file provided by \"estia-image\"\nCheck that both library folders exist at the root of your project (next to src/, CMakeLists.txt):\npgi-2026-your-team/\n├── estia-image/\n│   ├── include/\n│   └── lib/\n├── getopt/\n│   ├── include/\n│   └── lib/\n├── src/\n└── CMakeLists.txt\nIf you extracted the zip and the folder is wrapped in an outer folder, move only the inner folder:\n✗ Wrong:\nestia-image-v2.0.1-win10-mingw32/\n    estia-image/         ← this is what you need\n        include/\n        lib/\n\n✓ Correct — estia-image/ sits directly in the project root\nSee Setup — Phase 3 for full instructions.\n\n\n\nHow do I choose the right library package?\nThe deciding factor is the CPU architecture prefix, not the mingw suffix:\ngcc -dumpmachine\n\n\n\nOutput starts with\nDownload\n\n\n\n\nx86_64\n*-win10-mingw64.zip\n\n\ni686\n*-win10-mingw32.zip\n\n\n\nx86_64-w64-mingw32 → the x86_64 prefix means 64-bit → download mingw64.\nPackages: v2.0.1 release.",
     "crumbs": [
       "Home",
       "Learn",
@@ -1335,11 +1315,11 @@
     ]
   },
   {
-    "objectID": "Resources/Troubleshooting.html#c-runtime-errors",
-    "href": "Resources/Troubleshooting.html#c-runtime-errors",
+    "objectID": "Resources/Troubleshooting.html#sec-build",
+    "href": "Resources/Troubleshooting.html#sec-build",
     "title": "Debugging & Troubleshooting",
-    "section": "C runtime errors",
-    "text": "C runtime errors\n\nProgram crashes (segmentation fault)\nA segfault means you accessed memory you don’t own. Most common causes:\n1. Array index out of bounds\n// Image is width * height * 3 bytes\n// Accessing pixel (x, y): index = (y * width + x) * 3\nint index = (y * width + x) * 3;\ndata[index];     // OK if x &lt; width and y &lt; height\ndata[index + 2]; // Always check you don't go past data[width*height*3 - 1]\n2. Null pointer from read_image_data\nunsigned char *data = NULL;\nint width, height, channels;\nint result = read_image_data(filename, &data, &width, &height, &channels);\nif (result != 0 || data == NULL) {\n    fprintf(stderr, \"Error: could not read image\\n\");\n    return;\n}\nAlways check the return value before using data.\n3. Off-by-one when iterating pixels\n// WRONG: goes past the last pixel\nfor (int i = 0; i &lt;= width * height * 3; i++) { ... }\n\n// CORRECT\nfor (int i = 0; i &lt; width * height * 3; i++) { ... }\n\n\n\nOutput image is black / all zeros\nYou created the output buffer but forgot to copy or modify pixels:\nunsigned char *out = malloc(width * height * 3);\n// Without writing to out, it's garbage memory or all zeros\nwrite_image_data(output_path, out, width, height);\nMake sure you write to every pixel before calling write_image_data.\n\n\n\nOutput image dimensions are wrong\nwrite_image_data needs the original width and height unless you’re implementing a resize/crop. If you change dimensions, you must also change what you pass to write_image_data.",
+    "section": "2. Code won’t compile",
+    "text": "2. Code won’t compile\nProblems during cmake -B build or cmake --build build.\nFirst step — always run:\nbash validconfig.sh\nThis checks common configuration mistakes and gives actionable messages before you dig into the raw error log.\n\n\nReading compiler errors\nThe compiler reports the first error. Fix it, rebuild, then move to the next. Do not try to fix multiple errors at once.\n\n\n\n\n\n\n\nError message\nLikely cause\n\n\n\n\nimplicit declaration of function 'foo'\nfoo declared in .h but the .h is not #included in your .c\n\n\nundeclared identifier 'foo'\nMissing #include or typo in the name\n\n\nerror: expected ';'\nMissing semicolon — usually one line before the reported line\n\n\nundefined reference to 'foo'\nFunction declared but not implemented, or not listed in CMakeLists.txt\n\n\ntoo few/many arguments\nFunction signature in .h does not match the call site\n\n\n\n\n\n\nFeature compiles but freud.exe -c my_feature does nothing\nCheck main.c — every feature needs a dispatch branch:\nif (strcmp(conf.command, \"my_feature\") == 0) {\n    my_feature(conf.filenames[0]);\n}\nIf this block is missing, your function is never called regardless of how correct it is.\n\n\n\nFeature is not tested by the CI\nCheck freud.manifest — the command name must appear on its own line, exactly:\nhelloworld\ndimension\nmy_feature\nNo spaces, no quotes, no extra characters. The CI reads this file to discover which features to test. If the entry is missing, the CI skips your feature entirely.",
     "crumbs": [
       "Home",
       "Learn",
@@ -1347,11 +1327,11 @@
     ]
   },
   {
-    "objectID": "Resources/Troubleshooting.html#git-problems",
-    "href": "Resources/Troubleshooting.html#git-problems",
+    "objectID": "Resources/Troubleshooting.html#sec-runtime",
+    "href": "Resources/Troubleshooting.html#sec-runtime",
     "title": "Debugging & Troubleshooting",
-    "section": "Git problems",
-    "text": "Git problems\n\nPush rejected\nerror: failed to push some refs to 'origin/main'\nCause: Your teammate pushed something after your last git pull.\nFix:\ngit pull --rebase\n# resolve any conflicts, then:\ngit push\n\n\n\nMerge conflict\nGit shows &lt;&lt;&lt;&lt;&lt;&lt; / ======= / &gt;&gt;&gt;&gt;&gt;&gt;&gt; markers in a file. This means two people edited the same lines.\n\nOpen the file in VS Code — it highlights conflicts.\nChoose which version to keep (or combine both).\nRemove all conflict markers.\ngit add the resolved file.\ngit commit.\n\n\n\n\n\n\n\nTip\n\n\n\nConflicts on features.c and features.h are common when two people implement different features. To avoid them: coordinate — one person per file at a time, and pull before starting each session.\n\n\n\n\n\nAccidentally committed to the wrong branch\ngit log --oneline -3    # check what you committed\ngit stash               # if not committed yet, stash changes\ngit checkout main       # switch to the right branch\ngit stash pop           # re-apply your changes",
+    "section": "3. Code runs but behaves wrong",
+    "text": "3. Code runs but behaves wrong\nProblems after a successful build: wrong output, black image, crash.\n\nOutput image is black or all zeros\nYou allocated the output buffer but never wrote to it:\nunsigned char *out = malloc(width * height * 3);\n// Nothing written → garbage or zeros\nwrite_image_data(output_path, out, width, height);\nMake sure you fill every pixel before calling write_image_data.\n\n\n\nOutput image dimensions are wrong\nwrite_image_data requires the correct width and height for the output buffer. If you change dimensions (crop, rotate, scale), you must pass the new dimensions — not the original ones.\n\n\n\nProgram crashes — segmentation fault\nA segfault means your code accessed memory it doesn’t own. Three most common causes:\n1. Off-by-one when iterating\n// WRONG — goes one byte past the end\nfor (int i = 0; i &lt;= width * height * 3; i++) { ... }\n\n// CORRECT\nfor (int i = 0; i &lt; width * height * 3; i++) { ... }\n2. Array index out of bounds\n// Pixel at (x, y): index = (y * width + x) * 3\nint index = (y * width + x) * 3;\n// Always verify: x &lt; width, y &lt; height, index + 2 &lt; width * height * 3\n3. Null pointer — read_image_data failed\nunsigned char *data = NULL;\nint width, height, channels;\nint result = read_image_data(filename, &data, &width, &height, &channels);\nif (result != 0 || data == NULL) {\n    fprintf(stderr, \"Error: could not read image\\n\");\n    return;\n}\n// Only use data here, after the check\nAlways check the return value of read_image_data before using data.\n\n\n\nOutput format doesn’t match — CI test fails\nThe CI compares your output character by character against the reference. Check:\n\nExact spacing: dimension: 1488, 1488 not dimension: 1488,1488\nExact capitalization: max_pixel not Max_Pixel\nNo trailing spaces or extra newlines\n\nRe-read the feature’s issue file for the exact expected format.",
     "crumbs": [
       "Home",
       "Learn",
@@ -1359,11 +1339,11 @@
     ]
   },
   {
-    "objectID": "Resources/Troubleshooting.html#ci-failures",
-    "href": "Resources/Troubleshooting.html#ci-failures",
+    "objectID": "Resources/Troubleshooting.html#sec-git",
+    "href": "Resources/Troubleshooting.html#sec-git",
     "title": "Debugging & Troubleshooting",
-    "section": "CI failures",
-    "text": "CI failures\n\nCI fails but it works locally\n\nRead the workflow output in the Actions tab on GitHub.\nCheck that your main branch has the latest commit (not just a feature branch).\nEnsure your output format matches exactly — spacing, capitalization, and line endings matter.\n\nExample: if the expected output is dimension: 1488, 1488, then Dimension: 1488,1488 will fail.\n\n\n\nCI passes but grade does not update\nEvaluation runs on a daily schedule triggered by the teacher, not on every push. Wait until the next evaluation run. You can check the last run time in the Actions tab.",
+    "section": "4. Git & GitHub",
+    "text": "4. Git & GitHub\n\nPush rejected\nerror: failed to push some refs to 'origin/main'\nYour teammate pushed after your last git pull. Fix:\ngit pull --rebase\n# resolve any conflicts, then:\ngit push\n\n\n\nMerge conflict\nGit shows &lt;&lt;&lt;&lt;&lt;&lt; / ======= / &gt;&gt;&gt;&gt;&gt;&gt;&gt; markers. Two people edited the same lines.\n\nOpen the file in VS Code — conflicts are highlighted.\nChoose which version to keep (or combine both).\nRemove all conflict markers.\ngit add the resolved file, then git commit.\n\n\n\n\n\n\n\nTip\n\n\n\nConflicts on features.c and features.h are common when two people work in parallel. Prevent them: one person per file at a time, always git pull before starting a session.\n\n\n\n\n\nAccidentally committed to the wrong branch\ngit log --oneline -3    # confirm what you committed\ngit stash               # save your uncommitted changes (if any)\ngit checkout main       # switch to the right branch\ngit stash pop           # re-apply your changes\n\n\n\nIssues not appearing in my repository\n\nGo to your repository on GitHub → Actions tab.\nRun Import issues from Template manually → Run workflow.\nWait for the green checkmark.\nRefresh the Issues tab.\n\n\n\n\nCI fails but code works locally\n\nOpen the Actions tab on GitHub and read the workflow output.\nConfirm your latest commit is on main (not a feature branch).\nCheck your output format matches exactly — spacing, capitalization, line endings all matter.\n\n\n\n\nCI passes but grade doesn’t update\nEvaluation runs on a daily schedule triggered by the teacher — not on every push. Wait for the next run. You can check the last run time in the Actions tab.",
     "crumbs": [
       "Home",
       "Learn",
@@ -1371,11 +1351,23 @@
     ]
   },
   {
-    "objectID": "Resources/Troubleshooting.html#getting-further-help",
-    "href": "Resources/Troubleshooting.html#getting-further-help",
+    "objectID": "Resources/Troubleshooting.html#sec-team",
+    "href": "Resources/Troubleshooting.html#sec-team",
     "title": "Debugging & Troubleshooting",
-    "section": "Getting further help",
-    "text": "Getting further help\nIf none of the above solves your problem:\n\nTry to reproduce the problem with the smallest possible input (one tiny image, one feature).\nRead the full compiler output — the last few lines usually contain the real error.\nAsk a teammate or TA. Describe: what you did, what you expected, what happened.\nIf you believe the reference implementation or test has a bug, open a GitHub Issue in your repository.",
+    "section": "5. Team coordination",
+    "text": "5. Team coordination\n\nWhat does the team leader need to do?\nExactly one thing no one else should do: run workflow activation once, after every teammate has successfully run bash validconfig.sh and built helloworld.\nbash validconfig.sh --activate-workflows\nThis renames disabled workflow files and pushes an onboarding commit. Announce to your team — everyone else runs git pull.\n\n\n\nMy teammate already activated workflows\nRun git pull. You do not need to run --activate-workflows yourself.\n\n\n\nWho triggers the issue import?\nOne person only. GitHub → Actions → Import issues from Template → Run workflow. Everyone else waits, then runs git pull once issues appear.\n\n\n\nCan we split Milestone 1 issues and work in parallel?\nNo. Milestone 1 is mob programming — all three of you on the same machine, rotating who types. See First Steps — Milestone 1.\nSplitting Milestone 1 means some teammates never learn to open an image, access pixels, or add a feature — which directly hurts them in the individual final exam.",
+    "crumbs": [
+      "Home",
+      "Learn",
+      "Debugging & Troubleshooting"
+    ]
+  },
+  {
+    "objectID": "Resources/Troubleshooting.html#still-stuck",
+    "href": "Resources/Troubleshooting.html#still-stuck",
+    "title": "Debugging & Troubleshooting",
+    "section": "Still stuck?",
+    "text": "Still stuck?\n\nReproduce the problem with the smallest possible input — one tiny image, one feature.\nRead the full compiler output — the real error is usually near the top of the first error block.\nAsk a teammate or TA: describe what you did, what you expected, and what actually happened.\nIf you suspect a bug in the reference implementation or test, open a GitHub Issue in your repository — if confirmed, your contribution is noted positively.",
     "crumbs": [
       "Home",
       "Learn",

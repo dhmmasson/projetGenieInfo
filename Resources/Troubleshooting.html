@@ -131,6 +131,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="nav-link active" href="../index.html" aria-current="page"> 
 <span class="menu-text">Home</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../Resources/Troubleshooting.html"> 
+<span class="menu-text">FAQ: Debugging &amp; Troubleshooting</span></a>
+  </li>  
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-start-here" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Start Here</span>
@@ -145,12 +149,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="dropdown-text">Setup Guide</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../Getting-Started/First-Steps.html">
- <span class="dropdown-text">First Steps</span></a>
-  </li>  
-        <li>
     <a class="dropdown-item" href="../Getting-Started/Quick-Checklist.html">
  <span class="dropdown-text">Am I Ready to Code?</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../Getting-Started/First-Steps.html">
+ <span class="dropdown-text">First Code Steps</span></a>
   </li>  
     </ul>
   </li>
@@ -164,16 +168,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="dropdown-text">Workflows &amp; Milestones</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../Features/Features.html">
- <span class="dropdown-text">Features List</span></a>
-  </li>  
-        <li>
     <a class="dropdown-item" href="../Features/Freud-References.html">
  <span class="dropdown-text">Freud CLI Reference</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../Resources/Collaboration.html">
- <span class="dropdown-text">Team Collaboration</span></a>
+    <a class="dropdown-item" href="../Features/Features.html">
+ <span class="dropdown-text">Features List</span></a>
   </li>  
     </ul>
   </li>
@@ -187,12 +187,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="dropdown-text">Image Data Structure</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../Resources/Build-Toolchain.html">
- <span class="dropdown-text">The Build System</span></a>
+    <a class="dropdown-item" href="../Resources/Collaboration.html">
+ <span class="dropdown-text">Team Collaboration</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../Resources/Troubleshooting.html">
- <span class="dropdown-text">Debugging &amp; Troubleshooting</span></a>
+    <a class="dropdown-item" href="../Resources/Build-Toolchain.html">
+ <span class="dropdown-text">The Build System</span></a>
   </li>  
     </ul>
   </li>
@@ -220,10 +220,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li>
     <a class="dropdown-item" href="../Resources/Libraries.html">
  <span class="dropdown-text">Libraries</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../Resources/FAQ.html">
- <span class="dropdown-text">FAQ</span></a>
   </li>  
     </ul>
   </li>
@@ -429,8 +425,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Resources/FAQ.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">FAQ</span></a>
+  <a href="../Resources/Troubleshooting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Debugging &amp; Troubleshooting</span></a>
   </div>
 </li>
       </ul>
@@ -474,31 +470,46 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#build-errors" id="toc-build-errors" class="nav-link active" data-scroll-target="#build-errors">Build errors</a>
+  <li><a href="#sec-environment" id="toc-sec-environment" class="nav-link active" data-scroll-target="#sec-environment">1. Can’t get started</a>
   <ul class="collapse">
-  <li><a href="#cmake--b-build-fails-cmake-cannot-find-a-library" id="toc-cmake--b-build-fails-cmake-cannot-find-a-library" class="nav-link" data-scroll-target="#cmake--b-build-fails-cmake-cannot-find-a-library"><code>cmake -B build</code> fails — CMake cannot find a library</a></li>
-  <li><a href="#cmake---build-build-fails-compiler-error" id="toc-cmake---build-build-fails-compiler-error" class="nav-link" data-scroll-target="#cmake---build-build-fails-compiler-error"><code>cmake --build build</code> fails — compiler error</a></li>
-  <li><a href="#feature-builds-but-is-not-dispatched" id="toc-feature-builds-but-is-not-dispatched" class="nav-link" data-scroll-target="#feature-builds-but-is-not-dispatched">Feature builds but is not dispatched</a></li>
-  <li><a href="#feature-builds-but-is-not-recognized-by-the-ci" id="toc-feature-builds-but-is-not-recognized-by-the-ci" class="nav-link" data-scroll-target="#feature-builds-but-is-not-recognized-by-the-ci">Feature builds but is not recognized by the CI</a></li>
+  <li><a href="#path-and-encoding-project-wont-compile" id="toc-path-and-encoding-project-wont-compile" class="nav-link" data-scroll-target="#path-and-encoding-project-wont-compile">Path and encoding — project won’t compile</a></li>
+  <li><a href="#mingw-not-found-or-too-old" id="toc-mingw-not-found-or-too-old" class="nav-link" data-scroll-target="#mingw-not-found-or-too-old">MinGW not found or too old</a></li>
+  <li><a href="#git-not-recognized-in-vs-code" id="toc-git-not-recognized-in-vs-code" class="nav-link" data-scroll-target="#git-not-recognized-in-vs-code">Git not recognized in VS Code</a></li>
+  <li><a href="#git-authentication-fails" id="toc-git-authentication-fails" class="nav-link" data-scroll-target="#git-authentication-fails">Git authentication fails</a></li>
+  <li><a href="#cmake-version-too-old" id="toc-cmake-version-too-old" class="nav-link" data-scroll-target="#cmake-version-too-old">CMake version too old</a></li>
+  <li><a href="#libraries-not-found-by-cmake" id="toc-libraries-not-found-by-cmake" class="nav-link" data-scroll-target="#libraries-not-found-by-cmake">Libraries not found by CMake</a></li>
+  <li><a href="#how-do-i-choose-the-right-library-package" id="toc-how-do-i-choose-the-right-library-package" class="nav-link" data-scroll-target="#how-do-i-choose-the-right-library-package">How do I choose the right library package?</a></li>
   </ul></li>
-  <li><a href="#c-runtime-errors" id="toc-c-runtime-errors" class="nav-link" data-scroll-target="#c-runtime-errors">C runtime errors</a>
+  <li><a href="#sec-build" id="toc-sec-build" class="nav-link" data-scroll-target="#sec-build">2. Code won’t compile</a>
   <ul class="collapse">
-  <li><a href="#program-crashes-segmentation-fault" id="toc-program-crashes-segmentation-fault" class="nav-link" data-scroll-target="#program-crashes-segmentation-fault">Program crashes (segmentation fault)</a></li>
-  <li><a href="#output-image-is-black-all-zeros" id="toc-output-image-is-black-all-zeros" class="nav-link" data-scroll-target="#output-image-is-black-all-zeros">Output image is black / all zeros</a></li>
+  <li><a href="#reading-compiler-errors" id="toc-reading-compiler-errors" class="nav-link" data-scroll-target="#reading-compiler-errors">Reading compiler errors</a></li>
+  <li><a href="#feature-compiles-but-freud.exe--c-my_feature-does-nothing" id="toc-feature-compiles-but-freud.exe--c-my_feature-does-nothing" class="nav-link" data-scroll-target="#feature-compiles-but-freud.exe--c-my_feature-does-nothing">Feature compiles but <code>freud.exe -c my_feature</code> does nothing</a></li>
+  <li><a href="#feature-is-not-tested-by-the-ci" id="toc-feature-is-not-tested-by-the-ci" class="nav-link" data-scroll-target="#feature-is-not-tested-by-the-ci">Feature is not tested by the CI</a></li>
+  </ul></li>
+  <li><a href="#sec-runtime" id="toc-sec-runtime" class="nav-link" data-scroll-target="#sec-runtime">3. Code runs but behaves wrong</a>
+  <ul class="collapse">
+  <li><a href="#output-image-is-black-or-all-zeros" id="toc-output-image-is-black-or-all-zeros" class="nav-link" data-scroll-target="#output-image-is-black-or-all-zeros">Output image is black or all zeros</a></li>
   <li><a href="#output-image-dimensions-are-wrong" id="toc-output-image-dimensions-are-wrong" class="nav-link" data-scroll-target="#output-image-dimensions-are-wrong">Output image dimensions are wrong</a></li>
+  <li><a href="#program-crashes-segmentation-fault" id="toc-program-crashes-segmentation-fault" class="nav-link" data-scroll-target="#program-crashes-segmentation-fault">Program crashes — segmentation fault</a></li>
+  <li><a href="#output-format-doesnt-match-ci-test-fails" id="toc-output-format-doesnt-match-ci-test-fails" class="nav-link" data-scroll-target="#output-format-doesnt-match-ci-test-fails">Output format doesn’t match — CI test fails</a></li>
   </ul></li>
-  <li><a href="#git-problems" id="toc-git-problems" class="nav-link" data-scroll-target="#git-problems">Git problems</a>
+  <li><a href="#sec-git" id="toc-sec-git" class="nav-link" data-scroll-target="#sec-git">4. Git &amp; GitHub</a>
   <ul class="collapse">
   <li><a href="#push-rejected" id="toc-push-rejected" class="nav-link" data-scroll-target="#push-rejected">Push rejected</a></li>
   <li><a href="#merge-conflict" id="toc-merge-conflict" class="nav-link" data-scroll-target="#merge-conflict">Merge conflict</a></li>
   <li><a href="#accidentally-committed-to-the-wrong-branch" id="toc-accidentally-committed-to-the-wrong-branch" class="nav-link" data-scroll-target="#accidentally-committed-to-the-wrong-branch">Accidentally committed to the wrong branch</a></li>
+  <li><a href="#issues-not-appearing-in-my-repository" id="toc-issues-not-appearing-in-my-repository" class="nav-link" data-scroll-target="#issues-not-appearing-in-my-repository">Issues not appearing in my repository</a></li>
+  <li><a href="#ci-fails-but-code-works-locally" id="toc-ci-fails-but-code-works-locally" class="nav-link" data-scroll-target="#ci-fails-but-code-works-locally">CI fails but code works locally</a></li>
+  <li><a href="#ci-passes-but-grade-doesnt-update" id="toc-ci-passes-but-grade-doesnt-update" class="nav-link" data-scroll-target="#ci-passes-but-grade-doesnt-update">CI passes but grade doesn’t update</a></li>
   </ul></li>
-  <li><a href="#ci-failures" id="toc-ci-failures" class="nav-link" data-scroll-target="#ci-failures">CI failures</a>
+  <li><a href="#sec-team" id="toc-sec-team" class="nav-link" data-scroll-target="#sec-team">5. Team coordination</a>
   <ul class="collapse">
-  <li><a href="#ci-fails-but-it-works-locally" id="toc-ci-fails-but-it-works-locally" class="nav-link" data-scroll-target="#ci-fails-but-it-works-locally">CI fails but it works locally</a></li>
-  <li><a href="#ci-passes-but-grade-does-not-update" id="toc-ci-passes-but-grade-does-not-update" class="nav-link" data-scroll-target="#ci-passes-but-grade-does-not-update">CI passes but grade does not update</a></li>
+  <li><a href="#what-does-the-team-leader-need-to-do" id="toc-what-does-the-team-leader-need-to-do" class="nav-link" data-scroll-target="#what-does-the-team-leader-need-to-do">What does the team leader need to do?</a></li>
+  <li><a href="#my-teammate-already-activated-workflows" id="toc-my-teammate-already-activated-workflows" class="nav-link" data-scroll-target="#my-teammate-already-activated-workflows">My teammate already activated workflows</a></li>
+  <li><a href="#who-triggers-the-issue-import" id="toc-who-triggers-the-issue-import" class="nav-link" data-scroll-target="#who-triggers-the-issue-import">Who triggers the issue import?</a></li>
+  <li><a href="#can-we-split-milestone-1-issues-and-work-in-parallel" id="toc-can-we-split-milestone-1-issues-and-work-in-parallel" class="nav-link" data-scroll-target="#can-we-split-milestone-1-issues-and-work-in-parallel">Can we split Milestone 1 issues and work in parallel?</a></li>
   </ul></li>
-  <li><a href="#getting-further-help" id="toc-getting-further-help" class="nav-link" data-scroll-target="#getting-further-help">Getting further help</a></li>
+  <li><a href="#still-stuck" id="toc-still-stuck" class="nav-link" data-scroll-target="#still-stuck">Still stuck?</a></li>
   </ul>
 </nav>
     </div>
@@ -524,16 +535,83 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>This page covers the most common problems students encounter during the project, organized by when they tend to appear.</p>
-<p>For <strong>setup issues</strong> (library not found, path errors, workflow activation), see the <a href="../Resources/FAQ.html">FAQ</a>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Where are you stuck?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Jump to the right section:</p>
+<ul>
+<li><strong><a href="#sec-environment">Can’t get started</a></strong> — Git not recognized, path errors, MinGW, libraries not found</li>
+<li><strong><a href="#sec-build">Code won’t compile</a></strong> — CMake errors, compiler errors, feature not dispatched</li>
+<li><strong><a href="#sec-runtime">Code runs but behaves wrong</a></strong> — black image, crash, wrong output</li>
+<li><strong><a href="#sec-git">Git or GitHub problem</a></strong> — push rejected, merge conflict, issues not visible, CI failing</li>
+<li><strong><a href="#sec-team">Team coordination question</a></strong> — workflow activation, issue import, Milestone 1</li>
+</ul>
+</div>
+</div>
 <hr>
-<section id="build-errors" class="level2">
-<h2 class="anchored" data-anchor-id="build-errors">Build errors</h2>
-<section id="cmake--b-build-fails-cmake-cannot-find-a-library" class="level3">
-<h3 class="anchored" data-anchor-id="cmake--b-build-fails-cmake-cannot-find-a-library"><code>cmake -B build</code> fails — CMake cannot find a library</h3>
+<section id="sec-environment" class="level2">
+<h2 class="anchored" data-anchor-id="sec-environment">1. Can’t get started</h2>
+<p><em>Problems before you write any code: environment, tools, libraries.</em></p>
+<section id="path-and-encoding-project-wont-compile" class="level3">
+<h3 class="anchored" data-anchor-id="path-and-encoding-project-wont-compile">Path and encoding — project won’t compile</h3>
+<p><strong>No accents or special characters</strong> anywhere in your path.</p>
+<pre><code>✗ C:\Users\elodie.bouzekri\Documents\Ma bibliothèque\Génie Info\
+✓ C:\projetInfo\pgi-2026-your-team\</code></pre>
+<p>Clone your project into a short, accent-free path like <code>C:\projetInfo\pgi-2026-your-team</code>.</p>
+<hr>
+</section>
+<section id="mingw-not-found-or-too-old" class="level3">
+<h3 class="anchored" data-anchor-id="mingw-not-found-or-too-old">MinGW not found or too old</h3>
+<p>Check that MinGW is installed at <code>C:\MinGW\bin</code>:</p>
+<ul>
+<li>If missing, download: <a href="https://nuwen.net/files/mingw/mingw-19.0.exe">mingw-19.0.exe</a></li>
+<li>If present but not working, add <code>C:\MinGW\bin</code> to your <code>Path</code> environment variable, then restart VS Code</li>
+</ul>
+<hr>
+</section>
+<section id="git-not-recognized-in-vs-code" class="level3">
+<h3 class="anchored" data-anchor-id="git-not-recognized-in-vs-code">Git not recognized in VS Code</h3>
+<p>If <code>Git: Clone</code> does nothing in the command palette:</p>
+<ol type="1">
+<li>Check that Git is installed at <code>C:\MinGW\git\bin</code>
+<ul>
+<li>If missing, download: <a href="https://github.com/git-for-windows/git/releases/download/v2.36.1.windows.1/Git-2.36.1-64-bit.exe">Git-2.36.1-64-bit.exe</a></li>
+<li>If present, add <code>C:\MinGW\git\bin</code> to your <code>Path</code> environment variable</li>
+</ul></li>
+<li>Check that your folder is marked as trusted in VS Code:
+<ul>
+<li>Click the gear icon (bottom-left) → <strong>Manage Workspace Trust</strong> → <strong>Trust</strong></li>
+</ul></li>
+</ol>
+<hr>
+</section>
+<section id="git-authentication-fails" class="level3">
+<h3 class="anchored" data-anchor-id="git-authentication-fails">Git authentication fails</h3>
+<p>If Git asks for credentials repeatedly or is not authorized with GitHub:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> credential.useHttpPath true</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This forces Git to open a browser to set up authentication.</p>
+<hr>
+</section>
+<section id="cmake-version-too-old" class="level3">
+<h3 class="anchored" data-anchor-id="cmake-version-too-old">CMake version too old</h3>
+<p>If CMake reports a version mismatch, lower the minimum required version in <code>CMakeLists.txt</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode cmake code-with-copy"><code class="sourceCode cmake"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Change:</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">cmake_minimum_required</span>(<span class="ot">VERSION</span> <span class="dt">3.20</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># To:</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="kw">cmake_minimum_required</span>(<span class="ot">VERSION</span> <span class="dt">3.15</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+<section id="libraries-not-found-by-cmake" class="level3">
+<h3 class="anchored" data-anchor-id="libraries-not-found-by-cmake">Libraries not found by CMake</h3>
 <pre><code>CMake Error: Could not find a package configuration file provided by "estia-image"</code></pre>
-<p><strong>Cause:</strong> The <code>estia-image/</code> or <code>getopt/</code> folder is missing or misplaced.<br>
-<strong>Fix:</strong> Check that both folders exist at the root of your project (next to <code>src/</code>, <code>CMakeLists.txt</code>):</p>
+<p>Check that both library folders exist at the <strong>root</strong> of your project (next to <code>src/</code>, <code>CMakeLists.txt</code>):</p>
 <pre class="text"><code>pgi-2026-your-team/
 ├── estia-image/
 │   ├── include/
@@ -543,14 +621,54 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 │   └── lib/
 ├── src/
 └── CMakeLists.txt</code></pre>
-<p>If the structure is wrong, re-read <a href="../Getting-Started/Setup.html#phase-3">Setup — Phase 3</a>.</p>
+<p>If you extracted the zip and the folder is wrapped in an outer folder, move only the <strong>inner</strong> folder:</p>
+<pre class="text"><code>✗ Wrong:
+estia-image-v2.0.1-win10-mingw32/
+    estia-image/         ← this is what you need
+        include/
+        lib/
+
+✓ Correct — estia-image/ sits directly in the project root</code></pre>
+<p>See <a href="../Getting-Started/Setup.html#phase-3">Setup — Phase 3</a> for full instructions.</p>
 <hr>
 </section>
-<section id="cmake---build-build-fails-compiler-error" class="level3">
-<h3 class="anchored" data-anchor-id="cmake---build-build-fails-compiler-error"><code>cmake --build build</code> fails — compiler error</h3>
-<p>Before reading the full error log, run <code>bash validconfig.sh</code> — it checks common configuration mistakes and gives actionable messages.</p>
-<p>The compiler always reports the <strong>first</strong> error. Fix it, rebuild, then move to the next.</p>
-<p><strong>Common patterns:</strong></p>
+<section id="how-do-i-choose-the-right-library-package" class="level3">
+<h3 class="anchored" data-anchor-id="how-do-i-choose-the-right-library-package">How do I choose the right library package?</h3>
+<p>The deciding factor is the <strong>CPU architecture prefix</strong>, not the mingw suffix:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gcc</span> <span class="at">-dumpmachine</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Output starts with</th>
+<th>Download</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>x86_64</code></td>
+<td><code>*-win10-mingw64.zip</code></td>
+</tr>
+<tr class="even">
+<td><code>i686</code></td>
+<td><code>*-win10-mingw32.zip</code></td>
+</tr>
+</tbody>
+</table>
+<p><code>x86_64-w64-mingw32</code> → the <code>x86_64</code> prefix means 64-bit → download <strong>mingw64</strong>.</p>
+<p>Packages: <a href="https://github.com/Estia-1a/projetGenieInfo_public/releases/tag/v2.0.1">v2.0.1 release</a>.</p>
+<hr>
+</section>
+</section>
+<section id="sec-build" class="level2">
+<h2 class="anchored" data-anchor-id="sec-build">2. Code won’t compile</h2>
+<p><em>Problems during <code>cmake -B build</code> or <code>cmake --build build</code>.</em></p>
+<p><strong>First step — always run:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> validconfig.sh</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This checks common configuration mistakes and gives actionable messages before you dig into the raw error log.</p>
+<hr>
+<section id="reading-compiler-errors" class="level3">
+<h3 class="anchored" data-anchor-id="reading-compiler-errors">Reading compiler errors</h3>
+<p>The compiler reports the <strong>first</strong> error. Fix it, rebuild, then move to the next. Do not try to fix multiple errors at once.</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 50%">
@@ -565,15 +683,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tbody>
 <tr class="odd">
 <td><code>implicit declaration of function 'foo'</code></td>
-<td><code>foo</code> declared in <code>.h</code> but not included in <code>.c</code></td>
+<td><code>foo</code> declared in <code>.h</code> but the <code>.h</code> is not <code>#include</code>d in your <code>.c</code></td>
 </tr>
 <tr class="even">
 <td><code>undeclared identifier 'foo'</code></td>
-<td>Missing <code>#include</code> or typo in name</td>
+<td>Missing <code>#include</code> or typo in the name</td>
 </tr>
 <tr class="odd">
 <td><code>error: expected ';'</code></td>
-<td>Missing semicolon — usually one line before the error</td>
+<td>Missing semicolon — usually one line <strong>before</strong> the reported line</td>
 </tr>
 <tr class="even">
 <td><code>undefined reference to 'foo'</code></td>
@@ -581,96 +699,104 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 <tr class="odd">
 <td><code>too few/many arguments</code></td>
-<td>Function signature in <code>.h</code> does not match the call</td>
+<td>Function signature in <code>.h</code> does not match the call site</td>
 </tr>
 </tbody>
 </table>
 <hr>
 </section>
-<section id="feature-builds-but-is-not-dispatched" class="level3">
-<h3 class="anchored" data-anchor-id="feature-builds-but-is-not-dispatched">Feature builds but is not dispatched</h3>
-<p>Your feature compiles but <code>freud.exe -c my_feature</code> prints nothing or the wrong output.</p>
-<p><strong>Check <code>main.c</code>:</strong> Every feature requires a dispatch branch:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>strcmp<span class="op">(</span>conf<span class="op">.</span>command<span class="op">,</span> <span class="st">"my_feature"</span><span class="op">)</span> <span class="op">==</span> <span class="dv">0</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    my_feature<span class="op">(</span>conf<span class="op">.</span>filenames<span class="op">[</span><span class="dv">0</span><span class="op">]);</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>If this <code>if</code> block is missing, your function is never called.</p>
+<section id="feature-compiles-but-freud.exe--c-my_feature-does-nothing" class="level3">
+<h3 class="anchored" data-anchor-id="feature-compiles-but-freud.exe--c-my_feature-does-nothing">Feature compiles but <code>freud.exe -c my_feature</code> does nothing</h3>
+<p><strong>Check <code>main.c</code></strong> — every feature needs a dispatch branch:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>strcmp<span class="op">(</span>conf<span class="op">.</span>command<span class="op">,</span> <span class="st">"my_feature"</span><span class="op">)</span> <span class="op">==</span> <span class="dv">0</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    my_feature<span class="op">(</span>conf<span class="op">.</span>filenames<span class="op">[</span><span class="dv">0</span><span class="op">]);</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>If this block is missing, your function is never called regardless of how correct it is.</p>
 <hr>
 </section>
-<section id="feature-builds-but-is-not-recognized-by-the-ci" class="level3">
-<h3 class="anchored" data-anchor-id="feature-builds-but-is-not-recognized-by-the-ci">Feature builds but is not recognized by the CI</h3>
-<p><strong>Check <code>freud.manifest</code>:</strong> The command name must appear exactly on its own line:</p>
+<section id="feature-is-not-tested-by-the-ci" class="level3">
+<h3 class="anchored" data-anchor-id="feature-is-not-tested-by-the-ci">Feature is not tested by the CI</h3>
+<p><strong>Check <code>freud.manifest</code></strong> — the command name must appear on its own line, exactly:</p>
 <pre><code>helloworld
 dimension
 my_feature</code></pre>
-<p>No spaces, no quotes, no extra characters. The CI reads this file to know which features to test.</p>
+<p>No spaces, no quotes, no extra characters. The CI reads this file to discover which features to test. If the entry is missing, the CI skips your feature entirely.</p>
 <hr>
 </section>
 </section>
-<section id="c-runtime-errors" class="level2">
-<h2 class="anchored" data-anchor-id="c-runtime-errors">C runtime errors</h2>
-<section id="program-crashes-segmentation-fault" class="level3">
-<h3 class="anchored" data-anchor-id="program-crashes-segmentation-fault">Program crashes (segmentation fault)</h3>
-<p>A segfault means you accessed memory you don’t own. Most common causes:</p>
-<p><strong>1. Array index out of bounds</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Image is width * height * 3 bytes</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">// Accessing pixel (x, y): index = (y * width + x) * 3</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> index <span class="op">=</span> <span class="op">(</span>y <span class="op">*</span> width <span class="op">+</span> x<span class="op">)</span> <span class="op">*</span> <span class="dv">3</span><span class="op">;</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>data<span class="op">[</span>index<span class="op">];</span>     <span class="co">// OK if x &lt; width and y &lt; height</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>data<span class="op">[</span>index <span class="op">+</span> <span class="dv">2</span><span class="op">];</span> <span class="co">// Always check you don't go past data[width*height*3 - 1]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>2. Null pointer from <code>read_image_data</code></strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="dt">unsigned</span> <span class="dt">char</span> <span class="op">*</span>data <span class="op">=</span> NULL<span class="op">;</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> width<span class="op">,</span> height<span class="op">,</span> channels<span class="op">;</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> result <span class="op">=</span> read_image_data<span class="op">(</span>filename<span class="op">,</span> <span class="op">&amp;</span>data<span class="op">,</span> <span class="op">&amp;</span>width<span class="op">,</span> <span class="op">&amp;</span>height<span class="op">,</span> <span class="op">&amp;</span>channels<span class="op">);</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>result <span class="op">!=</span> <span class="dv">0</span> <span class="op">||</span> data <span class="op">==</span> NULL<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    fprintf<span class="op">(</span>stderr<span class="op">,</span> <span class="st">"Error: could not read image</span><span class="sc">\n</span><span class="st">"</span><span class="op">);</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span><span class="op">;</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Always check the return value before using <code>data</code>.</p>
-<p><strong>3. Off-by-one when iterating pixels</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">// WRONG: goes past the last pixel</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;=</span> width <span class="op">*</span> height <span class="op">*</span> <span class="dv">3</span><span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span> <span class="op">...</span> <span class="op">}</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">// CORRECT</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> width <span class="op">*</span> height <span class="op">*</span> <span class="dv">3</span><span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span> <span class="op">...</span> <span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<hr>
-</section>
-<section id="output-image-is-black-all-zeros" class="level3">
-<h3 class="anchored" data-anchor-id="output-image-is-black-all-zeros">Output image is black / all zeros</h3>
-<p>You created the output buffer but forgot to copy or modify pixels:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="dt">unsigned</span> <span class="dt">char</span> <span class="op">*</span>out <span class="op">=</span> malloc<span class="op">(</span>width <span class="op">*</span> height <span class="op">*</span> <span class="dv">3</span><span class="op">);</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co">// Without writing to out, it's garbage memory or all zeros</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>write_image_data<span class="op">(</span>output_path<span class="op">,</span> out<span class="op">,</span> width<span class="op">,</span> height<span class="op">);</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Make sure you write to every pixel before calling <code>write_image_data</code>.</p>
+<section id="sec-runtime" class="level2">
+<h2 class="anchored" data-anchor-id="sec-runtime">3. Code runs but behaves wrong</h2>
+<p><em>Problems after a successful build: wrong output, black image, crash.</em></p>
+<section id="output-image-is-black-or-all-zeros" class="level3">
+<h3 class="anchored" data-anchor-id="output-image-is-black-or-all-zeros">Output image is black or all zeros</h3>
+<p>You allocated the output buffer but never wrote to it:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="dt">unsigned</span> <span class="dt">char</span> <span class="op">*</span>out <span class="op">=</span> malloc<span class="op">(</span>width <span class="op">*</span> height <span class="op">*</span> <span class="dv">3</span><span class="op">);</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co">// Nothing written → garbage or zeros</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>write_image_data<span class="op">(</span>output_path<span class="op">,</span> out<span class="op">,</span> width<span class="op">,</span> height<span class="op">);</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Make sure you fill every pixel before calling <code>write_image_data</code>.</p>
 <hr>
 </section>
 <section id="output-image-dimensions-are-wrong" class="level3">
 <h3 class="anchored" data-anchor-id="output-image-dimensions-are-wrong">Output image dimensions are wrong</h3>
-<p><code>write_image_data</code> needs the <strong>original</strong> width and height unless you’re implementing a resize/crop. If you change dimensions, you must also change what you pass to <code>write_image_data</code>.</p>
+<p><code>write_image_data</code> requires the correct width and height for the <strong>output</strong> buffer. If you change dimensions (crop, rotate, scale), you must pass the new dimensions — not the original ones.</p>
+<hr>
+</section>
+<section id="program-crashes-segmentation-fault" class="level3">
+<h3 class="anchored" data-anchor-id="program-crashes-segmentation-fault">Program crashes — segmentation fault</h3>
+<p>A segfault means your code accessed memory it doesn’t own. Three most common causes:</p>
+<p><strong>1. Off-by-one when iterating</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">// WRONG — goes one byte past the end</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;=</span> width <span class="op">*</span> height <span class="op">*</span> <span class="dv">3</span><span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span> <span class="op">...</span> <span class="op">}</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co">// CORRECT</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> width <span class="op">*</span> height <span class="op">*</span> <span class="dv">3</span><span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span> <span class="op">...</span> <span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>2. Array index out of bounds</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Pixel at (x, y): index = (y * width + x) * 3</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> index <span class="op">=</span> <span class="op">(</span>y <span class="op">*</span> width <span class="op">+</span> x<span class="op">)</span> <span class="op">*</span> <span class="dv">3</span><span class="op">;</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co">// Always verify: x &lt; width, y &lt; height, index + 2 &lt; width * height * 3</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>3. Null pointer — <code>read_image_data</code> failed</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="dt">unsigned</span> <span class="dt">char</span> <span class="op">*</span>data <span class="op">=</span> NULL<span class="op">;</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> width<span class="op">,</span> height<span class="op">,</span> channels<span class="op">;</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> result <span class="op">=</span> read_image_data<span class="op">(</span>filename<span class="op">,</span> <span class="op">&amp;</span>data<span class="op">,</span> <span class="op">&amp;</span>width<span class="op">,</span> <span class="op">&amp;</span>height<span class="op">,</span> <span class="op">&amp;</span>channels<span class="op">);</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>result <span class="op">!=</span> <span class="dv">0</span> <span class="op">||</span> data <span class="op">==</span> NULL<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    fprintf<span class="op">(</span>stderr<span class="op">,</span> <span class="st">"Error: could not read image</span><span class="sc">\n</span><span class="st">"</span><span class="op">);</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span><span class="op">;</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="co">// Only use data here, after the check</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Always check the return value of <code>read_image_data</code> before using <code>data</code>.</p>
+<hr>
+</section>
+<section id="output-format-doesnt-match-ci-test-fails" class="level3">
+<h3 class="anchored" data-anchor-id="output-format-doesnt-match-ci-test-fails">Output format doesn’t match — CI test fails</h3>
+<p>The CI compares your output <strong>character by character</strong> against the reference. Check:</p>
+<ul>
+<li>Exact spacing: <code>dimension: 1488, 1488</code> not <code>dimension: 1488,1488</code></li>
+<li>Exact capitalization: <code>max_pixel</code> not <code>Max_Pixel</code></li>
+<li>No trailing spaces or extra newlines</li>
+</ul>
+<p>Re-read the feature’s issue file for the exact expected format.</p>
 <hr>
 </section>
 </section>
-<section id="git-problems" class="level2">
-<h2 class="anchored" data-anchor-id="git-problems">Git problems</h2>
+<section id="sec-git" class="level2">
+<h2 class="anchored" data-anchor-id="sec-git">4. Git &amp; GitHub</h2>
 <section id="push-rejected" class="level3">
 <h3 class="anchored" data-anchor-id="push-rejected">Push rejected</h3>
 <pre><code>error: failed to push some refs to 'origin/main'</code></pre>
-<p><strong>Cause:</strong> Your teammate pushed something after your last <code>git pull</code>.<br>
-<strong>Fix:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull <span class="at">--rebase</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co"># resolve any conflicts, then:</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Your teammate pushed after your last <code>git pull</code>. Fix:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull <span class="at">--rebase</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co"># resolve any conflicts, then:</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
 <section id="merge-conflict" class="level3">
 <h3 class="anchored" data-anchor-id="merge-conflict">Merge conflict</h3>
-<p>Git shows <code>&lt;&lt;&lt;&lt;&lt;&lt;</code> / <code>=======</code> / <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code> markers in a file. This means two people edited the same lines.</p>
+<p>Git shows <code>&lt;&lt;&lt;&lt;&lt;&lt;</code> / <code>=======</code> / <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code> markers. Two people edited the same lines.</p>
 <ol type="1">
-<li>Open the file in VS Code — it highlights conflicts.</li>
+<li>Open the file in VS Code — conflicts are highlighted.</li>
 <li>Choose which version to keep (or combine both).</li>
 <li>Remove all conflict markers.</li>
-<li><code>git add</code> the resolved file.</li>
-<li><code>git commit</code>.</li>
+<li><code>git add</code> the resolved file, then <code>git commit</code>.</li>
 </ol>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -682,46 +808,77 @@ Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Conflicts on <code>features.c</code> and <code>features.h</code> are common when two people implement different features. To avoid them: coordinate — one person per file at a time, and pull before starting each session.</p>
+<p>Conflicts on <code>features.c</code> and <code>features.h</code> are common when two people work in parallel. Prevent them: one person per file at a time, always <code>git pull</code> before starting a session.</p>
 </div>
 </div>
 <hr>
 </section>
 <section id="accidentally-committed-to-the-wrong-branch" class="level3">
 <h3 class="anchored" data-anchor-id="accidentally-committed-to-the-wrong-branch">Accidentally committed to the wrong branch</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log <span class="at">--oneline</span> <span class="at">-3</span>    <span class="co"># check what you committed</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> stash               <span class="co"># if not committed yet, stash changes</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout main       <span class="co"># switch to the right branch</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> stash pop           <span class="co"># re-apply your changes</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log <span class="at">--oneline</span> <span class="at">-3</span>    <span class="co"># confirm what you committed</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> stash               <span class="co"># save your uncommitted changes (if any)</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout main       <span class="co"># switch to the right branch</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> stash pop           <span class="co"># re-apply your changes</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
-</section>
-<section id="ci-failures" class="level2">
-<h2 class="anchored" data-anchor-id="ci-failures">CI failures</h2>
-<section id="ci-fails-but-it-works-locally" class="level3">
-<h3 class="anchored" data-anchor-id="ci-fails-but-it-works-locally">CI fails but it works locally</h3>
+<section id="issues-not-appearing-in-my-repository" class="level3">
+<h3 class="anchored" data-anchor-id="issues-not-appearing-in-my-repository">Issues not appearing in my repository</h3>
 <ol type="1">
-<li>Read the workflow output in the <code>Actions</code> tab on GitHub.</li>
-<li>Check that your <code>main</code> branch has the latest commit (not just a feature branch).</li>
-<li>Ensure your output format matches <strong>exactly</strong> — spacing, capitalization, and line endings matter.</li>
+<li>Go to your repository on GitHub → <strong>Actions</strong> tab.</li>
+<li>Run <code>Import issues from Template</code> manually → <strong>Run workflow</strong>.</li>
+<li>Wait for the green checkmark.</li>
+<li>Refresh the <strong>Issues</strong> tab.</li>
 </ol>
-<p>Example: if the expected output is <code>dimension: 1488, 1488</code>, then <code>Dimension: 1488,1488</code> will fail.</p>
 <hr>
 </section>
-<section id="ci-passes-but-grade-does-not-update" class="level3">
-<h3 class="anchored" data-anchor-id="ci-passes-but-grade-does-not-update">CI passes but grade does not update</h3>
-<p>Evaluation runs on a daily schedule triggered by the teacher, not on every push. Wait until the next evaluation run. You can check the last run time in the <code>Actions</code> tab.</p>
-<hr>
-</section>
-</section>
-<section id="getting-further-help" class="level2">
-<h2 class="anchored" data-anchor-id="getting-further-help">Getting further help</h2>
-<p>If none of the above solves your problem:</p>
+<section id="ci-fails-but-code-works-locally" class="level3">
+<h3 class="anchored" data-anchor-id="ci-fails-but-code-works-locally">CI fails but code works locally</h3>
 <ol type="1">
-<li>Try to reproduce the problem with the <strong>smallest possible input</strong> (one tiny image, one feature).</li>
-<li>Read the full compiler output — the last few lines usually contain the real error.</li>
-<li>Ask a teammate or TA. Describe: what you did, what you expected, what happened.</li>
-<li>If you believe the reference implementation or test has a bug, open a GitHub Issue in your repository.</li>
+<li>Open the <strong>Actions</strong> tab on GitHub and read the workflow output.</li>
+<li>Confirm your latest commit is on <code>main</code> (not a feature branch).</li>
+<li>Check your output format matches <strong>exactly</strong> — spacing, capitalization, line endings all matter.</li>
+</ol>
+<hr>
+</section>
+<section id="ci-passes-but-grade-doesnt-update" class="level3">
+<h3 class="anchored" data-anchor-id="ci-passes-but-grade-doesnt-update">CI passes but grade doesn’t update</h3>
+<p>Evaluation runs on a daily schedule triggered by the teacher — not on every push. Wait for the next run. You can check the last run time in the <strong>Actions</strong> tab.</p>
+<hr>
+</section>
+</section>
+<section id="sec-team" class="level2">
+<h2 class="anchored" data-anchor-id="sec-team">5. Team coordination</h2>
+<section id="what-does-the-team-leader-need-to-do" class="level3">
+<h3 class="anchored" data-anchor-id="what-does-the-team-leader-need-to-do">What does the team leader need to do?</h3>
+<p>Exactly one thing no one else should do: run workflow activation <strong>once</strong>, after every teammate has successfully run <code>bash validconfig.sh</code> and built <code>helloworld</code>.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> validconfig.sh <span class="at">--activate-workflows</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This renames disabled workflow files and pushes an onboarding commit. Announce to your team — everyone else runs <code>git pull</code>.</p>
+<hr>
+</section>
+<section id="my-teammate-already-activated-workflows" class="level3">
+<h3 class="anchored" data-anchor-id="my-teammate-already-activated-workflows">My teammate already activated workflows</h3>
+<p>Run <code>git pull</code>. You do not need to run <code>--activate-workflows</code> yourself.</p>
+<hr>
+</section>
+<section id="who-triggers-the-issue-import" class="level3">
+<h3 class="anchored" data-anchor-id="who-triggers-the-issue-import">Who triggers the issue import?</h3>
+<p>One person only. GitHub → <strong>Actions</strong> → <code>Import issues from Template</code> → <strong>Run workflow</strong>. Everyone else waits, then runs <code>git pull</code> once issues appear.</p>
+<hr>
+</section>
+<section id="can-we-split-milestone-1-issues-and-work-in-parallel" class="level3">
+<h3 class="anchored" data-anchor-id="can-we-split-milestone-1-issues-and-work-in-parallel">Can we split Milestone 1 issues and work in parallel?</h3>
+<p>No.&nbsp;Milestone 1 is mob programming — all three of you on the same machine, rotating who types. See <a href="../Getting-Started/First-Steps.html#milestone-1">First Steps — Milestone 1</a>.</p>
+<p>Splitting Milestone 1 means some teammates never learn to open an image, access pixels, or add a feature — which directly hurts them in the individual final exam.</p>
+<hr>
+</section>
+</section>
+<section id="still-stuck" class="level2">
+<h2 class="anchored" data-anchor-id="still-stuck">Still stuck?</h2>
+<ol type="1">
+<li>Reproduce the problem with the <strong>smallest possible input</strong> — one tiny image, one feature.</li>
+<li>Read the <strong>full</strong> compiler output — the real error is usually near the top of the first error block.</li>
+<li>Ask a teammate or TA: describe what you did, what you expected, and what actually happened.</li>
+<li>If you suspect a bug in the reference implementation or test, open a GitHub Issue in your repository — if confirmed, your contribution is noted positively.</li>
 </ol>
 
 
