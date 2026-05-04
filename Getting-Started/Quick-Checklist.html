@@ -490,8 +490,8 @@ ul.task-list li input[type="checkbox"] {
 <section id="libraries" class="level2">
 <h2 class="anchored" data-anchor-id="libraries">✅ Libraries</h2>
 <ul class="task-list">
-<li><label><input type="checkbox"><code>estia-image</code> library installed (run <code>cmake --install build</code> from the library directory)</label></li>
-<li><label><input type="checkbox"><code>getopt</code> library installed</label></li>
+<li><label><input type="checkbox">the correct <code>estia-image</code> library for my architecture installed directly in the project root (<code>estia-image/include/</code> and <code>estia-image/lib/</code> exist)</label></li>
+<li><label><input type="checkbox"><code>getopt</code> library installed (<code>getopt/include/</code> and <code>getopt/lib/</code> exist)</label></li>
 <li><label><input type="checkbox">Running <code>cmake -B build</code> in the project root completes without errors</label></li>
 </ul>
 <hr>
@@ -500,15 +500,15 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="first-build">✅ First build</h2>
 <ul class="task-list">
 <li><label><input type="checkbox"><code>cmake --build build</code> succeeds</label></li>
-<li><label><input type="checkbox"><code>cmake --install build</code> succeeds</label></li>
-<li><label><input type="checkbox"><code>./freud.exe --debug -f images/input/image.jpeg -c helloworld</code> prints output and creates an image</label></li>
+<li><label><input type="checkbox"><code>build/freud.exe --debug -f images/input/image.jpeg -c helloworld</code> prints hello world</label></li>
 </ul>
 <hr>
 </section>
 <section id="github-workflows" class="level2">
 <h2 class="anchored" data-anchor-id="github-workflows">✅ GitHub workflows</h2>
 <ul class="task-list">
-<li><label><input type="checkbox">Issues loaded into your repository (the <code>create-issues</code> workflow completed)</label></li>
+<li><label><input type="checkbox"><code>create-issues</code> workflow enabled (with the onboarding script or manually renamed and pushed)</label></li>
+<li><label><input type="checkbox">Issues loaded into your repository (the <code>create-issues</code> workflow run from the actions tab and completed)</label></li>
 <li><label><input type="checkbox">Milestones visible in your repository under <code>Issues → Milestones</code></label></li>
 <li><label><input type="checkbox">At least one issue open and assigned</label></li>
 </ul>
@@ -517,6 +517,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="git-cycle-works" class="level2">
 <h2 class="anchored" data-anchor-id="git-cycle-works">✅ Git cycle works</h2>
 <ul class="task-list">
+<li><label><input type="checkbox">Your git is configured with your name and email (<code>git config user.name</code> and <code>git config user.email</code> show correct values)</label></li>
 <li><label><input type="checkbox">You can make a change, <code>git commit</code>, and <code>git push</code> without errors</label></li>
 <li><label><input type="checkbox">Your teammates can <code>git pull</code> and see your changes</label></li>
 <li><label><input type="checkbox">GitHub Actions triggered after your push (visible under the <code>Actions</code> tab)</label></li>

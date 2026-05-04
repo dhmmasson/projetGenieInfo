@@ -1695,7 +1695,7 @@
     "href": "Getting-Started/Quick-Checklist.html#libraries",
     "title": "Am I Ready to Code?",
     "section": "✅ Libraries",
-    "text": "✅ Libraries\n\nestia-image library installed (run cmake --install build from the library directory)\ngetopt library installed\nRunning cmake -B build in the project root completes without errors",
+    "text": "✅ Libraries\n\nthe correct estia-image library for my architecture installed directly in the project root (estia-image/include/ and estia-image/lib/ exist)\ngetopt library installed (getopt/include/ and getopt/lib/ exist)\nRunning cmake -B build in the project root completes without errors",
     "crumbs": [
       "Home",
       "**Start Here**",
@@ -1707,7 +1707,7 @@
     "href": "Getting-Started/Quick-Checklist.html#first-build",
     "title": "Am I Ready to Code?",
     "section": "✅ First build",
-    "text": "✅ First build\n\ncmake --build build succeeds\ncmake --install build succeeds\n./freud.exe --debug -f images/input/image.jpeg -c helloworld prints output and creates an image",
+    "text": "✅ First build\n\ncmake --build build succeeds\nbuild/freud.exe --debug -f images/input/image.jpeg -c helloworld prints hello world",
     "crumbs": [
       "Home",
       "**Start Here**",
@@ -1719,7 +1719,7 @@
     "href": "Getting-Started/Quick-Checklist.html#github-workflows",
     "title": "Am I Ready to Code?",
     "section": "✅ GitHub workflows",
-    "text": "✅ GitHub workflows\n\nIssues loaded into your repository (the create-issues workflow completed)\nMilestones visible in your repository under Issues → Milestones\nAt least one issue open and assigned",
+    "text": "✅ GitHub workflows\n\ncreate-issues workflow enabled (with the onboarding script or manually renamed and pushed)\nIssues loaded into your repository (the create-issues workflow run from the actions tab and completed)\nMilestones visible in your repository under Issues → Milestones\nAt least one issue open and assigned",
     "crumbs": [
       "Home",
       "**Start Here**",
@@ -1731,7 +1731,7 @@
     "href": "Getting-Started/Quick-Checklist.html#git-cycle-works",
     "title": "Am I Ready to Code?",
     "section": "✅ Git cycle works",
-    "text": "✅ Git cycle works\n\nYou can make a change, git commit, and git push without errors\nYour teammates can git pull and see your changes\nGitHub Actions triggered after your push (visible under the Actions tab)\n\n\n\n\n\n\n\n\nTipAll boxes checked?\n\n\n\nYou are ready. Go to First Steps and start Milestone 1 as a team.\n\n\n\n\n\n\n\n\nWarningSomething not working?\n\n\n\nCheck Debugging & Troubleshooting — most setup issues are covered there.\nIf you’re stuck on a specific step, re-read the corresponding phase in Setup.",
+    "text": "✅ Git cycle works\n\nYour git is configured with your name and email (git config user.name and git config user.email show correct values)\nYou can make a change, git commit, and git push without errors\nYour teammates can git pull and see your changes\nGitHub Actions triggered after your push (visible under the Actions tab)\n\n\n\n\n\n\n\n\nTipAll boxes checked?\n\n\n\nYou are ready. Go to First Steps and start Milestone 1 as a team.\n\n\n\n\n\n\n\n\nWarningSomething not working?\n\n\n\nCheck Debugging & Troubleshooting — most setup issues are covered there.\nIf you’re stuck on a specific step, re-read the corresponding phase in Setup.",
     "crumbs": [
       "Home",
       "**Start Here**",
