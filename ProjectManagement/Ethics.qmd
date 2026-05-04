@@ -1,4 +1,7 @@
-# Ethics
+---
+title: "Ethics & AI Policy"
+---
+
 ## The goal of the project
 The purpose of this project is to help you learn how to design, write, debug, and explain C code yourself.
 
@@ -67,4 +70,4 @@ If a tool helps you understand, navigate, compile, test, or version your project
 
 If a tool produces the code that you were supposed to learn to write, it is not aligned with the course.
 
-When in doubt, ask yourself a simple question: “Will using this make me more capable alone at the final exam?” If the answer is no, you are probably using the wrong kind of help.
+When in doubt, ask yourself a simple question: “Will using this make me more capable alone at the final exam?” If the answer is no, you are probably using the wrong kind of help.# Ethics

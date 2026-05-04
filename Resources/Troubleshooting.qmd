@@ -1,0 +1,219 @@
+---
+title: "Debugging & Troubleshooting"
+---
+
+This page covers the most common problems students encounter during the project, organized by when they tend to appear.
+
+For **setup issues** (library not found, path errors, workflow activation), see the [FAQ](FAQ.qmd).
+
+---
+
+## Build errors
+
+### `cmake -B build` fails — CMake cannot find a library
+
+```
+CMake Error: Could not find a package configuration file provided by "estia-image"
+```
+
+**Cause:** The `estia-image/` or `getopt/` folder is missing or misplaced.  
+**Fix:** Check that both folders exist at the root of your project (next to `src/`, `CMakeLists.txt`):
+
+```text
+pgi-2026-your-team/
+├── estia-image/
+│   ├── include/
+│   └── lib/
+├── getopt/
+│   ├── include/
+│   └── lib/
+├── src/
+└── CMakeLists.txt
+```
+
+If the structure is wrong, re-read [Setup — Phase 3](../Getting-Started/Setup.qmd#phase-3).
+
+---
+
+### `cmake --build build` fails — compiler error
+
+Before reading the full error log, run `bash validconfig.sh` — it checks common configuration mistakes and gives actionable messages.
+
+The compiler always reports the **first** error. Fix it, rebuild, then move to the next.
+
+**Common patterns:**
+
+| Error message | Likely cause |
+|---|---|
+| `implicit declaration of function 'foo'` | `foo` declared in `.h` but not included in `.c` |
+| `undeclared identifier 'foo'` | Missing `#include` or typo in name |
+| `error: expected ';'` | Missing semicolon — usually one line before the error |
+| `undefined reference to 'foo'` | Function declared but not implemented, or not listed in `CMakeLists.txt` |
+| `too few/many arguments` | Function signature in `.h` does not match the call |
+
+---
+
+### Feature builds but is not dispatched
+
+Your feature compiles but `freud.exe -c my_feature` prints nothing or the wrong output.
+
+**Check `main.c`:** Every feature requires a dispatch branch:
+
+```c
+if (strcmp(conf.command, "my_feature") == 0) {
+    my_feature(conf.filenames[0]);
+}
+```
+
+If this `if` block is missing, your function is never called.
+
+---
+
+### Feature builds but is not recognized by the CI
+
+**Check `freud.manifest`:** The command name must appear exactly on its own line:
+
+```
+helloworld
+dimension
+my_feature
+```
+
+No spaces, no quotes, no extra characters. The CI reads this file to know which features to test.
+
+---
+
+## C runtime errors
+
+### Program crashes (segmentation fault)
+
+A segfault means you accessed memory you don't own. Most common causes:
+
+**1. Array index out of bounds**
+
+```c
+// Image is width * height * 3 bytes
+// Accessing pixel (x, y): index = (y * width + x) * 3
+int index = (y * width + x) * 3;
+data[index];     // OK if x < width and y < height
+data[index + 2]; // Always check you don't go past data[width*height*3 - 1]
+```
+
+**2. Null pointer from `read_image_data`**
+
+```c
+unsigned char *data = NULL;
+int width, height, channels;
+int result = read_image_data(filename, &data, &width, &height, &channels);
+if (result != 0 || data == NULL) {
+    fprintf(stderr, "Error: could not read image\n");
+    return;
+}
+```
+
+Always check the return value before using `data`.
+
+**3. Off-by-one when iterating pixels**
+
+```c
+// WRONG: goes past the last pixel
+for (int i = 0; i <= width * height * 3; i++) { ... }
+
+// CORRECT
+for (int i = 0; i < width * height * 3; i++) { ... }
+```
+
+---
+
+### Output image is black / all zeros
+
+You created the output buffer but forgot to copy or modify pixels:
+
+```c
+unsigned char *out = malloc(width * height * 3);
+// Without writing to out, it's garbage memory or all zeros
+write_image_data(output_path, out, width, height);
+```
+
+Make sure you write to every pixel before calling `write_image_data`.
+
+---
+
+### Output image dimensions are wrong
+
+`write_image_data` needs the **original** width and height unless you're implementing a resize/crop. If you change dimensions, you must also change what you pass to `write_image_data`.
+
+---
+
+## Git problems
+
+### Push rejected
+
+```
+error: failed to push some refs to 'origin/main'
+```
+
+**Cause:** Your teammate pushed something after your last `git pull`.  
+**Fix:**
+
+```bash
+git pull --rebase
+# resolve any conflicts, then:
+git push
+```
+
+---
+
+### Merge conflict
+
+Git shows `<<<<<<` / `=======` / `>>>>>>>` markers in a file. This means two people edited the same lines.
+
+1. Open the file in VS Code — it highlights conflicts.
+2. Choose which version to keep (or combine both).
+3. Remove all conflict markers.
+4. `git add` the resolved file.
+5. `git commit`.
+
+::: {.callout-tip}
+Conflicts on `features.c` and `features.h` are common when two people implement different features. To avoid them: coordinate — one person per file at a time, and pull before starting each session.
+:::
+
+---
+
+### Accidentally committed to the wrong branch
+
+```bash
+git log --oneline -3    # check what you committed
+git stash               # if not committed yet, stash changes
+git checkout main       # switch to the right branch
+git stash pop           # re-apply your changes
+```
+
+---
+
+## CI failures
+
+### CI fails but it works locally
+
+1. Read the workflow output in the `Actions` tab on GitHub.
+2. Check that your `main` branch has the latest commit (not just a feature branch).
+3. Ensure your output format matches **exactly** — spacing, capitalization, and line endings matter.
+
+Example: if the expected output is `dimension: 1488, 1488`, then `Dimension: 1488,1488` will fail.
+
+---
+
+### CI passes but grade does not update
+
+Evaluation runs on a daily schedule triggered by the teacher, not on every push. Wait until the next evaluation run. You can check the last run time in the `Actions` tab.
+
+---
+
+## Getting further help
+
+If none of the above solves your problem:
+
+1. Try to reproduce the problem with the **smallest possible input** (one tiny image, one feature).
+2. Read the full compiler output — the last few lines usually contain the real error.
+3. Ask a teammate or TA. Describe: what you did, what you expected, what happened.
+4. If you believe the reference implementation or test has a bug, open a GitHub Issue in your repository.

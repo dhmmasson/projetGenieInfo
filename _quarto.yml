@@ -7,70 +7,114 @@ website:
     left:
       - href: index.qmd
         text: Home
-      - href: Getting-Started/Ecosystem.qmd
-        text: Ecosystem
-      - href: Getting-Started/Setup.qmd
-        text: Setup
-      - href: Features/Features.qmd
-        text: Features
-      - href: ProjectManagement/Evaluation.qmd
-        text: Evaluation
+      - text: "Start Here"
+        menu:
+          - href: Getting-Started/Ecosystem.qmd
+            text: "The Project Ecosystem"
+          - href: Getting-Started/Setup.qmd
+            text: "Setup Guide"
+          - href: Getting-Started/First-Steps.qmd
+            text: "First Steps"
+          - href: Getting-Started/Quick-Checklist.qmd
+            text: "Am I Ready to Code?"
+      - text: "Code"
+        menu:
+          - href: ProjectManagement/Workflows.qmd
+            text: "Workflows & Milestones"
+          - href: Features/Features.qmd
+            text: "Features List"
+          - href: Features/Freud-References.qmd
+            text: "Freud CLI Reference"
+          - href: Resources/Collaboration.qmd
+            text: "Team Collaboration"
+      - text: "Learn"
+        menu:
+          - href: Resources/Image-Data-Structure.qmd
+            text: "Image Data Structure"
+          - href: Resources/Build-Toolchain.qmd
+            text: "The Build System"
+          - href: Resources/Troubleshooting.qmd
+            text: "Debugging & Troubleshooting"
+      - text: "Tools"
+        menu:
+          - href: Resources/Tools.qmd
+            text: "Tools Overview"
+          - href: Resources/Editors.qmd
+            text: "VS Code & Editors"
+          - href: Resources/Git-and-GitHub.qmd
+            text: "Git & GitHub"
+          - href: Resources/CLI.qmd
+            text: "Command Line"
+          - href: Resources/Libraries.qmd
+            text: "Libraries"
+          - href: Resources/FAQ.qmd
+            text: "FAQ"
+      - text: "Evaluate"
+        menu:
+          - href: ProjectManagement/Evaluation.qmd
+            text: "Grading & Progress"
+          - href: ProjectManagement/TA-Validation-Checklist.qmd
+            text: "TA Validation Checklist"
+          - href: ProjectManagement/Ethics.qmd
+            text: "Ethics & AI Policy"
       - href: ProjectManagement/Ethics.qmd
-        text: Ethics
-      - href: Resources/Tools.qmd
-        text: Tools
-      - href: Resources/Libraries.qmd
-        text: Libraries
-      - href: Resources/FAQ.qmd
-        text: FAQ
+        text: "Ethics"
   sidebar:
     contents:
       - href: index.qmd
         text: "Home"
-      - section: "Getting Started"
+      - section: "Start Here"
         contents:
           - href: Getting-Started/Ecosystem.qmd
             text: "The Project Ecosystem"
           - href: Getting-Started/Setup.qmd
-            text: "Setup"
+            text: "Setup Guide"
           - href: Getting-Started/First-Steps.qmd
             text: "First Steps"
-      - section: "Features"
-        contents:
-          - href: Features/Features.qmd
-            text: "Milestones and Issues"
-      - section: "Project Management"
+          - href: Getting-Started/Quick-Checklist.qmd
+            text: "Am I Ready to Code?"
+      - section: "Code"
         contents:
           - href: ProjectManagement/Workflows.qmd
-            text: "Workflows and Onboarding"
-          - href: ProjectManagement/Evaluation.qmd
-            text: "Evaluation"
-          - href: ProjectManagement/Ethics.qmd
-            text: "Ethics"
-          - href: ProjectManagement/TA-Validation-Checklist.qmd
-            text: "TA Validation Checklist"
-      - section: "Resources"
+            text: "Workflows & Milestones"
+          - href: Features/Features.qmd
+            text: "Features List"
+          - href: Features/Freud-References.qmd
+            text: "Freud CLI Reference"
+          - href: Resources/Collaboration.qmd
+            text: "Team Collaboration"
+      - section: "Learn"
+        contents:
+          - href: Resources/Image-Data-Structure.qmd
+            text: "Image Data Structure"
+          - href: Resources/Build-Toolchain.qmd
+            text: "The Build System"
+          - href: Resources/Outputs.qmd
+            text: "Understanding Outputs"
+          - href: Resources/Troubleshooting.qmd
+            text: "Debugging & Troubleshooting"
+      - section: "Tools"
         contents:
           - href: Resources/Tools.qmd
             text: "Tools Overview"
           - href: Resources/Editors.qmd
-            text: "Editors and VS Code"
-          - href: Resources/Build-Toolchain.qmd
-            text: "Compile Chain"
+            text: "VS Code & Editors"
           - href: Resources/Git-and-GitHub.qmd
-            text: "Git and GitHub"
+            text: "Git & GitHub"
           - href: Resources/CLI.qmd
-            text: "Using the Command Line"
-          - href: Resources/Collaboration.qmd
-            text: "Collaboration Strategies"
-          - href: Resources/Image-Data-Structure.qmd
-            text: "Image Data Structure"
+            text: "Command Line"
           - href: Resources/Libraries.qmd
             text: "Libraries"
-          - href: Resources/Outputs.qmd
-            text: "Outputs"
           - href: Resources/FAQ.qmd
             text: "FAQ"
+      - section: "Evaluate"
+        contents:
+          - href: ProjectManagement/Evaluation.qmd
+            text: "Grading & Progress"
+          - href: ProjectManagement/TA-Validation-Checklist.qmd
+            text: "TA Validation Checklist"
+          - href: ProjectManagement/Ethics.qmd
+            text: "Ethics & AI Policy"
 
 format:
   html:

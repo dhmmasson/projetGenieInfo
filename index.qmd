@@ -59,3 +59,53 @@ Do not skip ahead. Each step depends on the previous one.
 1. [The Project Ecosystem](Getting-Started/Ecosystem.qmd) — understand the three spaces and the overall flow
 2. [Setup](Getting-Started/Setup.qmd) — register team, clone, install tools, validate, activate workflows, import issues
 3. [First Steps](Getting-Started/First-Steps.qmd) — learn the dev loop, then start Milestone 1 together
+
+---
+
+## Where do you want to go?
+
+::: {.grid}
+
+::: {.g-col-12 .g-col-md-6}
+### 🚀 Just registered?
+Start from the beginning — register your team, set up your environment, and make your first commit.
+
+→ [Start Here](Getting-Started/Ecosystem.qmd)
+:::
+
+::: {.g-col-12 .g-col-md-6}
+### 💻 Ready to code?
+Browse features, pick your next issue, and understand the dev loop.
+
+→ [Code](ProjectManagement/Workflows.qmd)
+:::
+
+::: {.g-col-12 .g-col-md-6}
+### 🔍 Stuck or confused?
+Common build errors, Git problems, and debugging strategies.
+
+→ [Debugging & Troubleshooting](Resources/Troubleshooting.qmd)
+:::
+
+::: {.g-col-12 .g-col-md-6}
+### 📊 How am I graded?
+Understand the milestone system, CI evaluation, and academic integrity policy.
+
+→ [Evaluate](ProjectManagement/Evaluation.qmd)
+:::
+
+::: {.g-col-12 .g-col-md-6}
+### 📚 Want to understand deeper?
+Image data structure, the build system, and C patterns explained.
+
+→ [Learn](Resources/Image-Data-Structure.qmd)
+:::
+
+::: {.g-col-12 .g-col-md-6}
+### 🛠 Looking for a tool?
+VS Code, Git, CMake, command line — all in one place.
+
+→ [Tools](Resources/Tools.qmd)
+:::
+
+:::

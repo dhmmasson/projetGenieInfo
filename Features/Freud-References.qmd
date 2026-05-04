@@ -1,0 +1,203 @@
+---
+title: "Freud CLI Reference"
+---
+
+This page is a quick reference for the `freud` command-line tool: how to invoke it, what flags it accepts, and how each feature should behave.
+
+For how to **implement** a new feature, see [First Steps](../Getting-Started/First-Steps.qmd) and [Workflows & Milestones](../ProjectManagement/Workflows.qmd).
+
+---
+
+## Basic usage
+
+```bash
+./freud.exe -f <image> -c <command>
+```
+
+| Flag | Description |
+|---|---|
+| `-f <path>` | Input image path. Can be repeated for commands that take multiple images. |
+| `-c <command>` | Feature to run. Must match an entry in `freud.manifest`. |
+| `-o <path>` | Output image path. Default: `image_out.bmp` |
+| `--debug` | Print debug information (image loaded, dimensions, etc.) |
+| `--version` | Print version and exit |
+
+---
+
+## Example invocations
+
+```bash
+# Print image dimensions
+./freud.exe -f images/input/image.jpeg -c dimension
+
+# Make the image red
+./freud.exe -f images/input/image.jpeg -c color_red
+
+# Rotate clockwise and save with custom name
+./freud.exe -f images/input/image.jpeg -c rotate_cw -o rotated.bmp
+
+# Debug mode (prints image info before running)
+./freud.exe --debug -f images/input/image.jpeg -c dimension
+```
+
+---
+
+## Feature index
+
+### Milestone 1 — Tutorial
+
+| Command | Output |
+|---|---|
+| `helloworld` | Prints `Hello World!` |
+| `dimension` | `dimension: <width>, <height>` |
+| `color_first_pixel` | `color_first_pixel: R, G, B` |
+| `color_10th_pixel` | `color_10th_pixel: R, G, B` |
+| `color_first_pixel_second_line` | `color_first_pixel_second_line: R, G, B` |
+| `pixelRGB` | Uses `pixelRGB` struct, get and print functions |
+
+### Milestone 2 — Statistics
+
+| Command | Output |
+|---|---|
+| `max_pixel` | `max_pixel (x, y): R, G, B` |
+| `min_pixel` | `min_pixel (x, y): R, G, B` |
+| `max_component` | `max_component: value` |
+| `min_component` | `min_component: value` |
+| `full_report` | Writes a `.txt` file with all statistics |
+
+### Milestone 3 — Colors
+
+| Command | Output |
+|---|---|
+| `color_red` | Image with only red channel kept |
+| `color_green` | Image with only green channel kept |
+| `color_blue` | Image with only blue channel kept |
+| `grayscale` | Grayscale via channel averaging |
+| `invert` | Each channel inverted (255 − value) |
+| `luminance` | Grayscale via luminance formula |
+| `desaturate` | Desaturated image |
+
+### Milestone 4 — Transforms
+
+| Command | Output |
+|---|---|
+| `rotate_cw` | Image rotated 90° clockwise |
+| `rotate_ccw` | Image rotated 90° counter-clockwise |
+| `mirror_h` | Mirror effect — horizontal symmetry |
+| `mirror_v` | Mirror effect — vertical symmetry |
+| `mirror` | Mirror effect (combined) |
+| `crop` | Cropped image |
+
+### Milestone 5 — Resize
+
+| Command | Output |
+|---|---|
+| `scale_nn` | Scale via nearest-neighbor interpolation |
+| `scale_bilinear` | Scale via bilinear interpolation |
+
+> **Note:** Check each feature's issue file in [Features](Features.qmd) for the exact expected output format. The CI compares output character by character — spacing and capitalization must match exactly.
+
+---
+
+## The manifest file
+
+`freud.manifest` is a plain text file at the project root. It lists every command your binary supports, one per line:
+
+```
+helloworld
+dimension
+color_first_pixel
+color_red
+```
+
+**Rules:**
+- One command per line, no spaces, no quotes
+- The CI reads this file to know which features to test
+- If a command is implemented but missing from the manifest, the CI will not test it
+- If a command is in the manifest but not implemented, the CI test will fail
+
+---
+
+## Adding a new feature — the pattern
+
+Every new feature requires **four changes**:
+
+### 1. Declare in `src/features.h`
+
+```c
+void my_feature(char *source_path);
+```
+
+### 2. Implement in `src/features.c`
+
+```c
+void my_feature(char *source_path) {
+    unsigned char *data = NULL;
+    int width, height, channels;
+    read_image_data(source_path, &data, &width, &height, &channels);
+    // ... your logic ...
+    free(data);
+}
+```
+
+### 3. Dispatch in `src/main.c`
+
+```c
+if (strcmp(conf.command, "my_feature") == 0) {
+    my_feature(conf.filenames[0]);
+}
+```
+
+### 4. Register in `freud.manifest`
+
+```
+my_feature
+```
+
+Miss any one of these four steps and the feature either won't compile, won't run, or won't be tested by the CI.
+
+---
+
+## The `Config` struct
+
+`src/configp.h` defines the configuration parsed from command-line arguments:
+
+```c
+typedef struct _config {
+    int    debug_mode;                       // --debug flag
+    char   command[MAX_LENGTH_COMMAND];      // -c <command>
+    char*  filenames[MAX_FILE_COUNT];        // -f <path> (can repeat)
+    char*  arguments[MAX_ARGUMENT_COUNT];   // additional arguments
+} Config;
+```
+
+`conf.filenames[0]` is the first `-f` argument — the input image path.
+
+---
+
+## Key library functions
+
+From `estia-image/include/estia-image.h`:
+
+```c
+// Read image from file. Returns 0 on success.
+int read_image_data(const char *filename,
+                    unsigned char **data,
+                    int *width, int *height, int *nbChannels);
+
+// Write image to file. Returns 0 on success.
+int write_image_data(const char *filename,
+                     unsigned char *data,
+                     int width, int height);
+```
+
+Pixel access pattern (RGB, 3 channels):
+
+```c
+int index = (y * width + x) * 3;
+unsigned char R = data[index];
+unsigned char G = data[index + 1];
+unsigned char B = data[index + 2];
+```
+
+See [Image Data Structure](../Resources/Image-Data-Structure.qmd) for a full explanation of how pixels are laid out in memory.
