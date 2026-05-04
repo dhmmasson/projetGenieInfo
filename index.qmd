@@ -20,27 +20,30 @@ $ build/freud.exe -f images/input/test.jpg -c color_blue
 - Organize a software project with milestones and issues
 - Work as a team with Git and GitHub
 - Build and validate a C project with CMake
-- Prepare for individual coding in the final exam
+- **Prepare for the individual exam**: coding in a sandbox, answering questions about the project
 
 ::: {.callout-important}
 ## This project is about learning to code — not about using AI to code for you
 
-The goal is to develop your own C programming skills. **Do not use AI assistants (ChatGPT, GitHub Copilot, Gemini, etc.) to generate your code.** The final exam is individual and without any coding tool — what matters is what *you* have learned to write.
+The goal is to develop your own C programming skills. **Do not use AI assistants (ChatGPT, GitHub Copilot, Gemini, etc.) to generate your code.** The final exam is individual, in a sandboxed environment, with no internet or coding tools — what matters is what *you* have learned to write.
 
 Think of learning to program like going to the gym: the point is not to move weight from one place to another, the point is to become stronger yourself. Plagiarism is like pretending to be a fitness influencer by posting someone else's lift as your own. Using an LLM to generate your code is like bringing a forklift to move the weights for you: it is not the same kind of fault, but it still misses the point of the exercise.
 
-See the [Ethics](ProjectManagement/Ethics.qmd) page for the course policy on plagiarism, AI tools, and appropriate help.
+See the [Ethics & AI Policy](ProjectManagement/Ethics.qmd) page for the course policy on plagiarism, AI tools, and appropriate help.
 :::
 
 ## How you are evaluated
 
-You are evaluated on the number of features (issues) you implement and the milestones you complete.
+The course grade has two components:
 
-- **Passing grade (E):** complete at least the first 2 milestones (statistics + colors)
-- **Higher grades:** the more features you complete beyond that, the better
-- **Automatic tests run daily** on your `main` branch — you can check your progress at any time
+| Component | Weight |
+|---|---|
+| **Project** (team, automatic CI) | 5 / 20 |
+| **Exam** (individual, Moodle + Safe Exam Browser) | 15 / 20 |
 
-→ See [Evaluation](ProjectManagement/Evaluation.qmd) for full details.
+The exam tests your ability to answer questions about the project and write C code in a sandboxed environment — individually, without tools.
+
+→ See [Grading & Progress](ProjectManagement/Evaluation.qmd) for full details.
 
 ## Three spaces, one project
 

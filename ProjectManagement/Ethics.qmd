@@ -7,7 +7,7 @@ The purpose of this project is to help you learn how to design, write, debug, an
 
 That is the point to keep in mind when deciding whether a tool or a shortcut is acceptable.
 
-:::{callout-important}
+::: {.callout-important}
 
 Think about your project like going to the gym. The point isn’t just to lift weights—it’s to get stronger. In the same way, the goal of this project isn’t simply to end up with working code, but to improve your own programming skills.
 
@@ -21,8 +21,8 @@ Plagiarism is academic misconduct. The other may also create misconduct risks, a
 
 ## Plagiarism policy
 
-:::{callout-warning}
-Read this carefully
+::: {.callout-warning}
+## Read this carefully
 
 Before the final evaluation, all code is run through plagiarism detection.
 
@@ -46,7 +46,11 @@ prevent you from learning the skill being taught
 get your team flagged by similarity detection
 For this project, the right objective is not “get code quickly”. The right objective is “become able to write and understand this code without assistance”.
 
-This matters directly because the final exam is individual and done without coding assistants.
+This matters directly because **the final exam is individual, in a sandboxed environment (Moodle + Safe Exam Browser), with no internet, no AI tools, and no teammates**. It includes both MCQ questions about the project and a coding session where you must implement functions with automated tests — the same kind of work you do in the project.
+
+---
+
+→ See [Grading & Progress](Evaluation.qmd) for the full exam format.
 
 ## What is acceptable
 
@@ -70,4 +74,4 @@ If a tool helps you understand, navigate, compile, test, or version your project
 
 If a tool produces the code that you were supposed to learn to write, it is not aligned with the course.
 
-When in doubt, ask yourself a simple question: “Will using this make me more capable alone at the final exam?” If the answer is no, you are probably using the wrong kind of help.# Ethics
+When in doubt, ask yourself a simple question: "Will using this make me more capable alone at the final exam?" If the answer is no, you are probably using the wrong kind of help.
