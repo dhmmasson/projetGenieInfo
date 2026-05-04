@@ -2,19 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://dhmmasson.github.io/projetGenieInfo/ProjectManagement/Evaluation.html</loc>
+    <lastmod>2026-05-04T15:29:59.339Z</lastmod>
+  </url>
+  <url>
+    <loc>https://dhmmasson.github.io/projetGenieInfo/ProjectManagement/TA-Validation-Checklist.html</loc>
     <lastmod>2026-04-30T15:54:15.503Z</lastmod>
   </url>
   <url>
-    <loc>https://dhmmasson.github.io/projetGenieInfo/ProjectManagement/Workflows.html</loc>
-    <lastmod>2026-04-30T16:05:43.297Z</lastmod>
+    <loc>https://dhmmasson.github.io/projetGenieInfo/Getting-Started/Ecosystem.html</loc>
+    <lastmod>2026-04-30T15:54:15.502Z</lastmod>
   </url>
   <url>
-    <loc>https://dhmmasson.github.io/projetGenieInfo/Getting-Started/Setup.html</loc>
+    <loc>https://dhmmasson.github.io/projetGenieInfo/Getting-Started/First-Steps.html</loc>
     <lastmod>2026-04-30T15:54:15.502Z</lastmod>
   </url>
   <url>
     <loc>https://dhmmasson.github.io/projetGenieInfo/index.html</loc>
-    <lastmod>2026-04-30T15:54:15.504Z</lastmod>
+    <lastmod>2026-05-04T15:29:59.339Z</lastmod>
   </url>
   <url>
     <loc>https://dhmmasson.github.io/projetGenieInfo/Features/issues/feature-19-rotate-clockwise-90.html</loc>
@@ -65,27 +69,39 @@
     <lastmod>2026-04-30T15:54:15.499Z</lastmod>
   </url>
   <url>
-    <loc>https://dhmmasson.github.io/projetGenieInfo/Features/milestone/milestone-4-transform.html</loc>
+    <loc>https://dhmmasson.github.io/projetGenieInfo/Features/Freud-References.html</loc>
+    <lastmod>2026-05-04T15:11:05.939Z</lastmod>
+  </url>
+  <url>
+    <loc>https://dhmmasson.github.io/projetGenieInfo/Features/milestone/milestones.html</loc>
     <lastmod>2026-04-30T15:54:15.501Z</lastmod>
   </url>
   <url>
-    <loc>https://dhmmasson.github.io/projetGenieInfo/Features/milestone/no-milestone.html</loc>
-    <lastmod>2026-04-30T15:54:15.502Z</lastmod>
-  </url>
-  <url>
-    <loc>https://dhmmasson.github.io/projetGenieInfo/Features/milestone/milestone-1-tutorial.html</loc>
-    <lastmod>2026-04-30T15:54:15.543Z</lastmod>
-  </url>
-  <url>
-    <loc>https://dhmmasson.github.io/projetGenieInfo/Features/milestone/milestone-5-resize.html</loc>
+    <loc>https://dhmmasson.github.io/projetGenieInfo/Features/milestone/milestone-3-colors.html</loc>
     <lastmod>2026-04-30T15:54:15.501Z</lastmod>
   </url>
   <url>
-    <loc>https://dhmmasson.github.io/projetGenieInfo/Resources/Image-Data-Structure.html</loc>
+    <loc>https://dhmmasson.github.io/projetGenieInfo/Features/milestone/milestone-2-statistics.html</loc>
+    <lastmod>2026-04-30T15:54:15.500Z</lastmod>
+  </url>
+  <url>
+    <loc>https://dhmmasson.github.io/projetGenieInfo/Features/Features.html</loc>
+    <lastmod>2026-04-30T15:54:15.495Z</lastmod>
+  </url>
+  <url>
+    <loc>https://dhmmasson.github.io/projetGenieInfo/Resources/Editors.html</loc>
+    <lastmod>2026-05-04T08:18:46.611Z</lastmod>
+  </url>
+  <url>
+    <loc>https://dhmmasson.github.io/projetGenieInfo/Resources/Build-Toolchain.html</loc>
+    <lastmod>2026-05-04T08:18:46.641Z</lastmod>
+  </url>
+  <url>
+    <loc>https://dhmmasson.github.io/projetGenieInfo/Resources/FAQ.html</loc>
     <lastmod>2026-04-30T15:54:15.504Z</lastmod>
   </url>
   <url>
-    <loc>https://dhmmasson.github.io/projetGenieInfo/Resources/Collaboration.html</loc>
+    <loc>https://dhmmasson.github.io/projetGenieInfo/Resources/CLI.html</loc>
     <lastmod>2026-04-30T15:54:15.503Z</lastmod>
   </url>
   <url>
@@ -97,27 +113,39 @@
     <lastmod>2026-04-30T15:54:15.504Z</lastmod>
   </url>
   <url>
-    <loc>https://dhmmasson.github.io/projetGenieInfo/Resources/CLI.html</loc>
+    <loc>https://dhmmasson.github.io/projetGenieInfo/Resources/Tools.html</loc>
+    <lastmod>2026-05-04T08:18:46.611Z</lastmod>
+  </url>
+  <url>
+    <loc>https://dhmmasson.github.io/projetGenieInfo/Resources/Collaboration.html</loc>
     <lastmod>2026-04-30T15:54:15.503Z</lastmod>
   </url>
   <url>
-    <loc>https://dhmmasson.github.io/projetGenieInfo/Resources/FAQ.html</loc>
+    <loc>https://dhmmasson.github.io/projetGenieInfo/Resources/Git-and-GitHub.html</loc>
+    <lastmod>2026-05-04T08:18:46.649Z</lastmod>
+  </url>
+  <url>
+    <loc>https://dhmmasson.github.io/projetGenieInfo/Resources/Troubleshooting.html</loc>
+    <lastmod>2026-05-04T15:11:05.925Z</lastmod>
+  </url>
+  <url>
+    <loc>https://dhmmasson.github.io/projetGenieInfo/Resources/Image-Data-Structure.html</loc>
     <lastmod>2026-04-30T15:54:15.504Z</lastmod>
   </url>
   <url>
-    <loc>https://dhmmasson.github.io/projetGenieInfo/Features/Features.html</loc>
-    <lastmod>2026-04-30T15:54:15.495Z</lastmod>
-  </url>
-  <url>
-    <loc>https://dhmmasson.github.io/projetGenieInfo/Features/milestone/milestone-2-statistics.html</loc>
-    <lastmod>2026-04-30T15:54:15.500Z</lastmod>
-  </url>
-  <url>
-    <loc>https://dhmmasson.github.io/projetGenieInfo/Features/milestone/milestone-3-colors.html</loc>
+    <loc>https://dhmmasson.github.io/projetGenieInfo/Features/milestone/milestone-5-resize.html</loc>
     <lastmod>2026-04-30T15:54:15.501Z</lastmod>
   </url>
   <url>
-    <loc>https://dhmmasson.github.io/projetGenieInfo/Features/milestone/milestones.html</loc>
+    <loc>https://dhmmasson.github.io/projetGenieInfo/Features/milestone/milestone-1-tutorial.html</loc>
+    <lastmod>2026-04-30T15:54:15.543Z</lastmod>
+  </url>
+  <url>
+    <loc>https://dhmmasson.github.io/projetGenieInfo/Features/milestone/no-milestone.html</loc>
+    <lastmod>2026-04-30T15:54:15.502Z</lastmod>
+  </url>
+  <url>
+    <loc>https://dhmmasson.github.io/projetGenieInfo/Features/milestone/milestone-4-transform.html</loc>
     <lastmod>2026-04-30T15:54:15.501Z</lastmod>
   </url>
   <url>
@@ -173,15 +201,19 @@
     <lastmod>2026-04-30T15:54:15.496Z</lastmod>
   </url>
   <url>
-    <loc>https://dhmmasson.github.io/projetGenieInfo/Getting-Started/First-Steps.html</loc>
+    <loc>https://dhmmasson.github.io/projetGenieInfo/Getting-Started/Quick-Checklist.html</loc>
+    <lastmod>2026-05-04T15:11:05.919Z</lastmod>
+  </url>
+  <url>
+    <loc>https://dhmmasson.github.io/projetGenieInfo/Getting-Started/Setup.html</loc>
     <lastmod>2026-04-30T15:54:15.502Z</lastmod>
   </url>
   <url>
-    <loc>https://dhmmasson.github.io/projetGenieInfo/Getting-Started/Ecosystem.html</loc>
-    <lastmod>2026-04-30T15:54:15.502Z</lastmod>
+    <loc>https://dhmmasson.github.io/projetGenieInfo/ProjectManagement/Workflows.html</loc>
+    <lastmod>2026-05-04T14:51:43.533Z</lastmod>
   </url>
   <url>
-    <loc>https://dhmmasson.github.io/projetGenieInfo/ProjectManagement/TA-Validation-Checklist.html</loc>
-    <lastmod>2026-04-30T15:54:15.503Z</lastmod>
+    <loc>https://dhmmasson.github.io/projetGenieInfo/ProjectManagement/Ethics.html</loc>
+    <lastmod>2026-05-04T15:29:59.339Z</lastmod>
   </url>
 </urlset>

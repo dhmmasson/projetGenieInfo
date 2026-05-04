@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Evaluation – Projet Génie Info</title>
+<title>Grading &amp; Progress – Projet Génie Info</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -96,29 +131,124 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link active" href="../index.html" aria-current="page"> 
 <span class="menu-text">Home</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../Getting-Started/Ecosystem.html"> 
-<span class="menu-text">Ecosystem</span></a>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-start-here" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Start Here</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-start-here">    
+        <li>
+    <a class="dropdown-item" href="../Getting-Started/Ecosystem.html">
+ <span class="dropdown-text">The Project Ecosystem</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../Getting-Started/Setup.html"> 
-<span class="menu-text">Setup</span></a>
+        <li>
+    <a class="dropdown-item" href="../Getting-Started/Setup.html">
+ <span class="dropdown-text">Setup Guide</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../Features/Features.html"> 
-<span class="menu-text">Features</span></a>
+        <li>
+    <a class="dropdown-item" href="../Getting-Started/First-Steps.html">
+ <span class="dropdown-text">First Steps</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../ProjectManagement/Evaluation.html"> 
-<span class="menu-text">Evaluation</span></a>
+        <li>
+    <a class="dropdown-item" href="../Getting-Started/Quick-Checklist.html">
+ <span class="dropdown-text">Am I Ready to Code?</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../Resources/Libraries.html"> 
-<span class="menu-text">Libraries</span></a>
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-code" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Code</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-code">    
+        <li>
+    <a class="dropdown-item" href="../ProjectManagement/Workflows.html">
+ <span class="dropdown-text">Workflows &amp; Milestones</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../Features/Features.html">
+ <span class="dropdown-text">Features List</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../Features/Freud-References.html">
+ <span class="dropdown-text">Freud CLI Reference</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../Resources/Collaboration.html">
+ <span class="dropdown-text">Team Collaboration</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-learn" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Learn</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-learn">    
+        <li>
+    <a class="dropdown-item" href="../Resources/Image-Data-Structure.html">
+ <span class="dropdown-text">Image Data Structure</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../Resources/Build-Toolchain.html">
+ <span class="dropdown-text">The Build System</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../Resources/Troubleshooting.html">
+ <span class="dropdown-text">Debugging &amp; Troubleshooting</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-tools" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Tools</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-tools">    
+        <li>
+    <a class="dropdown-item" href="../Resources/Tools.html">
+ <span class="dropdown-text">Tools Overview</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../Resources/Editors.html">
+ <span class="dropdown-text">VS Code &amp; Editors</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../Resources/Git-and-GitHub.html">
+ <span class="dropdown-text">Git &amp; GitHub</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../Resources/CLI.html">
+ <span class="dropdown-text">Command Line</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../Resources/Libraries.html">
+ <span class="dropdown-text">Libraries</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../Resources/FAQ.html">
+ <span class="dropdown-text">FAQ</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-evaluate" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Evaluate</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-evaluate">    
+        <li>
+    <a class="dropdown-item" href="../ProjectManagement/Evaluation.html">
+ <span class="dropdown-text">Grading &amp; Progress</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../ProjectManagement/TA-Validation-Checklist.html">
+ <span class="dropdown-text">TA Validation Checklist</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../ProjectManagement/Ethics.html">
+ <span class="dropdown-text">Ethics &amp; AI Policy</span></a>
+  </li>  
+    </ul>
+  </li>
   <li class="nav-item">
-    <a class="nav-link" href="../Resources/FAQ.html"> 
-<span class="menu-text">FAQ</span></a>
+    <a class="nav-link" href="../ProjectManagement/Ethics.html"> 
+<span class="menu-text">Ethics</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -131,7 +261,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ProjectManagement/Workflows.html">Project Management</a></li><li class="breadcrumb-item"><a href="../ProjectManagement/Evaluation.html">Evaluation</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ProjectManagement/Evaluation.html">Evaluate</a></li><li class="breadcrumb-item"><a href="../ProjectManagement/Evaluation.html">Grading &amp; Progress</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -156,7 +286,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">Getting Started</span></a>
+ <span class="menu-text">Start Here</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -171,7 +301,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Getting-Started/Setup.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Setup</span></a>
+ <span class="menu-text">Setup Guide</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -180,12 +310,18 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">First Steps</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Getting-Started/Quick-Checklist.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Am I Ready to Code?</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">Features</span></a>
+ <span class="menu-text">Code</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -193,8 +329,26 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../ProjectManagement/Workflows.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Workflows &amp; Milestones</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../Features/Features.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Milestones and Issues</span></a>
+ <span class="menu-text">Features List</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Features/Freud-References.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Freud CLI Reference</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Resources/Collaboration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Team Collaboration</span></a>
   </div>
 </li>
       </ul>
@@ -202,7 +356,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">Project Management</span></a>
+ <span class="menu-text">Learn</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -210,20 +364,26 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../ProjectManagement/Workflows.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Workflows and Onboarding</span></a>
+  <a href="../Resources/Image-Data-Structure.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Image Data Structure</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../ProjectManagement/Evaluation.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Evaluation</span></a>
+  <a href="../Resources/Build-Toolchain.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The Build System</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../ProjectManagement/TA-Validation-Checklist.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">TA Validation Checklist</span></a>
+  <a href="../Resources/Outputs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Understanding Outputs</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Resources/Troubleshooting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Debugging &amp; Troubleshooting</span></a>
   </div>
 </li>
       </ul>
@@ -231,7 +391,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
- <span class="menu-text">Resources</span></a>
+ <span class="menu-text">Tools</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -239,20 +399,26 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../Resources/Tools.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tools Overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Resources/Editors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">VS Code &amp; Editors</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Resources/Git-and-GitHub.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Git &amp; GitHub</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../Resources/CLI.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Using the Command Line</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Resources/Collaboration.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Collaboration Strategies</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Resources/Image-Data-Structure.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Image Data Structure</span></a>
+ <span class="menu-text">Command Line</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -263,14 +429,37 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Resources/Outputs.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Outputs</span></a>
+  <a href="../Resources/FAQ.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">FAQ</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Evaluate</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ProjectManagement/Evaluation.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Grading &amp; Progress</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Resources/FAQ.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">FAQ</span></a>
+  <a href="../ProjectManagement/TA-Validation-Checklist.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">TA Validation Checklist</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ProjectManagement/Ethics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Ethics &amp; AI Policy</span></a>
   </div>
 </li>
       </ul>
@@ -285,31 +474,30 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#how-grading-works" id="toc-how-grading-works" class="nav-link active" data-scroll-target="#how-grading-works">How grading works</a></li>
-  <li><a href="#continuous-integration" id="toc-continuous-integration" class="nav-link" data-scroll-target="#continuous-integration">Continuous integration</a>
-  <ul class="collapse">
-  <li><a href="#what-the-ci-does" id="toc-what-the-ci-does" class="nav-link" data-scroll-target="#what-the-ci-does">What the CI does</a></li>
-  <li><a href="#how-tests-work" id="toc-how-tests-work" class="nav-link" data-scroll-target="#how-tests-work">How tests work</a></li>
-  <li><a href="#what-to-do-if-a-test-fails" id="toc-what-to-do-if-a-test-fails" class="nav-link" data-scroll-target="#what-to-do-if-a-test-fails">What to do if a test fails</a></li>
-  <li><a href="#daily-advice" id="toc-daily-advice" class="nav-link" data-scroll-target="#daily-advice">Daily advice</a></li>
-  </ul></li>
-  <li><a href="#final-evaluation" id="toc-final-evaluation" class="nav-link" data-scroll-target="#final-evaluation">Final evaluation</a>
+  <li><a href="#grade-breakdown" id="toc-grade-breakdown" class="nav-link active" data-scroll-target="#grade-breakdown">Grade breakdown</a></li>
+  <li><a href="#project-grade-5-20" id="toc-project-grade-5-20" class="nav-link" data-scroll-target="#project-grade-5-20">Project grade — 5 / 20</a>
   <ul class="collapse">
   <li><a href="#requirements" id="toc-requirements" class="nav-link" data-scroll-target="#requirements">Requirements</a></li>
+  <li><a href="#how-features-are-scored" id="toc-how-features-are-scored" class="nav-link" data-scroll-target="#how-features-are-scored">How features are scored</a></li>
+  <li><a href="#checking-your-progress" id="toc-checking-your-progress" class="nav-link" data-scroll-target="#checking-your-progress">Checking your progress</a></li>
+  <li><a href="#ci-daily-advice" id="toc-ci-daily-advice" class="nav-link" data-scroll-target="#ci-daily-advice">CI daily advice</a></li>
   </ul></li>
-  <li><a href="#academic-integrity" id="toc-academic-integrity" class="nav-link" data-scroll-target="#academic-integrity">Academic integrity</a>
+  <li><a href="#exam-15-20" id="toc-exam-15-20" class="nav-link" data-scroll-target="#exam-15-20">Exam — 15 / 20</a>
   <ul class="collapse">
-  <li><a href="#the-right-way-to-use-resources" id="toc-the-right-way-to-use-resources" class="nav-link" data-scroll-target="#the-right-way-to-use-resources">The right way to use resources</a></li>
+  <li><a href="#format" id="toc-format" class="nav-link" data-scroll-target="#format">Format</a></li>
+  <li><a href="#what-the-coding-session-looks-like" id="toc-what-the-coding-session-looks-like" class="nav-link" data-scroll-target="#what-the-coding-session-looks-like">What the coding session looks like</a></li>
+  <li><a href="#how-to-prepare" id="toc-how-to-prepare" class="nav-link" data-scroll-target="#how-to-prepare">How to prepare</a></li>
   </ul></li>
+  <li><a href="#ethics-and-academic-integrity" id="toc-ethics-and-academic-integrity" class="nav-link" data-scroll-target="#ethics-and-academic-integrity">Ethics and academic integrity</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ProjectManagement/Workflows.html">Project Management</a></li><li class="breadcrumb-item"><a href="../ProjectManagement/Evaluation.html">Evaluation</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ProjectManagement/Evaluation.html">Evaluate</a></li><li class="breadcrumb-item"><a href="../ProjectManagement/Evaluation.html">Grading &amp; Progress</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Evaluation</h1>
+<h1 class="title">Grading &amp; Progress</h1>
 </div>
 
 
@@ -326,42 +514,88 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="how-grading-works" class="level2">
-<h2 class="anchored" data-anchor-id="how-grading-works">How grading works</h2>
-<p>You are evaluated on the number of features (issues) you implement and the milestones you complete.</p>
-<ul>
-<li><strong>Passing grade (E):</strong> complete at least the first 2 milestones (statistics + colors)</li>
-<li><strong>Higher grades:</strong> the more features you complete beyond that, the better your grade</li>
-</ul>
-<p>You can check your own progress at any time by looking at the CI results on your GitHub repository.</p>
+<section id="grade-breakdown" class="level2">
+<h2 class="anchored" data-anchor-id="grade-breakdown">Grade breakdown</h2>
+<p>Your final grade for this course is composed of two parts:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Component</th>
+<th>Weight</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Project</strong></td>
+<td>5 / 20</td>
+<td>Automated evaluation of your team repository at the deadline</td>
+</tr>
+<tr class="even">
+<td><strong>Exam</strong></td>
+<td>15 / 20</td>
+<td>Individual written + coding exam on Moodle (Safe Exam Browser)</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>The exam is what counts most
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The project (5 pts) is your foundation — it teaches you how to code. The exam (15 pts) is where you prove you can do it yourself. The exam tests your ability to write C code in a sandboxed environment, without teammates, without AI tools, and without internet. The only way to prepare for that is to have personally written the project code yourself.</p>
+<p>See <a href="../ProjectManagement/Ethics.html">Ethics &amp; AI Policy</a>.</p>
+</div>
+</div>
+<hr>
 </section>
-<section id="continuous-integration" class="level2">
-<h2 class="anchored" data-anchor-id="continuous-integration">Continuous integration</h2>
-<p>A <strong>Continuous Integration (CI)</strong> system is set up in your repository. The teacher triggers evaluation runs on a daily basis.</p>
-<section id="what-the-ci-does" class="level3">
-<h3 class="anchored" data-anchor-id="what-the-ci-does">What the CI does</h3>
+<section id="project-grade-5-20" class="level2">
+<h2 class="anchored" data-anchor-id="project-grade-5-20">Project grade — 5 / 20</h2>
+<p>The project grade is assigned automatically at the deadline from what is on your <code>main</code> branch.</p>
+<section id="requirements" class="level3">
+<h3 class="anchored" data-anchor-id="requirements">Requirements</h3>
+<ul>
+<li><strong>Code uniqueness:</strong> Your code must be significantly unique. Code that is identical or near-identical to another team’s will be detected and graded accordingly.</li>
+<li><strong>Individual contribution:</strong> Each student must have authored at least <strong>10% of the team’s commits</strong> on <code>main</code>. Students who do not meet this threshold do not receive the project credits.</li>
+<li><strong>Attendance:</strong> Students must be present at all tutored sessions for the full duration.</li>
+</ul>
+</section>
+<section id="how-features-are-scored" class="level3">
+<h3 class="anchored" data-anchor-id="how-features-are-scored">How features are scored</h3>
+<p>The CI runs your program with test images and compares output against the reference implementation:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">freud.exe</span> <span class="at">-f</span> images/input/test.jpg <span class="at">-c</span> color_blue</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Output must match exactly — spacing, capitalization, and line endings matter. The CI also checks <strong>regression</strong>: new code must not break previously passing features.</p>
+</div>
+</div>
+</section>
+<section id="checking-your-progress" class="level3">
+<h3 class="anchored" data-anchor-id="checking-your-progress">Checking your progress</h3>
+<p>You can check your team’s progress at any time:</p>
 <ol type="1">
-<li>Checks out the latest code from <code>main</code>.</li>
-<li>Compiles sources in <code>src/</code>.</li>
-<li>Links against the required libraries (<code>estia-image</code>, <code>getopt</code>, <code>math</code>).</li>
-<li>Runs feature tests if the build succeeds.</li>
-<li>Publishes results through branch updates and a pull request report.</li>
+<li>Open your repository on GitHub.</li>
+<li>Go to <strong>Actions</strong> — look for evaluation workflow runs.</li>
+<li>Read the pull request report generated by the CI for a per-feature breakdown.</li>
 </ol>
-</section>
-<section id="how-tests-work" class="level3">
-<h3 class="anchored" data-anchor-id="how-tests-work">How tests work</h3>
-<p>Each test runs your program with a specific image and command, then compares your output against the output of our own reference implementation:</p>
-<pre><code>freud.exe -f images/input/test.jpg -c color_blue</code></pre>
-<p>If the output images differ, the test fails. If they are identical, the test passes.</p>
-<p>The CI also checks for <strong>regression</strong> — your new code must still pass tests from previous features, not just the new ones.</p>
-</section>
-<section id="what-to-do-if-a-test-fails" class="level3">
-<h3 class="anchored" data-anchor-id="what-to-do-if-a-test-fails">What to do if a test fails</h3>
-<ul>
-<li>Read the pull request report to see which feature failed</li>
-<li>Reproduce the failing command locally with <code>build/freud.exe</code></li>
-<li>Fix your implementation and push to <code>main</code></li>
-</ul>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -372,64 +606,83 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>If you believe the reference implementation has a bug, <strong>open a GitHub issue</strong> and describe the problem. If you find a confirmed bug in our version, your grade will positively reflect that contribution.</p>
+<p>If you believe the reference implementation has a bug, open a GitHub issue and describe the problem. If confirmed, your contribution will be reflected positively in your grade.</p>
 </div>
 </div>
 </section>
-<section id="daily-advice" class="level3">
-<h3 class="anchored" data-anchor-id="daily-advice">Daily advice</h3>
+<section id="ci-daily-advice" class="level3">
+<h3 class="anchored" data-anchor-id="ci-daily-advice">CI daily advice</h3>
 <ul>
-<li>Ensure <code>main</code> compiles before end of day</li>
-<li>Do not use extra libraries beyond course requirements</li>
-<li>Keep source files under <code>src/</code></li>
+<li>Keep <code>main</code> compilable at all times — a broken build means zero test results</li>
+<li>Do not add extra libraries beyond course requirements</li>
+<li>Keep your source files under <code>src/</code></li>
 </ul>
+<hr>
 </section>
 </section>
-<section id="final-evaluation" class="level2">
-<h2 class="anchored" data-anchor-id="final-evaluation">Final evaluation</h2>
-<p>Final evaluation uses the same CI logic on your archived repository at the deadline.</p>
-<section id="requirements" class="level3">
-<h3 class="anchored" data-anchor-id="requirements">Requirements</h3>
-<ul>
-<li>At least 3 milestones validated with at least 80% successful tests</li>
-<li>At least 10% of team commits authored by each student</li>
-<li>Presence in classes</li>
-<li>No plagiarism detected</li>
-</ul>
+<section id="exam-15-20" class="level2">
+<h2 class="anchored" data-anchor-id="exam-15-20">Exam — 15 / 20</h2>
+<p>The exam takes place in a supervised session on <strong>Moodle</strong> with <strong>Safe Exam Browser</strong> (SEB). It is <strong>individual</strong> — no teammates, no AI tools, no internet.</p>
+<section id="format" class="level3">
+<h3 class="anchored" data-anchor-id="format">Format</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Part</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>MCQ</strong></td>
+<td>Multiple-choice questions about the project: C concepts, Git, CMake, image data structure, feature behavior</td>
+</tr>
+<tr class="even">
+<td><strong>Coding session</strong></td>
+<td>Implement one or more functions similar to those in the project, with automated tests that check your solution</td>
+</tr>
+</tbody>
+</table>
 </section>
-</section>
-<section id="academic-integrity" class="level2">
-<h2 class="anchored" data-anchor-id="academic-integrity">Academic integrity</h2>
+<section id="what-the-coding-session-looks-like" class="level3">
+<h3 class="anchored" data-anchor-id="what-the-coding-session-looks-like">What the coding session looks like</h3>
+<p>You will be given a function specification and a test harness. You must write correct C code that passes the tests — the same workflow you have practiced all semester.</p>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Warning</span>AI tools and plagiarism — read carefully
+<span class="screen-reader-only">Warning</span>There is no way to fake your way through the exam
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The goal of this project is to develop your <strong>own C programming skills</strong>, not to practice copy-pasting from other sources.</p>
-<p><strong>Before the final evaluation, all code is run through plagiarism detection.</strong> The tool identifies structural similarity between programs — it is not fooled by renaming variables, changing indentation, or reformatting. It operates at a higher level of abstraction and is very effective.</p>
-<p>Some degree of similarity is expected (you all have the same function signatures). However, at your experience level, actual implementation variability is very high. Low variability across long or repeated pieces of code is increasingly unlikely unless code was shared or copied.</p>
-<p><strong>You have no control over what an AI produces.</strong> Two teams using AI for the same feature may receive identical code and both get flagged for plagiarism. This has happened.</p>
-<p>The policy is simple: if two pieces of code are identical or near-identical, it will be ruled plagiarism — regardless of how it happened. There are no exceptions for “we coded in the same room”, “I just showed them my code to help”, or “an AI wrote it”.</p>
-<p>Consequences range from scaling the grade according to uniqueness, to failing all teams involved.</p>
+<p>The coding session requires you to write and reason about C code under time pressure, without assistance. The only preparation that works is having personally written the project features yourself.</p>
 </div>
 </div>
-<section id="the-right-way-to-use-resources" class="level3">
-<h3 class="anchored" data-anchor-id="the-right-way-to-use-resources">The right way to use resources</h3>
-<ul>
-<li><strong>Never copy-paste code</strong> from any source (internet, another team, AI output)</li>
-<li><strong>Never show your code</strong> to anyone outside your team</li>
-<li><strong>Ask for explanations, not solutions</strong> — understand the idea, then implement it yourself</li>
-<li>If you ask an AI for help: ask it to explain a concept or a similar situation, step by step. Then <strong>write the code yourself</strong> from that understanding</li>
-</ul>
-<p>The final exam is individual and without access to any coding tool. What you learn by writing the code yourself is what prepares you for it.</p>
-
-
 </section>
+<section id="how-to-prepare" class="level3">
+<h3 class="anchored" data-anchor-id="how-to-prepare">How to prepare</h3>
+<ul>
+<li>Implement every feature yourself — do not delegate to a teammate or an AI tool</li>
+<li>Understand how pixel indexing works: <code>(y * width + x) * 3</code></li>
+<li>Practice the full dev cycle without relying on autocomplete</li>
+<li>Re-read your own code and be able to explain every line</li>
+<li>Review <a href="../Resources/Image-Data-Structure.html">Image Data Structure</a> and <a href="../Features/Freud-References.html">Freud CLI Reference</a></li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="ethics-and-academic-integrity" class="level2">
+<h2 class="anchored" data-anchor-id="ethics-and-academic-integrity">Ethics and academic integrity</h2>
+<p>Evaluation includes plagiarism detection across all teams. Code similarity is checked automatically.</p>
+<p>Read <a href="../ProjectManagement/Ethics.html">Ethics &amp; AI Policy</a> before using external help, sharing code, or relying on AI tools.</p>
+
+
 </section>
 
 </main> <!-- /main -->

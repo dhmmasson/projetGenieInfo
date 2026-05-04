@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>milestone-2-statistics – Projet Génie Info</title>
+<title>Debugging &amp; Troubleshooting – Projet Génie Info</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,27 +20,62 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../">
-<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-5b4ad623e5705c0698d39aec6f10cf02.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-5b4ad623e5705c0698d39aec6f10cf02.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -70,7 +105,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-sidebar floating nav-fixed quarto-light">
@@ -80,9 +115,9 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
     </a>
-    <a class="navbar-brand" href="../../index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Projet Génie Info</span>
     </a>
   </div>
@@ -93,7 +128,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="../../index.html" aria-current="page"> 
+    <a class="nav-link active" href="../index.html" aria-current="page"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -102,19 +137,19 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-start-here">    
         <li>
-    <a class="dropdown-item" href="../../Getting-Started/Ecosystem.html">
+    <a class="dropdown-item" href="../Getting-Started/Ecosystem.html">
  <span class="dropdown-text">The Project Ecosystem</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../Getting-Started/Setup.html">
+    <a class="dropdown-item" href="../Getting-Started/Setup.html">
  <span class="dropdown-text">Setup Guide</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../Getting-Started/First-Steps.html">
+    <a class="dropdown-item" href="../Getting-Started/First-Steps.html">
  <span class="dropdown-text">First Steps</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../Getting-Started/Quick-Checklist.html">
+    <a class="dropdown-item" href="../Getting-Started/Quick-Checklist.html">
  <span class="dropdown-text">Am I Ready to Code?</span></a>
   </li>  
     </ul>
@@ -125,19 +160,19 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-code">    
         <li>
-    <a class="dropdown-item" href="../../ProjectManagement/Workflows.html">
+    <a class="dropdown-item" href="../ProjectManagement/Workflows.html">
  <span class="dropdown-text">Workflows &amp; Milestones</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../Features/Features.html">
+    <a class="dropdown-item" href="../Features/Features.html">
  <span class="dropdown-text">Features List</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../Features/Freud-References.html">
+    <a class="dropdown-item" href="../Features/Freud-References.html">
  <span class="dropdown-text">Freud CLI Reference</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../Resources/Collaboration.html">
+    <a class="dropdown-item" href="../Resources/Collaboration.html">
  <span class="dropdown-text">Team Collaboration</span></a>
   </li>  
     </ul>
@@ -148,15 +183,15 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-learn">    
         <li>
-    <a class="dropdown-item" href="../../Resources/Image-Data-Structure.html">
+    <a class="dropdown-item" href="../Resources/Image-Data-Structure.html">
  <span class="dropdown-text">Image Data Structure</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../Resources/Build-Toolchain.html">
+    <a class="dropdown-item" href="../Resources/Build-Toolchain.html">
  <span class="dropdown-text">The Build System</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../Resources/Troubleshooting.html">
+    <a class="dropdown-item" href="../Resources/Troubleshooting.html">
  <span class="dropdown-text">Debugging &amp; Troubleshooting</span></a>
   </li>  
     </ul>
@@ -167,27 +202,27 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-tools">    
         <li>
-    <a class="dropdown-item" href="../../Resources/Tools.html">
+    <a class="dropdown-item" href="../Resources/Tools.html">
  <span class="dropdown-text">Tools Overview</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../Resources/Editors.html">
+    <a class="dropdown-item" href="../Resources/Editors.html">
  <span class="dropdown-text">VS Code &amp; Editors</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../Resources/Git-and-GitHub.html">
+    <a class="dropdown-item" href="../Resources/Git-and-GitHub.html">
  <span class="dropdown-text">Git &amp; GitHub</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../Resources/CLI.html">
+    <a class="dropdown-item" href="../Resources/CLI.html">
  <span class="dropdown-text">Command Line</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../Resources/Libraries.html">
+    <a class="dropdown-item" href="../Resources/Libraries.html">
  <span class="dropdown-text">Libraries</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../Resources/FAQ.html">
+    <a class="dropdown-item" href="../Resources/FAQ.html">
  <span class="dropdown-text">FAQ</span></a>
   </li>  
     </ul>
@@ -198,21 +233,21 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-evaluate">    
         <li>
-    <a class="dropdown-item" href="../../ProjectManagement/Evaluation.html">
+    <a class="dropdown-item" href="../ProjectManagement/Evaluation.html">
  <span class="dropdown-text">Grading &amp; Progress</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../ProjectManagement/TA-Validation-Checklist.html">
+    <a class="dropdown-item" href="../ProjectManagement/TA-Validation-Checklist.html">
  <span class="dropdown-text">TA Validation Checklist</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../ProjectManagement/Ethics.html">
+    <a class="dropdown-item" href="../ProjectManagement/Ethics.html">
  <span class="dropdown-text">Ethics &amp; AI Policy</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="../../ProjectManagement/Ethics.html"> 
+    <a class="nav-link" href="../ProjectManagement/Ethics.html"> 
 <span class="menu-text">Ethics</span></a>
   </li>  
 </ul>
@@ -226,7 +261,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Resources/Image-Data-Structure.html">Learn</a></li><li class="breadcrumb-item"><a href="../Resources/Troubleshooting.html">Debugging &amp; Troubleshooting</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -237,14 +272,14 @@ ul.task-list li input[type="checkbox"] {
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
-      <a href="../../index.html" class="sidebar-logo-link">
+      <a href="../index.html" class="sidebar-logo-link">
       </a>
       </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Home</span></a>
   </div>
 </li>
@@ -259,25 +294,25 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Getting-Started/Ecosystem.html" class="sidebar-item-text sidebar-link">
+  <a href="../Getting-Started/Ecosystem.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">The Project Ecosystem</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Getting-Started/Setup.html" class="sidebar-item-text sidebar-link">
+  <a href="../Getting-Started/Setup.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Setup Guide</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Getting-Started/First-Steps.html" class="sidebar-item-text sidebar-link">
+  <a href="../Getting-Started/First-Steps.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">First Steps</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Getting-Started/Quick-Checklist.html" class="sidebar-item-text sidebar-link">
+  <a href="../Getting-Started/Quick-Checklist.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Am I Ready to Code?</span></a>
   </div>
 </li>
@@ -294,25 +329,25 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../ProjectManagement/Workflows.html" class="sidebar-item-text sidebar-link">
+  <a href="../ProjectManagement/Workflows.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Workflows &amp; Milestones</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Features/Features.html" class="sidebar-item-text sidebar-link">
+  <a href="../Features/Features.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Features List</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Features/Freud-References.html" class="sidebar-item-text sidebar-link">
+  <a href="../Features/Freud-References.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Freud CLI Reference</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Resources/Collaboration.html" class="sidebar-item-text sidebar-link">
+  <a href="../Resources/Collaboration.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Team Collaboration</span></a>
   </div>
 </li>
@@ -329,25 +364,25 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Resources/Image-Data-Structure.html" class="sidebar-item-text sidebar-link">
+  <a href="../Resources/Image-Data-Structure.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Image Data Structure</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Resources/Build-Toolchain.html" class="sidebar-item-text sidebar-link">
+  <a href="../Resources/Build-Toolchain.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">The Build System</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Resources/Outputs.html" class="sidebar-item-text sidebar-link">
+  <a href="../Resources/Outputs.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Understanding Outputs</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Resources/Troubleshooting.html" class="sidebar-item-text sidebar-link">
+  <a href="../Resources/Troubleshooting.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Debugging &amp; Troubleshooting</span></a>
   </div>
 </li>
@@ -364,37 +399,37 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Resources/Tools.html" class="sidebar-item-text sidebar-link">
+  <a href="../Resources/Tools.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Tools Overview</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Resources/Editors.html" class="sidebar-item-text sidebar-link">
+  <a href="../Resources/Editors.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">VS Code &amp; Editors</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Resources/Git-and-GitHub.html" class="sidebar-item-text sidebar-link">
+  <a href="../Resources/Git-and-GitHub.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Git &amp; GitHub</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Resources/CLI.html" class="sidebar-item-text sidebar-link">
+  <a href="../Resources/CLI.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Command Line</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Resources/Libraries.html" class="sidebar-item-text sidebar-link">
+  <a href="../Resources/Libraries.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Libraries</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Resources/FAQ.html" class="sidebar-item-text sidebar-link">
+  <a href="../Resources/FAQ.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">FAQ</span></a>
   </div>
 </li>
@@ -411,19 +446,19 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../ProjectManagement/Evaluation.html" class="sidebar-item-text sidebar-link">
+  <a href="../ProjectManagement/Evaluation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Grading &amp; Progress</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../ProjectManagement/TA-Validation-Checklist.html" class="sidebar-item-text sidebar-link">
+  <a href="../ProjectManagement/TA-Validation-Checklist.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">TA Validation Checklist</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../ProjectManagement/Ethics.html" class="sidebar-item-text sidebar-link">
+  <a href="../ProjectManagement/Ethics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Ethics &amp; AI Policy</span></a>
   </div>
 </li>
@@ -439,36 +474,257 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#milestone-2-statistics" id="toc-milestone-2-statistics" class="nav-link active" data-scroll-target="#milestone-2-statistics">Milestone 2: Statistics</a>
+  <li><a href="#build-errors" id="toc-build-errors" class="nav-link active" data-scroll-target="#build-errors">Build errors</a>
   <ul class="collapse">
-  <li><a href="#issues" id="toc-issues" class="nav-link" data-scroll-target="#issues">Issues</a></li>
+  <li><a href="#cmake--b-build-fails-cmake-cannot-find-a-library" id="toc-cmake--b-build-fails-cmake-cannot-find-a-library" class="nav-link" data-scroll-target="#cmake--b-build-fails-cmake-cannot-find-a-library"><code>cmake -B build</code> fails — CMake cannot find a library</a></li>
+  <li><a href="#cmake---build-build-fails-compiler-error" id="toc-cmake---build-build-fails-compiler-error" class="nav-link" data-scroll-target="#cmake---build-build-fails-compiler-error"><code>cmake --build build</code> fails — compiler error</a></li>
+  <li><a href="#feature-builds-but-is-not-dispatched" id="toc-feature-builds-but-is-not-dispatched" class="nav-link" data-scroll-target="#feature-builds-but-is-not-dispatched">Feature builds but is not dispatched</a></li>
+  <li><a href="#feature-builds-but-is-not-recognized-by-the-ci" id="toc-feature-builds-but-is-not-recognized-by-the-ci" class="nav-link" data-scroll-target="#feature-builds-but-is-not-recognized-by-the-ci">Feature builds but is not recognized by the CI</a></li>
   </ul></li>
+  <li><a href="#c-runtime-errors" id="toc-c-runtime-errors" class="nav-link" data-scroll-target="#c-runtime-errors">C runtime errors</a>
+  <ul class="collapse">
+  <li><a href="#program-crashes-segmentation-fault" id="toc-program-crashes-segmentation-fault" class="nav-link" data-scroll-target="#program-crashes-segmentation-fault">Program crashes (segmentation fault)</a></li>
+  <li><a href="#output-image-is-black-all-zeros" id="toc-output-image-is-black-all-zeros" class="nav-link" data-scroll-target="#output-image-is-black-all-zeros">Output image is black / all zeros</a></li>
+  <li><a href="#output-image-dimensions-are-wrong" id="toc-output-image-dimensions-are-wrong" class="nav-link" data-scroll-target="#output-image-dimensions-are-wrong">Output image dimensions are wrong</a></li>
+  </ul></li>
+  <li><a href="#git-problems" id="toc-git-problems" class="nav-link" data-scroll-target="#git-problems">Git problems</a>
+  <ul class="collapse">
+  <li><a href="#push-rejected" id="toc-push-rejected" class="nav-link" data-scroll-target="#push-rejected">Push rejected</a></li>
+  <li><a href="#merge-conflict" id="toc-merge-conflict" class="nav-link" data-scroll-target="#merge-conflict">Merge conflict</a></li>
+  <li><a href="#accidentally-committed-to-the-wrong-branch" id="toc-accidentally-committed-to-the-wrong-branch" class="nav-link" data-scroll-target="#accidentally-committed-to-the-wrong-branch">Accidentally committed to the wrong branch</a></li>
+  </ul></li>
+  <li><a href="#ci-failures" id="toc-ci-failures" class="nav-link" data-scroll-target="#ci-failures">CI failures</a>
+  <ul class="collapse">
+  <li><a href="#ci-fails-but-it-works-locally" id="toc-ci-fails-but-it-works-locally" class="nav-link" data-scroll-target="#ci-fails-but-it-works-locally">CI fails but it works locally</a></li>
+  <li><a href="#ci-passes-but-grade-does-not-update" id="toc-ci-passes-but-grade-does-not-update" class="nav-link" data-scroll-target="#ci-passes-but-grade-does-not-update">CI passes but grade does not update</a></li>
+  </ul></li>
+  <li><a href="#getting-further-help" id="toc-getting-further-help" class="nav-link" data-scroll-target="#getting-further-help">Getting further help</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Resources/Image-Data-Structure.html">Learn</a></li><li class="breadcrumb-item"><a href="../Resources/Troubleshooting.html">Debugging &amp; Troubleshooting</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Debugging &amp; Troubleshooting</h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
 
-<section id="milestone-2-statistics" class="level1">
-<h1>Milestone 2: Statistics</h1>
-<p>The goal of this milestone is to implement features that compute statistics on pixel data: max and min pixel, max and min component, and a full report in a txt file. You will practice reading pixel data from an image using the estia-image library, manipulating it in C, and writing output to the console and to a file.</p>
-<p>You can implement these features in any order and in parallel. You can still together for the first feature then split the remaining 3 features between you. Read the <a href="Resources/Collaboration.qmd">collaboration strategies</a> to find how to properly split the work and collaborate effectively.</p>
-<p>Before implementing a feature you should understand the specification and the expected output format. What will the output be for a given image ? You should start creating images with known pixel data to test your implementation. You can create images with an image editor. Save them as bitmap (.bmp) to easily control the pixel data.</p>
-<section id="issues" class="level2">
-<h2 class="anchored" data-anchor-id="issues">Issues</h2>
-<ul>
-<li><a href="../../Features/issues/feature-8-max-pixel.html">#8</a> Max pixel</li>
-<li><a href="../../Features/issues/feature-9-min-pixel.html">#9</a> Min pixel</li>
-<li><a href="../../Features/issues/feature-10-max-component.html">#10</a> Max component</li>
-<li><a href="../../Features/issues/feature-11-min-component.html">#11</a> Min component</li>
-<li><a href="../../Features/issues/feature-12-full-report-in-a-txt-file.html">#12</a> Full report in a txt file</li>
-</ul>
+    
+  
+    
+  </div>
+  
 
 
+</header>
+
+
+<p>This page covers the most common problems students encounter during the project, organized by when they tend to appear.</p>
+<p>For <strong>setup issues</strong> (library not found, path errors, workflow activation), see the <a href="../Resources/FAQ.html">FAQ</a>.</p>
+<hr>
+<section id="build-errors" class="level2">
+<h2 class="anchored" data-anchor-id="build-errors">Build errors</h2>
+<section id="cmake--b-build-fails-cmake-cannot-find-a-library" class="level3">
+<h3 class="anchored" data-anchor-id="cmake--b-build-fails-cmake-cannot-find-a-library"><code>cmake -B build</code> fails — CMake cannot find a library</h3>
+<pre><code>CMake Error: Could not find a package configuration file provided by "estia-image"</code></pre>
+<p><strong>Cause:</strong> The <code>estia-image/</code> or <code>getopt/</code> folder is missing or misplaced.<br>
+<strong>Fix:</strong> Check that both folders exist at the root of your project (next to <code>src/</code>, <code>CMakeLists.txt</code>):</p>
+<pre class="text"><code>pgi-2026-your-team/
+├── estia-image/
+│   ├── include/
+│   └── lib/
+├── getopt/
+│   ├── include/
+│   └── lib/
+├── src/
+└── CMakeLists.txt</code></pre>
+<p>If the structure is wrong, re-read <a href="../Getting-Started/Setup.html#phase-3">Setup — Phase 3</a>.</p>
+<hr>
 </section>
+<section id="cmake---build-build-fails-compiler-error" class="level3">
+<h3 class="anchored" data-anchor-id="cmake---build-build-fails-compiler-error"><code>cmake --build build</code> fails — compiler error</h3>
+<p>Before reading the full error log, run <code>bash validconfig.sh</code> — it checks common configuration mistakes and gives actionable messages.</p>
+<p>The compiler always reports the <strong>first</strong> error. Fix it, rebuild, then move to the next.</p>
+<p><strong>Common patterns:</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Error message</th>
+<th>Likely cause</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>implicit declaration of function 'foo'</code></td>
+<td><code>foo</code> declared in <code>.h</code> but not included in <code>.c</code></td>
+</tr>
+<tr class="even">
+<td><code>undeclared identifier 'foo'</code></td>
+<td>Missing <code>#include</code> or typo in name</td>
+</tr>
+<tr class="odd">
+<td><code>error: expected ';'</code></td>
+<td>Missing semicolon — usually one line before the error</td>
+</tr>
+<tr class="even">
+<td><code>undefined reference to 'foo'</code></td>
+<td>Function declared but not implemented, or not listed in <code>CMakeLists.txt</code></td>
+</tr>
+<tr class="odd">
+<td><code>too few/many arguments</code></td>
+<td>Function signature in <code>.h</code> does not match the call</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="feature-builds-but-is-not-dispatched" class="level3">
+<h3 class="anchored" data-anchor-id="feature-builds-but-is-not-dispatched">Feature builds but is not dispatched</h3>
+<p>Your feature compiles but <code>freud.exe -c my_feature</code> prints nothing or the wrong output.</p>
+<p><strong>Check <code>main.c</code>:</strong> Every feature requires a dispatch branch:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>strcmp<span class="op">(</span>conf<span class="op">.</span>command<span class="op">,</span> <span class="st">"my_feature"</span><span class="op">)</span> <span class="op">==</span> <span class="dv">0</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    my_feature<span class="op">(</span>conf<span class="op">.</span>filenames<span class="op">[</span><span class="dv">0</span><span class="op">]);</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>If this <code>if</code> block is missing, your function is never called.</p>
+<hr>
+</section>
+<section id="feature-builds-but-is-not-recognized-by-the-ci" class="level3">
+<h3 class="anchored" data-anchor-id="feature-builds-but-is-not-recognized-by-the-ci">Feature builds but is not recognized by the CI</h3>
+<p><strong>Check <code>freud.manifest</code>:</strong> The command name must appear exactly on its own line:</p>
+<pre><code>helloworld
+dimension
+my_feature</code></pre>
+<p>No spaces, no quotes, no extra characters. The CI reads this file to know which features to test.</p>
+<hr>
+</section>
+</section>
+<section id="c-runtime-errors" class="level2">
+<h2 class="anchored" data-anchor-id="c-runtime-errors">C runtime errors</h2>
+<section id="program-crashes-segmentation-fault" class="level3">
+<h3 class="anchored" data-anchor-id="program-crashes-segmentation-fault">Program crashes (segmentation fault)</h3>
+<p>A segfault means you accessed memory you don’t own. Most common causes:</p>
+<p><strong>1. Array index out of bounds</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Image is width * height * 3 bytes</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">// Accessing pixel (x, y): index = (y * width + x) * 3</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> index <span class="op">=</span> <span class="op">(</span>y <span class="op">*</span> width <span class="op">+</span> x<span class="op">)</span> <span class="op">*</span> <span class="dv">3</span><span class="op">;</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>data<span class="op">[</span>index<span class="op">];</span>     <span class="co">// OK if x &lt; width and y &lt; height</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>data<span class="op">[</span>index <span class="op">+</span> <span class="dv">2</span><span class="op">];</span> <span class="co">// Always check you don't go past data[width*height*3 - 1]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>2. Null pointer from <code>read_image_data</code></strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="dt">unsigned</span> <span class="dt">char</span> <span class="op">*</span>data <span class="op">=</span> NULL<span class="op">;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> width<span class="op">,</span> height<span class="op">,</span> channels<span class="op">;</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> result <span class="op">=</span> read_image_data<span class="op">(</span>filename<span class="op">,</span> <span class="op">&amp;</span>data<span class="op">,</span> <span class="op">&amp;</span>width<span class="op">,</span> <span class="op">&amp;</span>height<span class="op">,</span> <span class="op">&amp;</span>channels<span class="op">);</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>result <span class="op">!=</span> <span class="dv">0</span> <span class="op">||</span> data <span class="op">==</span> NULL<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    fprintf<span class="op">(</span>stderr<span class="op">,</span> <span class="st">"Error: could not read image</span><span class="sc">\n</span><span class="st">"</span><span class="op">);</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span><span class="op">;</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Always check the return value before using <code>data</code>.</p>
+<p><strong>3. Off-by-one when iterating pixels</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">// WRONG: goes past the last pixel</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;=</span> width <span class="op">*</span> height <span class="op">*</span> <span class="dv">3</span><span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span> <span class="op">...</span> <span class="op">}</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">// CORRECT</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> width <span class="op">*</span> height <span class="op">*</span> <span class="dv">3</span><span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span> <span class="op">...</span> <span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+<section id="output-image-is-black-all-zeros" class="level3">
+<h3 class="anchored" data-anchor-id="output-image-is-black-all-zeros">Output image is black / all zeros</h3>
+<p>You created the output buffer but forgot to copy or modify pixels:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="dt">unsigned</span> <span class="dt">char</span> <span class="op">*</span>out <span class="op">=</span> malloc<span class="op">(</span>width <span class="op">*</span> height <span class="op">*</span> <span class="dv">3</span><span class="op">);</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co">// Without writing to out, it's garbage memory or all zeros</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>write_image_data<span class="op">(</span>output_path<span class="op">,</span> out<span class="op">,</span> width<span class="op">,</span> height<span class="op">);</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Make sure you write to every pixel before calling <code>write_image_data</code>.</p>
+<hr>
+</section>
+<section id="output-image-dimensions-are-wrong" class="level3">
+<h3 class="anchored" data-anchor-id="output-image-dimensions-are-wrong">Output image dimensions are wrong</h3>
+<p><code>write_image_data</code> needs the <strong>original</strong> width and height unless you’re implementing a resize/crop. If you change dimensions, you must also change what you pass to <code>write_image_data</code>.</p>
+<hr>
+</section>
+</section>
+<section id="git-problems" class="level2">
+<h2 class="anchored" data-anchor-id="git-problems">Git problems</h2>
+<section id="push-rejected" class="level3">
+<h3 class="anchored" data-anchor-id="push-rejected">Push rejected</h3>
+<pre><code>error: failed to push some refs to 'origin/main'</code></pre>
+<p><strong>Cause:</strong> Your teammate pushed something after your last <code>git pull</code>.<br>
+<strong>Fix:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull <span class="at">--rebase</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co"># resolve any conflicts, then:</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+<section id="merge-conflict" class="level3">
+<h3 class="anchored" data-anchor-id="merge-conflict">Merge conflict</h3>
+<p>Git shows <code>&lt;&lt;&lt;&lt;&lt;&lt;</code> / <code>=======</code> / <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code> markers in a file. This means two people edited the same lines.</p>
+<ol type="1">
+<li>Open the file in VS Code — it highlights conflicts.</li>
+<li>Choose which version to keep (or combine both).</li>
+<li>Remove all conflict markers.</li>
+<li><code>git add</code> the resolved file.</li>
+<li><code>git commit</code>.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Conflicts on <code>features.c</code> and <code>features.h</code> are common when two people implement different features. To avoid them: coordinate — one person per file at a time, and pull before starting each session.</p>
+</div>
+</div>
+<hr>
+</section>
+<section id="accidentally-committed-to-the-wrong-branch" class="level3">
+<h3 class="anchored" data-anchor-id="accidentally-committed-to-the-wrong-branch">Accidentally committed to the wrong branch</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log <span class="at">--oneline</span> <span class="at">-3</span>    <span class="co"># check what you committed</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> stash               <span class="co"># if not committed yet, stash changes</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout main       <span class="co"># switch to the right branch</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> stash pop           <span class="co"># re-apply your changes</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+</section>
+<section id="ci-failures" class="level2">
+<h2 class="anchored" data-anchor-id="ci-failures">CI failures</h2>
+<section id="ci-fails-but-it-works-locally" class="level3">
+<h3 class="anchored" data-anchor-id="ci-fails-but-it-works-locally">CI fails but it works locally</h3>
+<ol type="1">
+<li>Read the workflow output in the <code>Actions</code> tab on GitHub.</li>
+<li>Check that your <code>main</code> branch has the latest commit (not just a feature branch).</li>
+<li>Ensure your output format matches <strong>exactly</strong> — spacing, capitalization, and line endings matter.</li>
+</ol>
+<p>Example: if the expected output is <code>dimension: 1488, 1488</code>, then <code>Dimension: 1488,1488</code> will fail.</p>
+<hr>
+</section>
+<section id="ci-passes-but-grade-does-not-update" class="level3">
+<h3 class="anchored" data-anchor-id="ci-passes-but-grade-does-not-update">CI passes but grade does not update</h3>
+<p>Evaluation runs on a daily schedule triggered by the teacher, not on every push. Wait until the next evaluation run. You can check the last run time in the <code>Actions</code> tab.</p>
+<hr>
+</section>
+</section>
+<section id="getting-further-help" class="level2">
+<h2 class="anchored" data-anchor-id="getting-further-help">Getting further help</h2>
+<p>If none of the above solves your problem:</p>
+<ol type="1">
+<li>Try to reproduce the problem with the <strong>smallest possible input</strong> (one tiny image, one feature).</li>
+<li>Read the full compiler output — the last few lines usually contain the real error.</li>
+<li>Ask a teammate or TA. Describe: what you did, what you expected, what happened.</li>
+<li>If you believe the reference implementation or test has a bug, open a GitHub Issue in your repository.</li>
+</ol>
+
+
 </section>
 
 </main> <!-- /main -->

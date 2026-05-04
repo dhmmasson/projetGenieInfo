@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>milestone-2-statistics – Projet Génie Info</title>
+<title>Freud CLI Reference – Projet Génie Info</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,27 +20,62 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../">
-<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-5b4ad623e5705c0698d39aec6f10cf02.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-5b4ad623e5705c0698d39aec6f10cf02.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -70,7 +105,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-sidebar floating nav-fixed quarto-light">
@@ -80,9 +115,9 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
     </a>
-    <a class="navbar-brand" href="../../index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Projet Génie Info</span>
     </a>
   </div>
@@ -93,7 +128,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="../../index.html" aria-current="page"> 
+    <a class="nav-link active" href="../index.html" aria-current="page"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -102,19 +137,19 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-start-here">    
         <li>
-    <a class="dropdown-item" href="../../Getting-Started/Ecosystem.html">
+    <a class="dropdown-item" href="../Getting-Started/Ecosystem.html">
  <span class="dropdown-text">The Project Ecosystem</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../Getting-Started/Setup.html">
+    <a class="dropdown-item" href="../Getting-Started/Setup.html">
  <span class="dropdown-text">Setup Guide</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../Getting-Started/First-Steps.html">
+    <a class="dropdown-item" href="../Getting-Started/First-Steps.html">
  <span class="dropdown-text">First Steps</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../Getting-Started/Quick-Checklist.html">
+    <a class="dropdown-item" href="../Getting-Started/Quick-Checklist.html">
  <span class="dropdown-text">Am I Ready to Code?</span></a>
   </li>  
     </ul>
@@ -125,19 +160,19 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-code">    
         <li>
-    <a class="dropdown-item" href="../../ProjectManagement/Workflows.html">
+    <a class="dropdown-item" href="../ProjectManagement/Workflows.html">
  <span class="dropdown-text">Workflows &amp; Milestones</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../Features/Features.html">
+    <a class="dropdown-item" href="../Features/Features.html">
  <span class="dropdown-text">Features List</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../Features/Freud-References.html">
+    <a class="dropdown-item" href="../Features/Freud-References.html">
  <span class="dropdown-text">Freud CLI Reference</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../Resources/Collaboration.html">
+    <a class="dropdown-item" href="../Resources/Collaboration.html">
  <span class="dropdown-text">Team Collaboration</span></a>
   </li>  
     </ul>
@@ -148,15 +183,15 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-learn">    
         <li>
-    <a class="dropdown-item" href="../../Resources/Image-Data-Structure.html">
+    <a class="dropdown-item" href="../Resources/Image-Data-Structure.html">
  <span class="dropdown-text">Image Data Structure</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../Resources/Build-Toolchain.html">
+    <a class="dropdown-item" href="../Resources/Build-Toolchain.html">
  <span class="dropdown-text">The Build System</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../Resources/Troubleshooting.html">
+    <a class="dropdown-item" href="../Resources/Troubleshooting.html">
  <span class="dropdown-text">Debugging &amp; Troubleshooting</span></a>
   </li>  
     </ul>
@@ -167,27 +202,27 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-tools">    
         <li>
-    <a class="dropdown-item" href="../../Resources/Tools.html">
+    <a class="dropdown-item" href="../Resources/Tools.html">
  <span class="dropdown-text">Tools Overview</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../Resources/Editors.html">
+    <a class="dropdown-item" href="../Resources/Editors.html">
  <span class="dropdown-text">VS Code &amp; Editors</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../Resources/Git-and-GitHub.html">
+    <a class="dropdown-item" href="../Resources/Git-and-GitHub.html">
  <span class="dropdown-text">Git &amp; GitHub</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../Resources/CLI.html">
+    <a class="dropdown-item" href="../Resources/CLI.html">
  <span class="dropdown-text">Command Line</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../Resources/Libraries.html">
+    <a class="dropdown-item" href="../Resources/Libraries.html">
  <span class="dropdown-text">Libraries</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../Resources/FAQ.html">
+    <a class="dropdown-item" href="../Resources/FAQ.html">
  <span class="dropdown-text">FAQ</span></a>
   </li>  
     </ul>
@@ -198,21 +233,21 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-evaluate">    
         <li>
-    <a class="dropdown-item" href="../../ProjectManagement/Evaluation.html">
+    <a class="dropdown-item" href="../ProjectManagement/Evaluation.html">
  <span class="dropdown-text">Grading &amp; Progress</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../ProjectManagement/TA-Validation-Checklist.html">
+    <a class="dropdown-item" href="../ProjectManagement/TA-Validation-Checklist.html">
  <span class="dropdown-text">TA Validation Checklist</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../ProjectManagement/Ethics.html">
+    <a class="dropdown-item" href="../ProjectManagement/Ethics.html">
  <span class="dropdown-text">Ethics &amp; AI Policy</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="../../ProjectManagement/Ethics.html"> 
+    <a class="nav-link" href="../ProjectManagement/Ethics.html"> 
 <span class="menu-text">Ethics</span></a>
   </li>  
 </ul>
@@ -226,7 +261,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ProjectManagement/Workflows.html">Code</a></li><li class="breadcrumb-item"><a href="../Features/Freud-References.html">Freud CLI Reference</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -237,14 +272,14 @@ ul.task-list li input[type="checkbox"] {
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
-      <a href="../../index.html" class="sidebar-logo-link">
+      <a href="../index.html" class="sidebar-logo-link">
       </a>
       </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Home</span></a>
   </div>
 </li>
@@ -259,25 +294,25 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Getting-Started/Ecosystem.html" class="sidebar-item-text sidebar-link">
+  <a href="../Getting-Started/Ecosystem.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">The Project Ecosystem</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Getting-Started/Setup.html" class="sidebar-item-text sidebar-link">
+  <a href="../Getting-Started/Setup.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Setup Guide</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Getting-Started/First-Steps.html" class="sidebar-item-text sidebar-link">
+  <a href="../Getting-Started/First-Steps.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">First Steps</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Getting-Started/Quick-Checklist.html" class="sidebar-item-text sidebar-link">
+  <a href="../Getting-Started/Quick-Checklist.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Am I Ready to Code?</span></a>
   </div>
 </li>
@@ -294,25 +329,25 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../ProjectManagement/Workflows.html" class="sidebar-item-text sidebar-link">
+  <a href="../ProjectManagement/Workflows.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Workflows &amp; Milestones</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Features/Features.html" class="sidebar-item-text sidebar-link">
+  <a href="../Features/Features.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Features List</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Features/Freud-References.html" class="sidebar-item-text sidebar-link">
+  <a href="../Features/Freud-References.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Freud CLI Reference</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Resources/Collaboration.html" class="sidebar-item-text sidebar-link">
+  <a href="../Resources/Collaboration.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Team Collaboration</span></a>
   </div>
 </li>
@@ -329,25 +364,25 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Resources/Image-Data-Structure.html" class="sidebar-item-text sidebar-link">
+  <a href="../Resources/Image-Data-Structure.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Image Data Structure</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Resources/Build-Toolchain.html" class="sidebar-item-text sidebar-link">
+  <a href="../Resources/Build-Toolchain.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">The Build System</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Resources/Outputs.html" class="sidebar-item-text sidebar-link">
+  <a href="../Resources/Outputs.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Understanding Outputs</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Resources/Troubleshooting.html" class="sidebar-item-text sidebar-link">
+  <a href="../Resources/Troubleshooting.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Debugging &amp; Troubleshooting</span></a>
   </div>
 </li>
@@ -364,37 +399,37 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Resources/Tools.html" class="sidebar-item-text sidebar-link">
+  <a href="../Resources/Tools.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Tools Overview</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Resources/Editors.html" class="sidebar-item-text sidebar-link">
+  <a href="../Resources/Editors.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">VS Code &amp; Editors</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Resources/Git-and-GitHub.html" class="sidebar-item-text sidebar-link">
+  <a href="../Resources/Git-and-GitHub.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Git &amp; GitHub</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Resources/CLI.html" class="sidebar-item-text sidebar-link">
+  <a href="../Resources/CLI.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Command Line</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Resources/Libraries.html" class="sidebar-item-text sidebar-link">
+  <a href="../Resources/Libraries.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Libraries</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Resources/FAQ.html" class="sidebar-item-text sidebar-link">
+  <a href="../Resources/FAQ.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">FAQ</span></a>
   </div>
 </li>
@@ -411,19 +446,19 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../ProjectManagement/Evaluation.html" class="sidebar-item-text sidebar-link">
+  <a href="../ProjectManagement/Evaluation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Grading &amp; Progress</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../ProjectManagement/TA-Validation-Checklist.html" class="sidebar-item-text sidebar-link">
+  <a href="../ProjectManagement/TA-Validation-Checklist.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">TA Validation Checklist</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../ProjectManagement/Ethics.html" class="sidebar-item-text sidebar-link">
+  <a href="../ProjectManagement/Ethics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Ethics &amp; AI Policy</span></a>
   </div>
 </li>
@@ -439,36 +474,360 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#milestone-2-statistics" id="toc-milestone-2-statistics" class="nav-link active" data-scroll-target="#milestone-2-statistics">Milestone 2: Statistics</a>
+  <li><a href="#basic-usage" id="toc-basic-usage" class="nav-link active" data-scroll-target="#basic-usage">Basic usage</a></li>
+  <li><a href="#example-invocations" id="toc-example-invocations" class="nav-link" data-scroll-target="#example-invocations">Example invocations</a></li>
+  <li><a href="#feature-index" id="toc-feature-index" class="nav-link" data-scroll-target="#feature-index">Feature index</a>
   <ul class="collapse">
-  <li><a href="#issues" id="toc-issues" class="nav-link" data-scroll-target="#issues">Issues</a></li>
+  <li><a href="#milestone-1-tutorial" id="toc-milestone-1-tutorial" class="nav-link" data-scroll-target="#milestone-1-tutorial">Milestone 1 — Tutorial</a></li>
+  <li><a href="#milestone-2-statistics" id="toc-milestone-2-statistics" class="nav-link" data-scroll-target="#milestone-2-statistics">Milestone 2 — Statistics</a></li>
+  <li><a href="#milestone-3-colors" id="toc-milestone-3-colors" class="nav-link" data-scroll-target="#milestone-3-colors">Milestone 3 — Colors</a></li>
+  <li><a href="#milestone-4-transforms" id="toc-milestone-4-transforms" class="nav-link" data-scroll-target="#milestone-4-transforms">Milestone 4 — Transforms</a></li>
+  <li><a href="#milestone-5-resize" id="toc-milestone-5-resize" class="nav-link" data-scroll-target="#milestone-5-resize">Milestone 5 — Resize</a></li>
   </ul></li>
+  <li><a href="#the-manifest-file" id="toc-the-manifest-file" class="nav-link" data-scroll-target="#the-manifest-file">The manifest file</a></li>
+  <li><a href="#adding-a-new-feature-the-pattern" id="toc-adding-a-new-feature-the-pattern" class="nav-link" data-scroll-target="#adding-a-new-feature-the-pattern">Adding a new feature — the pattern</a>
+  <ul class="collapse">
+  <li><a href="#declare-in-srcfeatures.h" id="toc-declare-in-srcfeatures.h" class="nav-link" data-scroll-target="#declare-in-srcfeatures.h">1. Declare in <code>src/features.h</code></a></li>
+  <li><a href="#implement-in-srcfeatures.c" id="toc-implement-in-srcfeatures.c" class="nav-link" data-scroll-target="#implement-in-srcfeatures.c">2. Implement in <code>src/features.c</code></a></li>
+  <li><a href="#dispatch-in-srcmain.c" id="toc-dispatch-in-srcmain.c" class="nav-link" data-scroll-target="#dispatch-in-srcmain.c">3. Dispatch in <code>src/main.c</code></a></li>
+  <li><a href="#register-in-freud.manifest" id="toc-register-in-freud.manifest" class="nav-link" data-scroll-target="#register-in-freud.manifest">4. Register in <code>freud.manifest</code></a></li>
+  </ul></li>
+  <li><a href="#the-config-struct" id="toc-the-config-struct" class="nav-link" data-scroll-target="#the-config-struct">The <code>Config</code> struct</a></li>
+  <li><a href="#key-library-functions" id="toc-key-library-functions" class="nav-link" data-scroll-target="#key-library-functions">Key library functions</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ProjectManagement/Workflows.html">Code</a></li><li class="breadcrumb-item"><a href="../Features/Freud-References.html">Freud CLI Reference</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Freud CLI Reference</h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
 
-<section id="milestone-2-statistics" class="level1">
-<h1>Milestone 2: Statistics</h1>
-<p>The goal of this milestone is to implement features that compute statistics on pixel data: max and min pixel, max and min component, and a full report in a txt file. You will practice reading pixel data from an image using the estia-image library, manipulating it in C, and writing output to the console and to a file.</p>
-<p>You can implement these features in any order and in parallel. You can still together for the first feature then split the remaining 3 features between you. Read the <a href="Resources/Collaboration.qmd">collaboration strategies</a> to find how to properly split the work and collaborate effectively.</p>
-<p>Before implementing a feature you should understand the specification and the expected output format. What will the output be for a given image ? You should start creating images with known pixel data to test your implementation. You can create images with an image editor. Save them as bitmap (.bmp) to easily control the pixel data.</p>
-<section id="issues" class="level2">
-<h2 class="anchored" data-anchor-id="issues">Issues</h2>
-<ul>
-<li><a href="../../Features/issues/feature-8-max-pixel.html">#8</a> Max pixel</li>
-<li><a href="../../Features/issues/feature-9-min-pixel.html">#9</a> Min pixel</li>
-<li><a href="../../Features/issues/feature-10-max-component.html">#10</a> Max component</li>
-<li><a href="../../Features/issues/feature-11-min-component.html">#11</a> Min component</li>
-<li><a href="../../Features/issues/feature-12-full-report-in-a-txt-file.html">#12</a> Full report in a txt file</li>
-</ul>
+    
+  
+    
+  </div>
+  
 
 
+</header>
+
+
+<p>This page is a quick reference for the <code>freud</code> command-line tool: how to invoke it, what flags it accepts, and how each feature should behave.</p>
+<p>For how to <strong>implement</strong> a new feature, see <a href="../Getting-Started/First-Steps.html">First Steps</a> and <a href="../ProjectManagement/Workflows.html">Workflows &amp; Milestones</a>.</p>
+<hr>
+<section id="basic-usage" class="level2">
+<h2 class="anchored" data-anchor-id="basic-usage">Basic usage</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">./freud.exe</span> <span class="at">-f</span> <span class="op">&lt;</span>image<span class="op">&gt;</span> -c <span class="op">&lt;</span>command<span class="op">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Flag</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>-f &lt;path&gt;</code></td>
+<td>Input image path. Can be repeated for commands that take multiple images.</td>
+</tr>
+<tr class="even">
+<td><code>-c &lt;command&gt;</code></td>
+<td>Feature to run. Must match an entry in <code>freud.manifest</code>.</td>
+</tr>
+<tr class="odd">
+<td><code>-o &lt;path&gt;</code></td>
+<td>Output image path. Default: <code>image_out.bmp</code></td>
+</tr>
+<tr class="even">
+<td><code>--debug</code></td>
+<td>Print debug information (image loaded, dimensions, etc.)</td>
+</tr>
+<tr class="odd">
+<td><code>--version</code></td>
+<td>Print version and exit</td>
+</tr>
+</tbody>
+</table>
+<hr>
 </section>
+<section id="example-invocations" class="level2">
+<h2 class="anchored" data-anchor-id="example-invocations">Example invocations</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Print image dimensions</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">./freud.exe</span> <span class="at">-f</span> images/input/image.jpeg <span class="at">-c</span> dimension</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Make the image red</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="ex">./freud.exe</span> <span class="at">-f</span> images/input/image.jpeg <span class="at">-c</span> color_red</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Rotate clockwise and save with custom name</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="ex">./freud.exe</span> <span class="at">-f</span> images/input/image.jpeg <span class="at">-c</span> rotate_cw <span class="at">-o</span> rotated.bmp</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Debug mode (prints image info before running)</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="ex">./freud.exe</span> <span class="at">--debug</span> <span class="at">-f</span> images/input/image.jpeg <span class="at">-c</span> dimension</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+<section id="feature-index" class="level2">
+<h2 class="anchored" data-anchor-id="feature-index">Feature index</h2>
+<section id="milestone-1-tutorial" class="level3">
+<h3 class="anchored" data-anchor-id="milestone-1-tutorial">Milestone 1 — Tutorial</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Command</th>
+<th>Output</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>helloworld</code></td>
+<td>Prints <code>Hello World!</code></td>
+</tr>
+<tr class="even">
+<td><code>dimension</code></td>
+<td><code>dimension: &lt;width&gt;, &lt;height&gt;</code></td>
+</tr>
+<tr class="odd">
+<td><code>color_first_pixel</code></td>
+<td><code>color_first_pixel: R, G, B</code></td>
+</tr>
+<tr class="even">
+<td><code>color_10th_pixel</code></td>
+<td><code>color_10th_pixel: R, G, B</code></td>
+</tr>
+<tr class="odd">
+<td><code>color_first_pixel_second_line</code></td>
+<td><code>color_first_pixel_second_line: R, G, B</code></td>
+</tr>
+<tr class="even">
+<td><code>pixelRGB</code></td>
+<td>Uses <code>pixelRGB</code> struct, get and print functions</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="milestone-2-statistics" class="level3">
+<h3 class="anchored" data-anchor-id="milestone-2-statistics">Milestone 2 — Statistics</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Command</th>
+<th>Output</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>max_pixel</code></td>
+<td><code>max_pixel (x, y): R, G, B</code></td>
+</tr>
+<tr class="even">
+<td><code>min_pixel</code></td>
+<td><code>min_pixel (x, y): R, G, B</code></td>
+</tr>
+<tr class="odd">
+<td><code>max_component</code></td>
+<td><code>max_component: value</code></td>
+</tr>
+<tr class="even">
+<td><code>min_component</code></td>
+<td><code>min_component: value</code></td>
+</tr>
+<tr class="odd">
+<td><code>full_report</code></td>
+<td>Writes a <code>.txt</code> file with all statistics</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="milestone-3-colors" class="level3">
+<h3 class="anchored" data-anchor-id="milestone-3-colors">Milestone 3 — Colors</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Command</th>
+<th>Output</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>color_red</code></td>
+<td>Image with only red channel kept</td>
+</tr>
+<tr class="even">
+<td><code>color_green</code></td>
+<td>Image with only green channel kept</td>
+</tr>
+<tr class="odd">
+<td><code>color_blue</code></td>
+<td>Image with only blue channel kept</td>
+</tr>
+<tr class="even">
+<td><code>grayscale</code></td>
+<td>Grayscale via channel averaging</td>
+</tr>
+<tr class="odd">
+<td><code>invert</code></td>
+<td>Each channel inverted (255 − value)</td>
+</tr>
+<tr class="even">
+<td><code>luminance</code></td>
+<td>Grayscale via luminance formula</td>
+</tr>
+<tr class="odd">
+<td><code>desaturate</code></td>
+<td>Desaturated image</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="milestone-4-transforms" class="level3">
+<h3 class="anchored" data-anchor-id="milestone-4-transforms">Milestone 4 — Transforms</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Command</th>
+<th>Output</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>rotate_cw</code></td>
+<td>Image rotated 90° clockwise</td>
+</tr>
+<tr class="even">
+<td><code>rotate_ccw</code></td>
+<td>Image rotated 90° counter-clockwise</td>
+</tr>
+<tr class="odd">
+<td><code>mirror_h</code></td>
+<td>Mirror effect — horizontal symmetry</td>
+</tr>
+<tr class="even">
+<td><code>mirror_v</code></td>
+<td>Mirror effect — vertical symmetry</td>
+</tr>
+<tr class="odd">
+<td><code>mirror</code></td>
+<td>Mirror effect (combined)</td>
+</tr>
+<tr class="even">
+<td><code>crop</code></td>
+<td>Cropped image</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="milestone-5-resize" class="level3">
+<h3 class="anchored" data-anchor-id="milestone-5-resize">Milestone 5 — Resize</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Command</th>
+<th>Output</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>scale_nn</code></td>
+<td>Scale via nearest-neighbor interpolation</td>
+</tr>
+<tr class="even">
+<td><code>scale_bilinear</code></td>
+<td>Scale via bilinear interpolation</td>
+</tr>
+</tbody>
+</table>
+<blockquote class="blockquote">
+<p><strong>Note:</strong> Check each feature’s issue file in <a href="../Features/Features.html">Features</a> for the exact expected output format. The CI compares output character by character — spacing and capitalization must match exactly.</p>
+</blockquote>
+<hr>
+</section>
+</section>
+<section id="the-manifest-file" class="level2">
+<h2 class="anchored" data-anchor-id="the-manifest-file">The manifest file</h2>
+<p><code>freud.manifest</code> is a plain text file at the project root. It lists every command your binary supports, one per line:</p>
+<pre><code>helloworld
+dimension
+color_first_pixel
+color_red</code></pre>
+<p><strong>Rules:</strong> - One command per line, no spaces, no quotes - The CI reads this file to know which features to test - If a command is implemented but missing from the manifest, the CI will not test it - If a command is in the manifest but not implemented, the CI test will fail</p>
+<hr>
+</section>
+<section id="adding-a-new-feature-the-pattern" class="level2">
+<h2 class="anchored" data-anchor-id="adding-a-new-feature-the-pattern">Adding a new feature — the pattern</h2>
+<p>Every new feature requires <strong>four changes</strong>:</p>
+<section id="declare-in-srcfeatures.h" class="level3">
+<h3 class="anchored" data-anchor-id="declare-in-srcfeatures.h">1. Declare in <code>src/features.h</code></h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> my_feature<span class="op">(</span><span class="dt">char</span> <span class="op">*</span>source_path<span class="op">);</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="implement-in-srcfeatures.c" class="level3">
+<h3 class="anchored" data-anchor-id="implement-in-srcfeatures.c">2. Implement in <code>src/features.c</code></h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> my_feature<span class="op">(</span><span class="dt">char</span> <span class="op">*</span>source_path<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">unsigned</span> <span class="dt">char</span> <span class="op">*</span>data <span class="op">=</span> NULL<span class="op">;</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> width<span class="op">,</span> height<span class="op">,</span> channels<span class="op">;</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    read_image_data<span class="op">(</span>source_path<span class="op">,</span> <span class="op">&amp;</span>data<span class="op">,</span> <span class="op">&amp;</span>width<span class="op">,</span> <span class="op">&amp;</span>height<span class="op">,</span> <span class="op">&amp;</span>channels<span class="op">);</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="co">// ... your logic ...</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    free<span class="op">(</span>data<span class="op">);</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="dispatch-in-srcmain.c" class="level3">
+<h3 class="anchored" data-anchor-id="dispatch-in-srcmain.c">3. Dispatch in <code>src/main.c</code></h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>strcmp<span class="op">(</span>conf<span class="op">.</span>command<span class="op">,</span> <span class="st">"my_feature"</span><span class="op">)</span> <span class="op">==</span> <span class="dv">0</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    my_feature<span class="op">(</span>conf<span class="op">.</span>filenames<span class="op">[</span><span class="dv">0</span><span class="op">]);</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="register-in-freud.manifest" class="level3">
+<h3 class="anchored" data-anchor-id="register-in-freud.manifest">4. Register in <code>freud.manifest</code></h3>
+<pre><code>my_feature</code></pre>
+<p>Miss any one of these four steps and the feature either won’t compile, won’t run, or won’t be tested by the CI.</p>
+<hr>
+</section>
+</section>
+<section id="the-config-struct" class="level2">
+<h2 class="anchored" data-anchor-id="the-config-struct">The <code>Config</code> struct</h2>
+<p><code>src/configp.h</code> defines the configuration parsed from command-line arguments:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">typedef</span> <span class="kw">struct</span> _config <span class="op">{</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span>    debug_mode<span class="op">;</span>                       <span class="co">// --debug flag</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">char</span>   command<span class="op">[</span>MAX_LENGTH_COMMAND<span class="op">];</span>      <span class="co">// -c &lt;command&gt;</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">char</span><span class="op">*</span>  filenames<span class="op">[</span>MAX_FILE_COUNT<span class="op">];</span>        <span class="co">// -f &lt;path&gt; (can repeat)</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">char</span><span class="op">*</span>  arguments<span class="op">[</span>MAX_ARGUMENT_COUNT<span class="op">];</span>   <span class="co">// additional arguments</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> Config<span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>conf.filenames[0]</code> is the first <code>-f</code> argument — the input image path.</p>
+<hr>
+</section>
+<section id="key-library-functions" class="level2">
+<h2 class="anchored" data-anchor-id="key-library-functions">Key library functions</h2>
+<p>From <code>estia-image/include/estia-image.h</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Read image from file. Returns 0 on success.</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> read_image_data<span class="op">(</span><span class="dt">const</span> <span class="dt">char</span> <span class="op">*</span>filename<span class="op">,</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>                    <span class="dt">unsigned</span> <span class="dt">char</span> <span class="op">**</span>data<span class="op">,</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>                    <span class="dt">int</span> <span class="op">*</span>width<span class="op">,</span> <span class="dt">int</span> <span class="op">*</span>height<span class="op">,</span> <span class="dt">int</span> <span class="op">*</span>nbChannels<span class="op">);</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co">// Write image to file. Returns 0 on success.</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> write_image_data<span class="op">(</span><span class="dt">const</span> <span class="dt">char</span> <span class="op">*</span>filename<span class="op">,</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>                     <span class="dt">unsigned</span> <span class="dt">char</span> <span class="op">*</span>data<span class="op">,</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>                     <span class="dt">int</span> width<span class="op">,</span> <span class="dt">int</span> height<span class="op">);</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Pixel access pattern (RGB, 3 channels):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> index <span class="op">=</span> <span class="op">(</span>y <span class="op">*</span> width <span class="op">+</span> x<span class="op">)</span> <span class="op">*</span> <span class="dv">3</span><span class="op">;</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="dt">unsigned</span> <span class="dt">char</span> R <span class="op">=</span> data<span class="op">[</span>index<span class="op">];</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="dt">unsigned</span> <span class="dt">char</span> G <span class="op">=</span> data<span class="op">[</span>index <span class="op">+</span> <span class="dv">1</span><span class="op">];</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="dt">unsigned</span> <span class="dt">char</span> B <span class="op">=</span> data<span class="op">[</span>index <span class="op">+</span> <span class="dv">2</span><span class="op">];</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>See <a href="../Resources/Image-Data-Structure.html">Image Data Structure</a> for a full explanation of how pixels are laid out in memory.</p>
+
+
 </section>
 
 </main> <!-- /main -->
