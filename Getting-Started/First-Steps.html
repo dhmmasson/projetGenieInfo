@@ -175,6 +175,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="dropdown-text">Freud CLI Reference</span></a>
   </li>  
         <li>
+    <a class="dropdown-item" href="../Features/Freud-Internals.html">
+ <span class="dropdown-text">Freud Internals</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="../Features/Features.html">
  <span class="dropdown-text">Features List</span></a>
   </li>  
@@ -346,6 +350,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../Features/Freud-Internals.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Freud Internals</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../Resources/Collaboration.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Team Collaboration</span></a>
   </div>
@@ -485,8 +495,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#per-feature-workflow" id="toc-per-feature-workflow" class="nav-link" data-scroll-target="#per-feature-workflow">Per-feature workflow</a></li>
   </ul></li>
   <li><a href="#where-to-code" id="toc-where-to-code" class="nav-link" data-scroll-target="#where-to-code">Where to code</a></li>
-  <li><a href="#configuration-structure" id="toc-configuration-structure" class="nav-link" data-scroll-target="#configuration-structure">Configuration structure</a></li>
-  <li><a href="#vs-code-run-configuration" id="toc-vs-code-run-configuration" class="nav-link" data-scroll-target="#vs-code-run-configuration">VS Code run configuration</a></li>
   </ul>
 </nav>
     </div>
@@ -717,61 +725,7 @@ Important
 </section>
 <section id="where-to-code" class="level2">
 <h2 class="anchored" data-anchor-id="where-to-code">Where to code</h2>
-<p>All feature code lives in three files:</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>File</th>
-<th>What to do there</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>src/features.h</code></td>
-<td>Declare function prototypes</td>
-</tr>
-<tr class="even">
-<td><code>src/features.c</code></td>
-<td>Implement functions</td>
-</tr>
-<tr class="odd">
-<td><code>freud.manifest</code></td>
-<td>Add the command name (one per line)</td>
-</tr>
-</tbody>
-</table>
-<p><code>main.c</code> routes the <code>-c</code> command to features. Copy this pattern for each new feature:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span> strncmp<span class="op">(</span> configuration<span class="op">.</span>command<span class="op">,</span> <span class="st">"helloworld"</span><span class="op">,</span> <span class="dv">10</span> <span class="op">)</span> <span class="op">==</span> <span class="dv">0</span> <span class="op">)</span> <span class="op">{</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">/* helloWorld() is declared in features.h, implemented in features.c */</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    helloWorld<span class="op">();</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Example <code>freud.manifest</code> after adding <code>dimension</code>:</p>
-<pre class="text"><code>helloworld
-dimension</code></pre>
-</section>
-<section id="configuration-structure" class="level2">
-<h2 class="anchored" data-anchor-id="configuration-structure">Configuration structure</h2>
-<p>The command-line parser fills a <code>Config</code> structure available as <code>configuration</code> in <code>main.c</code>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#define MAX_FILE_COUNT </span><span class="dv">10</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#define MAX_LENGTH_COMMAND </span><span class="dv">25</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="pp">#define MAX_ARGUMENT_COUNT </span><span class="dv">5</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="kw">typedef</span> <span class="kw">struct</span> _config <span class="op">{</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> debug_mode<span class="op">;</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">char</span> command<span class="op">[</span>MAX_LENGTH_COMMAND<span class="op">];</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">char</span><span class="op">*</span> filenames<span class="op">[</span>MAX_FILE_COUNT<span class="op">];</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="dt">char</span><span class="op">*</span> arguments<span class="op">[</span>MAX_ARGUMENT_COUNT<span class="op">];</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> Config<span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Fields you will use most:</p>
-<ul>
-<li><code>configuration.command</code> — value passed to <code>-c</code></li>
-<li><code>configuration.filenames[0]</code> — image path passed to <code>-f</code></li>
-<li><code>configuration.arguments[0]</code> — first extra argument (used by some features, e.g., <code>R</code>, <code>G</code>, or <code>B</code>)</li>
-</ul>
-</section>
-<section id="vs-code-run-configuration" class="level2">
-<h2 class="anchored" data-anchor-id="vs-code-run-configuration">VS Code run configuration</h2>
-<p>To avoid retyping the command every time, update <code>cmake.debugConfig.args</code> in <code>.vscode/settings.json</code> with your target image path and command. The VS Code Run button will then use those arguments directly.</p>
+<p>The source code lives in the <code>src/</code> folder. You can check <a href="../Features/Freud-Internals.html">Freud Internals</a> for the file structure and where to add new code. You can update the source code architecture, but don’t forget to run <code>cmake -B build</code> to update the build system with your changes.</p>
 
 
 </section>

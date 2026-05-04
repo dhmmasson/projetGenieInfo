@@ -172,6 +172,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="dropdown-text">Freud CLI Reference</span></a>
   </li>  
         <li>
+    <a class="dropdown-item" href="../Features/Freud-Internals.html">
+ <span class="dropdown-text">Freud Internals</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="../Features/Features.html">
  <span class="dropdown-text">Features List</span></a>
   </li>  
@@ -343,6 +347,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../Features/Freud-Internals.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Freud Internals</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../Resources/Collaboration.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Team Collaboration</span></a>
   </div>
@@ -475,6 +485,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#recommendation-use-vs-code" id="toc-recommendation-use-vs-code" class="nav-link" data-scroll-target="#recommendation-use-vs-code">Recommendation: use VS Code</a></li>
   <li><a href="#use-vs-code-as-the-main-workstation" id="toc-use-vs-code-as-the-main-workstation" class="nav-link" data-scroll-target="#use-vs-code-as-the-main-workstation">Use VS Code as the main workstation</a></li>
   <li><a href="#integrated-terminal" id="toc-integrated-terminal" class="nav-link" data-scroll-target="#integrated-terminal">Integrated terminal</a></li>
+  <li><a href="#vs-code-run-configuration" id="toc-vs-code-run-configuration" class="nav-link" data-scroll-target="#vs-code-run-configuration">VS Code run configuration</a></li>
   <li><a href="#about-ai-first-coding-tools" id="toc-about-ai-first-coding-tools" class="nav-link" data-scroll-target="#about-ai-first-coding-tools">About AI-first coding tools</a></li>
   </ul>
 </nav>
@@ -547,6 +558,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cmake</span> <span class="at">--build</span> build</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ex">build/freud.exe</span> <span class="at">-f</span> images/input/test.jpg <span class="at">-c</span> color_blue</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Keeping the terminal inside the editor is practical because you can move directly from an error message to the corresponding source file.</p>
+</section>
+<section id="vs-code-run-configuration" class="level2">
+<h2 class="anchored" data-anchor-id="vs-code-run-configuration">VS Code run configuration</h2>
+<p>To avoid retyping the command every time, update <code>cmake.debugConfig.args</code> in <code>.vscode/settings.json</code> with your target image path and command. The VS Code Run button will then use those arguments directly.</p>
 </section>
 <section id="about-ai-first-coding-tools" class="level2">
 <h2 class="anchored" data-anchor-id="about-ai-first-coding-tools">About AI-first coding tools</h2>

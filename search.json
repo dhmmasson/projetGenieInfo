@@ -292,31 +292,7 @@
     "href": "Getting-Started/First-Steps.html#where-to-code",
     "title": "First Steps",
     "section": "Where to code",
-    "text": "Where to code\nAll feature code lives in three files:\n\n\n\nFile\nWhat to do there\n\n\n\n\nsrc/features.h\nDeclare function prototypes\n\n\nsrc/features.c\nImplement functions\n\n\nfreud.manifest\nAdd the command name (one per line)\n\n\n\nmain.c routes the -c command to features. Copy this pattern for each new feature:\nif ( strncmp( configuration.command, \"helloworld\", 10 ) == 0 ) {\n    /* helloWorld() is declared in features.h, implemented in features.c */\n    helloWorld();\n}\nExample freud.manifest after adding dimension:\nhelloworld\ndimension",
-    "crumbs": [
-      "Home",
-      "Start Here",
-      "First Steps"
-    ]
-  },
-  {
-    "objectID": "Getting-Started/First-Steps.html#configuration-structure",
-    "href": "Getting-Started/First-Steps.html#configuration-structure",
-    "title": "First Steps",
-    "section": "Configuration structure",
-    "text": "Configuration structure\nThe command-line parser fills a Config structure available as configuration in main.c:\n#define MAX_FILE_COUNT 10\n#define MAX_LENGTH_COMMAND 25\n#define MAX_ARGUMENT_COUNT 5\n\ntypedef struct _config {\n    int debug_mode;\n    char command[MAX_LENGTH_COMMAND];\n    char* filenames[MAX_FILE_COUNT];\n    char* arguments[MAX_ARGUMENT_COUNT];\n} Config;\nFields you will use most:\n\nconfiguration.command — value passed to -c\nconfiguration.filenames[0] — image path passed to -f\nconfiguration.arguments[0] — first extra argument (used by some features, e.g., R, G, or B)",
-    "crumbs": [
-      "Home",
-      "Start Here",
-      "First Steps"
-    ]
-  },
-  {
-    "objectID": "Getting-Started/First-Steps.html#vs-code-run-configuration",
-    "href": "Getting-Started/First-Steps.html#vs-code-run-configuration",
-    "title": "First Steps",
-    "section": "VS Code run configuration",
-    "text": "VS Code run configuration\nTo avoid retyping the command every time, update cmake.debugConfig.args in .vscode/settings.json with your target image path and command. The VS Code Run button will then use those arguments directly.",
+    "text": "Where to code\nThe source code lives in the src/ folder. You can check Freud Internals for the file structure and where to add new code. You can update the source code architecture, but don’t forget to run cmake -B build to update the build system with your changes.",
     "crumbs": [
       "Home",
       "Start Here",
@@ -348,7 +324,7 @@
     "href": "index.html#goals",
     "title": "Projet Génie Informatique — Freud Image Analyst",
     "section": "Goals",
-    "text": "Goals\n\nLearn to write C code — structure, pointers, files, functions — by doing\nOrganize a software project with milestones and issues\nWork as a team with Git and GitHub\nBuild and validate a C project with CMake\nPrepare for the individual exam: coding in a sandbox, answering questions about the project\n\n\n\n\n\n\n\nImportantThis project is about learning to code — not about using AI to code for you\n\n\n\nThe goal is to develop your own C programming skills. Do not use AI assistants (ChatGPT, GitHub Copilot, Gemini, etc.) to generate your code. The final exam is individual, in a sandboxed environment, with no internet or coding tools — what matters is what you have learned to write.\nThink of learning to program like going to the gym: the point is not to move weight from one place to another, the point is to become stronger yourself. Plagiarism is like pretending to be a fitness influencer by posting someone else’s lift as your own. Using an LLM to generate your code is like bringing a forklift to move the weights for you: it is not the same kind of fault, but it still misses the point of the exercise.\nSee the Ethics & AI Policy page for the course policy on plagiarism, AI tools, and appropriate help.",
+    "text": "Goals\n\nLearn to write C code — structure, pointers, files, functions — by doing\nOrganize a software project with milestones and issues\nWork as a team with Git and GitHub\nBuild and validate a C project against a set of specifications and automated tests\nPrepare for the individual exam: coding in a sandbox, answering questions about the project\n\n\n\n\n\n\n\nImportantThis project is about learning to code — not about using AI to code for you\n\n\n\nThe goal is to develop your own C programming skills. Do not use AI assistants (ChatGPT, GitHub Copilot, Gemini, etc.) to generate your code. The final exam is individual, in a sandboxed environment, with no internet or coding tools — what matters is what you have learned to write.\nThink of learning to program like going to the gym: the point is not to move weight from one place to another, the point is to become stronger yourself. Plagiarism is like pretending to be a fitness influencer by posting someone else’s lift as your own. Using an LLM to generate your code is like bringing a forklift to move the weights for you: it is not the same kind of fault, but it still misses the point of the exercise.\nSee the Ethics & AI Policy page for the course policy on plagiarism, AI tools, and appropriate help.",
     "crumbs": [
       "Home"
     ]
@@ -388,7 +364,7 @@
     "href": "index.html#where-do-you-want-to-go",
     "title": "Projet Génie Informatique — Freud Image Analyst",
     "section": "Where do you want to go?",
-    "text": "Where do you want to go?\n\n\n🚀 Just registered?\nStart from the beginning — register your team, set up your environment, and make your first commit.\n→ Start Here\n\n\n💻 Ready to code?\nBrowse features, pick your next issue, and understand the dev loop.\n→ Code\n\n\n🔍 Stuck or confused?\nCommon build errors, Git problems, and debugging strategies.\n→ Debugging & Troubleshooting\n\n\n📊 How am I graded?\nUnderstand the milestone system, CI evaluation, and academic integrity policy.\n→ Evaluate\n\n\n📚 Want to understand deeper?\nImage data structure, the build system, and C patterns explained.\n→ Learn\n\n\n🛠 Looking for a tool?\nVS Code, Git, CMake, command line — all in one place.\n→ Tools",
+    "text": "Where do you want to go?\n\n\n🚀 Just registered?\nStart from the beginning — register your team, set up your environment, and make your first commit.\n→ Start Here\n\n\n💻 Ready to code?\nBrowse features, pick your next issue, and understand the dev loop.\n→ Code\n\n\n🔍 Stuck or confused?\nCommon build errors, Git problems, and debugging strategies.\n→ Debugging & Troubleshooting\n\n\n📊 How am I graded?\nUnderstand the milestone system, CI evaluation, and academic integrity policy.\n→ Evaluate\n\n\n📚 Want to understand deeper?\nImage data structure, the build system, how to collaborate with git.\n→ Learn\n\n\n🛠 Looking for a tool?\nVS Code, Git, CMake, command line — all in one place.\n→ Tools",
     "crumbs": [
       "Home"
     ]
@@ -569,725 +545,172 @@
     "text": "Feature description Print the color in RGB of the first pixel (top, left or coordinates 0,0) in the output terminal. A possible prototype:\nvoid first_pixel (char *source_path);\n\n\n\n\n\n\n\nParameters\nvalue\n\n\n\n\nname\nfirst_pixel\n\n\nCommand\n-c first_pixel\n\n\nInput\nan image\n\n\noutput\nfirst_pixel: R, G, B R, G, B are the integer values of the components in the range 0-255\n\n\n\nUsage\nfreud.exe -f ./images/input/image.jpeg -c first_pixel \nOutput\nfirst_pixel: 89, 139, 164\nDescribe tips for implementing feature Define first_pixel in src/features.h. Implement first_pixel in src/features.c. Use the data from the function read_image_data from &lt;estia-image.h&gt;.\nint read_image_data(const char *filename, unsigned char **data, int *width, int *height, int *channel_count);\nThe components R, G, B of the first pixel are the three first values of data unsigned char array. Read the wiki Call first_pixel in src/main.c. See the helloworld example to correctly call the function.\nif ( strncmp( configuration.command, \"first_pixel\", 11 ) == 0 ) {\n    /* first_pixel() function is defined in feature.h and implemented in feature.c */\n    first_pixel();\n}"
   },
   {
-    "objectID": "Features/Freud-References.html",
-    "href": "Features/Freud-References.html",
-    "title": "Freud CLI Reference",
+    "objectID": "Features/Freud-Internals.html",
+    "href": "Features/Freud-Internals.html",
+    "title": "Freud Internals",
     "section": "",
-    "text": "This page is a quick reference for the freud command-line tool: how to invoke it, what flags it accepts, and how each feature should behave.\nFor how to implement a new feature, see First Steps and Workflows & Milestones.",
+    "text": "This page describes the internal structure of the Freud template: what files you touch, what each one is for, and how to wire a new feature end to end.\nFor the external command contract (flags, commands, expected output), see Freud CLI Reference.",
     "crumbs": [
       "Home",
       "Code",
-      "Freud CLI Reference"
+      "Freud Internals"
     ]
   },
   {
-    "objectID": "Features/Freud-References.html#basic-usage",
-    "href": "Features/Freud-References.html#basic-usage",
-    "title": "Freud CLI Reference",
-    "section": "Basic usage",
-    "text": "Basic usage\n./freud.exe -f &lt;image&gt; -c &lt;command&gt;\n\n\n\n\n\n\n\nFlag\nDescription\n\n\n\n\n-f &lt;path&gt;\nInput image path. Can be repeated for commands that take multiple images.\n\n\n-c &lt;command&gt;\nFeature to run. Must match an entry in freud.manifest.\n\n\n-o &lt;path&gt;\nOutput image path. Default: image_out.bmp\n\n\n--debug\nPrint debug information (image loaded, dimensions, etc.)\n\n\n--version\nPrint version and exit",
+    "objectID": "Features/Freud-Internals.html#template-source-layout",
+    "href": "Features/Freud-Internals.html#template-source-layout",
+    "title": "Freud Internals",
+    "section": "Template source layout",
+    "text": "Template source layout\nsrc/\n├── main.c        ← entry point; parses args, dispatches to features\n├── argsparse.c   ← CLI argument parsing (don't modify)\n├── argsparse.h\n├── configp.h     ← Config struct definition (read-only)\n├── features.c    ← your feature implementations go here\n├── features.h    ← your function declarations go here\n├── utils.c       ← shared helpers (you may add helpers here)\n└── utils.h\nfreud.manifest     ← list of commands to test against (add new commands here)\nIn general You modify: features.h, features.c, main.c, and freud.manifest, you may modify utils.c and utils.h to add helpers functions or argsparse.c, argsparse.h, configp.h if you need to implement more CLI options (respect the Freud CLI Reference). You can add new source files, if you desire to structure your code differently, don’t forget to update the build system with cmake -B build if you do.",
     "crumbs": [
       "Home",
       "Code",
-      "Freud CLI Reference"
+      "Freud Internals"
     ]
   },
   {
-    "objectID": "Features/Freud-References.html#example-invocations",
-    "href": "Features/Freud-References.html#example-invocations",
-    "title": "Freud CLI Reference",
-    "section": "Example invocations",
-    "text": "Example invocations\n# Print image dimensions\n./freud.exe -f images/input/image.jpeg -c dimension\n\n# Make the image red\n./freud.exe -f images/input/image.jpeg -c color_red\n\n# Rotate clockwise and save with custom name\n./freud.exe -f images/input/image.jpeg -c rotate_cw -o rotated.bmp\n\n# Debug mode (prints image info before running)\n./freud.exe --debug -f images/input/image.jpeg -c dimension",
-    "crumbs": [
-      "Home",
-      "Code",
-      "Freud CLI Reference"
-    ]
-  },
-  {
-    "objectID": "Features/Freud-References.html#feature-index",
-    "href": "Features/Freud-References.html#feature-index",
-    "title": "Freud CLI Reference",
-    "section": "Feature index",
-    "text": "Feature index\n\nMilestone 1 — Tutorial\n\n\n\n\n\n\n\nCommand\nOutput\n\n\n\n\nhelloworld\nPrints Hello World!\n\n\ndimension\ndimension: &lt;width&gt;, &lt;height&gt;\n\n\ncolor_first_pixel\ncolor_first_pixel: R, G, B\n\n\ncolor_10th_pixel\ncolor_10th_pixel: R, G, B\n\n\ncolor_first_pixel_second_line\ncolor_first_pixel_second_line: R, G, B\n\n\npixelRGB\nUses pixelRGB struct, get and print functions\n\n\n\n\n\nMilestone 2 — Statistics\n\n\n\nCommand\nOutput\n\n\n\n\nmax_pixel\nmax_pixel (x, y): R, G, B\n\n\nmin_pixel\nmin_pixel (x, y): R, G, B\n\n\nmax_component\nmax_component: value\n\n\nmin_component\nmin_component: value\n\n\nfull_report\nWrites a .txt file with all statistics\n\n\n\n\n\nMilestone 3 — Colors\n\n\n\nCommand\nOutput\n\n\n\n\ncolor_red\nImage with only red channel kept\n\n\ncolor_green\nImage with only green channel kept\n\n\ncolor_blue\nImage with only blue channel kept\n\n\ngrayscale\nGrayscale via channel averaging\n\n\ninvert\nEach channel inverted (255 − value)\n\n\nluminance\nGrayscale via luminance formula\n\n\ndesaturate\nDesaturated image\n\n\n\n\n\nMilestone 4 — Transforms\n\n\n\nCommand\nOutput\n\n\n\n\nrotate_cw\nImage rotated 90° clockwise\n\n\nrotate_ccw\nImage rotated 90° counter-clockwise\n\n\nmirror_h\nMirror effect — horizontal symmetry\n\n\nmirror_v\nMirror effect — vertical symmetry\n\n\nmirror\nMirror effect (combined)\n\n\ncrop\nCropped image\n\n\n\n\n\nMilestone 5 — Resize\n\n\n\nCommand\nOutput\n\n\n\n\nscale_nn\nScale via nearest-neighbor interpolation\n\n\nscale_bilinear\nScale via bilinear interpolation\n\n\n\n\nNote: Check each feature’s issue file in Features for the exact expected output format. The CI compares output character by character — spacing and capitalization must match exactly.",
-    "crumbs": [
-      "Home",
-      "Code",
-      "Freud CLI Reference"
-    ]
-  },
-  {
-    "objectID": "Features/Freud-References.html#the-manifest-file",
-    "href": "Features/Freud-References.html#the-manifest-file",
-    "title": "Freud CLI Reference",
-    "section": "The manifest file",
-    "text": "The manifest file\nfreud.manifest is a plain text file at the project root. It lists every command your binary supports, one per line:\nhelloworld\ndimension\ncolor_first_pixel\ncolor_red\nRules: - One command per line, no spaces, no quotes - The CI reads this file to know which features to test - If a command is implemented but missing from the manifest, the CI will not test it - If a command is in the manifest but not implemented, the CI test will fail",
-    "crumbs": [
-      "Home",
-      "Code",
-      "Freud CLI Reference"
-    ]
-  },
-  {
-    "objectID": "Features/Freud-References.html#adding-a-new-feature-the-pattern",
-    "href": "Features/Freud-References.html#adding-a-new-feature-the-pattern",
-    "title": "Freud CLI Reference",
-    "section": "Adding a new feature — the pattern",
-    "text": "Adding a new feature — the pattern\nEvery new feature requires four changes:\n\n1. Declare in src/features.h\nvoid my_feature(char *source_path);\n\n\n2. Implement in src/features.c\nvoid my_feature(char *source_path) {\n    unsigned char *data = NULL;\n    int width, height, channels;\n    read_image_data(source_path, &data, &width, &height, &channels);\n    // ... your logic ...\n    free(data);\n}\n\n\n3. Dispatch in src/main.c\nif (strcmp(conf.command, \"my_feature\") == 0) {\n    my_feature(conf.filenames[0]);\n}\n\n\n4. Register in freud.manifest\nmy_feature\nMiss any one of these four steps and the feature either won’t compile, won’t run, or won’t be tested by the CI.",
-    "crumbs": [
-      "Home",
-      "Code",
-      "Freud CLI Reference"
-    ]
-  },
-  {
-    "objectID": "Features/Freud-References.html#the-config-struct",
-    "href": "Features/Freud-References.html#the-config-struct",
-    "title": "Freud CLI Reference",
+    "objectID": "Features/Freud-Internals.html#the-config-struct",
+    "href": "Features/Freud-Internals.html#the-config-struct",
+    "title": "Freud Internals",
     "section": "The Config struct",
-    "text": "The Config struct\nsrc/configp.h defines the configuration parsed from command-line arguments:\ntypedef struct _config {\n    int    debug_mode;                       // --debug flag\n    char   command[MAX_LENGTH_COMMAND];      // -c &lt;command&gt;\n    char*  filenames[MAX_FILE_COUNT];        // -f &lt;path&gt; (can repeat)\n    char*  arguments[MAX_ARGUMENT_COUNT];   // additional arguments\n} Config;\nconf.filenames[0] is the first -f argument — the input image path.",
+    "text": "The Config struct\nsrc/configp.h defines the configuration parsed from command-line arguments. You receive a fully populated Config in main.c — never parse argv yourself.\ntypedef struct _config {\n    int    debug_mode;                       // --debug flag\n    char   command[MAX_LENGTH_COMMAND];      // -c &lt;command&gt;\n    char*  filenames[MAX_FILE_COUNT];        // -f &lt;path&gt; (can repeat)\n    char*  arguments[MAX_ARGUMENT_COUNT];   // additional arguments\n} Config;\nconf.filenames[0] is the first -f argument — the input image path.\nconf.filenames[1] is the second -f (for commands that take two images).",
     "crumbs": [
       "Home",
       "Code",
-      "Freud CLI Reference"
+      "Freud Internals"
     ]
   },
   {
-    "objectID": "Features/Freud-References.html#key-library-functions",
-    "href": "Features/Freud-References.html#key-library-functions",
-    "title": "Freud CLI Reference",
-    "section": "Key library functions",
-    "text": "Key library functions\nFrom estia-image/include/estia-image.h:\n// Read image from file. Returns 0 on success.\nint read_image_data(const char *filename,\n                    unsigned char **data,\n                    int *width, int *height, int *nbChannels);\n\n// Write image to file. Returns 0 on success.\nint write_image_data(const char *filename,\n                     unsigned char *data,\n                     int width, int height);\nPixel access pattern (RGB, 3 channels):\nint index = (y * width + x) * 3;\nunsigned char R = data[index];\nunsigned char G = data[index + 1];\nunsigned char B = data[index + 2];\nSee Image Data Structure for a full explanation of how pixels are laid out in memory.",
+    "objectID": "Features/Freud-Internals.html#reading-and-writing-images",
+    "href": "Features/Freud-Internals.html#reading-and-writing-images",
+    "title": "Freud Internals",
+    "section": "Reading and writing images",
+    "text": "Reading and writing images\nAll image I/O goes through the estia-image library. See Libraries for the full API and Image Data Structure for how pixels are laid out in memory.",
     "crumbs": [
       "Home",
       "Code",
-      "Freud CLI Reference"
+      "Freud Internals"
     ]
   },
   {
-    "objectID": "Features/milestone/milestones.html",
-    "href": "Features/milestone/milestones.html",
-    "title": "Milestones",
-    "section": "",
-    "text": "Number: 2\nState: open\nOpen issues: 5\nClosed issues: 0\nDue on: N/A\nURL: https://github.com/Estia-1a/projetGenieInfo_template/milestone/2\n\n\n\n\n\nNumber: 3\nState: open\nOpen issues: 5\nClosed issues: 0\nDue on: N/A\nURL: https://github.com/Estia-1a/projetGenieInfo_template/milestone/3\n\n\n\n\n\nNumber: 4\nState: open\nOpen issues: 7\nClosed issues: 0\nDue on: N/A\nURL: https://github.com/Estia-1a/projetGenieInfo_template/milestone/4\n\n\n\n\n\nNumber: 5\nState: open\nOpen issues: 5\nClosed issues: 0\nDue on: N/A\nURL: https://github.com/Estia-1a/projetGenieInfo_template/milestone/5\n\n\n\n\n\nNumber: 6\nState: open\nOpen issues: 3\nClosed issues: 0\nDue on: N/A\nURL: https://github.com/Estia-1a/projetGenieInfo_template/milestone/6"
-  },
-  {
-    "objectID": "Features/milestone/milestones.html#milestone-1-tutorial",
-    "href": "Features/milestone/milestones.html#milestone-1-tutorial",
-    "title": "Milestones",
-    "section": "",
-    "text": "Number: 2\nState: open\nOpen issues: 5\nClosed issues: 0\nDue on: N/A\nURL: https://github.com/Estia-1a/projetGenieInfo_template/milestone/2"
-  },
-  {
-    "objectID": "Features/milestone/milestones.html#milestone-2-statistics",
-    "href": "Features/milestone/milestones.html#milestone-2-statistics",
-    "title": "Milestones",
-    "section": "",
-    "text": "Number: 3\nState: open\nOpen issues: 5\nClosed issues: 0\nDue on: N/A\nURL: https://github.com/Estia-1a/projetGenieInfo_template/milestone/3"
-  },
-  {
-    "objectID": "Features/milestone/milestones.html#milestone-3-colors",
-    "href": "Features/milestone/milestones.html#milestone-3-colors",
-    "title": "Milestones",
-    "section": "",
-    "text": "Number: 4\nState: open\nOpen issues: 7\nClosed issues: 0\nDue on: N/A\nURL: https://github.com/Estia-1a/projetGenieInfo_template/milestone/4"
-  },
-  {
-    "objectID": "Features/milestone/milestones.html#milestone-4-transform",
-    "href": "Features/milestone/milestones.html#milestone-4-transform",
-    "title": "Milestones",
-    "section": "",
-    "text": "Number: 5\nState: open\nOpen issues: 5\nClosed issues: 0\nDue on: N/A\nURL: https://github.com/Estia-1a/projetGenieInfo_template/milestone/5"
-  },
-  {
-    "objectID": "Features/milestone/milestones.html#milestone-5-resize",
-    "href": "Features/milestone/milestones.html#milestone-5-resize",
-    "title": "Milestones",
-    "section": "",
-    "text": "Number: 6\nState: open\nOpen issues: 3\nClosed issues: 0\nDue on: N/A\nURL: https://github.com/Estia-1a/projetGenieInfo_template/milestone/6"
-  },
-  {
-    "objectID": "Features/milestone/milestone-3-colors.html",
-    "href": "Features/milestone/milestone-3-colors.html",
-    "title": "Milestone 3: Colors",
-    "section": "",
-    "text": "Those features will manipulate pixel data to create a new image with modified colors. You will practice reading pixel data from an image using the estia-image library, manipulating it in C, and writing output to a new image file. These features are very similar to each other, you should implement them in parallel so that everyone gets to practice each of the steps (reading, manipulating, writing). You can still together for the first feature then split the remaining 6 features between you. Read the collaboration strategies to find how to properly split the work and collaborate effectively.\nOnce the feature are implemented, you could refactor the code to avoid repetition between the different features. You can create a helper function that takes as parameter a pointer to a function that manipulates the pixel data in a specific way. This way you can reuse the same code to read and write the image for all the features, and only change the manipulation of the pixel data. But remember to first implement a code that works before making a better code.\n\n\n\n#13 Color in red\n#14 Color in green\n#15 Color in blue\n#16 Color in gray (grayscale)\n#17 Invert colors\n#18 Color in gray (luminance)\n#34 Desaturate"
-  },
-  {
-    "objectID": "Features/milestone/milestone-3-colors.html#issues",
-    "href": "Features/milestone/milestone-3-colors.html#issues",
-    "title": "Milestone 3: Colors",
-    "section": "",
-    "text": "#13 Color in red\n#14 Color in green\n#15 Color in blue\n#16 Color in gray (grayscale)\n#17 Invert colors\n#18 Color in gray (luminance)\n#34 Desaturate"
-  },
-  {
-    "objectID": "Features/milestone/milestone-2-statistics.html",
-    "href": "Features/milestone/milestone-2-statistics.html",
-    "title": "Milestone 2: Statistics",
-    "section": "",
-    "text": "The goal of this milestone is to implement features that compute statistics on pixel data: max and min pixel, max and min component, and a full report in a txt file. You will practice reading pixel data from an image using the estia-image library, manipulating it in C, and writing output to the console and to a file.\nYou can implement these features in any order and in parallel. You can still together for the first feature then split the remaining 3 features between you. Read the collaboration strategies to find how to properly split the work and collaborate effectively.\nBefore implementing a feature you should understand the specification and the expected output format. What will the output be for a given image ? You should start creating images with known pixel data to test your implementation. You can create images with an image editor. Save them as bitmap (.bmp) to easily control the pixel data.\n\n\n\n#8 Max pixel\n#9 Min pixel\n#10 Max component\n#11 Min component\n#12 Full report in a txt file"
-  },
-  {
-    "objectID": "Features/milestone/milestone-2-statistics.html#issues",
-    "href": "Features/milestone/milestone-2-statistics.html#issues",
-    "title": "Milestone 2: Statistics",
-    "section": "",
-    "text": "#8 Max pixel\n#9 Min pixel\n#10 Max component\n#11 Min component\n#12 Full report in a txt file"
-  },
-  {
-    "objectID": "Features/Features.html",
-    "href": "Features/Features.html",
-    "title": "Milestones and Issues",
-    "section": "",
-    "text": "Feature specifications are maintained as local markdown files generated from template repository issues.",
+    "objectID": "Features/Freud-Internals.html#adding-a-new-feature-the-pattern",
+    "href": "Features/Freud-Internals.html#adding-a-new-feature-the-pattern",
+    "title": "Freud Internals",
+    "section": "Adding a new feature — the pattern",
+    "text": "Adding a new feature — the pattern\nEvery new feature requires four changes. Miss any one and the feature either won’t compile, won’t run, or won’t be tested by the CI.\n\n1. Declare in src/features.h\nvoid my_feature(char *source_path);\n\n\n2. Implement in src/features.c\nvoid my_feature(char *source_path) {\n    unsigned char *data = NULL;\n    int width, height, channels;\n    read_image_data(source_path, &data, &width, &height, &channels);\n\n    // ... your logic ...\n\n    free(data);\n}\n\n\n3. Dispatch in src/main.c\nif (strncmp(configuration.command, \"my_feature\", 10) == 0) {\n    my_feature(conf.filenames[0]);\n}\n\n\n4. Register in freud.manifest\nmy_feature",
     "crumbs": [
       "Home",
       "Code",
-      "Features List"
+      "Freud Internals"
     ]
   },
   {
-    "objectID": "Features/Features.html#overview",
-    "href": "Features/Features.html#overview",
-    "title": "Milestones and Issues",
+    "objectID": "Features/milestone/milestone-4-transform.html",
+    "href": "Features/milestone/milestone-4-transform.html",
+    "title": "Milestone 4: Transform",
     "section": "",
-    "text": "Feature specifications are maintained as local markdown files generated from template repository issues.",
-    "crumbs": [
-      "Home",
-      "Code",
-      "Features List"
-    ]
+    "text": "Those features will manipulate pixel data to create a new image with modified geometry. You will practice reading pixel data from an image using the estia-image library, manipulating it in C, and writing output to a new image file. These features are very similar to each other, you should implement them in parallel so that everyone gets to practice each of the steps (reading, manipulating, writing).\n\n\n\n#19 Rotate clockwise 90°\n#20 Rotate anti-clockwise 90°\n#21 Mirror effect - horizontal symmetry\n#22 Mirror effect - vertical symmetry\n#23 Mirror effect"
   },
   {
-    "objectID": "Features/Features.html#milestones",
-    "href": "Features/Features.html#milestones",
-    "title": "Milestones and Issues",
-    "section": "Milestones",
-    "text": "Milestones\n\nMilestone 1: Tutorial\nMilestone 2: Statistics\nMilestone 3: Colors\nMilestone 4: Transform\nMilestone 5: Resize",
-    "crumbs": [
-      "Home",
-      "Code",
-      "Features List"
-    ]
-  },
-  {
-    "objectID": "Features/Features.html#features-index",
-    "href": "Features/Features.html#features-index",
-    "title": "Milestones and Issues",
-    "section": "Features index",
-    "text": "Features index\n\nFeatures index",
-    "crumbs": [
-      "Home",
-      "Code",
-      "Features List"
-    ]
-  },
-  {
-    "objectID": "Resources/Editors.html",
-    "href": "Resources/Editors.html",
-    "title": "Editors and VS Code",
+    "objectID": "Features/milestone/milestone-4-transform.html#issues",
+    "href": "Features/milestone/milestone-4-transform.html#issues",
+    "title": "Milestone 4: Transform",
     "section": "",
-    "text": "At the most basic level, C source files are plain text files. Any text editor can open and modify them.\nThat said, a programming project quickly becomes easier to manage with an IDE or a code editor designed for development.",
-    "crumbs": [
-      "Home",
-      "Tools",
-      "VS Code & Editors"
-    ]
+    "text": "#19 Rotate clockwise 90°\n#20 Rotate anti-clockwise 90°\n#21 Mirror effect - horizontal symmetry\n#22 Mirror effect - vertical symmetry\n#23 Mirror effect"
   },
   {
-    "objectID": "Resources/Editors.html#any-text-editor-can-edit-c-code",
-    "href": "Resources/Editors.html#any-text-editor-can-edit-c-code",
-    "title": "Editors and VS Code",
+    "objectID": "Features/milestone/no-milestone.html",
+    "href": "Features/milestone/no-milestone.html",
+    "title": "Issues Without Milestone",
     "section": "",
-    "text": "At the most basic level, C source files are plain text files. Any text editor can open and modify them.\nThat said, a programming project quickly becomes easier to manage with an IDE or a code editor designed for development.",
-    "crumbs": [
-      "Home",
-      "Tools",
-      "VS Code & Editors"
-    ]
+    "text": "Issues Without Milestone\nNo issues without milestone."
   },
   {
-    "objectID": "Resources/Editors.html#what-an-ide-gives-you-beyond-text-editing",
-    "href": "Resources/Editors.html#what-an-ide-gives-you-beyond-text-editing",
-    "title": "Editors and VS Code",
-    "section": "What an IDE gives you beyond text editing",
-    "text": "What an IDE gives you beyond text editing\nCompared with a basic text editor, a practical IDE or programming editor usually adds:\n\nsyntax highlighting for C files\nerror and warning display while you type\njump to definition and symbol search\nproject-wide search across files\nintegrated terminal access\nGit integration for commits, diffs, and branch state\ntasks or shortcuts to build and run the project\n\nThese features do not write the project for you. They help you inspect, understand, and manage your own work more efficiently.",
-    "crumbs": [
-      "Home",
-      "Tools",
-      "VS Code & Editors"
-    ]
-  },
-  {
-    "objectID": "Resources/Editors.html#recommendation-use-vs-code",
-    "href": "Resources/Editors.html#recommendation-use-vs-code",
-    "title": "Editors and VS Code",
-    "section": "Recommendation: use VS Code",
-    "text": "Recommendation: use VS Code\nWe recommend Visual Studio Code for this project.\nOpen the repository in folder mode, not as isolated files. This lets VS Code understand the project structure, search the whole codebase, and apply workspace settings and recommended extensions.\nWhen VS Code suggests recommended extensions for the workspace, install them. They improve C editing, diagnostics, and project navigation.",
-    "crumbs": [
-      "Home",
-      "Tools",
-      "VS Code & Editors"
-    ]
-  },
-  {
-    "objectID": "Resources/Editors.html#use-vs-code-as-the-main-workstation",
-    "href": "Resources/Editors.html#use-vs-code-as-the-main-workstation",
-    "title": "Editors and VS Code",
-    "section": "Use VS Code as the main workstation",
-    "text": "Use VS Code as the main workstation\nVS Code is not only an editor window. It can be the main place where you:\n\nedit files in src/\ninspect compiler errors\nopen a terminal\nrun the onboarding script\ncompile the project\nrun build/freud.exe\n\nThat makes the edit-build-run loop much faster.",
-    "crumbs": [
-      "Home",
-      "Tools",
-      "VS Code & Editors"
-    ]
-  },
-  {
-    "objectID": "Resources/Editors.html#integrated-terminal",
-    "href": "Resources/Editors.html#integrated-terminal",
-    "title": "Editors and VS Code",
-    "section": "Integrated terminal",
-    "text": "Integrated terminal\nVS Code includes a terminal panel. Use it to run commands such as:\n./validconfig.sh\ncmake -B build\ncmake --build build\nbuild/freud.exe -f images/input/test.jpg -c color_blue\nKeeping the terminal inside the editor is practical because you can move directly from an error message to the corresponding source file.",
-    "crumbs": [
-      "Home",
-      "Tools",
-      "VS Code & Editors"
-    ]
-  },
-  {
-    "objectID": "Resources/Editors.html#about-ai-first-coding-tools",
-    "href": "Resources/Editors.html#about-ai-first-coding-tools",
-    "title": "Editors and VS Code",
-    "section": "About AI-first coding tools",
-    "text": "About AI-first coding tools\nDo not use AI-first coding environments or code-generation tools for this project.\nThat includes tools whose main promise is to generate or rewrite code for you. The issue is not the brand name. The issue is the behavior: if the tool is producing the code you are supposed to learn to write, it is not appropriate here.\nSee Ethics.",
-    "crumbs": [
-      "Home",
-      "Tools",
-      "VS Code & Editors"
-    ]
-  },
-  {
-    "objectID": "Resources/Build-Toolchain.html",
-    "href": "Resources/Build-Toolchain.html",
-    "title": "Compile Chain",
+    "objectID": "Features/milestone/milestone-1-tutorial.html",
+    "href": "Features/milestone/milestone-1-tutorial.html",
+    "title": "Milestone 1: Tutorial",
     "section": "",
-    "text": "Your .c and .h files are source code for humans and compilers. They are not directly executable.\nTo obtain a program such as build/freud.exe, you need a toolchain that can compile source files, link libraries, and organize the build process.\nIn this project, that chain is mainly based on GCC, Make, and CMake.",
+    "text": "The goal of this milestone is for you to understand :\n\nwhat freud is (a command-line image processing tool) and how to use it,\nhow to implement a new feature (declare it, implement it, add it to the manifest, add a dispatch branch in main.c),\nhow to compile and run the project,\nhow to use the estia-image library to read pixel data from an image\nhow to collaborate as a team of three to implement features together and use version control to collaborate.\n\nIn this milestone work as mob programming — all three of you on the same machine, working on the same code, at the same time. You can rotate driver/navigator roles as you wish.\n\n\n\n#3 Dimension\n#4 Color of the first pixel\n#5 Color of the 10th pixel\n#6 Color of the first pixel on the second line\n#7 RGB pixel, get and print functions"
+  },
+  {
+    "objectID": "Features/milestone/milestone-1-tutorial.html#issues",
+    "href": "Features/milestone/milestone-1-tutorial.html#issues",
+    "title": "Milestone 1: Tutorial",
+    "section": "",
+    "text": "#3 Dimension\n#4 Color of the first pixel\n#5 Color of the 10th pixel\n#6 Color of the first pixel on the second line\n#7 RGB pixel, get and print functions"
+  },
+  {
+    "objectID": "Features/milestone/milestone-5-resize.html",
+    "href": "Features/milestone/milestone-5-resize.html",
+    "title": "Milestone 5: Resize",
+    "section": "",
+    "text": "Those are the most advanced features of the project. They will manipulate pixel data to create a new image with modified geometry and a different size. You will practice reading pixel data from an image using the estia-image library, manipulating it in C, and writing output to a new image file.\n\n\n\n#24 Crop\n#25 Scale via Nearest-neighbor interpolation\n#26 Scale via bilinear interpolation"
+  },
+  {
+    "objectID": "Features/milestone/milestone-5-resize.html#issues",
+    "href": "Features/milestone/milestone-5-resize.html#issues",
+    "title": "Milestone 5: Resize",
+    "section": "",
+    "text": "#24 Crop\n#25 Scale via Nearest-neighbor interpolation\n#26 Scale via bilinear interpolation"
+  },
+  {
+    "objectID": "Resources/Image-Data-Structure.html",
+    "href": "Resources/Image-Data-Structure.html",
+    "title": "Image Data Structure",
+    "section": "",
+    "text": "Image data is stored in a flat unsigned char* buffer.\n\nThe image has height rows and width columns.\nEach pixel has N components.\nIn this project, N = 3 for RGB.\nData is row-major, from top-left to bottom-right.\n\nThe buffer size is:\nwidth * height * N",
     "crumbs": [
       "Home",
       "Learn",
-      "The Build System"
+      "Image Data Structure"
     ]
   },
   {
-    "objectID": "Resources/Build-Toolchain.html#why-a-compile-chain-exists",
-    "href": "Resources/Build-Toolchain.html#why-a-compile-chain-exists",
-    "title": "Compile Chain",
+    "objectID": "Resources/Image-Data-Structure.html#image-buffer-model",
+    "href": "Resources/Image-Data-Structure.html#image-buffer-model",
+    "title": "Image Data Structure",
     "section": "",
-    "text": "Your .c and .h files are source code for humans and compilers. They are not directly executable.\nTo obtain a program such as build/freud.exe, you need a toolchain that can compile source files, link libraries, and organize the build process.\nIn this project, that chain is mainly based on GCC, Make, and CMake.",
+    "text": "Image data is stored in a flat unsigned char* buffer.\n\nThe image has height rows and width columns.\nEach pixel has N components.\nIn this project, N = 3 for RGB.\nData is row-major, from top-left to bottom-right.\n\nThe buffer size is:\nwidth * height * N",
     "crumbs": [
       "Home",
       "Learn",
-      "The Build System"
+      "Image Data Structure"
     ]
   },
   {
-    "objectID": "Resources/Build-Toolchain.html#gcc",
-    "href": "Resources/Build-Toolchain.html#gcc",
-    "title": "Compile Chain",
-    "section": "GCC",
-    "text": "GCC\nGCC is the compiler collection used here to translate your C code into machine code.\nIn practical terms, GCC is the tool that reads files such as src/features.c, checks whether the C syntax and types are valid, and produces object files that can later be linked into an executable.\nIt is also the tool that emits most compilation errors and warnings.\nIf GCC says something is wrong, you should read the message carefully and fix the source code rather than guessing.",
+    "objectID": "Resources/Image-Data-Structure.html#io-functions",
+    "href": "Resources/Image-Data-Structure.html#io-functions",
+    "title": "Image Data Structure",
+    "section": "IO functions",
+    "text": "IO functions\nint read_image_data(const char *filename, unsigned char **data, int *width, int *height, int *nbChannels);\nint write_image_data(const char *filename, unsigned char *data, int width, int height);\nParameters:\n\nfilename: image file path\ndata: pixel buffer\nwidth: image width\nheight: image height\nnbChannels: number of channels",
     "crumbs": [
       "Home",
       "Learn",
-      "The Build System"
+      "Image Data Structure"
     ]
   },
   {
-    "objectID": "Resources/Build-Toolchain.html#makefile",
-    "href": "Resources/Build-Toolchain.html#makefile",
-    "title": "Compile Chain",
-    "section": "Makefile",
-    "text": "Makefile\nA Makefile describes build targets and dependencies.\nIts role is to answer questions such as:\n\nwhat needs to be compiled\nin which order\nwith which commands\nwhat can be reused without recompiling everything\n\nYou will see generated Makefiles inside the build process. They help automate repeated compilation work and avoid rebuilding everything from scratch unnecessarily.",
+    "objectID": "Resources/Image-Data-Structure.html#pixel-helper-structure",
+    "href": "Resources/Image-Data-Structure.html#pixel-helper-structure",
+    "title": "Image Data Structure",
+    "section": "Pixel helper structure",
+    "text": "Pixel helper structure\nAt the end of Milestone 1, you should introduce a helper structure:\ntypedef struct _pixelRGB {\n  unsigned char R;\n  unsigned char G;\n  unsigned char B;\n} pixelRGB;\nThis structure simplifies component-level access and supports helper functions such as getPixel(x, y).",
     "crumbs": [
       "Home",
       "Learn",
-      "The Build System"
+      "Image Data Structure"
     ]
   },
   {
-    "objectID": "Resources/Build-Toolchain.html#cmake",
-    "href": "Resources/Build-Toolchain.html#cmake",
-    "title": "Compile Chain",
-    "section": "CMake",
-    "text": "CMake\nCMake is a build-system generator.\nYou do not usually write compiler commands by hand for every file. Instead, CMake reads CMakeLists.txt, understands the structure of the project, checks dependencies, and generates the concrete build files needed on your machine.\nIn this project, CMake is the main entry point for building.\n\nUseful commands\nConfigure the project:\ncmake -B build\nThis creates or refreshes the build/ folder.\nBuild the project:\ncmake --build build\nThis compiles the code and produces the executable in build/.\nInstall the project:\ncmake --install build\nThis copies the built result to the install location defined by the project. For day-to-day work, you mainly need configure plus build.",
+    "objectID": "Resources/Image-Data-Structure.html#index-formula",
+    "href": "Resources/Image-Data-Structure.html#index-formula",
+    "title": "Image Data Structure",
+    "section": "Index formula",
+    "text": "Index formula\nFor pixel at (x, y) with channel count n, the starting index in data is:\n(y * width + x) * n\nThen channels are:\n\nR: data[idx]\nG: data[idx + 1]\nB: data[idx + 2]",
     "crumbs": [
       "Home",
       "Learn",
-      "The Build System"
-    ]
-  },
-  {
-    "objectID": "Resources/Build-Toolchain.html#the-usual-local-workflow",
-    "href": "Resources/Build-Toolchain.html#the-usual-local-workflow",
-    "title": "Compile Chain",
-    "section": "The usual local workflow",
-    "text": "The usual local workflow\ncmake -B build\ncmake --build build\nbuild/freud.exe -f images/input/test.jpg -c color_blue\nThe first command is needed once after cloning, and again when build configuration changes. The second command is the one you will run repeatedly after editing the code.",
-    "crumbs": [
-      "Home",
-      "Learn",
-      "The Build System"
-    ]
-  },
-  {
-    "objectID": "Resources/Build-Toolchain.html#running-the-resulting-command",
-    "href": "Resources/Build-Toolchain.html#running-the-resulting-command",
-    "title": "Compile Chain",
-    "section": "Running the resulting command",
-    "text": "Running the resulting command\nOnce the build succeeds, you run the executable produced in the build/ directory.\nExample:\nbuild/freud.exe -f images/input/test.jpg -c grayscale\nThis is how you verify that your implementation really works on a concrete input.\nFor more details on command syntax, see Using the Command Line.",
-    "crumbs": [
-      "Home",
-      "Learn",
-      "The Build System"
-    ]
-  },
-  {
-    "objectID": "Resources/FAQ.html",
-    "href": "Resources/FAQ.html",
-    "title": "FAQ",
-    "section": "",
-    "text": "This page has been merged into Debugging & Troubleshooting."
-  },
-  {
-    "objectID": "Resources/FAQ.html#team-coordination",
-    "href": "Resources/FAQ.html#team-coordination",
-    "title": "FAQ",
-    "section": "Team coordination",
-    "text": "Team coordination\n\nWhat does the team leader need to do?\nExactly one thing that no one else should do: run workflow activation.\nbash validconfig.sh --activate-workflows\nThis renames disabled workflow files and pushes an onboarding commit. Do this after every teammate has passed bash validconfig.sh and built helloworld successfully.\nAfter pushing, announce to your team. Everyone else runs git pull.\n\n\nMy teammate already activated workflows. What do I do?\nRun git pull. You do not need to run --activate-workflows yourself.\n\n\nWho should trigger the issue import?\nOne person. Open GitHub → Actions → Import issues from Template → Run workflow. Everyone else waits, then runs git pull once issues appear.\n\n\nCan we split Milestone 1 issues and work in parallel?\nNo. Milestone 1 is designed to be solved together using mob programming (everyone at one screen, rotating who types). See First Steps — Milestone 1 for the rotation rhythm.\nWorking in parallel on Milestone 1 means some teammates never learn to open an image, access pixels, or add a feature — which will hurt them in the individual final exam."
-  },
-  {
-    "objectID": "Resources/FAQ.html#build-problems",
-    "href": "Resources/FAQ.html#build-problems",
-    "title": "FAQ",
-    "section": "Build problems",
-    "text": "Build problems\n\nBuild fails immediately\n\nRun:\n\nbash validconfig.sh\n\nFix every error the script reports.\nRetry:\n\ncmake -B build\ncmake --build build\n\n\nI am missing estia-image or getopt\nYou need both library folders in the project root:\n\nestia-image/\ngetopt/\n\nWithout them, CMake configuration fails. See Setup — Phase 3 for download and extraction instructions.\n\n\nHow do I choose the right library package?\nThe deciding factor is the CPU architecture prefix, not the mingw suffix.\ngcc -dumpmachine\n\n\n\nOutput starts with\nDownload\n\n\n\n\nx86_64\n*-win10-mingw64.zip\n\n\ni686\n*-win10-mingw32.zip\n\n\n\nIf you see x86_64-w64-mingw32: the x86_64 prefix means 64-bit → download mingw64.\nPackages are in the v2.0.1 release.\n\n\nI extracted the zip but validation still says include is missing\nYou probably kept the wrapper folder. Move only the inner folder to your project root.\n✗ Wrong:\nestia-image-v2.0.1-win10-mingw32/\n    estia-image/\n        include/\n        lib/\n\n✓ Correct:\nestia-image/\n    include/\n    lib/\ngetopt/\n    include/\n    lib/\n\n\nPath and encoding problems on Windows\nKeep your repository path simple:\n\nNo accents in folders\nNo very long nested paths\nAvoid special characters"
-  },
-  {
-    "objectID": "Resources/FAQ.html#github-and-actions",
-    "href": "Resources/FAQ.html#github-and-actions",
-    "title": "FAQ",
-    "section": "GitHub and Actions",
-    "text": "GitHub and Actions\n\nI cannot see issues in my repository\n\nOpen GitHub Actions.\nRun Import issues from Template manually.\nWait until the workflow completes (green checkmark).\nRefresh the Issues tab."
-  },
-  {
-    "objectID": "Resources/CLI.html",
-    "href": "Resources/CLI.html",
-    "title": "Using the Command Line",
-    "section": "",
-    "text": "A Command-Line Interface (CLI) is a text-based interface where you interact with a program by typing commands in a terminal. Unlike an application with buttons and menus, a CLI program reads arguments you type and produces output in the terminal.\nThis is the kind of program you are building: freud is a CLI tool.\nEach command you type follows the same structure:\nprompt  command  options  arguments\nFor example:\n$ build/freud.exe -f images/input/test.jpg -c color_blue\n\nbuild/freud.exe — the program to run\n-f images/input/test.jpg — an option with a parameter (the input image file)\n-c color_blue — an option with a parameter (the feature to apply)\n\nThe $ is the prompt shown by your terminal — you do not type it.",
-    "crumbs": [
-      "Home",
-      "Tools",
-      "Command Line"
-    ]
-  },
-  {
-    "objectID": "Resources/CLI.html#what-is-a-cli",
-    "href": "Resources/CLI.html#what-is-a-cli",
-    "title": "Using the Command Line",
-    "section": "",
-    "text": "A Command-Line Interface (CLI) is a text-based interface where you interact with a program by typing commands in a terminal. Unlike an application with buttons and menus, a CLI program reads arguments you type and produces output in the terminal.\nThis is the kind of program you are building: freud is a CLI tool.\nEach command you type follows the same structure:\nprompt  command  options  arguments\nFor example:\n$ build/freud.exe -f images/input/test.jpg -c color_blue\n\nbuild/freud.exe — the program to run\n-f images/input/test.jpg — an option with a parameter (the input image file)\n-c color_blue — an option with a parameter (the feature to apply)\n\nThe $ is the prompt shown by your terminal — you do not type it.",
-    "crumbs": [
-      "Home",
-      "Tools",
-      "Command Line"
-    ]
-  },
-  {
-    "objectID": "Resources/CLI.html#options-and-arguments",
-    "href": "Resources/CLI.html#options-and-arguments",
-    "title": "Using the Command Line",
-    "section": "Options and arguments",
-    "text": "Options and arguments\nShort options are a single letter preceded by -:\n-f images/input/test.jpg\n-c grayscale\nLong options are a full word preceded by --:\n--debug\nPositional arguments follow the options without a flag — some freud features use them:\n$ build/freud.exe -f input.jpg -c max_component R\nHere R is a positional argument passed to the max_component feature.",
-    "crumbs": [
-      "Home",
-      "Tools",
-      "Command Line"
-    ]
-  },
-  {
-    "objectID": "Resources/CLI.html#freud-synopsis",
-    "href": "Resources/CLI.html#freud-synopsis",
-    "title": "Using the Command Line",
-    "section": "freud — synopsis",
-    "text": "freud — synopsis\nfreud.exe -f &lt;image_path&gt; -c &lt;command&gt; [--debug] [arguments...]\n\nOptions\n\n\n\nOption\nArgument\nDescription\n\n\n\n\n-f\n&lt;image_path&gt;\nPath to the input image file (JPEG or PNG)\n\n\n-c\n&lt;command&gt;\nName of the feature to apply (see list below)\n\n\n--debug\n—\nEnable debug output\n\n\n\nAdditional positional arguments after the options are passed to the feature implementation. Which arguments are expected depends on the specific feature — check the issue description.\n\n\nExamples\nApply blue tint to an image:\n$ build/freud.exe -f images/input/test.jpg -c color_blue\nKeep only the red channel (max component):\n$ build/freud.exe -f images/input/test.jpg -c max_component R\nConvert to grayscale using luminance:\n$ build/freud.exe -f images/input/test.jpg -c grayscale_luminance\nRun with debug output:\n$ build/freud.exe -f images/input/test.jpg -c color_blue --debug\n\n\nOutput\nfreud writes the result image to the path defined in the feature implementation. The evaluation tests compare the output image against a reference image produced by the teaching team’s own implementation.",
-    "crumbs": [
-      "Home",
-      "Tools",
-      "Command Line"
-    ]
-  },
-  {
-    "objectID": "Resources/CLI.html#building-freud",
-    "href": "Resources/CLI.html#building-freud",
-    "title": "Using the Command Line",
-    "section": "Building freud",
-    "text": "Building freud\nfreud uses CMake as its build system. There are two steps:\n\nStep 1 — Configure (once)\ncmake -B build\nThis reads CMakeLists.txt and prepares the build system in the build/ folder. Run this once after cloning, or again if you add/remove source files.\n\n\nStep 2 — Compile\ncmake --build build\nThis compiles your C sources and produces the executable at:\nbuild/freud.exe\n\n\n\n\n\n\nWarningAlways use build/freud.exe, not ./freud.exe\n\n\n\nRunning cmake --build build updates build/freud.exe. There is also a ./freud.exe at the project root, but it only gets updated when you run cmake --install build. If you do not run cmake --install, the root-level ./freud.exe is stale and does not reflect your latest code.\nAlways test with build/freud.exe after a cmake --build build.\n\n\n\n\nFull build workflow\n# After editing source files:\ncmake --build build\nbuild/freud.exe -f images/input/test.jpg -c your_feature\nIf there are compilation errors, CMake prints them with the file name and line number. Fix the error and run cmake --build build again.",
-    "crumbs": [
-      "Home",
-      "Tools",
-      "Command Line"
-    ]
-  },
-  {
-    "objectID": "Resources/CLI.html#reading-error-messages",
-    "href": "Resources/CLI.html#reading-error-messages",
-    "title": "Using the Command Line",
-    "section": "Reading error messages",
-    "text": "Reading error messages\nWhen your code does not compile, gcc prints messages like:\nsrc/features.c:42:5: error: use of undeclared identifier 'img'\nThis tells you: - File: src/features.c - Line: 42, column 5 - Problem: img is not declared in that scope\nFix the error in VS Code (the editor highlights it too), then rebuild.",
-    "crumbs": [
-      "Home",
-      "Tools",
-      "Command Line"
-    ]
-  },
-  {
-    "objectID": "Resources/CLI.html#where-to-find-the-feature-commands",
-    "href": "Resources/CLI.html#where-to-find-the-feature-commands",
-    "title": "Using the Command Line",
-    "section": "Where to find the feature commands",
-    "text": "Where to find the feature commands\nThe list of valid -c command names is defined in freud.manifest. Each entry maps a command string to the corresponding C function you must implement in src/features.c.\nSee Milestones and Issues for the full list of features to implement.",
-    "crumbs": [
-      "Home",
-      "Tools",
-      "Command Line"
-    ]
-  },
-  {
-    "objectID": "Resources/Libraries.html",
-    "href": "Resources/Libraries.html",
-    "title": "Libraries",
-    "section": "",
-    "text": "The project provides helper functions for image file IO and memory management.\n\n\n/**\n * Return some data about an image file\n * @param[in] filename Name of the file to be open\n * @param[out] data Reference to the pointer that points to the pixel array\n * @param[out] width Width of the image\n * @param[out] height Height of the image\n * @param[out] channel_count Number of channels\n * @return 0 on failure and non-0 on success.\n */\nint read_image_data(const char *filename, unsigned char **data, int *width, int *height, int *channel_count);\nTypical call:\nread_image_data(the_file_name, &data, &w, &h, &n);\n\n\n\n/**\n * Writes into a png image file\n * @param[in] filename Name of the file to be written into\n * @param[in] data Reference to the pixel array to be written\n * @param[in] width Width of the image\n * @param[in] height Height of the image\n * @return 0 on failure and non-0 on success.\n */\nint write_image_data(const char *filename, unsigned char *data, int width, int height);\nTypical call:\nwrite_image_data(output_image_name, new_data, new_w, new_h);\n\n\n\n/**\n * Frees stbi-related buffers and resources\n * @param[in] data The buffer allocated by readImageData buffer to be freed\n */\nvoid free_image_data(unsigned char *data);\nCall free_image_data whenever image data is no longer needed.",
-    "crumbs": [
-      "Home",
-      "Tools",
-      "Libraries"
-    ]
-  },
-  {
-    "objectID": "Resources/Libraries.html#estia-image-library",
-    "href": "Resources/Libraries.html#estia-image-library",
-    "title": "Libraries",
-    "section": "",
-    "text": "The project provides helper functions for image file IO and memory management.\n\n\n/**\n * Return some data about an image file\n * @param[in] filename Name of the file to be open\n * @param[out] data Reference to the pointer that points to the pixel array\n * @param[out] width Width of the image\n * @param[out] height Height of the image\n * @param[out] channel_count Number of channels\n * @return 0 on failure and non-0 on success.\n */\nint read_image_data(const char *filename, unsigned char **data, int *width, int *height, int *channel_count);\nTypical call:\nread_image_data(the_file_name, &data, &w, &h, &n);\n\n\n\n/**\n * Writes into a png image file\n * @param[in] filename Name of the file to be written into\n * @param[in] data Reference to the pixel array to be written\n * @param[in] width Width of the image\n * @param[in] height Height of the image\n * @return 0 on failure and non-0 on success.\n */\nint write_image_data(const char *filename, unsigned char *data, int width, int height);\nTypical call:\nwrite_image_data(output_image_name, new_data, new_w, new_h);\n\n\n\n/**\n * Frees stbi-related buffers and resources\n * @param[in] data The buffer allocated by readImageData buffer to be freed\n */\nvoid free_image_data(unsigned char *data);\nCall free_image_data whenever image data is no longer needed.",
-    "crumbs": [
-      "Home",
-      "Tools",
-      "Libraries"
-    ]
-  },
-  {
-    "objectID": "Resources/Libraries.html#getopt-library",
-    "href": "Resources/Libraries.html#getopt-library",
-    "title": "Libraries",
-    "section": "getopt library",
-    "text": "getopt library\ngetopt is used to parse command-line options for freud.exe.\nMain options used in this project:\n\n-f: input image path\n-c: command name\n-o: output file path\n--debug: debug mode",
-    "crumbs": [
-      "Home",
-      "Tools",
-      "Libraries"
-    ]
-  },
-  {
-    "objectID": "Resources/Outputs.html",
-    "href": "Resources/Outputs.html",
-    "title": "Outputs",
-    "section": "",
-    "text": "By default, output images are written as image_out.bmp.\n./freud -f image_in.png -c red\nls\n# freud image_in.png image_out.bmp",
-    "crumbs": [
-      "Home",
-      "Learn",
-      "Understanding Outputs"
-    ]
-  },
-  {
-    "objectID": "Resources/Outputs.html#default-output-name",
-    "href": "Resources/Outputs.html#default-output-name",
-    "title": "Outputs",
-    "section": "",
-    "text": "By default, output images are written as image_out.bmp.\n./freud -f image_in.png -c red\nls\n# freud image_in.png image_out.bmp",
-    "crumbs": [
-      "Home",
-      "Learn",
-      "Understanding Outputs"
-    ]
-  },
-  {
-    "objectID": "Resources/Outputs.html#custom-output-name",
-    "href": "Resources/Outputs.html#custom-output-name",
-    "title": "Outputs",
-    "section": "Custom output name",
-    "text": "Custom output name\nUse -o to define output file name.\n./freud -f image_in.png -c red -o redImage.bmp\nls\n# freud image_in.png redImage.bmp",
-    "crumbs": [
-      "Home",
-      "Learn",
-      "Understanding Outputs"
-    ]
-  },
-  {
-    "objectID": "Resources/Tools.html",
-    "href": "Resources/Tools.html",
-    "title": "Tools Overview",
-    "section": "",
-    "text": "To manage a C programming project, you need more than source files.\nYou need tools for four different jobs:\n\nEdit the source code\nCompile the program\nVersion the work over time\nShare and coordinate the work with your team\n\nFor this project, the practical tool stack is:\n\nan editor or IDE to write and inspect the code\na compile chain based on GCC, Make, and CMake\na terminal to run commands and test the program\nGit and GitHub to version, publish, and coordinate the project",
-    "crumbs": [
-      "Home",
-      "Tools",
-      "Tools Overview"
-    ]
-  },
-  {
-    "objectID": "Resources/Tools.html#why-tools-matter",
-    "href": "Resources/Tools.html#why-tools-matter",
-    "title": "Tools Overview",
-    "section": "",
-    "text": "To manage a C programming project, you need more than source files.\nYou need tools for four different jobs:\n\nEdit the source code\nCompile the program\nVersion the work over time\nShare and coordinate the work with your team\n\nFor this project, the practical tool stack is:\n\nan editor or IDE to write and inspect the code\na compile chain based on GCC, Make, and CMake\na terminal to run commands and test the program\nGit and GitHub to version, publish, and coordinate the project",
-    "crumbs": [
-      "Home",
-      "Tools",
-      "Tools Overview"
-    ]
-  },
-  {
-    "objectID": "Resources/Tools.html#the-four-tool-families",
-    "href": "Resources/Tools.html#the-four-tool-families",
-    "title": "Tools Overview",
-    "section": "The four tool families",
-    "text": "The four tool families\n\nEditors\nAn editor lets you modify text files. An IDE goes further and helps you navigate code, see errors faster, run builds, and work with Git.\nSee Editors and VS Code.\n\n\nCompile chain\nYour C source files are not directly executable. They must be compiled and linked into a program.\nSee Compile Chain.\n\n\nCommand line\nEven when you use a graphical editor, this project is driven by commands such as setup scripts, builds, and executions of freud.exe.\nSee Using the Command Line.\n\n\nGit and GitHub\nGit tracks the history of your work. GitHub hosts the shared repository and the project-management workflow around it.\nSee Git and GitHub.",
-    "crumbs": [
-      "Home",
-      "Tools",
-      "Tools Overview"
-    ]
-  },
-  {
-    "objectID": "Resources/Collaboration.html",
-    "href": "Resources/Collaboration.html",
-    "title": "Collaboration Strategies",
-    "section": "",
-    "text": "Working as a team on code is a skill in itself. This page describes three strategies you can use at different stages of the project. They are not mutually exclusive — a good team switches between them depending on the situation.",
-    "crumbs": [
-      "Home",
-      "Code",
-      "Team Collaboration"
-    ]
-  },
-  {
-    "objectID": "Resources/Collaboration.html#strategy-1-mob-programming",
-    "href": "Resources/Collaboration.html#strategy-1-mob-programming",
-    "title": "Collaboration Strategies",
-    "section": "Strategy 1 — Mob programming",
-    "text": "Strategy 1 — Mob programming\nBest for: Milestone 1, learning something new, unblocking a stuck teammate.\nEveryone works on the same problem at the same time. One person drives (keyboard), the others navigate (discuss, spot errors, suggest solutions). Rotate the driver regularly.\n\n\n\n\n\nsequenceDiagram\n    participant S1 as Student 1 (driver)\n    participant S2 as Student 2 (navigator)\n    participant S3 as Student 3 (navigator)\n    participant GH as GitHub\n\n    Note over S1,S3: Everyone at the same screen\n    Note over S1,S3: Discuss the problem — agree on an approach\n    S1-&gt;&gt;S1: Write code\n    S2--&gt;&gt;S1: Spot an error, suggest fix\n    S3--&gt;&gt;S1: Check against the spec\n    S1-&gt;&gt;S1: Build · Run · Verify\n    S1-&gt;&gt;GH: git commit + push\n\n    Note over S1,S3: Rotate driver → move to next student's machine\n    GH-&gt;&gt;S1: git pull\n    Note over S2,S3: Next problem — Student 2 drives\n\n\n\n\n\n\nRules: - The driver writes, not the navigator. Navigators talk, not type. - Every person must drive at least once per session. - The whole team is responsible for understanding every line written.",
-    "crumbs": [
-      "Home",
-      "Code",
-      "Team Collaboration"
-    ]
-  },
-  {
-    "objectID": "Resources/Collaboration.html#strategy-2-integrator-coder-reviewer",
-    "href": "Resources/Collaboration.html#strategy-2-integrator-coder-reviewer",
-    "title": "Collaboration Strategies",
-    "section": "Strategy 2 — Integrator / Coder / Reviewer",
-    "text": "Strategy 2 — Integrator / Coder / Reviewer\nBest for: Milestones 2–5, when the team is comfortable with the basics and wants to work in parallel.\nRoles are assigned for a session or a sprint. They rotate so everyone practices each.\n\n\n\n\n\n\n\nRole\nResponsibilities\n\n\n\n\nIntegrator\nKeeps main buildable. Merges branches. Resolves conflicts. Monitors CI results. Does not merge broken code.\n\n\nCoder\nImplements an assigned feature. Writes in features.c, declares in features.h, registers in freud.manifest. Commits regularly.\n\n\nReviewer\nTests the feature locally before it is merged. Checks output format against the issue spec. Reads the code for clarity.\n\n\n\n\n\n\n\n\nsequenceDiagram\n    participant I as Integrator\n    participant C as Coder\n    participant R as Reviewer\n    participant GH as GitHub\n\n    Note over I,GH: Start of session — gather to pick features and assign roles\n    I-&gt;&gt;C: Assign feature from current milestone\n    C-&gt;&gt;C: Write signature + stub → commit + push\n    GH-&gt;&gt;I: git pull — verify main still builds\n    C-&gt;&gt;C: Implement feature body\n    C-&gt;&gt;C: Build · Run · Check output vs spec\n    C-&gt;&gt;GH: commit + push (feature branch or main)\n    GH-&gt;&gt;R: git pull\n    R-&gt;&gt;R: Test locally · Check output format\n    R--&gt;&gt;C: Feedback if output wrong\n    GH-&gt;&gt;I: Merge if main builds with feature\n    Note over I,GH: End of session — rotate roles for next session\n\n\n\n\n\n\n\n\n\n\n\n\nImportant\n\n\n\nRotate roles every session. Being integrator once, coder once, and reviewer once is the minimum before the exam. Staying in the same role the entire project is a risk.",
-    "crumbs": [
-      "Home",
-      "Code",
-      "Team Collaboration"
-    ]
-  },
-  {
-    "objectID": "Resources/Collaboration.html#strategy-3-test-driven-feature-work",
-    "href": "Resources/Collaboration.html#strategy-3-test-driven-feature-work",
-    "title": "Collaboration Strategies",
-    "section": "Strategy 3 — Test-driven feature work",
-    "text": "Strategy 3 — Test-driven feature work\nBest for: Any milestone once the team is comfortable. Makes it much easier to verify your implementation is correct.\nBefore writing any code, prepare a known input and a known expected output. Then implement until the output matches.\n\nHow to do it\nStep 1 — Choose a test image. Pick a small image (or create one) whose pixel values you can calculate by hand or look up (e.g. a white image, a image with one red pixel). Place it in images/input/.\n\n\n\n\n\n\nImportant\n\n\n\nUse paint to generate the image, save it as bitmap file (.bmp, white.bmp or test_10x5.bmp) to ensure no compression.\n\n\nStep 2 — Compute the expected output. Read the issue spec carefully. Work out what freud.exe should print for your test image.\nExample for dimension:\n\nTest image: test_10x5.bmp (10 pixels wide, 5 pixels tall)\nExpected output: dimension: 10 5\n\nStep 3 — Write the test in a comment before coding.\n/* Test: freud.exe -f images/input/test_10x5.jpeg -c dimension\n   Expected output: dimension: 10 5 */\nvoid dimension(Config configuration) {\n    /* TODO */\n}\nStep 4 — Implement until the output matches. Run the command after each change. When the output matches exactly (including spaces and newlines), the feature is done.\nStep 5 — Keep the test image and expected values in a shared note. Add a row to a team table so everyone knows which test image validates which feature.\n\n\n\n\n\n\n\n\n\nFeature\nTest image\nCommand\nExpected output\n\n\n\n\ndimension\ntest_10x5.jpeg\n-c dimension\ndimension: 10 5\n\n\nmax_pixel\ntest_known.jpeg\n-c max_pixel\nmax_pixel (3,1): 255 200 100\n\n\n\n\n\n\n\n\n\nTip\n\n\n\nThe CI evaluator uses its own test images. Your test image does not need to match it — the point is to verify your logic is correct before pushing.",
-    "crumbs": [
-      "Home",
-      "Code",
-      "Team Collaboration"
-    ]
-  },
-  {
-    "objectID": "Resources/Git-and-GitHub.html",
-    "href": "Resources/Git-and-GitHub.html",
-    "title": "Git and GitHub",
-    "section": "",
-    "text": "Git is the version-control tool used to track the history of your project.\nIt lets you:\n\nkeep a history of changes\nknow who changed what\ngo from local edits to recorded commits\nsynchronize work between teammates\nrecover from mistakes more safely\n\nFor a team project, Git is not optional. It is the mechanism that turns local work into shared work.",
-    "crumbs": [
-      "Home",
-      "Tools",
-      "Git & GitHub"
-    ]
-  },
-  {
-    "objectID": "Resources/Git-and-GitHub.html#git-versioning-your-system",
-    "href": "Resources/Git-and-GitHub.html#git-versioning-your-system",
-    "title": "Git and GitHub",
-    "section": "",
-    "text": "Git is the version-control tool used to track the history of your project.\nIt lets you:\n\nkeep a history of changes\nknow who changed what\ngo from local edits to recorded commits\nsynchronize work between teammates\nrecover from mistakes more safely\n\nFor a team project, Git is not optional. It is the mechanism that turns local work into shared work.",
-    "crumbs": [
-      "Home",
-      "Tools",
-      "Git & GitHub"
-    ]
-  },
-  {
-    "objectID": "Resources/Git-and-GitHub.html#configure-your-identity-first",
-    "href": "Resources/Git-and-GitHub.html#configure-your-identity-first",
-    "title": "Git and GitHub",
-    "section": "Configure your identity first",
-    "text": "Configure your identity first\nBefore making commits, configure your Git name and email.\nThe email should match the identity you use on GitHub, typically either:\n\nyour GitHub no-reply email address\nyour school email address\n\nExample:\ngit config --global user.name \"Your Name\"\ngit config --global user.email \"your-email@example.com\"\nIf the identity is wrong, authorship on commits may be attributed incorrectly.",
-    "crumbs": [
-      "Home",
-      "Tools",
-      "Git & GitHub"
-    ]
-  },
-  {
-    "objectID": "Resources/Git-and-GitHub.html#core-git-actions-in-the-project",
-    "href": "Resources/Git-and-GitHub.html#core-git-actions-in-the-project",
-    "title": "Git and GitHub",
-    "section": "Core Git actions in the project",
-    "text": "Core Git actions in the project\nIn daily work, the core loop is usually:\ngit pull\ngit add .\ngit commit -m \"Implement color_blue\"\ngit push\nYou should pull before starting work, commit meaningful progress, and push before ending a session.",
-    "crumbs": [
-      "Home",
-      "Tools",
-      "Git & GitHub"
-    ]
-  },
-  {
-    "objectID": "Resources/Git-and-GitHub.html#github-more-than-a-remote-repository",
-    "href": "Resources/Git-and-GitHub.html#github-more-than-a-remote-repository",
-    "title": "Git and GitHub",
-    "section": "GitHub: more than a remote repository",
-    "text": "GitHub: more than a remote repository\nGitHub hosts the remote repository, but for this course it also provides the rest of the project workflow.\nYour GitHub repository contains:\n\nthe shared remote copy of the code\nthe issue tracker for features\nmilestones and project-management information\nGitHub Actions workflows\nthe evaluation workflow used by the teaching team\n\nSo Git is the local history mechanism, and GitHub is the shared collaboration and coordination platform around it.",
-    "crumbs": [
-      "Home",
-      "Tools",
-      "Git & GitHub"
-    ]
-  },
-  {
-    "objectID": "Resources/Git-and-GitHub.html#why-this-matters-for-grading",
-    "href": "Resources/Git-and-GitHub.html#why-this-matters-for-grading",
-    "title": "Git and GitHub",
-    "section": "Why this matters for grading",
-    "text": "Why this matters for grading\nThe teaching team evaluates what is present on main in GitHub, not what exists only on your laptop.\nIf your code is not pushed, it is not visible to teammates, workflows, or evaluators.\nSee also Workflows and Onboarding and Evaluation.",
-    "crumbs": [
-      "Home",
-      "Tools",
-      "Git & GitHub"
+      "Image Data Structure"
     ]
   },
   {
@@ -1375,113 +798,702 @@
     ]
   },
   {
-    "objectID": "Resources/Image-Data-Structure.html",
-    "href": "Resources/Image-Data-Structure.html",
-    "title": "Image Data Structure",
+    "objectID": "Resources/Git-and-GitHub.html",
+    "href": "Resources/Git-and-GitHub.html",
+    "title": "Git and GitHub",
     "section": "",
-    "text": "Image data is stored in a flat unsigned char* buffer.\n\nThe image has height rows and width columns.\nEach pixel has N components.\nIn this project, N = 3 for RGB.\nData is row-major, from top-left to bottom-right.\n\nThe buffer size is:\nwidth * height * N",
+    "text": "Git is the version-control tool used to track the history of your project.\nIt lets you:\n\nkeep a history of changes\nknow who changed what\ngo from local edits to recorded commits\nsynchronize work between teammates\nrecover from mistakes more safely\n\nFor a team project, Git is not optional. It is the mechanism that turns local work into shared work.",
     "crumbs": [
       "Home",
-      "Learn",
-      "Image Data Structure"
+      "Tools",
+      "Git & GitHub"
     ]
   },
   {
-    "objectID": "Resources/Image-Data-Structure.html#image-buffer-model",
-    "href": "Resources/Image-Data-Structure.html#image-buffer-model",
-    "title": "Image Data Structure",
+    "objectID": "Resources/Git-and-GitHub.html#git-versioning-your-system",
+    "href": "Resources/Git-and-GitHub.html#git-versioning-your-system",
+    "title": "Git and GitHub",
     "section": "",
-    "text": "Image data is stored in a flat unsigned char* buffer.\n\nThe image has height rows and width columns.\nEach pixel has N components.\nIn this project, N = 3 for RGB.\nData is row-major, from top-left to bottom-right.\n\nThe buffer size is:\nwidth * height * N",
+    "text": "Git is the version-control tool used to track the history of your project.\nIt lets you:\n\nkeep a history of changes\nknow who changed what\ngo from local edits to recorded commits\nsynchronize work between teammates\nrecover from mistakes more safely\n\nFor a team project, Git is not optional. It is the mechanism that turns local work into shared work.",
     "crumbs": [
       "Home",
-      "Learn",
-      "Image Data Structure"
+      "Tools",
+      "Git & GitHub"
     ]
   },
   {
-    "objectID": "Resources/Image-Data-Structure.html#io-functions",
-    "href": "Resources/Image-Data-Structure.html#io-functions",
-    "title": "Image Data Structure",
-    "section": "IO functions",
-    "text": "IO functions\nint read_image_data(const char *filename, unsigned char **data, int *width, int *height, int *nbChannels);\nint write_image_data(const char *filename, unsigned char *data, int width, int height);\nParameters:\n\nfilename: image file path\ndata: pixel buffer\nwidth: image width\nheight: image height\nnbChannels: number of channels",
+    "objectID": "Resources/Git-and-GitHub.html#configure-your-identity-first",
+    "href": "Resources/Git-and-GitHub.html#configure-your-identity-first",
+    "title": "Git and GitHub",
+    "section": "Configure your identity first",
+    "text": "Configure your identity first\nBefore making commits, configure your Git name and email.\nThe email should match the identity you use on GitHub, typically either:\n\nyour GitHub no-reply email address\nyour school email address\n\nExample:\ngit config --global user.name \"Your Name\"\ngit config --global user.email \"your-email@example.com\"\nIf the identity is wrong, authorship on commits may be attributed incorrectly.",
     "crumbs": [
       "Home",
-      "Learn",
-      "Image Data Structure"
+      "Tools",
+      "Git & GitHub"
     ]
   },
   {
-    "objectID": "Resources/Image-Data-Structure.html#pixel-helper-structure",
-    "href": "Resources/Image-Data-Structure.html#pixel-helper-structure",
-    "title": "Image Data Structure",
-    "section": "Pixel helper structure",
-    "text": "Pixel helper structure\nAt the end of Milestone 1, you should introduce a helper structure:\ntypedef struct _pixelRGB {\n  unsigned char R;\n  unsigned char G;\n  unsigned char B;\n} pixelRGB;\nThis structure simplifies component-level access and supports helper functions such as getPixel(x, y).",
+    "objectID": "Resources/Git-and-GitHub.html#core-git-actions-in-the-project",
+    "href": "Resources/Git-and-GitHub.html#core-git-actions-in-the-project",
+    "title": "Git and GitHub",
+    "section": "Core Git actions in the project",
+    "text": "Core Git actions in the project\nIn daily work, the core loop is usually:\ngit pull\ngit add .\ngit commit -m \"Implement color_blue\"\ngit push\nYou should pull before starting work, commit meaningful progress, and push before ending a session.",
     "crumbs": [
       "Home",
-      "Learn",
-      "Image Data Structure"
+      "Tools",
+      "Git & GitHub"
     ]
   },
   {
-    "objectID": "Resources/Image-Data-Structure.html#index-formula",
-    "href": "Resources/Image-Data-Structure.html#index-formula",
-    "title": "Image Data Structure",
-    "section": "Index formula",
-    "text": "Index formula\nFor pixel at (x, y) with channel count n, the starting index in data is:\n(y * width + x) * n\nThen channels are:\n\nR: data[idx]\nG: data[idx + 1]\nB: data[idx + 2]",
+    "objectID": "Resources/Git-and-GitHub.html#github-more-than-a-remote-repository",
+    "href": "Resources/Git-and-GitHub.html#github-more-than-a-remote-repository",
+    "title": "Git and GitHub",
+    "section": "GitHub: more than a remote repository",
+    "text": "GitHub: more than a remote repository\nGitHub hosts the remote repository, but for this course it also provides the rest of the project workflow.\nYour GitHub repository contains:\n\nthe shared remote copy of the code\nthe issue tracker for features\nmilestones and project-management information\nGitHub Actions workflows\nthe evaluation workflow used by the teaching team\n\nSo Git is the local history mechanism, and GitHub is the shared collaboration and coordination platform around it.",
     "crumbs": [
       "Home",
-      "Learn",
-      "Image Data Structure"
+      "Tools",
+      "Git & GitHub"
     ]
   },
   {
-    "objectID": "Features/milestone/milestone-5-resize.html",
-    "href": "Features/milestone/milestone-5-resize.html",
-    "title": "Milestone 5: Resize",
-    "section": "",
-    "text": "Those are the most advanced features of the project. They will manipulate pixel data to create a new image with modified geometry and a different size. You will practice reading pixel data from an image using the estia-image library, manipulating it in C, and writing output to a new image file.\n\n\n\n#24 Crop\n#25 Scale via Nearest-neighbor interpolation\n#26 Scale via bilinear interpolation"
+    "objectID": "Resources/Git-and-GitHub.html#why-this-matters-for-grading",
+    "href": "Resources/Git-and-GitHub.html#why-this-matters-for-grading",
+    "title": "Git and GitHub",
+    "section": "Why this matters for grading",
+    "text": "Why this matters for grading\nThe teaching team evaluates what is present on main in GitHub, not what exists only on your laptop.\nIf your code is not pushed, it is not visible to teammates, workflows, or evaluators.\nSee also Workflows and Onboarding and Evaluation.",
+    "crumbs": [
+      "Home",
+      "Tools",
+      "Git & GitHub"
+    ]
   },
   {
-    "objectID": "Features/milestone/milestone-5-resize.html#issues",
-    "href": "Features/milestone/milestone-5-resize.html#issues",
-    "title": "Milestone 5: Resize",
+    "objectID": "Resources/Collaboration.html",
+    "href": "Resources/Collaboration.html",
+    "title": "Collaboration Strategies",
     "section": "",
-    "text": "#24 Crop\n#25 Scale via Nearest-neighbor interpolation\n#26 Scale via bilinear interpolation"
+    "text": "Working as a team on code is a skill in itself. This page describes three strategies you can use at different stages of the project. They are not mutually exclusive — a good team switches between them depending on the situation.",
+    "crumbs": [
+      "Home",
+      "Code",
+      "Team Collaboration"
+    ]
   },
   {
-    "objectID": "Features/milestone/milestone-1-tutorial.html",
-    "href": "Features/milestone/milestone-1-tutorial.html",
-    "title": "Milestone 1: Tutorial",
-    "section": "",
-    "text": "The goal of this milestone is for you to understand :\n\nwhat freud is (a command-line image processing tool) and how to use it,\nhow to implement a new feature (declare it, implement it, add it to the manifest, add a dispatch branch in main.c),\nhow to compile and run the project,\nhow to use the estia-image library to read pixel data from an image\nhow to collaborate as a team of three to implement features together and use version control to collaborate.\n\nIn this milestone work as mob programming — all three of you on the same machine, working on the same code, at the same time. You can rotate driver/navigator roles as you wish.\n\n\n\n#3 Dimension\n#4 Color of the first pixel\n#5 Color of the 10th pixel\n#6 Color of the first pixel on the second line\n#7 RGB pixel, get and print functions"
+    "objectID": "Resources/Collaboration.html#strategy-1-mob-programming",
+    "href": "Resources/Collaboration.html#strategy-1-mob-programming",
+    "title": "Collaboration Strategies",
+    "section": "Strategy 1 — Mob programming",
+    "text": "Strategy 1 — Mob programming\nBest for: Milestone 1, learning something new, unblocking a stuck teammate.\nEveryone works on the same problem at the same time. One person drives (keyboard), the others navigate (discuss, spot errors, suggest solutions). Rotate the driver regularly.\n\n\n\n\n\nsequenceDiagram\n    participant S1 as Student 1 (driver)\n    participant S2 as Student 2 (navigator)\n    participant S3 as Student 3 (navigator)\n    participant GH as GitHub\n\n    Note over S1,S3: Everyone at the same screen\n    Note over S1,S3: Discuss the problem — agree on an approach\n    S1-&gt;&gt;S1: Write code\n    S2--&gt;&gt;S1: Spot an error, suggest fix\n    S3--&gt;&gt;S1: Check against the spec\n    S1-&gt;&gt;S1: Build · Run · Verify\n    S1-&gt;&gt;GH: git commit + push\n\n    Note over S1,S3: Rotate driver → move to next student's machine\n    GH-&gt;&gt;S1: git pull\n    Note over S2,S3: Next problem — Student 2 drives\n\n\n\n\n\n\nRules: - The driver writes, not the navigator. Navigators talk, not type. - Every person must drive at least once per session. - The whole team is responsible for understanding every line written.",
+    "crumbs": [
+      "Home",
+      "Code",
+      "Team Collaboration"
+    ]
   },
   {
-    "objectID": "Features/milestone/milestone-1-tutorial.html#issues",
-    "href": "Features/milestone/milestone-1-tutorial.html#issues",
-    "title": "Milestone 1: Tutorial",
-    "section": "",
-    "text": "#3 Dimension\n#4 Color of the first pixel\n#5 Color of the 10th pixel\n#6 Color of the first pixel on the second line\n#7 RGB pixel, get and print functions"
+    "objectID": "Resources/Collaboration.html#strategy-2-integrator-coder-reviewer",
+    "href": "Resources/Collaboration.html#strategy-2-integrator-coder-reviewer",
+    "title": "Collaboration Strategies",
+    "section": "Strategy 2 — Integrator / Coder / Reviewer",
+    "text": "Strategy 2 — Integrator / Coder / Reviewer\nBest for: Milestones 2–5, when the team is comfortable with the basics and wants to work in parallel.\nRoles are assigned for a session or a sprint. They rotate so everyone practices each.\n\n\n\n\n\n\n\nRole\nResponsibilities\n\n\n\n\nIntegrator\nKeeps main buildable. Merges branches. Resolves conflicts. Monitors CI results. Does not merge broken code.\n\n\nCoder\nImplements an assigned feature. Writes in features.c, declares in features.h, registers in freud.manifest. Commits regularly.\n\n\nReviewer\nTests the feature locally before it is merged. Checks output format against the issue spec. Reads the code for clarity.\n\n\n\n\n\n\n\n\nsequenceDiagram\n    participant I as Integrator\n    participant C as Coder\n    participant R as Reviewer\n    participant GH as GitHub\n\n    Note over I,GH: Start of session — gather to pick features and assign roles\n    I-&gt;&gt;C: Assign feature from current milestone\n    C-&gt;&gt;C: Write signature + stub → commit + push\n    GH-&gt;&gt;I: git pull — verify main still builds\n    C-&gt;&gt;C: Implement feature body\n    C-&gt;&gt;C: Build · Run · Check output vs spec\n    C-&gt;&gt;GH: commit + push (feature branch or main)\n    GH-&gt;&gt;R: git pull\n    R-&gt;&gt;R: Test locally · Check output format\n    R--&gt;&gt;C: Feedback if output wrong\n    GH-&gt;&gt;I: Merge if main builds with feature\n    Note over I,GH: End of session — rotate roles for next session\n\n\n\n\n\n\n\n\n\n\n\n\nImportant\n\n\n\nRotate roles every session. Being integrator once, coder once, and reviewer once is the minimum before the exam. Staying in the same role the entire project is a risk.",
+    "crumbs": [
+      "Home",
+      "Code",
+      "Team Collaboration"
+    ]
   },
   {
-    "objectID": "Features/milestone/no-milestone.html",
-    "href": "Features/milestone/no-milestone.html",
-    "title": "Issues Without Milestone",
-    "section": "",
-    "text": "Issues Without Milestone\nNo issues without milestone."
+    "objectID": "Resources/Collaboration.html#strategy-3-test-driven-feature-work",
+    "href": "Resources/Collaboration.html#strategy-3-test-driven-feature-work",
+    "title": "Collaboration Strategies",
+    "section": "Strategy 3 — Test-driven feature work",
+    "text": "Strategy 3 — Test-driven feature work\nBest for: Any milestone once the team is comfortable. Makes it much easier to verify your implementation is correct.\nBefore writing any code, prepare a known input and a known expected output. Then implement until the output matches.\n\nHow to do it\nStep 1 — Choose a test image. Pick a small image (or create one) whose pixel values you can calculate by hand or look up (e.g. a white image, a image with one red pixel). Place it in images/input/.\n\n\n\n\n\n\nImportant\n\n\n\nUse paint to generate the image, save it as bitmap file (.bmp, white.bmp or test_10x5.bmp) to ensure no compression.\n\n\nStep 2 — Compute the expected output. Read the issue spec carefully. Work out what freud.exe should print for your test image.\nExample for dimension:\n\nTest image: test_10x5.bmp (10 pixels wide, 5 pixels tall)\nExpected output: dimension: 10 5\n\nStep 3 — Write the test in a comment before coding.\n/* Test: freud.exe -f images/input/test_10x5.jpeg -c dimension\n   Expected output: dimension: 10 5 */\nvoid dimension(Config configuration) {\n    /* TODO */\n}\nStep 4 — Implement until the output matches. Run the command after each change. When the output matches exactly (including spaces and newlines), the feature is done.\nStep 5 — Keep the test image and expected values in a shared note. Add a row to a team table so everyone knows which test image validates which feature.\n\n\n\n\n\n\n\n\n\nFeature\nTest image\nCommand\nExpected output\n\n\n\n\ndimension\ntest_10x5.jpeg\n-c dimension\ndimension: 10 5\n\n\nmax_pixel\ntest_known.jpeg\n-c max_pixel\nmax_pixel (3,1): 255 200 100\n\n\n\n\n\n\n\n\n\nTip\n\n\n\nThe CI evaluator uses its own test images. Your test image does not need to match it — the point is to verify your logic is correct before pushing.",
+    "crumbs": [
+      "Home",
+      "Code",
+      "Team Collaboration"
+    ]
   },
   {
-    "objectID": "Features/milestone/milestone-4-transform.html",
-    "href": "Features/milestone/milestone-4-transform.html",
-    "title": "Milestone 4: Transform",
+    "objectID": "Resources/Tools.html",
+    "href": "Resources/Tools.html",
+    "title": "Tools Overview",
     "section": "",
-    "text": "Those features will manipulate pixel data to create a new image with modified geometry. You will practice reading pixel data from an image using the estia-image library, manipulating it in C, and writing output to a new image file. These features are very similar to each other, you should implement them in parallel so that everyone gets to practice each of the steps (reading, manipulating, writing).\n\n\n\n#19 Rotate clockwise 90°\n#20 Rotate anti-clockwise 90°\n#21 Mirror effect - horizontal symmetry\n#22 Mirror effect - vertical symmetry\n#23 Mirror effect"
+    "text": "To manage a C programming project, you need more than source files.\nYou need tools for four different jobs:\n\nEdit the source code\nCompile the program\nVersion the work over time\nShare and coordinate the work with your team\n\nFor this project, the practical tool stack is:\n\nan editor or IDE to write and inspect the code\na compile chain based on GCC, Make, and CMake\na terminal to run commands and test the program\nGit and GitHub to version, publish, and coordinate the project",
+    "crumbs": [
+      "Home",
+      "Tools",
+      "Tools Overview"
+    ]
   },
   {
-    "objectID": "Features/milestone/milestone-4-transform.html#issues",
-    "href": "Features/milestone/milestone-4-transform.html#issues",
-    "title": "Milestone 4: Transform",
+    "objectID": "Resources/Tools.html#why-tools-matter",
+    "href": "Resources/Tools.html#why-tools-matter",
+    "title": "Tools Overview",
     "section": "",
-    "text": "#19 Rotate clockwise 90°\n#20 Rotate anti-clockwise 90°\n#21 Mirror effect - horizontal symmetry\n#22 Mirror effect - vertical symmetry\n#23 Mirror effect"
+    "text": "To manage a C programming project, you need more than source files.\nYou need tools for four different jobs:\n\nEdit the source code\nCompile the program\nVersion the work over time\nShare and coordinate the work with your team\n\nFor this project, the practical tool stack is:\n\nan editor or IDE to write and inspect the code\na compile chain based on GCC, Make, and CMake\na terminal to run commands and test the program\nGit and GitHub to version, publish, and coordinate the project",
+    "crumbs": [
+      "Home",
+      "Tools",
+      "Tools Overview"
+    ]
+  },
+  {
+    "objectID": "Resources/Tools.html#the-four-tool-families",
+    "href": "Resources/Tools.html#the-four-tool-families",
+    "title": "Tools Overview",
+    "section": "The four tool families",
+    "text": "The four tool families\n\nEditors\nAn editor lets you modify text files. An IDE goes further and helps you navigate code, see errors faster, run builds, and work with Git.\nSee Editors and VS Code.\n\n\nCompile chain\nYour C source files are not directly executable. They must be compiled and linked into a program.\nSee Compile Chain.\n\n\nCommand line\nEven when you use a graphical editor, this project is driven by commands such as setup scripts, builds, and executions of freud.exe.\nSee Using the Command Line.\n\n\nGit and GitHub\nGit tracks the history of your work. GitHub hosts the shared repository and the project-management workflow around it.\nSee Git and GitHub.",
+    "crumbs": [
+      "Home",
+      "Tools",
+      "Tools Overview"
+    ]
+  },
+  {
+    "objectID": "Resources/Outputs.html",
+    "href": "Resources/Outputs.html",
+    "title": "Outputs",
+    "section": "",
+    "text": "Freud produces two types of output: 1. Text output: printed to the terminal, containing information about the image or the processing results. 2. Image output: a new image file generated by applying the specified transformation to the input image.",
+    "crumbs": [
+      "Home",
+      "Learn",
+      "Understanding Outputs"
+    ]
+  },
+  {
+    "objectID": "Resources/Outputs.html#text-output",
+    "href": "Resources/Outputs.html#text-output",
+    "title": "Outputs",
+    "section": "Text output",
+    "text": "Text output\nText output is printed to the terminal when you run freud.exe with a command. For example:\nbuild/freud.exe -f images/input/image.jpeg -c dimension\nThis command will print something like: dimension: 800, 600 indicating the width and height of the input image. Other commands will print different information, such as pixel colors or statistics. The exact format of the text output depends on the command you run, but it should always be clear and consistent with the specifications, matching the expected output defined in the project requirements.\nNo extra text, debug information, or formatting should be included in the output unless specified by the command (e.g., using --debug).",
+    "crumbs": [
+      "Home",
+      "Learn",
+      "Understanding Outputs"
+    ]
+  },
+  {
+    "objectID": "Resources/Outputs.html#image-output",
+    "href": "Resources/Outputs.html#image-output",
+    "title": "Outputs",
+    "section": "Image output",
+    "text": "Image output\nWhen you run a command that modifies the image (e.g., color_red), Freud generates a new image file as output. By default, this file is named image_out.bmp and is saved in the same directory where you run the command. For example:\nbuild/freud.exe -f images/input/image.jpeg -c color_red\nThis will create a new file named image_out.bmp in the current directory, which contains the modified image with only the red channel kept.\n\nDefault output name\nBy default, output images are written as image_out.bmp.\nbuild/freud.exe -f image_in.png -c red\nls\n# freud image_in.png image_out.bmp\n\n\nCustom output name\nUse -o to define output file name.\nbuild/freud.exe -f image_in.png -c red -o redImage.bmp\nls\n# freud image_in.png redImage.bmp",
+    "crumbs": [
+      "Home",
+      "Learn",
+      "Understanding Outputs"
+    ]
+  },
+  {
+    "objectID": "Resources/Libraries.html",
+    "href": "Resources/Libraries.html",
+    "title": "Libraries",
+    "section": "",
+    "text": "The project provides helper functions for image file IO and memory management.\n\n\n/**\n * Return some data about an image file\n * @param[in] filename Name of the file to be open\n * @param[out] data Reference to the pointer that points to the pixel array\n * @param[out] width Width of the image\n * @param[out] height Height of the image\n * @param[out] channel_count Number of channels\n * @return 0 on failure and non-0 on success.\n */\nint read_image_data(const char *filename, unsigned char **data, int *width, int *height, int *channel_count);\nTypical call:\nread_image_data(the_file_name, &data, &w, &h, &n);\n\n\n\n/**\n * Writes into a png image file\n * @param[in] filename Name of the file to be written into\n * @param[in] data Reference to the pixel array to be written\n * @param[in] width Width of the image\n * @param[in] height Height of the image\n * @return 0 on failure and non-0 on success.\n */\nint write_image_data(const char *filename, unsigned char *data, int width, int height);\nTypical call:\nwrite_image_data(output_image_name, new_data, new_w, new_h);\n\n\n\n/**\n * Frees stbi-related buffers and resources\n * @param[in] data The buffer allocated by readImageData buffer to be freed\n */\nvoid free_image_data(unsigned char *data);\nCall free_image_data whenever image data is no longer needed.",
+    "crumbs": [
+      "Home",
+      "Tools",
+      "Libraries"
+    ]
+  },
+  {
+    "objectID": "Resources/Libraries.html#estia-image-library",
+    "href": "Resources/Libraries.html#estia-image-library",
+    "title": "Libraries",
+    "section": "",
+    "text": "The project provides helper functions for image file IO and memory management.\n\n\n/**\n * Return some data about an image file\n * @param[in] filename Name of the file to be open\n * @param[out] data Reference to the pointer that points to the pixel array\n * @param[out] width Width of the image\n * @param[out] height Height of the image\n * @param[out] channel_count Number of channels\n * @return 0 on failure and non-0 on success.\n */\nint read_image_data(const char *filename, unsigned char **data, int *width, int *height, int *channel_count);\nTypical call:\nread_image_data(the_file_name, &data, &w, &h, &n);\n\n\n\n/**\n * Writes into a png image file\n * @param[in] filename Name of the file to be written into\n * @param[in] data Reference to the pixel array to be written\n * @param[in] width Width of the image\n * @param[in] height Height of the image\n * @return 0 on failure and non-0 on success.\n */\nint write_image_data(const char *filename, unsigned char *data, int width, int height);\nTypical call:\nwrite_image_data(output_image_name, new_data, new_w, new_h);\n\n\n\n/**\n * Frees stbi-related buffers and resources\n * @param[in] data The buffer allocated by readImageData buffer to be freed\n */\nvoid free_image_data(unsigned char *data);\nCall free_image_data whenever image data is no longer needed.",
+    "crumbs": [
+      "Home",
+      "Tools",
+      "Libraries"
+    ]
+  },
+  {
+    "objectID": "Resources/Libraries.html#getopt-library",
+    "href": "Resources/Libraries.html#getopt-library",
+    "title": "Libraries",
+    "section": "getopt library",
+    "text": "getopt library\ngetopt is used to parse command-line options for freud.exe.\nMain options used in this project:\n\n-f: input image path\n-c: command name\n-o: output file path\n--debug: debug mode",
+    "crumbs": [
+      "Home",
+      "Tools",
+      "Libraries"
+    ]
+  },
+  {
+    "objectID": "Resources/CLI.html",
+    "href": "Resources/CLI.html",
+    "title": "Using the Command Line",
+    "section": "",
+    "text": "A Command-Line Interface (CLI) is a text-based interface where you interact with a program by typing commands in a terminal. Unlike an application with buttons and menus, a CLI program reads arguments you type and produces output in the terminal.\nThis is the kind of program you are building: freud is a CLI tool.\nEach command you type follows the same structure:\nprompt  command  options  arguments\nFor example:\n$ build/freud.exe -f images/input/test.jpg -c color_blue\n\nbuild/freud.exe — the program to run\n-f images/input/test.jpg — an option with a parameter (the input image file)\n-c color_blue — an option with a parameter (the feature to apply)\n\nThe $ is the prompt shown by your terminal — you do not type it.",
+    "crumbs": [
+      "Home",
+      "Tools",
+      "Command Line"
+    ]
+  },
+  {
+    "objectID": "Resources/CLI.html#what-is-a-cli",
+    "href": "Resources/CLI.html#what-is-a-cli",
+    "title": "Using the Command Line",
+    "section": "",
+    "text": "A Command-Line Interface (CLI) is a text-based interface where you interact with a program by typing commands in a terminal. Unlike an application with buttons and menus, a CLI program reads arguments you type and produces output in the terminal.\nThis is the kind of program you are building: freud is a CLI tool.\nEach command you type follows the same structure:\nprompt  command  options  arguments\nFor example:\n$ build/freud.exe -f images/input/test.jpg -c color_blue\n\nbuild/freud.exe — the program to run\n-f images/input/test.jpg — an option with a parameter (the input image file)\n-c color_blue — an option with a parameter (the feature to apply)\n\nThe $ is the prompt shown by your terminal — you do not type it.",
+    "crumbs": [
+      "Home",
+      "Tools",
+      "Command Line"
+    ]
+  },
+  {
+    "objectID": "Resources/CLI.html#options-and-arguments",
+    "href": "Resources/CLI.html#options-and-arguments",
+    "title": "Using the Command Line",
+    "section": "Options and arguments",
+    "text": "Options and arguments\nShort options are a single letter preceded by -:\n-f images/input/test.jpg\n-c grayscale\nLong options are a full word preceded by --:\n--debug\nPositional arguments follow the options without a flag — some freud features use them:\n$ build/freud.exe -f input.jpg -c max_component R\nHere R is a positional argument passed to the max_component feature.",
+    "crumbs": [
+      "Home",
+      "Tools",
+      "Command Line"
+    ]
+  },
+  {
+    "objectID": "Resources/CLI.html#freud-synopsis",
+    "href": "Resources/CLI.html#freud-synopsis",
+    "title": "Using the Command Line",
+    "section": "freud — synopsis",
+    "text": "freud — synopsis\nfreud.exe -f &lt;image_path&gt; -c &lt;command&gt; [--debug] [arguments...]\n\nOptions\n\n\n\nOption\nArgument\nDescription\n\n\n\n\n-f\n&lt;image_path&gt;\nPath to the input image file (JPEG or PNG)\n\n\n-c\n&lt;command&gt;\nName of the feature to apply (see list below)\n\n\n--debug\n—\nEnable debug output\n\n\n\nAdditional positional arguments after the options are passed to the feature implementation. Which arguments are expected depends on the specific feature — check the issue description.\n\n\nExamples\nApply blue tint to an image:\n$ build/freud.exe -f images/input/test.jpg -c color_blue\nKeep only the red channel (max component):\n$ build/freud.exe -f images/input/test.jpg -c max_component R\nConvert to grayscale using luminance:\n$ build/freud.exe -f images/input/test.jpg -c grayscale_luminance\nRun with debug output:\n$ build/freud.exe -f images/input/test.jpg -c color_blue --debug\n\n\nOutput\nfreud writes the result image to the path defined in the feature implementation. The evaluation tests compare the output image against a reference image produced by the teaching team’s own implementation.",
+    "crumbs": [
+      "Home",
+      "Tools",
+      "Command Line"
+    ]
+  },
+  {
+    "objectID": "Resources/CLI.html#building-freud",
+    "href": "Resources/CLI.html#building-freud",
+    "title": "Using the Command Line",
+    "section": "Building freud",
+    "text": "Building freud\nfreud uses CMake as its build system. There are two steps:\n\nStep 1 — Configure (once)\ncmake -B build\nThis reads CMakeLists.txt and prepares the build system in the build/ folder. Run this once after cloning, or again if you add/remove source files.\n\n\nStep 2 — Compile\ncmake --build build\nThis compiles your C sources and produces the executable at:\nbuild/freud.exe\n\n\n\n\n\n\nWarningAlways use build/freud.exe, not ./freud.exe\n\n\n\nRunning cmake --build build updates build/freud.exe. There is also a ./freud.exe at the project root, but it only gets updated when you run cmake --install build. If you do not run cmake --install, the root-level ./freud.exe is stale and does not reflect your latest code.\nAlways test with build/freud.exe after a cmake --build build.\n\n\n\n\nFull build workflow\n# After editing source files:\ncmake --build build\nbuild/freud.exe -f images/input/test.jpg -c your_feature\nIf there are compilation errors, CMake prints them with the file name and line number. Fix the error and run cmake --build build again.",
+    "crumbs": [
+      "Home",
+      "Tools",
+      "Command Line"
+    ]
+  },
+  {
+    "objectID": "Resources/CLI.html#reading-error-messages",
+    "href": "Resources/CLI.html#reading-error-messages",
+    "title": "Using the Command Line",
+    "section": "Reading error messages",
+    "text": "Reading error messages\nWhen your code does not compile, gcc prints messages like:\nsrc/features.c:42:5: error: use of undeclared identifier 'img'\nThis tells you: - File: src/features.c - Line: 42, column 5 - Problem: img is not declared in that scope\nFix the error in VS Code (the editor highlights it too), then rebuild.",
+    "crumbs": [
+      "Home",
+      "Tools",
+      "Command Line"
+    ]
+  },
+  {
+    "objectID": "Resources/CLI.html#where-to-find-the-feature-commands",
+    "href": "Resources/CLI.html#where-to-find-the-feature-commands",
+    "title": "Using the Command Line",
+    "section": "Where to find the feature commands",
+    "text": "Where to find the feature commands\nThe list of valid -c command names is defined in freud.manifest. Each entry maps a command string to the corresponding C function you must implement in src/features.c.\nSee Milestones and Issues for the full list of features to implement.",
+    "crumbs": [
+      "Home",
+      "Tools",
+      "Command Line"
+    ]
+  },
+  {
+    "objectID": "Resources/FAQ.html",
+    "href": "Resources/FAQ.html",
+    "title": "FAQ",
+    "section": "",
+    "text": "This page has been merged into Debugging & Troubleshooting."
+  },
+  {
+    "objectID": "Resources/FAQ.html#team-coordination",
+    "href": "Resources/FAQ.html#team-coordination",
+    "title": "FAQ",
+    "section": "Team coordination",
+    "text": "Team coordination\n\nWhat does the team leader need to do?\nExactly one thing that no one else should do: run workflow activation.\nbash validconfig.sh --activate-workflows\nThis renames disabled workflow files and pushes an onboarding commit. Do this after every teammate has passed bash validconfig.sh and built helloworld successfully.\nAfter pushing, announce to your team. Everyone else runs git pull.\n\n\nMy teammate already activated workflows. What do I do?\nRun git pull. You do not need to run --activate-workflows yourself.\n\n\nWho should trigger the issue import?\nOne person. Open GitHub → Actions → Import issues from Template → Run workflow. Everyone else waits, then runs git pull once issues appear.\n\n\nCan we split Milestone 1 issues and work in parallel?\nNo. Milestone 1 is designed to be solved together using mob programming (everyone at one screen, rotating who types). See First Steps — Milestone 1 for the rotation rhythm.\nWorking in parallel on Milestone 1 means some teammates never learn to open an image, access pixels, or add a feature — which will hurt them in the individual final exam."
+  },
+  {
+    "objectID": "Resources/FAQ.html#build-problems",
+    "href": "Resources/FAQ.html#build-problems",
+    "title": "FAQ",
+    "section": "Build problems",
+    "text": "Build problems\n\nBuild fails immediately\n\nRun:\n\nbash validconfig.sh\n\nFix every error the script reports.\nRetry:\n\ncmake -B build\ncmake --build build\n\n\nI am missing estia-image or getopt\nYou need both library folders in the project root:\n\nestia-image/\ngetopt/\n\nWithout them, CMake configuration fails. See Setup — Phase 3 for download and extraction instructions.\n\n\nHow do I choose the right library package?\nThe deciding factor is the CPU architecture prefix, not the mingw suffix.\ngcc -dumpmachine\n\n\n\nOutput starts with\nDownload\n\n\n\n\nx86_64\n*-win10-mingw64.zip\n\n\ni686\n*-win10-mingw32.zip\n\n\n\nIf you see x86_64-w64-mingw32: the x86_64 prefix means 64-bit → download mingw64.\nPackages are in the v2.0.1 release.\n\n\nI extracted the zip but validation still says include is missing\nYou probably kept the wrapper folder. Move only the inner folder to your project root.\n✗ Wrong:\nestia-image-v2.0.1-win10-mingw32/\n    estia-image/\n        include/\n        lib/\n\n✓ Correct:\nestia-image/\n    include/\n    lib/\ngetopt/\n    include/\n    lib/\n\n\nPath and encoding problems on Windows\nKeep your repository path simple:\n\nNo accents in folders\nNo very long nested paths\nAvoid special characters"
+  },
+  {
+    "objectID": "Resources/FAQ.html#github-and-actions",
+    "href": "Resources/FAQ.html#github-and-actions",
+    "title": "FAQ",
+    "section": "GitHub and Actions",
+    "text": "GitHub and Actions\n\nI cannot see issues in my repository\n\nOpen GitHub Actions.\nRun Import issues from Template manually.\nWait until the workflow completes (green checkmark).\nRefresh the Issues tab."
+  },
+  {
+    "objectID": "Resources/Build-Toolchain.html",
+    "href": "Resources/Build-Toolchain.html",
+    "title": "Compile Chain",
+    "section": "",
+    "text": "Your .c and .h files are source code for humans and compilers. They are not directly executable.\nTo obtain a program such as build/freud.exe, you need a toolchain that can compile source files, link libraries, and organize the build process.\nIn this project, that chain is mainly based on GCC, Make, and CMake.",
+    "crumbs": [
+      "Home",
+      "Learn",
+      "The Build System"
+    ]
+  },
+  {
+    "objectID": "Resources/Build-Toolchain.html#why-a-compile-chain-exists",
+    "href": "Resources/Build-Toolchain.html#why-a-compile-chain-exists",
+    "title": "Compile Chain",
+    "section": "",
+    "text": "Your .c and .h files are source code for humans and compilers. They are not directly executable.\nTo obtain a program such as build/freud.exe, you need a toolchain that can compile source files, link libraries, and organize the build process.\nIn this project, that chain is mainly based on GCC, Make, and CMake.",
+    "crumbs": [
+      "Home",
+      "Learn",
+      "The Build System"
+    ]
+  },
+  {
+    "objectID": "Resources/Build-Toolchain.html#gcc",
+    "href": "Resources/Build-Toolchain.html#gcc",
+    "title": "Compile Chain",
+    "section": "GCC",
+    "text": "GCC\nGCC is the compiler collection used here to translate your C code into machine code.\nIn practical terms, GCC is the tool that reads files such as src/features.c, checks whether the C syntax and types are valid, and produces object files that can later be linked into an executable.\nIt is also the tool that emits most compilation errors and warnings.\nIf GCC says something is wrong, you should read the message carefully and fix the source code rather than guessing.",
+    "crumbs": [
+      "Home",
+      "Learn",
+      "The Build System"
+    ]
+  },
+  {
+    "objectID": "Resources/Build-Toolchain.html#makefile",
+    "href": "Resources/Build-Toolchain.html#makefile",
+    "title": "Compile Chain",
+    "section": "Makefile",
+    "text": "Makefile\nA Makefile describes build targets and dependencies.\nIts role is to answer questions such as:\n\nwhat needs to be compiled\nin which order\nwith which commands\nwhat can be reused without recompiling everything\n\nYou will see generated Makefiles inside the build process. They help automate repeated compilation work and avoid rebuilding everything from scratch unnecessarily.",
+    "crumbs": [
+      "Home",
+      "Learn",
+      "The Build System"
+    ]
+  },
+  {
+    "objectID": "Resources/Build-Toolchain.html#cmake",
+    "href": "Resources/Build-Toolchain.html#cmake",
+    "title": "Compile Chain",
+    "section": "CMake",
+    "text": "CMake\nCMake is a build-system generator.\nYou do not usually write compiler commands by hand for every file. Instead, CMake reads CMakeLists.txt, understands the structure of the project, checks dependencies, and generates the concrete build files needed on your machine.\nIn this project, CMake is the main entry point for building.\n\nUseful commands\nConfigure the project:\ncmake -B build\nThis creates or refreshes the build/ folder.\nBuild the project:\ncmake --build build\nThis compiles the code and produces the executable in build/.\nInstall the project:\ncmake --install build\nThis copies the built result to the install location defined by the project. For day-to-day work, you mainly need configure plus build.",
+    "crumbs": [
+      "Home",
+      "Learn",
+      "The Build System"
+    ]
+  },
+  {
+    "objectID": "Resources/Build-Toolchain.html#the-usual-local-workflow",
+    "href": "Resources/Build-Toolchain.html#the-usual-local-workflow",
+    "title": "Compile Chain",
+    "section": "The usual local workflow",
+    "text": "The usual local workflow\ncmake -B build\ncmake --build build\nbuild/freud.exe -f images/input/test.jpg -c color_blue\nThe first command is needed once after cloning, and again when build configuration changes. The second command is the one you will run repeatedly after editing the code.",
+    "crumbs": [
+      "Home",
+      "Learn",
+      "The Build System"
+    ]
+  },
+  {
+    "objectID": "Resources/Build-Toolchain.html#running-the-resulting-command",
+    "href": "Resources/Build-Toolchain.html#running-the-resulting-command",
+    "title": "Compile Chain",
+    "section": "Running the resulting command",
+    "text": "Running the resulting command\nOnce the build succeeds, you run the executable produced in the build/ directory.\nExample:\nbuild/freud.exe -f images/input/test.jpg -c grayscale\nThis is how you verify that your implementation really works on a concrete input.\nFor more details on command syntax, see Using the Command Line.",
+    "crumbs": [
+      "Home",
+      "Learn",
+      "The Build System"
+    ]
+  },
+  {
+    "objectID": "Resources/Editors.html",
+    "href": "Resources/Editors.html",
+    "title": "Editors and VS Code",
+    "section": "",
+    "text": "At the most basic level, C source files are plain text files. Any text editor can open and modify them.\nThat said, a programming project quickly becomes easier to manage with an IDE or a code editor designed for development.",
+    "crumbs": [
+      "Home",
+      "Tools",
+      "VS Code & Editors"
+    ]
+  },
+  {
+    "objectID": "Resources/Editors.html#any-text-editor-can-edit-c-code",
+    "href": "Resources/Editors.html#any-text-editor-can-edit-c-code",
+    "title": "Editors and VS Code",
+    "section": "",
+    "text": "At the most basic level, C source files are plain text files. Any text editor can open and modify them.\nThat said, a programming project quickly becomes easier to manage with an IDE or a code editor designed for development.",
+    "crumbs": [
+      "Home",
+      "Tools",
+      "VS Code & Editors"
+    ]
+  },
+  {
+    "objectID": "Resources/Editors.html#what-an-ide-gives-you-beyond-text-editing",
+    "href": "Resources/Editors.html#what-an-ide-gives-you-beyond-text-editing",
+    "title": "Editors and VS Code",
+    "section": "What an IDE gives you beyond text editing",
+    "text": "What an IDE gives you beyond text editing\nCompared with a basic text editor, a practical IDE or programming editor usually adds:\n\nsyntax highlighting for C files\nerror and warning display while you type\njump to definition and symbol search\nproject-wide search across files\nintegrated terminal access\nGit integration for commits, diffs, and branch state\ntasks or shortcuts to build and run the project\n\nThese features do not write the project for you. They help you inspect, understand, and manage your own work more efficiently.",
+    "crumbs": [
+      "Home",
+      "Tools",
+      "VS Code & Editors"
+    ]
+  },
+  {
+    "objectID": "Resources/Editors.html#recommendation-use-vs-code",
+    "href": "Resources/Editors.html#recommendation-use-vs-code",
+    "title": "Editors and VS Code",
+    "section": "Recommendation: use VS Code",
+    "text": "Recommendation: use VS Code\nWe recommend Visual Studio Code for this project.\nOpen the repository in folder mode, not as isolated files. This lets VS Code understand the project structure, search the whole codebase, and apply workspace settings and recommended extensions.\nWhen VS Code suggests recommended extensions for the workspace, install them. They improve C editing, diagnostics, and project navigation.",
+    "crumbs": [
+      "Home",
+      "Tools",
+      "VS Code & Editors"
+    ]
+  },
+  {
+    "objectID": "Resources/Editors.html#use-vs-code-as-the-main-workstation",
+    "href": "Resources/Editors.html#use-vs-code-as-the-main-workstation",
+    "title": "Editors and VS Code",
+    "section": "Use VS Code as the main workstation",
+    "text": "Use VS Code as the main workstation\nVS Code is not only an editor window. It can be the main place where you:\n\nedit files in src/\ninspect compiler errors\nopen a terminal\nrun the onboarding script\ncompile the project\nrun build/freud.exe\n\nThat makes the edit-build-run loop much faster.",
+    "crumbs": [
+      "Home",
+      "Tools",
+      "VS Code & Editors"
+    ]
+  },
+  {
+    "objectID": "Resources/Editors.html#integrated-terminal",
+    "href": "Resources/Editors.html#integrated-terminal",
+    "title": "Editors and VS Code",
+    "section": "Integrated terminal",
+    "text": "Integrated terminal\nVS Code includes a terminal panel. Use it to run commands such as:\n./validconfig.sh\ncmake -B build\ncmake --build build\nbuild/freud.exe -f images/input/test.jpg -c color_blue\nKeeping the terminal inside the editor is practical because you can move directly from an error message to the corresponding source file.",
+    "crumbs": [
+      "Home",
+      "Tools",
+      "VS Code & Editors"
+    ]
+  },
+  {
+    "objectID": "Resources/Editors.html#vs-code-run-configuration",
+    "href": "Resources/Editors.html#vs-code-run-configuration",
+    "title": "Editors and VS Code",
+    "section": "VS Code run configuration",
+    "text": "VS Code run configuration\nTo avoid retyping the command every time, update cmake.debugConfig.args in .vscode/settings.json with your target image path and command. The VS Code Run button will then use those arguments directly.",
+    "crumbs": [
+      "Home",
+      "Tools",
+      "VS Code & Editors"
+    ]
+  },
+  {
+    "objectID": "Resources/Editors.html#about-ai-first-coding-tools",
+    "href": "Resources/Editors.html#about-ai-first-coding-tools",
+    "title": "Editors and VS Code",
+    "section": "About AI-first coding tools",
+    "text": "About AI-first coding tools\nDo not use AI-first coding environments or code-generation tools for this project.\nThat includes tools whose main promise is to generate or rewrite code for you. The issue is not the brand name. The issue is the behavior: if the tool is producing the code you are supposed to learn to write, it is not appropriate here.\nSee Ethics.",
+    "crumbs": [
+      "Home",
+      "Tools",
+      "VS Code & Editors"
+    ]
+  },
+  {
+    "objectID": "Features/Features.html",
+    "href": "Features/Features.html",
+    "title": "Milestones and Issues",
+    "section": "",
+    "text": "Feature specifications are maintained as local markdown files generated from template repository issues.",
+    "crumbs": [
+      "Home",
+      "Code",
+      "Features List"
+    ]
+  },
+  {
+    "objectID": "Features/Features.html#overview",
+    "href": "Features/Features.html#overview",
+    "title": "Milestones and Issues",
+    "section": "",
+    "text": "Feature specifications are maintained as local markdown files generated from template repository issues.",
+    "crumbs": [
+      "Home",
+      "Code",
+      "Features List"
+    ]
+  },
+  {
+    "objectID": "Features/Features.html#milestones",
+    "href": "Features/Features.html#milestones",
+    "title": "Milestones and Issues",
+    "section": "Milestones",
+    "text": "Milestones\n\nMilestone 1: Tutorial\nMilestone 2: Statistics\nMilestone 3: Colors\nMilestone 4: Transform\nMilestone 5: Resize",
+    "crumbs": [
+      "Home",
+      "Code",
+      "Features List"
+    ]
+  },
+  {
+    "objectID": "Features/Features.html#features-index",
+    "href": "Features/Features.html#features-index",
+    "title": "Milestones and Issues",
+    "section": "Features index",
+    "text": "Features index\n\nFeatures index",
+    "crumbs": [
+      "Home",
+      "Code",
+      "Features List"
+    ]
+  },
+  {
+    "objectID": "Features/milestone/milestone-2-statistics.html",
+    "href": "Features/milestone/milestone-2-statistics.html",
+    "title": "Milestone 2: Statistics",
+    "section": "",
+    "text": "The goal of this milestone is to implement features that compute statistics on pixel data: max and min pixel, max and min component, and a full report in a txt file. You will practice reading pixel data from an image using the estia-image library, manipulating it in C, and writing output to the console and to a file.\nYou can implement these features in any order and in parallel. You can still together for the first feature then split the remaining 3 features between you. Read the collaboration strategies to find how to properly split the work and collaborate effectively.\nBefore implementing a feature you should understand the specification and the expected output format. What will the output be for a given image ? You should start creating images with known pixel data to test your implementation. You can create images with an image editor. Save them as bitmap (.bmp) to easily control the pixel data.\n\n\n\n#8 Max pixel\n#9 Min pixel\n#10 Max component\n#11 Min component\n#12 Full report in a txt file"
+  },
+  {
+    "objectID": "Features/milestone/milestone-2-statistics.html#issues",
+    "href": "Features/milestone/milestone-2-statistics.html#issues",
+    "title": "Milestone 2: Statistics",
+    "section": "",
+    "text": "#8 Max pixel\n#9 Min pixel\n#10 Max component\n#11 Min component\n#12 Full report in a txt file"
+  },
+  {
+    "objectID": "Features/milestone/milestone-3-colors.html",
+    "href": "Features/milestone/milestone-3-colors.html",
+    "title": "Milestone 3: Colors",
+    "section": "",
+    "text": "Those features will manipulate pixel data to create a new image with modified colors. You will practice reading pixel data from an image using the estia-image library, manipulating it in C, and writing output to a new image file. These features are very similar to each other, you should implement them in parallel so that everyone gets to practice each of the steps (reading, manipulating, writing). You can still together for the first feature then split the remaining 6 features between you. Read the collaboration strategies to find how to properly split the work and collaborate effectively.\nOnce the feature are implemented, you could refactor the code to avoid repetition between the different features. You can create a helper function that takes as parameter a pointer to a function that manipulates the pixel data in a specific way. This way you can reuse the same code to read and write the image for all the features, and only change the manipulation of the pixel data. But remember to first implement a code that works before making a better code.\n\n\n\n#13 Color in red\n#14 Color in green\n#15 Color in blue\n#16 Color in gray (grayscale)\n#17 Invert colors\n#18 Color in gray (luminance)\n#34 Desaturate"
+  },
+  {
+    "objectID": "Features/milestone/milestone-3-colors.html#issues",
+    "href": "Features/milestone/milestone-3-colors.html#issues",
+    "title": "Milestone 3: Colors",
+    "section": "",
+    "text": "#13 Color in red\n#14 Color in green\n#15 Color in blue\n#16 Color in gray (grayscale)\n#17 Invert colors\n#18 Color in gray (luminance)\n#34 Desaturate"
+  },
+  {
+    "objectID": "Features/milestone/milestones.html",
+    "href": "Features/milestone/milestones.html",
+    "title": "Milestones",
+    "section": "",
+    "text": "Number: 2\nState: open\nOpen issues: 5\nClosed issues: 0\nDue on: N/A\nURL: https://github.com/Estia-1a/projetGenieInfo_template/milestone/2\n\n\n\n\n\nNumber: 3\nState: open\nOpen issues: 5\nClosed issues: 0\nDue on: N/A\nURL: https://github.com/Estia-1a/projetGenieInfo_template/milestone/3\n\n\n\n\n\nNumber: 4\nState: open\nOpen issues: 7\nClosed issues: 0\nDue on: N/A\nURL: https://github.com/Estia-1a/projetGenieInfo_template/milestone/4\n\n\n\n\n\nNumber: 5\nState: open\nOpen issues: 5\nClosed issues: 0\nDue on: N/A\nURL: https://github.com/Estia-1a/projetGenieInfo_template/milestone/5\n\n\n\n\n\nNumber: 6\nState: open\nOpen issues: 3\nClosed issues: 0\nDue on: N/A\nURL: https://github.com/Estia-1a/projetGenieInfo_template/milestone/6"
+  },
+  {
+    "objectID": "Features/milestone/milestones.html#milestone-1-tutorial",
+    "href": "Features/milestone/milestones.html#milestone-1-tutorial",
+    "title": "Milestones",
+    "section": "",
+    "text": "Number: 2\nState: open\nOpen issues: 5\nClosed issues: 0\nDue on: N/A\nURL: https://github.com/Estia-1a/projetGenieInfo_template/milestone/2"
+  },
+  {
+    "objectID": "Features/milestone/milestones.html#milestone-2-statistics",
+    "href": "Features/milestone/milestones.html#milestone-2-statistics",
+    "title": "Milestones",
+    "section": "",
+    "text": "Number: 3\nState: open\nOpen issues: 5\nClosed issues: 0\nDue on: N/A\nURL: https://github.com/Estia-1a/projetGenieInfo_template/milestone/3"
+  },
+  {
+    "objectID": "Features/milestone/milestones.html#milestone-3-colors",
+    "href": "Features/milestone/milestones.html#milestone-3-colors",
+    "title": "Milestones",
+    "section": "",
+    "text": "Number: 4\nState: open\nOpen issues: 7\nClosed issues: 0\nDue on: N/A\nURL: https://github.com/Estia-1a/projetGenieInfo_template/milestone/4"
+  },
+  {
+    "objectID": "Features/milestone/milestones.html#milestone-4-transform",
+    "href": "Features/milestone/milestones.html#milestone-4-transform",
+    "title": "Milestones",
+    "section": "",
+    "text": "Number: 5\nState: open\nOpen issues: 5\nClosed issues: 0\nDue on: N/A\nURL: https://github.com/Estia-1a/projetGenieInfo_template/milestone/5"
+  },
+  {
+    "objectID": "Features/milestone/milestones.html#milestone-5-resize",
+    "href": "Features/milestone/milestones.html#milestone-5-resize",
+    "title": "Milestones",
+    "section": "",
+    "text": "Number: 6\nState: open\nOpen issues: 3\nClosed issues: 0\nDue on: N/A\nURL: https://github.com/Estia-1a/projetGenieInfo_template/milestone/6"
+  },
+  {
+    "objectID": "Features/Freud-References.html",
+    "href": "Features/Freud-References.html",
+    "title": "Freud CLI Reference",
+    "section": "",
+    "text": "This page is a quick reference for the freud command-line tool: how to invoke it, what flags it accepts, and how each feature should behave.\nFor how to implement a new feature — adding a function, wiring the dispatch, reading and writing images — see Freud Internals.\nFor background on the project workflow, see Workflows & Milestones.",
+    "crumbs": [
+      "Home",
+      "Code",
+      "Freud CLI Reference"
+    ]
+  },
+  {
+    "objectID": "Features/Freud-References.html#basic-usage",
+    "href": "Features/Freud-References.html#basic-usage",
+    "title": "Freud CLI Reference",
+    "section": "Basic usage",
+    "text": "Basic usage\n./freud.exe -f &lt;image&gt; -c &lt;command&gt;\n\n\n\n\n\n\n\nFlag\nDescription\n\n\n\n\n-f &lt;path&gt;\nInput image path. Can be repeated for commands that take multiple images.\n\n\n-c &lt;command&gt;\nFeature to run. Must match an entry in freud.manifest.\n\n\n-o &lt;path&gt;\nOutput image path. Default: image_out.bmp\n\n\n--debug\nPrint debug information (image loaded, dimensions, etc.)\n\n\n--version\nPrint version and exit",
+    "crumbs": [
+      "Home",
+      "Code",
+      "Freud CLI Reference"
+    ]
+  },
+  {
+    "objectID": "Features/Freud-References.html#example-invocations",
+    "href": "Features/Freud-References.html#example-invocations",
+    "title": "Freud CLI Reference",
+    "section": "Example invocations",
+    "text": "Example invocations\n# Print image dimensions\n./freud.exe -f images/input/image.jpeg -c dimension\n\n# Make the image red\n./freud.exe -f images/input/image.jpeg -c color_red\n\n# Rotate clockwise and save with custom name\n./freud.exe -f images/input/image.jpeg -c rotate_cw -o rotated.bmp\n\n# Debug mode (prints image info before running)\n./freud.exe --debug -f images/input/image.jpeg -c dimension",
+    "crumbs": [
+      "Home",
+      "Code",
+      "Freud CLI Reference"
+    ]
+  },
+  {
+    "objectID": "Features/Freud-References.html#feature-index",
+    "href": "Features/Freud-References.html#feature-index",
+    "title": "Freud CLI Reference",
+    "section": "Feature index",
+    "text": "Feature index\n\nMilestone 1 — Tutorial\n\n\n\n\n\n\n\nCommand\nOutput\n\n\n\n\nhelloworld\nPrints Hello World!\n\n\ndimension\ndimension: &lt;width&gt;, &lt;height&gt;\n\n\ncolor_first_pixel\ncolor_first_pixel: R, G, B\n\n\ncolor_10th_pixel\ncolor_10th_pixel: R, G, B\n\n\ncolor_first_pixel_second_line\ncolor_first_pixel_second_line: R, G, B\n\n\npixelRGB\nUses pixelRGB struct, get and print functions\n\n\n\n\n\nMilestone 2 — Statistics\n\n\n\nCommand\nOutput\n\n\n\n\nmax_pixel\nmax_pixel (x, y): R, G, B\n\n\nmin_pixel\nmin_pixel (x, y): R, G, B\n\n\nmax_component\nmax_component: value\n\n\nmin_component\nmin_component: value\n\n\nfull_report\nWrites a .txt file with all statistics\n\n\n\n\n\nMilestone 3 — Colors\n\n\n\nCommand\nOutput\n\n\n\n\ncolor_red\nImage with only red channel kept\n\n\ncolor_green\nImage with only green channel kept\n\n\ncolor_blue\nImage with only blue channel kept\n\n\ngrayscale\nGrayscale via channel averaging\n\n\ninvert\nEach channel inverted (255 − value)\n\n\nluminance\nGrayscale via luminance formula\n\n\ndesaturate\nDesaturated image\n\n\n\n\n\nMilestone 4 — Transforms\n\n\n\nCommand\nOutput\n\n\n\n\nrotate_cw\nImage rotated 90° clockwise\n\n\nrotate_ccw\nImage rotated 90° counter-clockwise\n\n\nmirror_h\nMirror effect — horizontal symmetry\n\n\nmirror_v\nMirror effect — vertical symmetry\n\n\nmirror\nMirror effect (combined)\n\n\ncrop\nCropped image\n\n\n\n\n\nMilestone 5 — Resize\n\n\n\nCommand\nOutput\n\n\n\n\nscale_nn\nScale via nearest-neighbor interpolation\n\n\nscale_bilinear\nScale via bilinear interpolation\n\n\n\n\nNote: Check each feature’s issue file in Features for the exact expected output format. The CI compares output character by character — spacing and capitalization must match exactly.",
+    "crumbs": [
+      "Home",
+      "Code",
+      "Freud CLI Reference"
+    ]
+  },
+  {
+    "objectID": "Features/Freud-References.html#the-manifest-file",
+    "href": "Features/Freud-References.html#the-manifest-file",
+    "title": "Freud CLI Reference",
+    "section": "The manifest file",
+    "text": "The manifest file\nfreud.manifest is a plain text file at the project root. It lists every command your binary supports, one per line:\nhelloworld\ndimension\ncolor_first_pixel\ncolor_red\nRules: - One command per line, no spaces, no quotes - The CI reads this file to know which features to test - If a command is implemented but missing from the manifest, the CI will not test it - If a command is in the manifest but not implemented, the CI test will fail\n\n\n\n\n\n\n\nTip\n\n\n\nReady to write code? See Freud Internals for the template file layout, the Config struct, image I/O, and the four-step feature wiring pattern.",
+    "crumbs": [
+      "Home",
+      "Code",
+      "Freud CLI Reference"
+    ]
   },
   {
     "objectID": "Features/issues/feature-14-color-in-green.html",
@@ -1802,7 +1814,7 @@
     "href": "Getting-Started/Setup.html#phase-4",
     "title": "Setup",
     "section": "Phase 4 — Validate and build",
-    "text": "Phase 4 — Validate and build\n\nRun the validator\nFrom the project root (use Git Bash on Windows):\nbash validconfig.sh\nThis script checks your git config, compiler, CMake, and library presence. Fix every error it reports before continuing. It is your primary diagnostic tool throughout the project.\n\n\n\n\n\n\nTip\n\n\n\nFrom VS Code: Tasks: Run Task → Estia: Validate your installation\n\n\n\n\nBuild and run helloworld\ncmake -B build\ncmake --build build\ncmake --install build\n./freud.exe -f images/input/image.jpeg -c helloworld\n✓ Checkpoint: The helloworld output appears in your terminal with no errors. Every teammate repeats this on their own machine.",
+    "text": "Phase 4 — Validate and build\n\nRun the validator\nFrom the project root (use Git Bash on Windows):\nbash validconfig.sh\nThis script checks your git config, compiler, CMake, and library presence. Fix every error it reports before continuing. It is your primary diagnostic tool throughout the project.\n\n\n\n\n\n\nTip\n\n\n\nFrom VS Code: Tasks: Run Task → Estia: Validate your installation\n\n\n\n\nBuild and run helloworld\ncmake -B build\ncmake --build build\nbuild/freud.exe -f images/input/image.jpeg -c helloworld\n✓ Checkpoint: The helloworld output appears in your terminal with no errors. Every teammate repeats this on their own machine.",
     "crumbs": [
       "Home",
       "Start Here",
@@ -1934,7 +1946,7 @@
     "href": "ProjectManagement/Ethics.html",
     "title": "Ethics & AI Policy",
     "section": "",
-    "text": "The purpose of this project is to help you learn how to design, write, debug, and explain C code yourself.\nThat is the point to keep in mind when deciding whether a tool or a shortcut is acceptable.\n\n\n\n\n\n\nImportant\n\n\n\nThink about your project like going to the gym. The point isn’t just to lift weights—it’s to get stronger. In the same way, the goal of this project isn’t simply to end up with working code, but to improve your own programming skills.\nPlagiarism is like impersonating to be a fitness influencer on Instagram, this is an crime, or in our context an academic misconduct.\nUsing an AI tool to generate your code is a bit different, but it still misses the point. It’s like using a forklift to move the weights for you at the gym. The weights get moved, but you don’t get any stronger.\nPlagiarism is academic misconduct. The other may also create misconduct risks, and in all cases it prevents the learning the course is designed to produce.",
+    "text": "The purpose of this project is to help you learn how to design, write, debug, and explain C code yourself.\nThat is the point to keep in mind when deciding whether a tool or a shortcut is acceptable.\n\n\n\n\n\n\nImportantA metaphor to keep in mind\n\n\n\nThink about your project like going to the gym. The point isn’t just to lift weights—it’s to get stronger. In the same way, the goal of this project isn’t simply to end up with working code, but to improve your own programming skills.\nPlagiarism is like impersonating to be a fitness influencer on Instagram, this is an crime, or in our context an academic misconduct.\nUsing an AI tool to generate your code is a bit different, but it still misses the point. It’s like using a forklift to move the weights for you at the gym. The weights get moved, but you don’t get any stronger.\nPlagiarism is academic misconduct. The other may also create misconduct risks, and in all cases it prevents the learning the course is designed to produce.",
     "crumbs": [
       "Home",
       "Evaluate",
@@ -1946,7 +1958,7 @@
     "href": "ProjectManagement/Ethics.html#the-goal-of-the-project",
     "title": "Ethics & AI Policy",
     "section": "",
-    "text": "The purpose of this project is to help you learn how to design, write, debug, and explain C code yourself.\nThat is the point to keep in mind when deciding whether a tool or a shortcut is acceptable.\n\n\n\n\n\n\nImportant\n\n\n\nThink about your project like going to the gym. The point isn’t just to lift weights—it’s to get stronger. In the same way, the goal of this project isn’t simply to end up with working code, but to improve your own programming skills.\nPlagiarism is like impersonating to be a fitness influencer on Instagram, this is an crime, or in our context an academic misconduct.\nUsing an AI tool to generate your code is a bit different, but it still misses the point. It’s like using a forklift to move the weights for you at the gym. The weights get moved, but you don’t get any stronger.\nPlagiarism is academic misconduct. The other may also create misconduct risks, and in all cases it prevents the learning the course is designed to produce.",
+    "text": "The purpose of this project is to help you learn how to design, write, debug, and explain C code yourself.\nThat is the point to keep in mind when deciding whether a tool or a shortcut is acceptable.\n\n\n\n\n\n\nImportantA metaphor to keep in mind\n\n\n\nThink about your project like going to the gym. The point isn’t just to lift weights—it’s to get stronger. In the same way, the goal of this project isn’t simply to end up with working code, but to improve your own programming skills.\nPlagiarism is like impersonating to be a fitness influencer on Instagram, this is an crime, or in our context an academic misconduct.\nUsing an AI tool to generate your code is a bit different, but it still misses the point. It’s like using a forklift to move the weights for you at the gym. The weights get moved, but you don’t get any stronger.\nPlagiarism is academic misconduct. The other may also create misconduct risks, and in all cases it prevents the learning the course is designed to produce.",
     "crumbs": [
       "Home",
       "Evaluate",

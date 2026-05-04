@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>TA Validation Checklist – Projet Génie Info</title>
+<title>Freud Internals – Projet Génie Info</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -261,7 +261,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ProjectManagement/Evaluation.html">Evaluate</a></li><li class="breadcrumb-item"><a href="../ProjectManagement/TA-Validation-Checklist.html">TA Validation Checklist</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ProjectManagement/Workflows.html">Code</a></li><li class="breadcrumb-item"><a href="../Features/Freud-Internals.html">Freud Internals</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -347,7 +347,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Features/Freud-Internals.html" class="sidebar-item-text sidebar-link">
+  <a href="../Features/Freud-Internals.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Freud Internals</span></a>
   </div>
 </li>
@@ -458,7 +458,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../ProjectManagement/TA-Validation-Checklist.html" class="sidebar-item-text sidebar-link active">
+  <a href="../ProjectManagement/TA-Validation-Checklist.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">TA Validation Checklist</span></a>
   </div>
 </li>
@@ -480,22 +480,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#purpose" id="toc-purpose" class="nav-link active" data-scroll-target="#purpose">Purpose</a></li>
-  <li><a href="#pre-checks" id="toc-pre-checks" class="nav-link" data-scroll-target="#pre-checks">Pre-checks</a></li>
-  <li><a href="#vs-code-onboarding-checks" id="toc-vs-code-onboarding-checks" class="nav-link" data-scroll-target="#vs-code-onboarding-checks">VS Code onboarding checks</a></li>
-  <li><a href="#script-checks" id="toc-script-checks" class="nav-link" data-scroll-target="#script-checks">Script checks</a></li>
-  <li><a href="#team-leader-activation-checks" id="toc-team-leader-activation-checks" class="nav-link" data-scroll-target="#team-leader-activation-checks">Team leader activation checks</a></li>
-  <li><a href="#github-actions-checks" id="toc-github-actions-checks" class="nav-link" data-scroll-target="#github-actions-checks">GitHub Actions checks</a></li>
-  <li><a href="#team-sync-checks" id="toc-team-sync-checks" class="nav-link" data-scroll-target="#team-sync-checks">Team sync checks</a></li>
+  <li><a href="#template-source-layout" id="toc-template-source-layout" class="nav-link active" data-scroll-target="#template-source-layout">Template source layout</a></li>
+  <li><a href="#the-config-struct" id="toc-the-config-struct" class="nav-link" data-scroll-target="#the-config-struct">The <code>Config</code> struct</a></li>
+  <li><a href="#reading-and-writing-images" id="toc-reading-and-writing-images" class="nav-link" data-scroll-target="#reading-and-writing-images">Reading and writing images</a></li>
+  <li><a href="#adding-a-new-feature-the-pattern" id="toc-adding-a-new-feature-the-pattern" class="nav-link" data-scroll-target="#adding-a-new-feature-the-pattern">Adding a new feature — the pattern</a>
+  <ul class="collapse">
+  <li><a href="#declare-in-srcfeatures.h" id="toc-declare-in-srcfeatures.h" class="nav-link" data-scroll-target="#declare-in-srcfeatures.h">1. Declare in <code>src/features.h</code></a></li>
+  <li><a href="#implement-in-srcfeatures.c" id="toc-implement-in-srcfeatures.c" class="nav-link" data-scroll-target="#implement-in-srcfeatures.c">2. Implement in <code>src/features.c</code></a></li>
+  <li><a href="#dispatch-in-srcmain.c" id="toc-dispatch-in-srcmain.c" class="nav-link" data-scroll-target="#dispatch-in-srcmain.c">3. Dispatch in <code>src/main.c</code></a></li>
+  <li><a href="#register-in-freud.manifest" id="toc-register-in-freud.manifest" class="nav-link" data-scroll-target="#register-in-freud.manifest">4. Register in <code>freud.manifest</code></a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ProjectManagement/Evaluation.html">Evaluate</a></li><li class="breadcrumb-item"><a href="../ProjectManagement/TA-Validation-Checklist.html">TA Validation Checklist</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ProjectManagement/Workflows.html">Code</a></li><li class="breadcrumb-item"><a href="../Features/Freud-Internals.html">Freud Internals</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">TA Validation Checklist</h1>
+<h1 class="title">Freud Internals</h1>
 </div>
 
 
@@ -512,68 +515,73 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="purpose" class="level2">
-<h2 class="anchored" data-anchor-id="purpose">Purpose</h2>
-<p>Use this checklist on a real Windows student setup to confirm onboarding is fully operational.</p>
+<p>This page describes the internal structure of the Freud template: what files you touch, what each one is for, and how to wire a new feature end to end.</p>
+<p>For the external command contract (flags, commands, expected output), see <a href="../Features/Freud-References.html">Freud CLI Reference</a>.</p>
+<hr>
+<section id="template-source-layout" class="level2">
+<h2 class="anchored" data-anchor-id="template-source-layout">Template source layout</h2>
+<pre><code>src/
+├── main.c        ← entry point; parses args, dispatches to features
+├── argsparse.c   ← CLI argument parsing (don't modify)
+├── argsparse.h
+├── configp.h     ← Config struct definition (read-only)
+├── features.c    ← your feature implementations go here
+├── features.h    ← your function declarations go here
+├── utils.c       ← shared helpers (you may add helpers here)
+└── utils.h
+freud.manifest     ← list of commands to test against (add new commands here)</code></pre>
+<p>In general <strong>You modify:</strong> <code>features.h</code>, <code>features.c</code>, <code>main.c</code>, and <code>freud.manifest</code>, you may modify <code>utils.c</code> and <code>utils.h</code> to add helpers functions or <code>argsparse.c</code>, <code>argsparse.h</code>, <code>configp.h</code> if you need to implement more CLI options (respect the <a href="../Features/Freud-References.html">Freud CLI Reference</a>). You can add new source files, if you desire to structure your code differently, don’t forget to update the build system with <code>cmake -B build</code> if you do.</p>
+<hr>
 </section>
-<section id="pre-checks" class="level2">
-<h2 class="anchored" data-anchor-id="pre-checks">Pre-checks</h2>
-<ul>
-<li>Student accepted GitHub Classroom invitation.</li>
-<li>Team was created/joined with the exact teacher-defined name.</li>
-<li>Repository is visible on GitHub and cloned locally.</li>
-</ul>
+<section id="the-config-struct" class="level2">
+<h2 class="anchored" data-anchor-id="the-config-struct">The <code>Config</code> struct</h2>
+<p><code>src/configp.h</code> defines the configuration parsed from command-line arguments. You receive a fully populated <code>Config</code> in <code>main.c</code> — never parse <code>argv</code> yourself.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">typedef</span> <span class="kw">struct</span> _config <span class="op">{</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span>    debug_mode<span class="op">;</span>                       <span class="co">// --debug flag</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">char</span>   command<span class="op">[</span>MAX_LENGTH_COMMAND<span class="op">];</span>      <span class="co">// -c &lt;command&gt;</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">char</span><span class="op">*</span>  filenames<span class="op">[</span>MAX_FILE_COUNT<span class="op">];</span>        <span class="co">// -f &lt;path&gt; (can repeat)</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">char</span><span class="op">*</span>  arguments<span class="op">[</span>MAX_ARGUMENT_COUNT<span class="op">];</span>   <span class="co">// additional arguments</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> Config<span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>conf.filenames[0]</code> is the first <code>-f</code> argument — the input image path.<br>
+<code>conf.filenames[1]</code> is the second <code>-f</code> (for commands that take two images).</p>
+<hr>
 </section>
-<section id="vs-code-onboarding-checks" class="level2">
-<h2 class="anchored" data-anchor-id="vs-code-onboarding-checks">VS Code onboarding checks</h2>
-<ul>
-<li>Recommended extension prompt appears and can be accepted.</li>
-<li>Required extensions are installed.</li>
-<li>Default terminal on Windows opens as Git Bash.</li>
-<li>Task <code>Estia: Validate your installation</code> runs successfully.</li>
-</ul>
+<section id="reading-and-writing-images" class="level2">
+<h2 class="anchored" data-anchor-id="reading-and-writing-images">Reading and writing images</h2>
+<p>All image I/O goes through the <strong>estia-image</strong> library. See <a href="../Resources/Libraries.html">Libraries</a> for the full API and <a href="../Resources/Image-Data-Structure.html">Image Data Structure</a> for how pixels are laid out in memory.</p>
+<hr>
 </section>
-<section id="script-checks" class="level2">
-<h2 class="anchored" data-anchor-id="script-checks">Script checks</h2>
-<p>Run:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> validconfig.sh</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Expected:</p>
-<ul>
-<li>Toolchain checks pass.</li>
-<li>Library checks pass.</li>
-<li>VS Code extension checks pass.</li>
-<li>No hard failures.</li>
-</ul>
+<section id="adding-a-new-feature-the-pattern" class="level2">
+<h2 class="anchored" data-anchor-id="adding-a-new-feature-the-pattern">Adding a new feature — the pattern</h2>
+<p>Every new feature requires <strong>four changes</strong>. Miss any one and the feature either won’t compile, won’t run, or won’t be tested by the CI.</p>
+<section id="declare-in-srcfeatures.h" class="level3">
+<h3 class="anchored" data-anchor-id="declare-in-srcfeatures.h">1. Declare in <code>src/features.h</code></h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> my_feature<span class="op">(</span><span class="dt">char</span> <span class="op">*</span>source_path<span class="op">);</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="team-leader-activation-checks" class="level2">
-<h2 class="anchored" data-anchor-id="team-leader-activation-checks">Team leader activation checks</h2>
-<p>Run:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> validconfig.sh <span class="at">--activate-workflows</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Expected:</p>
-<ul>
-<li>Pull from <code>main</code> succeeds.</li>
-<li>Optional workflow file rename is applied when applicable.</li>
-<li>Activation commit is created only when needed.</li>
-<li>Push to <code>main</code> succeeds.</li>
-<li>Script prints a valid GitHub Actions URL.</li>
-</ul>
+<section id="implement-in-srcfeatures.c" class="level3">
+<h3 class="anchored" data-anchor-id="implement-in-srcfeatures.c">2. Implement in <code>src/features.c</code></h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> my_feature<span class="op">(</span><span class="dt">char</span> <span class="op">*</span>source_path<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">unsigned</span> <span class="dt">char</span> <span class="op">*</span>data <span class="op">=</span> NULL<span class="op">;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> width<span class="op">,</span> height<span class="op">,</span> channels<span class="op">;</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    read_image_data<span class="op">(</span>source_path<span class="op">,</span> <span class="op">&amp;</span>data<span class="op">,</span> <span class="op">&amp;</span>width<span class="op">,</span> <span class="op">&amp;</span>height<span class="op">,</span> <span class="op">&amp;</span>channels<span class="op">);</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="co">// ... your logic ...</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    free<span class="op">(</span>data<span class="op">);</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="github-actions-checks" class="level2">
-<h2 class="anchored" data-anchor-id="github-actions-checks">GitHub Actions checks</h2>
-<ul>
-<li><code>Import issues from Template</code> is visible in Actions tab.</li>
-<li>Running workflow on <code>main</code> creates issues.</li>
-<li>Issues appear in repository Issues tab.</li>
-</ul>
+<section id="dispatch-in-srcmain.c" class="level3">
+<h3 class="anchored" data-anchor-id="dispatch-in-srcmain.c">3. Dispatch in <code>src/main.c</code></h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>strncmp<span class="op">(</span>configuration<span class="op">.</span>command<span class="op">,</span> <span class="st">"my_feature"</span><span class="op">,</span> <span class="dv">10</span><span class="op">)</span> <span class="op">==</span> <span class="dv">0</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    my_feature<span class="op">(</span>conf<span class="op">.</span>filenames<span class="op">[</span><span class="dv">0</span><span class="op">]);</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="team-sync-checks" class="level2">
-<h2 class="anchored" data-anchor-id="team-sync-checks">Team sync checks</h2>
-<ul>
-<li>Other teammates pull latest <code>main</code>.</li>
-<li>They can run local validation task without activating workflows again.</li>
-</ul>
+<section id="register-in-freud.manifest" class="level3">
+<h3 class="anchored" data-anchor-id="register-in-freud.manifest">4. Register in <code>freud.manifest</code></h3>
+<pre><code>my_feature</code></pre>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

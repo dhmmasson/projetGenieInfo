@@ -172,6 +172,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="dropdown-text">Freud CLI Reference</span></a>
   </li>  
         <li>
+    <a class="dropdown-item" href="../Features/Freud-Internals.html">
+ <span class="dropdown-text">Freud Internals</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="../Features/Features.html">
  <span class="dropdown-text">Features List</span></a>
   </li>  
@@ -343,6 +347,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../Features/Freud-Internals.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Freud Internals</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../Resources/Collaboration.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Team Collaboration</span></a>
   </div>
@@ -481,15 +491,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#milestone-5-resize" id="toc-milestone-5-resize" class="nav-link" data-scroll-target="#milestone-5-resize">Milestone 5 — Resize</a></li>
   </ul></li>
   <li><a href="#the-manifest-file" id="toc-the-manifest-file" class="nav-link" data-scroll-target="#the-manifest-file">The manifest file</a></li>
-  <li><a href="#adding-a-new-feature-the-pattern" id="toc-adding-a-new-feature-the-pattern" class="nav-link" data-scroll-target="#adding-a-new-feature-the-pattern">Adding a new feature — the pattern</a>
-  <ul class="collapse">
-  <li><a href="#declare-in-srcfeatures.h" id="toc-declare-in-srcfeatures.h" class="nav-link" data-scroll-target="#declare-in-srcfeatures.h">1. Declare in <code>src/features.h</code></a></li>
-  <li><a href="#implement-in-srcfeatures.c" id="toc-implement-in-srcfeatures.c" class="nav-link" data-scroll-target="#implement-in-srcfeatures.c">2. Implement in <code>src/features.c</code></a></li>
-  <li><a href="#dispatch-in-srcmain.c" id="toc-dispatch-in-srcmain.c" class="nav-link" data-scroll-target="#dispatch-in-srcmain.c">3. Dispatch in <code>src/main.c</code></a></li>
-  <li><a href="#register-in-freud.manifest" id="toc-register-in-freud.manifest" class="nav-link" data-scroll-target="#register-in-freud.manifest">4. Register in <code>freud.manifest</code></a></li>
-  </ul></li>
-  <li><a href="#the-config-struct" id="toc-the-config-struct" class="nav-link" data-scroll-target="#the-config-struct">The <code>Config</code> struct</a></li>
-  <li><a href="#key-library-functions" id="toc-key-library-functions" class="nav-link" data-scroll-target="#key-library-functions">Key library functions</a></li>
   </ul>
 </nav>
     </div>
@@ -516,7 +517,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p>This page is a quick reference for the <code>freud</code> command-line tool: how to invoke it, what flags it accepts, and how each feature should behave.</p>
-<p>For how to <strong>implement</strong> a new feature, see <a href="../Getting-Started/First-Steps.html">First Steps</a> and <a href="../ProjectManagement/Workflows.html">Workflows &amp; Milestones</a>.</p>
+<p>For how to <strong>implement</strong> a new feature — adding a function, wiring the dispatch, reading and writing images — see <a href="../Features/Freud-Internals.html">Freud Internals</a>.<br>
+For background on the project workflow, see <a href="../ProjectManagement/Workflows.html">Workflows &amp; Milestones</a>.</p>
 <hr>
 <section id="basic-usage" class="level2">
 <h2 class="anchored" data-anchor-id="basic-usage">Basic usage</h2>
@@ -575,7 +577,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="feature-index" class="level2">
 <h2 class="anchored" data-anchor-id="feature-index">Feature index</h2>
 <section id="milestone-1-tutorial" class="level3">
-<h3 class="anchored" data-anchor-id="milestone-1-tutorial">Milestone 1 — Tutorial</h3>
+<h3 class="anchored" data-anchor-id="milestone-1-tutorial"><a href="../Features/milestone/milestone-1-tutorial.html">Milestone 1 — Tutorial</a></h3>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 50%">
@@ -616,7 +618,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </table>
 </section>
 <section id="milestone-2-statistics" class="level3">
-<h3 class="anchored" data-anchor-id="milestone-2-statistics">Milestone 2 — Statistics</h3>
+<h3 class="anchored" data-anchor-id="milestone-2-statistics"><a href="../Features/milestone/milestone-2-statistics.html">Milestone 2 — Statistics</a></h3>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -649,7 +651,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </table>
 </section>
 <section id="milestone-3-colors" class="level3">
-<h3 class="anchored" data-anchor-id="milestone-3-colors">Milestone 3 — Colors</h3>
+<h3 class="anchored" data-anchor-id="milestone-3-colors"><a href="../Features/milestone/milestone-3-colors.html">Milestone 3 — Colors</a></h3>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -690,7 +692,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </table>
 </section>
 <section id="milestone-4-transforms" class="level3">
-<h3 class="anchored" data-anchor-id="milestone-4-transforms">Milestone 4 — Transforms</h3>
+<h3 class="anchored" data-anchor-id="milestone-4-transforms"><a href="./milestone/milestone-4-transforms.md">Milestone 4 — Transforms</a></h3>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -727,7 +729,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </table>
 </section>
 <section id="milestone-5-resize" class="level3">
-<h3 class="anchored" data-anchor-id="milestone-5-resize">Milestone 5 — Resize</h3>
+<h3 class="anchored" data-anchor-id="milestone-5-resize"><a href="../Features/milestone/milestone-5-resize.html">Milestone 5 — Resize</a></h3>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -761,67 +763,19 @@ color_first_pixel
 color_red</code></pre>
 <p><strong>Rules:</strong> - One command per line, no spaces, no quotes - The CI reads this file to know which features to test - If a command is implemented but missing from the manifest, the CI will not test it - If a command is in the manifest but not implemented, the CI test will fail</p>
 <hr>
-</section>
-<section id="adding-a-new-feature-the-pattern" class="level2">
-<h2 class="anchored" data-anchor-id="adding-a-new-feature-the-pattern">Adding a new feature — the pattern</h2>
-<p>Every new feature requires <strong>four changes</strong>:</p>
-<section id="declare-in-srcfeatures.h" class="level3">
-<h3 class="anchored" data-anchor-id="declare-in-srcfeatures.h">1. Declare in <code>src/features.h</code></h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> my_feature<span class="op">(</span><span class="dt">char</span> <span class="op">*</span>source_path<span class="op">);</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="implement-in-srcfeatures.c" class="level3">
-<h3 class="anchored" data-anchor-id="implement-in-srcfeatures.c">2. Implement in <code>src/features.c</code></h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> my_feature<span class="op">(</span><span class="dt">char</span> <span class="op">*</span>source_path<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">unsigned</span> <span class="dt">char</span> <span class="op">*</span>data <span class="op">=</span> NULL<span class="op">;</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> width<span class="op">,</span> height<span class="op">,</span> channels<span class="op">;</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    read_image_data<span class="op">(</span>source_path<span class="op">,</span> <span class="op">&amp;</span>data<span class="op">,</span> <span class="op">&amp;</span>width<span class="op">,</span> <span class="op">&amp;</span>height<span class="op">,</span> <span class="op">&amp;</span>channels<span class="op">);</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="co">// ... your logic ...</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    free<span class="op">(</span>data<span class="op">);</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="dispatch-in-srcmain.c" class="level3">
-<h3 class="anchored" data-anchor-id="dispatch-in-srcmain.c">3. Dispatch in <code>src/main.c</code></h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>strcmp<span class="op">(</span>conf<span class="op">.</span>command<span class="op">,</span> <span class="st">"my_feature"</span><span class="op">)</span> <span class="op">==</span> <span class="dv">0</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    my_feature<span class="op">(</span>conf<span class="op">.</span>filenames<span class="op">[</span><span class="dv">0</span><span class="op">]);</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="register-in-freud.manifest" class="level3">
-<h3 class="anchored" data-anchor-id="register-in-freud.manifest">4. Register in <code>freud.manifest</code></h3>
-<pre><code>my_feature</code></pre>
-<p>Miss any one of these four steps and the feature either won’t compile, won’t run, or won’t be tested by the CI.</p>
-<hr>
-</section>
-</section>
-<section id="the-config-struct" class="level2">
-<h2 class="anchored" data-anchor-id="the-config-struct">The <code>Config</code> struct</h2>
-<p><code>src/configp.h</code> defines the configuration parsed from command-line arguments:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">typedef</span> <span class="kw">struct</span> _config <span class="op">{</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span>    debug_mode<span class="op">;</span>                       <span class="co">// --debug flag</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">char</span>   command<span class="op">[</span>MAX_LENGTH_COMMAND<span class="op">];</span>      <span class="co">// -c &lt;command&gt;</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">char</span><span class="op">*</span>  filenames<span class="op">[</span>MAX_FILE_COUNT<span class="op">];</span>        <span class="co">// -f &lt;path&gt; (can repeat)</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">char</span><span class="op">*</span>  arguments<span class="op">[</span>MAX_ARGUMENT_COUNT<span class="op">];</span>   <span class="co">// additional arguments</span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> Config<span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><code>conf.filenames[0]</code> is the first <code>-f</code> argument — the input image path.</p>
-<hr>
-</section>
-<section id="key-library-functions" class="level2">
-<h2 class="anchored" data-anchor-id="key-library-functions">Key library functions</h2>
-<p>From <code>estia-image/include/estia-image.h</code>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Read image from file. Returns 0 on success.</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> read_image_data<span class="op">(</span><span class="dt">const</span> <span class="dt">char</span> <span class="op">*</span>filename<span class="op">,</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>                    <span class="dt">unsigned</span> <span class="dt">char</span> <span class="op">**</span>data<span class="op">,</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>                    <span class="dt">int</span> <span class="op">*</span>width<span class="op">,</span> <span class="dt">int</span> <span class="op">*</span>height<span class="op">,</span> <span class="dt">int</span> <span class="op">*</span>nbChannels<span class="op">);</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co">// Write image to file. Returns 0 on success.</span></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> write_image_data<span class="op">(</span><span class="dt">const</span> <span class="dt">char</span> <span class="op">*</span>filename<span class="op">,</span></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>                     <span class="dt">unsigned</span> <span class="dt">char</span> <span class="op">*</span>data<span class="op">,</span></span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>                     <span class="dt">int</span> width<span class="op">,</span> <span class="dt">int</span> height<span class="op">);</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Pixel access pattern (RGB, 3 channels):</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> index <span class="op">=</span> <span class="op">(</span>y <span class="op">*</span> width <span class="op">+</span> x<span class="op">)</span> <span class="op">*</span> <span class="dv">3</span><span class="op">;</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="dt">unsigned</span> <span class="dt">char</span> R <span class="op">=</span> data<span class="op">[</span>index<span class="op">];</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="dt">unsigned</span> <span class="dt">char</span> G <span class="op">=</span> data<span class="op">[</span>index <span class="op">+</span> <span class="dv">1</span><span class="op">];</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="dt">unsigned</span> <span class="dt">char</span> B <span class="op">=</span> data<span class="op">[</span>index <span class="op">+</span> <span class="dv">2</span><span class="op">];</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>See <a href="../Resources/Image-Data-Structure.html">Image Data Structure</a> for a full explanation of how pixels are laid out in memory.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Ready to write code? See <a href="../Features/Freud-Internals.html">Freud Internals</a> for the template file layout, the <code>Config</code> struct, image I/O, and the four-step feature wiring pattern.</p>
+</div>
+</div>
 
 
 </section>

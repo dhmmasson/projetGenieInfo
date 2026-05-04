@@ -172,6 +172,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="dropdown-text">Freud CLI Reference</span></a>
   </li>  
         <li>
+    <a class="dropdown-item" href="../Features/Freud-Internals.html">
+ <span class="dropdown-text">Freud Internals</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="../Features/Features.html">
  <span class="dropdown-text">Features List</span></a>
   </li>  
@@ -339,6 +343,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="../Features/Freud-References.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Freud CLI Reference</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Features/Freud-Internals.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Freud Internals</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -683,8 +693,7 @@ Tip
 <h3 class="anchored" data-anchor-id="build-and-run-helloworld">Build and run helloworld</h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cmake</span> <span class="at">-B</span> build</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cmake</span> <span class="at">--build</span> build</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cmake</span> <span class="at">--install</span> build</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="ex">./freud.exe</span> <span class="at">-f</span> images/input/image.jpeg <span class="at">-c</span> helloworld</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="ex">build/freud.exe</span> <span class="at">-f</span> images/input/image.jpeg <span class="at">-c</span> helloworld</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>✓ Checkpoint:</strong> The helloworld output appears in your terminal with no errors. Every teammate repeats this on their own machine.</p>
 <hr>
 </section>
