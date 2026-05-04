@@ -1,0 +1,70 @@
+---
+title: "Git and GitHub"
+---
+
+## Git: versioning your system
+
+**Git** is the version-control tool used to track the history of your project.
+
+It lets you:
+
+- keep a history of changes
+- know who changed what
+- go from local edits to recorded commits
+- synchronize work between teammates
+- recover from mistakes more safely
+
+For a team project, Git is not optional. It is the mechanism that turns local work into shared work.
+
+## Configure your identity first
+
+Before making commits, configure your Git name and email.
+
+The email should match the identity you use on GitHub, typically either:
+
+- your GitHub no-reply email address
+- your school email address
+
+Example:
+
+```bash
+git config --global user.name "Your Name"
+git config --global user.email "your-email@example.com"
+```
+
+If the identity is wrong, authorship on commits may be attributed incorrectly.
+
+## Core Git actions in the project
+
+In daily work, the core loop is usually:
+
+```bash
+git pull
+git add .
+git commit -m "Implement color_blue"
+git push
+```
+
+You should pull before starting work, commit meaningful progress, and push before ending a session.
+
+## GitHub: more than a remote repository
+
+**GitHub** hosts the remote repository, but for this course it also provides the rest of the project workflow.
+
+Your GitHub repository contains:
+
+- the shared remote copy of the code
+- the issue tracker for features
+- milestones and project-management information
+- GitHub Actions workflows
+- the evaluation workflow used by the teaching team
+
+So Git is the local history mechanism, and GitHub is the shared collaboration and coordination platform around it.
+
+## Why this matters for grading
+
+The teaching team evaluates what is present on `main` in GitHub, not what exists only on your laptop.
+
+If your code is not pushed, it is not visible to teammates, workflows, or evaluators.
+
+See also [Workflows and Onboarding](../ProjectManagement/Workflows.qmd) and [Evaluation](../ProjectManagement/Evaluation.qmd).

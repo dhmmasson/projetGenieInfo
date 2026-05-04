@@ -1,0 +1,47 @@
+---
+title: "Tools Overview"
+---
+
+## Why tools matter
+
+To manage a C programming project, you need more than source files.
+
+You need tools for four different jobs:
+
+1. Edit the source code
+2. Compile the program
+3. Version the work over time
+4. Share and coordinate the work with your team
+
+For this project, the practical tool stack is:
+
+- an editor or IDE to write and inspect the code
+- a compile chain based on GCC, Make, and CMake
+- a terminal to run commands and test the program
+- Git and GitHub to version, publish, and coordinate the project
+
+## The four tool families
+
+### Editors
+
+An editor lets you modify text files. An IDE goes further and helps you navigate code, see errors faster, run builds, and work with Git.
+
+See [Editors and VS Code](Editors.qmd).
+
+### Compile chain
+
+Your C source files are not directly executable. They must be compiled and linked into a program.
+
+See [Compile Chain](Build-Toolchain.qmd).
+
+### Command line
+
+Even when you use a graphical editor, this project is driven by commands such as setup scripts, builds, and executions of `freud.exe`.
+
+See [Using the Command Line](CLI.qmd).
+
+### Git and GitHub
+
+Git tracks the history of your work. GitHub hosts the shared repository and the project-management workflow around it.
+
+See [Git and GitHub](Git-and-GitHub.qmd).

@@ -27,7 +27,9 @@ $ build/freud.exe -f images/input/test.jpg -c color_blue
 
 The goal is to develop your own C programming skills. **Do not use AI assistants (ChatGPT, GitHub Copilot, Gemini, etc.) to generate your code.** The final exam is individual and without any coding tool — what matters is what *you* have learned to write.
 
-See the [Academic Integrity](ProjectManagement/Evaluation.qmd#academic-integrity) section for full details on plagiarism and AI use policy.
+Think of learning to program like going to the gym: the point is not to move weight from one place to another, the point is to become stronger yourself. Plagiarism is like pretending to be a fitness influencer by posting someone else's lift as your own. Using an LLM to generate your code is like bringing a forklift to move the weights for you: it is not the same kind of fault, but it still misses the point of the exercise.
+
+See the [Ethics](ProjectManagement/Ethics.qmd) page for the course policy on plagiarism, AI tools, and appropriate help.
 :::
 
 ## How you are evaluated

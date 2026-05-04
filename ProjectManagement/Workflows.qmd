@@ -2,50 +2,161 @@
 title: "Workflows and Onboarding"
 ---
 
-## Workflow model for 2026
+## Your repository
 
-- Workflow files are stored as disabled by default in the template (`*.yml.disabled`).
-- Team leader activation renames them to `.yml` and pushes once.
-- `classroom.yml` is then triggered by classroom infrastructure events.
-- `create-issues.yml` is manually triggered by students from the GitHub Actions tab.
+Your team repository follows this naming pattern:
 
-## Enable and run issue import
+```
+https://github.com/Estia-1a/pgi-2026-the_adjective_noun
+```
 
-1. Team leader runs:
+Replace `the_adjective_noun` with your actual team name (e.g. `the_brave_fox`).
+
+::: {.callout-tip}
+## Not sure of your exact URL?
+Open your repository on GitHub, click the green **Code** button, and copy the HTTPS URL. Everything before `/actions`, `/issues`, etc. is your base URL.
+:::
+
+The useful sub-pages you will visit often:
+
+| Page | URL |
+|---|---|
+| Issues | `https://github.com/Estia-1a/pgi-2026-<team>/issues` |
+| Actions | `https://github.com/Estia-1a/pgi-2026-<team>/actions` |
+| Projects | `https://github.com/Estia-1a/pgi-2026-<team>/projects` |
+
+---
+
+## What are features and milestones?
+
+### Features = GitHub Issues
+
+Each **feature** you need to implement is tracked as a **GitHub Issue** in your repository. An issue contains:
+
+- a description of what the feature does
+- the exact command name and expected output format
+- example inputs and outputs to help you test your implementation
+
+There are roughly 30 features spread across 5 milestones. You can see them all on the [Features](../Features/Features.qmd) page.
+
+### Milestones = groups of issues
+
+Features are grouped into **Milestones**. A milestone represents a coherent set of related features (e.g. *Statistics*, *Color transformations*, *Geometric transforms*). Completing a milestone means all its issues are closed and the CI passes for every feature in that group.
+
+Milestones are your main progress markers — both for your own tracking and for grading.
+
+---
+
+## Step 1 — Load the issues into your repository (onboarding)
+
+Issues do not appear in your repository automatically. The **team leader** must activate the workflows and trigger the import once.
+
+### Activate the workflows
+
+In your local clone, run:
 
 ```bash
 bash validconfig.sh --activate-workflows
 ```
 
-2. Open the repository on GitHub.
-3. Go to the Actions tab.
-4. Select `Import issues from Template`.
-5. Click `Run workflow` on branch `main`.
-6. Wait for completion, then confirm issues are visible in the Issues tab.
+This renames the disabled workflow files from `*.yml.disabled` to `*.yml` and commits them. Push the result to `main`.
 
-## Team coordination rule
+### Import the issues
 
-Only one teammate should trigger issue import during onboarding.
+1. Open your repository on GitHub.
+2. Go to the **Actions** tab.
+3. Select **Import issues from Template** in the left sidebar.
+4. Click **Run workflow** → choose branch `main` → click the green **Run workflow** button.
+5. Wait for the green checkmark. Then open the **Issues** tab to confirm the issues are visible.
 
-After issue creation:
+::: {.callout-warning}
+## One person only
+Only one team member should trigger the import. Triggering it multiple times will create duplicate issues.
+After the import, announce to your teammates that it is done so they can pull the latest changes.
+:::
 
-1. Teammate who triggered it announces completion.
-2. Everyone pulls latest changes locally.
-3. Team starts milestone 1 implementation.
+---
 
-## Quick link from local repo to Actions page
+## Step 2 — Work with issues
 
-If your remote is:
+### Read the issue before you start
 
-```bash
-git remote get-url origin
+Each issue contains the full specification for the feature. Before writing a single line of code:
+
+- Read the description carefully.
+- Note the exact **command name**, **parameters**, and **expected output format**.
+- Look at the provided examples — they double as test cases.
+
+### Assign the issue to yourself
+
+To avoid two teammates working on the same feature simultaneously, **assign the issue** to whoever is implementing it:
+
+1. Open the issue on GitHub.
+2. On the right sidebar, click **Assignees**.
+3. Select your name.
+
+This makes it immediately visible to the rest of the team who is working on what.
+
+### Close the issue when the feature is done
+
+An issue should only be closed when:
+
+1. The feature is **implemented** in `src/features.c`.
+2. It **compiles** without errors.
+3. You have **tested it locally** with `build/freud.exe` and the output matches the specification.
+
+You can close the issue from the GitHub interface, or automatically from a commit message.
+
+---
+
+## Step 3 — Close issues automatically with commits
+
+When you push a commit whose message contains one of the following keywords followed by `#<issue_number>`, GitHub will **automatically close** the corresponding issue:
+
+```
+close #12
+closes #12
+fix #12
+fixes #12
+resolve #12
+resolves #12
 ```
 
-Then your actions URL is:
+Example commit message:
 
-- HTTPS remote: `https://github.com/<org>/<repo>/actions`
-- SSH remote: `git@github.com:<org>/<repo>.git` becomes `https://github.com/<org>/<repo>/actions`
+```
+implement max_component feature, close #10
+```
+
+This is clean, traceable, and saves you from forgetting to close issues manually.
+
+---
+
+## Step 4 (optional but recommended) — Set up a Kanban board
+
+A **Kanban board** is a visual board with columns like *To Do*, *In Progress*, and *Done*. GitHub Projects provides this out of the box and links directly to your issues.
+
+### Create a project board
+
+1. Go to your repository on GitHub.
+2. Click the **Projects** tab → **New project**.
+3. Choose the **Board** template (Kanban style).
+4. Give it a name (e.g. *Sprint board*).
+5. Click **Create project**.
+
+### Add your issues to the board
+
+In the board, click **+ Add item** at the bottom of the *To Do* column and type `#` to search for your issues. Add all of them.
+
+### Use the board during the project
+
+- Move an issue to **In Progress** when someone starts working on it.
+- Move it to **Done** when the feature is implemented and tested (the issue will also close automatically if you used a `close #N` commit).
+
+This gives your whole team a shared real-time view of progress without needing to ask each other "what are you working on?".
+
+---
 
 ## Known caveat
 
-Classroom repositories are private and can have workflow behavior differences across academic years. If `Import issues from Template` is not visible, the team leader should notify the teacher immediately.
+Classroom repositories are private and can have workflow behavior differences across academic years. If the **Import issues from Template** workflow is not visible in the Actions tab, the team leader should notify the teacher immediately.

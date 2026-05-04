@@ -1,0 +1,65 @@
+---
+title: "Editors and VS Code"
+---
+
+## Any text editor can edit C code
+
+At the most basic level, C source files are plain text files. Any text editor can open and modify them.
+
+That said, a programming project quickly becomes easier to manage with an IDE or a code editor designed for development.
+
+## What an IDE gives you beyond text editing
+
+Compared with a basic text editor, a practical IDE or programming editor usually adds:
+
+- syntax highlighting for C files
+- error and warning display while you type
+- jump to definition and symbol search
+- project-wide search across files
+- integrated terminal access
+- Git integration for commits, diffs, and branch state
+- tasks or shortcuts to build and run the project
+
+These features do not write the project for you. They help you inspect, understand, and manage your own work more efficiently.
+
+## Recommendation: use VS Code
+
+We recommend **Visual Studio Code** for this project.
+
+Open the repository in **folder mode**, not as isolated files. This lets VS Code understand the project structure, search the whole codebase, and apply workspace settings and recommended extensions.
+
+When VS Code suggests recommended extensions for the workspace, install them. They improve C editing, diagnostics, and project navigation.
+
+## Use VS Code as the main workstation
+
+VS Code is not only an editor window. It can be the main place where you:
+
+- edit files in `src/`
+- inspect compiler errors
+- open a terminal
+- run the onboarding script
+- compile the project
+- run `build/freud.exe`
+
+That makes the edit-build-run loop much faster.
+
+## Integrated terminal
+
+VS Code includes a terminal panel. Use it to run commands such as:
+
+```bash
+./validconfig.sh
+cmake -B build
+cmake --build build
+build/freud.exe -f images/input/test.jpg -c color_blue
+```
+
+Keeping the terminal inside the editor is practical because you can move directly from an error message to the corresponding source file.
+
+## About AI-first coding tools
+
+Do not use AI-first coding environments or code-generation tools for this project.
+
+That includes tools whose main promise is to generate or rewrite code for you. The issue is not the brand name. The issue is the behavior: if the tool is producing the code you are supposed to learn to write, it is not appropriate here.
+
+See [Ethics](../ProjectManagement/Ethics.qmd).

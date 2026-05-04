@@ -1,0 +1,70 @@
+# Ethics
+## The goal of the project
+The purpose of this project is to help you learn how to design, write, debug, and explain C code yourself.
+
+That is the point to keep in mind when deciding whether a tool or a shortcut is acceptable.
+
+:::{callout-important}
+
+Think about your project like going to the gym. The point isn’t just to lift weights—it’s to get stronger. In the same way, the goal of this project isn’t simply to end up with working code, but to improve your own programming skills.
+
+Plagiarism is like impersonating to be a fitness influencer on Instagram, this is an crime, or in our context an academic misconduct.
+
+Using an AI tool to generate your code is a bit different, but it still misses the point. It’s like using a forklift to move the weights for you at the gym. The weights get moved, but you don’t get any stronger.
+
+Plagiarism is academic misconduct. The other may also create misconduct risks, and in all cases it prevents the learning the course is designed to produce.
+
+:::
+
+## Plagiarism policy
+
+:::{callout-warning}
+Read this carefully
+
+Before the final evaluation, all code is run through plagiarism detection.
+
+The tool looks for structural similarity between programs. It is not fooled by renaming variables, changing formatting, or doing superficial edits.
+
+Some similarity is normal because every team receives the same subject and the same function signatures. But beyond that, long or repeated similarities strongly suggest that code was shared, copied, or generated from the same external source.
+
+If two codebases are identical or near-identical, this will be treated as plagiarism regardless of the explanation.
+
+:::
+
+
+Possible consequences range from scaling grades according to code uniqueness to failing all teams involved.
+
+## Why AI tools are especially risky here
+If several teams ask an LLM for the same feature, they can receive very similar code. You do not control the training data, the hidden prompts, or the exact implementation patterns it reuses.
+
+That means AI-generated code can both:
+
+prevent you from learning the skill being taught
+get your team flagged by similarity detection
+For this project, the right objective is not “get code quickly”. The right objective is “become able to write and understand this code without assistance”.
+
+This matters directly because the final exam is individual and done without coding assistants.
+
+## What is acceptable
+
+- Ask for explanations of C concepts, command-line concepts, Git concepts, or debugging methods
+- Ask a teacher or TA to clarify the specification of a feature
+- Read documentation for C, GCC, CMake, Git, and the provided libraries
+- Discuss ideas inside your own team
+- Use tools that help you edit, build, run, debug, and version your own work
+
+## What is not acceptable
+
+- Copy-pasting code from another team, a website, a forum, or an AI assistant
+- Showing your code to someone outside your team
+- Asking an AI assistant to write a feature, function, or patch for you
+- Using AI-first coding environments to generate or rewrite your implementation
+
+## Practical rule
+Ask for explanation, not production.
+
+If a tool helps you understand, navigate, compile, test, or version your project, it is usually aligned with the course.
+
+If a tool produces the code that you were supposed to learn to write, it is not aligned with the course.
+
+When in doubt, ask yourself a simple question: “Will using this make me more capable alone at the final exam?” If the answer is no, you are probably using the wrong kind of help.

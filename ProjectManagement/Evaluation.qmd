@@ -64,29 +64,8 @@ Final evaluation uses the same CI logic on your archived repository at the deadl
 - Presence in classes
 - No plagiarism detected
 
-## Academic integrity {#academic-integrity}
+## Ethics and academic integrity
 
-::: {.callout-warning}
-## AI tools and plagiarism — read carefully
+Evaluation includes academic integrity checks, but the policy itself is documented separately.
 
-The goal of this project is to develop your **own C programming skills**, not to practice copy-pasting from other sources.
-
-**Before the final evaluation, all code is run through plagiarism detection.** The tool identifies structural similarity between programs — it is not fooled by renaming variables, changing indentation, or reformatting. It operates at a higher level of abstraction and is very effective.
-
-Some degree of similarity is expected (you all have the same function signatures). However, at your experience level, actual implementation variability is very high. Low variability across long or repeated pieces of code is increasingly unlikely unless code was shared or copied.
-
-**You have no control over what an AI produces.** Two teams using AI for the same feature may receive identical code and both get flagged for plagiarism. This has happened.
-
-The policy is simple: if two pieces of code are identical or near-identical, it will be ruled plagiarism — regardless of how it happened. There are no exceptions for "we coded in the same room", "I just showed them my code to help", or "an AI wrote it".
-
-Consequences range from scaling the grade according to uniqueness, to failing all teams involved.
-:::
-
-### The right way to use resources
-
-- **Never copy-paste code** from any source (internet, another team, AI output)
-- **Never show your code** to anyone outside your team
-- **Ask for explanations, not solutions** — understand the idea, then implement it yourself
-- If you ask an AI for help: ask it to explain a concept or a similar situation, step by step. Then **write the code yourself** from that understanding
-
-The final exam is individual and without access to any coding tool. What you learn by writing the code yourself is what prepares you for it.
+Read [Ethics](Ethics.qmd) before using external help, sharing code, or relying on AI tools.
