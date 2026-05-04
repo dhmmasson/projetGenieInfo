@@ -658,19 +658,7 @@
     "href": "Resources/Image-Data-Structure.html",
     "title": "Image Data Structure",
     "section": "",
-    "text": "Image data is stored in a flat unsigned char* buffer.\n\nThe image has height rows and width columns.\nEach pixel has N components.\nIn this project, N = 3 for RGB.\nData is row-major, from top-left to bottom-right.\n\nThe buffer size is:\nwidth * height * N",
-    "crumbs": [
-      "Home",
-      "**Learn**",
-      "Image Data Structure"
-    ]
-  },
-  {
-    "objectID": "Resources/Image-Data-Structure.html#image-buffer-model",
-    "href": "Resources/Image-Data-Structure.html#image-buffer-model",
-    "title": "Image Data Structure",
-    "section": "",
-    "text": "Image data is stored in a flat unsigned char* buffer.\n\nThe image has height rows and width columns.\nEach pixel has N components.\nIn this project, N = 3 for RGB.\nData is row-major, from top-left to bottom-right.\n\nThe buffer size is:\nwidth * height * N",
+    "text": "T ## Image buffer model\nData is stored in an unsigned char* buffer in row-order of a (\\(width * height * N\\)) size.\nThe buffer size is:\nTo manipulate image, you will have to use an ’unsigned char *’ which points to the pixel data. The pixel data consists of HEIGHT lines of WIDTH pixels, with each pixel consisting of N components. In our case, we will use N = 3 for RGB components. The first pixel pointed to is top-left-most in the image.\nData is stored flat",
     "crumbs": [
       "Home",
       "**Learn**",
