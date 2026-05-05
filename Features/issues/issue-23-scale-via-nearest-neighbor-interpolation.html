@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="description" content="Scale the image (smaller or larger)">
 
-<title>feature-7-rgb-pixel-get-and-print-functions – Projet Génie Info</title>
+<title>Feature #23: Scale via Nearest-neighbor interpolation – Projet Génie Info</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -261,7 +262,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Feature #23: Scale via Nearest-neighbor interpolation</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -388,6 +389,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../Resources/Conventional-Commits.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Conventional Commits</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../Resources/CLI.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Command Line</span></a>
   </div>
@@ -468,33 +475,45 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#feature-7-rgb-pixel-get-and-print-functions" id="toc-feature-7-rgb-pixel-get-and-print-functions" class="nav-link active" data-scroll-target="#feature-7-rgb-pixel-get-and-print-functions">Feature #7: RGB pixel, get and print functions</a>
+  <li><a href="#feature-description" id="toc-feature-description" class="nav-link active" data-scroll-target="#feature-description">Feature description</a></li>
+  <li><a href="#usage" id="toc-usage" class="nav-link" data-scroll-target="#usage">Usage</a></li>
+  <li><a href="#output" id="toc-output" class="nav-link" data-scroll-target="#output">Output</a>
   <ul class="collapse">
-  <li><a href="#description" id="toc-description" class="nav-link" data-scroll-target="#description">Description</a></li>
+  <li><a href="#additional-information" id="toc-additional-information" class="nav-link" data-scroll-target="#additional-information">Additional information</a></li>
   </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Feature #23: Scale via Nearest-neighbor interpolation</h1>
+</div>
+
+<div>
+  <div class="description">
+    Scale the image (smaller or larger)
+  </div>
+</div>
 
 
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
 
 
-<section id="feature-7-rgb-pixel-get-and-print-functions" class="level1">
-<h1>Feature #7: RGB pixel, get and print functions</h1>
-<ul>
-<li>State: open</li>
-<li>Milestone: Milestone 1: Tutorial</li>
-<li>Labels: export, tutorial</li>
-<li>Assignees: None</li>
-<li>Created: 2022-06-02T12:32:47Z</li>
-<li>Updated: 2023-06-21T08:12:59Z</li>
-<li>URL: https://github.com/Estia-1a/projetGenieInfo_template/issues/7</li>
-</ul>
-<section id="description" class="level2">
-<h2 class="anchored" data-anchor-id="description">Description</h2>
-<p><strong>Feature description</strong> To facilitate access to pixels of the data array, we propose to define a structure and a function to access to specific pixel at position x,y.</p>
+</header>
+
+
+<section id="feature-description" class="level2">
+<h2 class="anchored" data-anchor-id="feature-description">Feature description</h2>
+<p>Scale the image (smaller or larger)</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 50%">
@@ -509,79 +528,53 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tbody>
 <tr class="odd">
 <td>name</td>
-<td>print_pixel</td>
+<td>scale_nearest</td>
 </tr>
 <tr class="even">
 <td>Command</td>
-<td><code>-c print_pixel &lt;X&gt; &lt;Y&gt;</code></td>
+<td><code>-c scale_nearest X</code> (with X the scale, such as 0.5 or 3)</td>
 </tr>
 <tr class="odd">
-<td>arguments</td>
-<td>X: x coordinate of the pixel <br> Y: y coordinate of the pixel</td>
-</tr>
-<tr class="even">
 <td>Input</td>
 <td>an image</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>output</td>
-<td><code>print_pixel (x, y): R, G, B</code> (with R, G, B the component values of pixel at (x,y))</td>
+<td>a new image <code>image_out.bmp</code> scaled by X from the input image</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Usage</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">freud.exe</span> <span class="at">-f</span> ./images/input/image.jpeg <span class="at">-c</span> print_pixel 45 500</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Output</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">print_pixel</span> <span class="er">(</span><span class="ex">45,</span> 500<span class="kw">)</span><span class="bu">:</span> 160, 190, 200</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>First, you have to define a structure for a RGB pixel in <code>utils.h</code>. Complete the given struct in <code>utils.h</code> with the <code>pixelRGB</code> attributes: R, G, and B unsigned char.</p>
-<p>Second you have to define the prototype of <code>get_pixel</code> function in <code>utils.h</code>. We propose the following prototype for this function:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>pixelRGB <span class="op">*</span> get_pixel<span class="op">(</span> <span class="dt">unsigned</span> <span class="dt">char</span><span class="op">*</span> data<span class="op">,</span> <span class="dt">const</span> <span class="dt">unsigned</span> <span class="dt">int</span> width<span class="op">,</span> <span class="dt">const</span> <span class="dt">unsigned</span> <span class="dt">int</span> height<span class="op">,</span> <span class="dt">const</span> <span class="dt">unsigned</span> <span class="dt">int</span> n<span class="op">,</span> <span class="dt">const</span> <span class="dt">unsigned</span> <span class="dt">int</span> x<span class="op">,</span> <span class="dt">const</span> <span class="dt">unsigned</span> <span class="dt">int</span> y <span class="op">);</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="usage" class="level2">
+<h2 class="anchored" data-anchor-id="usage">Usage</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">./freud.exe</span> <span class="at">-f</span> images/input/image.jpeg <span class="at">-c</span> scale_nearest 3</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="output" class="level2">
+<h2 class="anchored" data-anchor-id="output">Output</h2>
+<p>A new image <code>image_out.bmp</code> 3 times larger than the input image</p>
+<p><strong>Tips for implementing the feature</strong> Do not hesitate to look for resources online to find out how the algorithm works.</p>
+<p>For instance (https://towardsdatascience.com/image-processing-image-scaling-algorithms-ae29aaa6b36c): <img src="https://miro.medium.com/max/524/1*Zse7Mxw8J0Q2L3fBvqtuJA.png" class="img-fluid" alt="illustration of the algorithm"></p>
+<section id="additional-information" class="level3">
+<h3 class="anchored" data-anchor-id="additional-information">Additional information</h3>
+<p>Example (<code>scale=0.5</code>):</p>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
 <thead>
 <tr class="header">
-<th>Parameters</th>
-<th>value</th>
+<th>Input</th>
+<th>Output</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>data</td>
-<td>the data array containing R, G, and B components of each pixels</td>
-</tr>
-<tr class="even">
-<td>width</td>
-<td>image width</td>
-</tr>
-<tr class="odd">
-<td>height</td>
-<td>image height</td>
-</tr>
-<tr class="even">
-<td>n</td>
-<td>channel count</td>
-</tr>
-<tr class="odd">
-<td>x</td>
-<td>position x of the pixel we want to return</td>
-</tr>
-<tr class="even">
-<td>y</td>
-<td>position y of the pixel we want to return</td>
+<td><img src="https://user-images.githubusercontent.com/14878561/171637527-c63fb289-c5a0-43d2-a04f-fe75ff7a51dd.jpeg" width="250px"></td>
+<td><img src="https://user-images.githubusercontent.com/14878561/171674997-ca9477eb-84d7-4a51-9cab-66ace63437e3.jpg" width="125px"></td>
 </tr>
 </tbody>
 </table>
-<p>With data the array resulting from the function <code>read_image_data</code> from <code>&lt;estia-image.h&gt;</code>. Same for width, height, and n.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> read_image_data<span class="op">(</span><span class="dt">const</span> <span class="dt">char</span> <span class="op">*</span>filename<span class="op">,</span> <span class="dt">unsigned</span> <span class="dt">char</span> <span class="op">**</span>data<span class="op">,</span> <span class="dt">int</span> <span class="op">*</span>width<span class="op">,</span> <span class="dt">int</span> <span class="op">*</span>height<span class="op">,</span> <span class="dt">int</span> <span class="op">*</span>channel_count<span class="op">);</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Then, you have to implement the <code>get_pixel</code> function in <code>utils.c</code>.</p>
-<ul>
-<li>The function returns NULL if x or y are beyond range.</li>
-<li>The function returns NULL if data is NULL</li>
-<li>If these preconditions are verified, then the function returns the address of the requested RGBpixel :</li>
-</ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="op">(</span>pixelRGB <span class="op">*)</span> <span class="op">&amp;</span>data<span class="op">[</span> <span class="co">/* TO COMPLETE */</span><span class="op">]</span> <span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Repeat these steps to define and implement <code>print_pixel</code>. This function prints on the command line RGB values of the corresponding pixel.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> print_pixel<span class="op">(</span> <span class="dt">char</span> <span class="op">*</span>filename<span class="op">,</span> <span class="dt">int</span> x<span class="op">,</span> <span class="dt">int</span> y <span class="op">);</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Describe tips for implementing feature</strong> Read the <a href="https://github.com/Estia-1a/projetGenieInfo_public/wiki/Image">wiki</a> to see the structure of the data array buffer, and also how the <a href="https://github.com/Estia-1a/projetGenieInfo_public/wiki/Image#pixelrgb-structure-end-milestone-1-tutorial">structure</a> can relate to the array.</p>
 
 
 </section>

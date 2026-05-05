@@ -1,0 +1,35 @@
+[
+  {
+    "listing": "/Features/Features.html",
+    "items": [
+      "/Features/issues/issue-1-dimension.html",
+      "/Features/issues/issue-2-color-of-the-first-pixel.html",
+      "/Features/issues/issue-3-color-of-the-10th-pixel.html",
+      "/Features/issues/issue-4-color-of-the-first-pixel-on-the-second-line.html",
+      "/Features/issues/issue-5-rgb-pixel-get-and-print-functions.html",
+      "/Features/issues/issue-6-max-pixel.html",
+      "/Features/issues/issue-7-min-pixel.html",
+      "/Features/issues/issue-8-max-component.html",
+      "/Features/issues/issue-9-min-component.html",
+      "/Features/issues/issue-10-full-report-in-a-txt-file.html",
+      "/Features/issues/issue-11-color-in-red.html",
+      "/Features/issues/issue-12-color-in-green.html",
+      "/Features/issues/issue-13-color-in-blue.html",
+      "/Features/issues/issue-14-color-in-gray-grayscale.html",
+      "/Features/issues/issue-15-invert-colors.html",
+      "/Features/issues/issue-16-color-in-gray-luminance.html",
+      "/Features/issues/issue-17-rotate-clockwise-90.html",
+      "/Features/issues/issue-18-rotate-anti-clockwise-90.html",
+      "/Features/issues/issue-19-mirror-effect-horizontal-symmetry.html",
+      "/Features/issues/issue-20-mirror-effect-vertical-symmetry.html",
+      "/Features/issues/issue-21-mirror-effect.html",
+      "/Features/issues/issue-22-crop.html",
+      "/Features/issues/issue-23-scale-via-nearest-neighbor-interpolation.html",
+      "/Features/issues/issue-24-scale-via-bilinear-interpolation.html",
+      "/Features/issues/issue-25-desaturate.html",
+      "/Features/issues/feature-14-color-in-green.html",
+      "/Features/issues/feature-15-color-in-blue.html",
+      "/Features/issues/feature-3-dimension.html"
+    ]
+  }
+]

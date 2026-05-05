@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="description" content="Print the color in RGB of the tenth pixel (coordinates 9, 0) in the output terminal.">
 
-<title>feature-9-min-pixel – Projet Génie Info</title>
+<title>Feature #3: Color of the 10th pixel – Projet Génie Info</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -261,7 +262,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Feature #3: Color of the 10th pixel</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -388,6 +389,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../Resources/Conventional-Commits.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Conventional Commits</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../Resources/CLI.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Command Line</span></a>
   </div>
@@ -468,34 +475,49 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#feature-9-min-pixel" id="toc-feature-9-min-pixel" class="nav-link active" data-scroll-target="#feature-9-min-pixel">Feature #9: Min pixel</a>
-  <ul class="collapse">
-  <li><a href="#description" id="toc-description" class="nav-link" data-scroll-target="#description">Description</a></li>
-  </ul></li>
+  <li><a href="#feature-description" id="toc-feature-description" class="nav-link active" data-scroll-target="#feature-description">Feature description</a></li>
+  <li><a href="#usage" id="toc-usage" class="nav-link" data-scroll-target="#usage">Usage</a></li>
+  <li><a href="#output" id="toc-output" class="nav-link" data-scroll-target="#output">Output</a></li>
+  <li><a href="#describe-tips-for-implementing-feature" id="toc-describe-tips-for-implementing-feature" class="nav-link" data-scroll-target="#describe-tips-for-implementing-feature">Describe tips for implementing feature</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Feature #3: Color of the 10th pixel</h1>
+</div>
+
+<div>
+  <div class="description">
+    Print the color in RGB of the tenth pixel (coordinates 9, 0) in the output terminal.
+  </div>
+</div>
 
 
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
 
 
-<section id="feature-9-min-pixel" class="level1">
-<h1>Feature #9: Min pixel</h1>
-<ul>
-<li>State: open</li>
-<li>Milestone: Milestone 2: Statistics</li>
-<li>Labels: export, statistics</li>
-<li>Assignees: None</li>
-<li>Created: 2022-06-02T12:36:25Z</li>
-<li>Updated: 2022-06-14T07:17:34Z</li>
-<li>URL: https://github.com/Estia-1a/projetGenieInfo_template/issues/9</li>
-</ul>
-<section id="description" class="level2">
-<h2 class="anchored" data-anchor-id="description">Description</h2>
-<p><strong>Feature description</strong> Print the pixel with the with the smallest sum of RGB components in the output terminal. If multiple pixels are equals to the minimum, return the first pixel encountered (i.e.&nbsp;min (x,y)).</p>
+</header>
+
+
+<section id="feature-description" class="level2">
+<h2 class="anchored" data-anchor-id="feature-description">Feature description</h2>
+<p>Print the color in RGB of the tenth pixel (coordinates 9, 0) in the output terminal. A possible prototype:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> tenth_pixel <span class="op">(</span><span class="dt">char</span> <span class="op">*</span>source_path<span class="op">);</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
 <thead>
 <tr class="header">
 <th>Parameters</th>
@@ -504,31 +526,39 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </thead>
 <tbody>
 <tr class="odd">
-<td>Name</td>
-<td>min_pixel</td>
+<td>name</td>
+<td>tenth_pixel</td>
 </tr>
 <tr class="even">
 <td>Command</td>
-<td><code>-c min_pixel</code></td>
+<td><code>-c tenth_pixel</code></td>
 </tr>
 <tr class="odd">
 <td>Input</td>
-<td>an image</td>
+<td>an image that has at least a width of 10 pixels</td>
 </tr>
 <tr class="even">
 <td>output</td>
-<td><code>min_pixel (x, y): R, G, B</code></td>
+<td><code>tenth_pixel: R, G, B</code><br> R, G, B are the integer values of the components in the range 0-255</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Usage</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">freud.exe</span> <span class="at">-f</span> ./images/input/image.jpeg <span class="at">-c</span> min_pixel</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Output</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">min_pixel</span> <span class="er">(</span><span class="ex">35,</span> 1337<span class="kw">)</span><span class="bu">:</span> 14, 0, 0</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Describe tips for implementing feature</strong> Use the result from the function <code>read_image_data</code> from <code>estia-image.h</code>, <code>pixelRGB</code> struct, and its functions.</p>
-
-
 </section>
+<section id="usage" class="level2">
+<h2 class="anchored" data-anchor-id="usage">Usage</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">freud.exe</span> <span class="at">-f</span> ./images/input/image.jpeg <span class="at">-c</span> tenth_pixel </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="output" class="level2">
+<h2 class="anchored" data-anchor-id="output">Output</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">tenth_pixel:</span> 86, 136, 161</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="describe-tips-for-implementing-feature" class="level2">
+<h2 class="anchored" data-anchor-id="describe-tips-for-implementing-feature">Describe tips for implementing feature</h2>
+<p>Use the <code>data</code> from the function <code>read_image_data</code> from <code>&lt;estia-image.h&gt;</code>.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> read_image_data<span class="op">(</span><span class="dt">const</span> <span class="dt">char</span> <span class="op">*</span>filename<span class="op">,</span> <span class="dt">unsigned</span> <span class="dt">char</span> <span class="op">**</span>data<span class="op">,</span> <span class="dt">int</span> <span class="op">*</span>width<span class="op">,</span> <span class="dt">int</span> <span class="op">*</span>height<span class="op">,</span> <span class="dt">int</span> <span class="op">*</span>channel_count<span class="op">);</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The components R, G, B of the tenth pixel are the located at 27, 28 and 29 in the data array. (the first pixel is index 0, so the tenth is index 9). Read the <a href="https://github.com/Estia-1a/projetGenieInfo_public/wiki/Image">wiki</a> Call <code>tenth_pixel</code> in <code>src/main.c</code>. See the <code>helloworld</code> example to correctly call the function.</p>
+
+
 </section>
 
 </main> <!-- /main -->

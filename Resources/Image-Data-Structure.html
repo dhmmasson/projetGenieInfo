@@ -417,6 +417,12 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../Resources/Conventional-Commits.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Conventional Commits</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../Resources/CLI.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Command Line</span></a>
   </div>
@@ -536,9 +542,11 @@ window.Quarto = {
 <p>The buffer size is:</p>
 <pre class="text"><code>width * height * N</code></pre>
 <p>To manipulate image, you will have to use an ’unsigned char *’ which points to the pixel data. The pixel data consists of HEIGHT lines of WIDTH pixels, with each pixel consisting of N components. In our case, we will use N = 3 for RGB components. The first pixel pointed to is top-left-most in the image.</p>
-<p><img src="https://user-images.githubusercontent.com/16139930/171210679-1f662b91-2963-4258-8088-f3242b540dee.png#gh-dark-mode-only" width="550"> <img src="https://user-images.githubusercontent.com/16139930/171420839-38593c04-012c-437e-93f3-52fe8e2f662c.png#gh-light-mode-only" width="550"></p>
+<!-- <img src="https://user-images.githubusercontent.com/16139930/171210679-1f662b91-2963-4258-8088-f3242b540dee.png#gh-dark-mode-only" width="550"> -->
+<p><img src="https://user-images.githubusercontent.com/16139930/171420839-38593c04-012c-437e-93f3-52fe8e2f662c.png#gh-light-mode-only" width="550"></p>
 <p>Data is stored flat</p>
-<p><img src="https://user-images.githubusercontent.com/16139930/171215394-31282ff2-4c9e-479f-9d59-b709cc91c287.png#gh-dark-mode-only" width="550"> <img src="https://user-images.githubusercontent.com/16139930/171420795-ed17f434-4ce5-4341-b4e4-fb1a085c6f84.png#gh-light-mode-only" width="550"></p>
+<!-- <img src="https://user-images.githubusercontent.com/16139930/171215394-31282ff2-4c9e-479f-9d59-b709cc91c287.png#gh-dark-mode-only" width="550"> -->
+<p><img src="https://user-images.githubusercontent.com/16139930/171420795-ed17f434-4ce5-4341-b4e4-fb1a085c6f84.png#gh-light-mode-only" width="550"></p>
 <section id="io-functions" class="level2">
 <h2 class="anchored" data-anchor-id="io-functions">IO functions</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> read_image_data<span class="op">(</span><span class="dt">const</span> <span class="dt">char</span> <span class="op">*</span>filename<span class="op">,</span> <span class="dt">unsigned</span> <span class="dt">char</span> <span class="op">**</span>data<span class="op">,</span> <span class="dt">int</span> <span class="op">*</span>width<span class="op">,</span> <span class="dt">int</span> <span class="op">*</span>height<span class="op">,</span> <span class="dt">int</span> <span class="op">*</span>nbChannels<span class="op">);</span></span>

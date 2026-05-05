@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="description" content="Transform the image to desaturate colors.">
 
-<title>feature-17-invert-colors – Projet Génie Info</title>
+<title>Feature #25: Desaturate – Projet Génie Info</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -261,7 +262,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Feature #25: Desaturate</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -388,6 +389,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../Resources/Conventional-Commits.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Conventional Commits</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../Resources/CLI.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Command Line</span></a>
   </div>
@@ -468,33 +475,45 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#feature-17-invert-colors" id="toc-feature-17-invert-colors" class="nav-link active" data-scroll-target="#feature-17-invert-colors">Feature #17: Invert colors</a>
+  <li><a href="#feature-description" id="toc-feature-description" class="nav-link active" data-scroll-target="#feature-description">Feature description</a></li>
+  <li><a href="#usage" id="toc-usage" class="nav-link" data-scroll-target="#usage">Usage</a></li>
+  <li><a href="#output" id="toc-output" class="nav-link" data-scroll-target="#output">Output</a>
   <ul class="collapse">
-  <li><a href="#description" id="toc-description" class="nav-link" data-scroll-target="#description">Description</a></li>
+  <li><a href="#additional-information" id="toc-additional-information" class="nav-link" data-scroll-target="#additional-information">Additional information</a></li>
   </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Feature #25: Desaturate</h1>
+</div>
+
+<div>
+  <div class="description">
+    Transform the image to desaturate colors.
+  </div>
+</div>
 
 
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
 
 
-<section id="feature-17-invert-colors" class="level1">
-<h1>Feature #17: Invert colors</h1>
-<ul>
-<li>State: open</li>
-<li>Milestone: Milestone 3: Colors</li>
-<li>Labels: export, colors</li>
-<li>Assignees: None</li>
-<li>Created: 2022-06-02T14:18:59Z</li>
-<li>Updated: 2022-06-08T09:54:31Z</li>
-<li>URL: https://github.com/Estia-1a/projetGenieInfo_template/issues/17</li>
-</ul>
-<section id="description" class="level2">
-<h2 class="anchored" data-anchor-id="description">Description</h2>
-<p><strong>Feature description</strong> Transform the image so that colors are inverted (e.g., <code>new_R = 255 - old_R</code>).</p>
+</header>
+
+
+<section id="feature-description" class="level2">
+<h2 class="anchored" data-anchor-id="feature-description">Feature description</h2>
+<p>Transform the image to desaturate colors.</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 50%">
@@ -509,11 +528,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tbody>
 <tr class="odd">
 <td>name</td>
-<td>invert</td>
+<td>color_desaturate</td>
 </tr>
 <tr class="even">
 <td>Command</td>
-<td><code>-c color_invert</code></td>
+<td><code>-c color_desaturate</code></td>
 </tr>
 <tr class="odd">
 <td>Input</td>
@@ -521,24 +540,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 <tr class="even">
 <td>output</td>
-<td>A new image <code>image_out.bmp</code> with inverted colors compared to the input image</td>
+<td>a new image <code>image_out.bmp</code> with desaturated colors from the input image</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Usage</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">./freud.exe</span> <span class="at">-f</span> images/input/image.jpeg <span class="at">-c</span> color_invert</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Output</strong> A new image <code>image_out.bmp</code> with inverted colors compared to the input image</p>
-<p><strong>Describe tips for implementing feature</strong> Use write_image_data from &lt;estia-image.h&gt; to create new image with the new values.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">/**</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"> * Writes into an image file</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"> * </span><span class="an">@param[in]</span><span class="co"> </span><span class="cv">filename</span><span class="co"> Name of the file to be written into</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"> * </span><span class="an">@param[in]</span><span class="co"> </span><span class="cv">data</span><span class="co"> Reference to the pixel array to be written</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"> * </span><span class="an">@param[in]</span><span class="co"> </span><span class="cv">width</span><span class="co"> Width of the image</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"> * </span><span class="an">@param[in]</span><span class="co"> </span><span class="cv">height</span><span class="co"> Height of the image</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"> * </span><span class="an">@return</span><span class="co"> 0 on failure and non-0 on success.</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"> */</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> write_image_data<span class="op">(</span><span class="dt">const</span> <span class="dt">char</span> <span class="op">*</span>filename<span class="op">,</span> <span class="dt">unsigned</span> <span class="dt">char</span> <span class="op">*</span>data<span class="op">,</span> <span class="dt">int</span> width<span class="op">,</span> <span class="dt">int</span> height<span class="op">);</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Additional information</strong> Example: |Input|Output| |—|—| |<img src="https://user-images.githubusercontent.com/14878561/172585237-5831263d-aad5-474a-9fd5-50d271931cc0.jpeg" width="250px"> |<img src="https://user-images.githubusercontent.com/14878561/172585578-ed32ff51-df9d-4a37-9d00-c7b2048959f8.jpg" width="250px">|</p>
+</section>
+<section id="usage" class="level2">
+<h2 class="anchored" data-anchor-id="usage">Usage</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">./freud.exe</span> <span class="at">-f</span> images/input/image.jpeg <span class="at">-c</span> color_desaturate</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="output" class="level2">
+<h2 class="anchored" data-anchor-id="output">Output</h2>
+<p>A new image <code>image_out.bmp</code> with desaturated colors from the input image</p>
+<p><strong>Tips for implementing the feature</strong> Use the formulae of this pseudo-code:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>new_val <span class="op">=</span> <span class="op">(</span>min<span class="op">(</span>R<span class="op">,</span> G<span class="op">,</span> B<span class="op">)</span> <span class="op">+</span> max<span class="op">(</span>R<span class="op">,</span> G<span class="op">,</span> B<span class="op">))</span> <span class="op">/</span> <span class="dv">2</span><span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="additional-information" class="level3">
+<h3 class="anchored" data-anchor-id="additional-information">Additional information</h3>
+<p>Example: |Input | Output| |—|—| <img src="https://user-images.githubusercontent.com/14878561/171637527-c63fb289-c5a0-43d2-a04f-fe75ff7a51dd.jpeg" width="250px">|<img src="https://user-images.githubusercontent.com/14878561/172590722-a431daaa-3a85-4937-8504-3896d0626db8.jpg" width="250px"></p>
 
 
 </section>

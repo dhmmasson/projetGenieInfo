@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Compile Chain – Projet Génie Info</title>
+<title>conventional-commits – Projet Génie Info</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,41 +19,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -261,7 +226,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Resources/Image-Data-Structure.html"><strong>Learn</strong></a></li><li class="breadcrumb-item"><a href="../Resources/Build-Toolchain.html">The Build System</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Resources/Image-Data-Structure.html"><strong>Learn</strong></a></li><li class="breadcrumb-item"><a href="../Resources/Conventional-Commits.html">Conventional Commits</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -382,13 +347,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Resources/Build-Toolchain.html" class="sidebar-item-text sidebar-link active">
+  <a href="../Resources/Build-Toolchain.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">The Build System</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Resources/Conventional-Commits.html" class="sidebar-item-text sidebar-link">
+  <a href="../Resources/Conventional-Commits.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Conventional Commits</span></a>
   </div>
 </li>
@@ -474,97 +439,80 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#why-a-compile-chain-exists" id="toc-why-a-compile-chain-exists" class="nav-link active" data-scroll-target="#why-a-compile-chain-exists">Why a compile chain exists</a></li>
-  <li><a href="#gcc" id="toc-gcc" class="nav-link" data-scroll-target="#gcc">GCC</a></li>
-  <li><a href="#makefile" id="toc-makefile" class="nav-link" data-scroll-target="#makefile">Makefile</a></li>
-  <li><a href="#cmake" id="toc-cmake" class="nav-link" data-scroll-target="#cmake">CMake</a>
+  <li><a href="#conventional-commits" id="toc-conventional-commits" class="nav-link active" data-scroll-target="#conventional-commits">Conventional Commits</a>
   <ul class="collapse">
-  <li><a href="#useful-commands" id="toc-useful-commands" class="nav-link" data-scroll-target="#useful-commands">Useful commands</a></li>
+  <li><a href="#structure" id="toc-structure" class="nav-link" data-scroll-target="#structure">Structure</a>
+  <ul class="collapse">
+  <li><a href="#type" id="toc-type" class="nav-link" data-scroll-target="#type">Type</a></li>
+  <li><a href="#short-description" id="toc-short-description" class="nav-link" data-scroll-target="#short-description">Short Description</a></li>
+  <li><a href="#scope" id="toc-scope" class="nav-link" data-scroll-target="#scope">Scope</a></li>
+  <li><a href="#footer" id="toc-footer" class="nav-link" data-scroll-target="#footer">Footer</a></li>
   </ul></li>
-  <li><a href="#the-usual-local-workflow" id="toc-the-usual-local-workflow" class="nav-link" data-scroll-target="#the-usual-local-workflow">The usual local workflow</a></li>
-  <li><a href="#running-the-resulting-command" id="toc-running-the-resulting-command" class="nav-link" data-scroll-target="#running-the-resulting-command">Running the resulting command</a></li>
+  </ul></li>
+  <li><a href="#see-also" id="toc-see-also" class="nav-link" data-scroll-target="#see-also">See Also</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Resources/Image-Data-Structure.html"><strong>Learn</strong></a></li><li class="breadcrumb-item"><a href="../Resources/Build-Toolchain.html">The Build System</a></li></ol></nav>
-<div class="quarto-title">
-<h1 class="title">Compile Chain</h1>
-</div>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Resources/Image-Data-Structure.html"><strong>Learn</strong></a></li><li class="breadcrumb-item"><a href="../Resources/Conventional-Commits.html">Conventional Commits</a></li></ol></nav></header>
 
 
 
-<div class="quarto-title-meta">
 
-    
-  
-    
-  </div>
-  
+<section id="conventional-commits" class="level1">
+<h1>Conventional Commits</h1>
+<p>Conventional Commits represent a standardized convention for writing version control commit messages, providing a structured and semantic approach to tracking changes in a software project. Adopting a clear and consistent commit message format aids in automated release notes generation, versioning, and facilitates better communication within development teams. The convention defines a set of conventional keywords like “feat” for new features, “fix” for bug fixes, and “chore” for routine tasks, enabling developers to convey the nature of changes concisely.</p>
+<section id="structure" class="level2">
+<h2 class="anchored" data-anchor-id="structure">Structure</h2>
+<p>The commit message should be structured as follows:</p>
+<pre><code>&lt;type&gt;[optional scope]: &lt;description that start with a verb in the present tense&gt;
 
+[optional body]
 
-</header>
-
-
-<section id="why-a-compile-chain-exists" class="level2">
-<h2 class="anchored" data-anchor-id="why-a-compile-chain-exists">Why a compile chain exists</h2>
-<p>Your <code>.c</code> and <code>.h</code> files are source code for humans and compilers. They are not directly executable.</p>
-<p>To obtain a program such as <code>build/freud.exe</code>, you need a toolchain that can compile source files, link libraries, and organize the build process.</p>
-<p>In this project, that chain is mainly based on GCC, Make, and CMake.</p>
-</section>
-<section id="gcc" class="level2">
-<h2 class="anchored" data-anchor-id="gcc">GCC</h2>
-<p><strong>GCC</strong> is the compiler collection used here to translate your C code into machine code.</p>
-<p>In practical terms, GCC is the tool that reads files such as <code>src/features.c</code>, checks whether the C syntax and types are valid, and produces object files that can later be linked into an executable.</p>
-<p>It is also the tool that emits most compilation errors and warnings.</p>
-<p>If GCC says something is wrong, you should read the message carefully and fix the source code rather than guessing.</p>
-</section>
-<section id="makefile" class="level2">
-<h2 class="anchored" data-anchor-id="makefile">Makefile</h2>
-<p>A <strong>Makefile</strong> describes build targets and dependencies.</p>
-<p>Its role is to answer questions such as:</p>
+[optional footer(s)]</code></pre>
+<section id="type" class="level3">
+<h3 class="anchored" data-anchor-id="type">Type</h3>
 <ul>
-<li>what needs to be compiled</li>
-<li>in which order</li>
-<li>with which commands</li>
-<li>what can be reused without recompiling everything</li>
+<li><strong>feat</strong>: A new feature</li>
+<li><strong>fix</strong>: A bug fix</li>
+<li><strong>docs</strong>: Documentation only changes</li>
+<li><strong>style</strong>: Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)</li>
+<li><strong>refactor</strong>: A code change that neither fixes a bug nor adds a feature</li>
+<li>perf: A code change that improves performance</li>
+<li><strong>test</strong>: Adding missing tests or correcting existing tests</li>
+<li><strong>chore</strong>: Other changes that don’t modify src or test files (e.g.&nbsp;chore(release): release v1.0.1)</li>
 </ul>
-<p>You will see generated Makefiles inside the build process. They help automate repeated compilation work and avoid rebuilding everything from scratch unnecessarily.</p>
+<p>less useful for you in the pandora project</p>
+<ul>
+<li>build: Changes that affect the build system or external dependencies (change to maven. <strong>You should not do that</strong>)</li>
+<li>ci: Changes to our CI configuration files and scripts (change in the.github repository. <strong>You should not do that</strong>)</li>
+<li>revert: Reverts a previous commit</li>
+</ul>
 </section>
-<section id="cmake" class="level2">
-<h2 class="anchored" data-anchor-id="cmake">CMake</h2>
-<p><strong>CMake</strong> is a build-system generator.</p>
-<p>You do not usually write compiler commands by hand for every file. Instead, CMake reads <code>CMakeLists.txt</code>, understands the structure of the project, checks dependencies, and generates the concrete build files needed on your machine.</p>
-<p>In this project, CMake is the main entry point for building.</p>
-<section id="useful-commands" class="level3">
-<h3 class="anchored" data-anchor-id="useful-commands">Useful commands</h3>
-<p>Configure the project:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cmake</span> <span class="at">-B</span> build</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>This creates or refreshes the <code>build/</code> folder.</p>
-<p>Build the project:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cmake</span> <span class="at">--build</span> build</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>This compiles the code and produces the executable in <code>build/</code>.</p>
-<p>Install the project:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cmake</span> <span class="at">--install</span> build</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>This copies the built result to the install location defined by the project. For day-to-day work, you mainly need configure plus build.</p>
+<section id="short-description" class="level3">
+<h3 class="anchored" data-anchor-id="short-description">Short Description</h3>
+<p>The description is a short summary of the commit. It should be concise and to the point, ideally no more than 50 characters. It should start with a verb in the present tense (e.g.&nbsp;“add”, “fix”, “update”, “remove”, etc) and should not end with a period.</p>
+<p><code>feat: add scale_bilinear command</code></p>
+</section>
+<section id="scope" class="level3">
+<h3 class="anchored" data-anchor-id="scope">Scope</h3>
+<p>The scope is optional and can be anything specifying the place of the commit change. For example, if you are fixing a bug in the argument parser you can write:</p>
+<p><code>fix(argsparse): handle missing scale for -c scale_bilinear</code></p>
+<p><code>feat(features): implement bilinear interpolation scaling</code></p>
+</section>
+<section id="footer" class="level3">
+<h3 class="anchored" data-anchor-id="footer">Footer</h3>
+<p>The footer is the place to reference any issues that this commit closes or affects. For example:</p>
+<pre><code>feat(features): add scale_bilinear command
+See issue details:
+close #24</code></pre>
+<p>This commit message indicates that the commit adds a feature and that issue #24 is now closed. If you push that commit to GitHub, issue #24 will be automatically closed when merged onto the main branch.</p>
 </section>
 </section>
-<section id="the-usual-local-workflow" class="level2">
-<h2 class="anchored" data-anchor-id="the-usual-local-workflow">The usual local workflow</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cmake</span> <span class="at">-B</span> build</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cmake</span> <span class="at">--build</span> build</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="ex">build/freud.exe</span> <span class="at">-f</span> images/input/test.jpg <span class="at">-c</span> color_blue</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>The first command is needed once after cloning, and again when build configuration changes. The second command is the one you will run repeatedly after editing the code.</p>
 </section>
-<section id="running-the-resulting-command" class="level2">
-<h2 class="anchored" data-anchor-id="running-the-resulting-command">Running the resulting command</h2>
-<p>Once the build succeeds, you run the executable produced in the <code>build/</code> directory.</p>
-<p>Example:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">build/freud.exe</span> <span class="at">-f</span> images/input/test.jpg <span class="at">-c</span> grayscale</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>This is how you verify that your implementation really works on a concrete input.</p>
-<p>For more details on command syntax, see <a href="../Resources/CLI.html">Using the Command Line</a>.</p>
+<section id="see-also" class="level1">
+<h1>See Also</h1>
+<p>https://www.conventionalcommits.org/en/v1.0.0/</p>
 
 
 </section>

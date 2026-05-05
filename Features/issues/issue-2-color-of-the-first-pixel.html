@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="description" content="Print the color in RGB of the first pixel (top, left or coordinates 0,0) in the output terminal.">
 
-<title>feature-34-desaturate – Projet Génie Info</title>
+<title>Feature #2: Color of the first pixel – Projet Génie Info</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -261,7 +262,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Feature #2: Color of the first pixel</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -388,6 +389,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../Resources/Conventional-Commits.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Conventional Commits</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../Resources/CLI.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Command Line</span></a>
   </div>
@@ -468,33 +475,44 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#feature-34-desaturate" id="toc-feature-34-desaturate" class="nav-link active" data-scroll-target="#feature-34-desaturate">Feature #34: Desaturate</a>
-  <ul class="collapse">
-  <li><a href="#description" id="toc-description" class="nav-link" data-scroll-target="#description">Description</a></li>
-  </ul></li>
+  <li><a href="#feature-description" id="toc-feature-description" class="nav-link active" data-scroll-target="#feature-description">Feature description</a></li>
+  <li><a href="#usage" id="toc-usage" class="nav-link" data-scroll-target="#usage">Usage</a></li>
+  <li><a href="#output" id="toc-output" class="nav-link" data-scroll-target="#output">Output</a></li>
+  <li><a href="#describe-tips-for-implementing-feature" id="toc-describe-tips-for-implementing-feature" class="nav-link" data-scroll-target="#describe-tips-for-implementing-feature">Describe tips for implementing feature</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Feature #2: Color of the first pixel</h1>
+</div>
+
+<div>
+  <div class="description">
+    Print the color in RGB of the first pixel (top, left or coordinates 0,0) in the output terminal.
+  </div>
+</div>
 
 
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
 
 
-<section id="feature-34-desaturate" class="level1">
-<h1>Feature #34: Desaturate</h1>
-<ul>
-<li>State: open</li>
-<li>Milestone: Milestone 3: Colors</li>
-<li>Labels: export, colors</li>
-<li>Assignees: None</li>
-<li>Created: 2022-06-08T09:53:08Z</li>
-<li>Updated: 2022-06-08T10:07:21Z</li>
-<li>URL: https://github.com/Estia-1a/projetGenieInfo_template/issues/34</li>
-</ul>
-<section id="description" class="level2">
-<h2 class="anchored" data-anchor-id="description">Description</h2>
-<p><strong>Feature description</strong> Transform the image to desaturate colors.</p>
+</header>
+
+
+<section id="feature-description" class="level2">
+<h2 class="anchored" data-anchor-id="feature-description">Feature description</h2>
+<p>Print the color in RGB of the first pixel (top, left or coordinates 0,0) in the output terminal. A possible prototype:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> first_pixel <span class="op">(</span><span class="dt">char</span> <span class="op">*</span>source_path<span class="op">);</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 50%">
@@ -509,11 +527,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tbody>
 <tr class="odd">
 <td>name</td>
-<td>color_desaturate</td>
+<td>first_pixel</td>
 </tr>
 <tr class="even">
 <td>Command</td>
-<td><code>-c color_desaturate</code></td>
+<td><code>-c first_pixel</code></td>
 </tr>
 <tr class="odd">
 <td>Input</td>
@@ -521,19 +539,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 <tr class="even">
 <td>output</td>
-<td>a new image <code>image_out.bmp</code> with desaturated colors from the input image</td>
+<td><code>first_pixel: R, G, B</code><br> R, G, B are the integer values of the components in the range 0-255</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Usage</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">./freud.exe</span> <span class="at">-f</span> images/input/image.jpeg <span class="at">-c</span> color_desaturate</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Output</strong> A new image <code>image_out.bmp</code> with desaturated colors from the input image</p>
-<p><strong>Tips for implementing the feature</strong> Use the formulae of this pseudo-code:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>new_val <span class="op">=</span> <span class="op">(</span>min<span class="op">(</span>R<span class="op">,</span> G<span class="op">,</span> B<span class="op">)</span> <span class="op">+</span> max<span class="op">(</span>R<span class="op">,</span> G<span class="op">,</span> B<span class="op">))</span> <span class="op">/</span> <span class="dv">2</span><span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Additional information</strong> Example: |Input | Output| |—|—| <img src="https://user-images.githubusercontent.com/14878561/171637527-c63fb289-c5a0-43d2-a04f-fe75ff7a51dd.jpeg" width="250px">|<img src="https://user-images.githubusercontent.com/14878561/172590722-a431daaa-3a85-4937-8504-3896d0626db8.jpg" width="250px"></p>
-
-
 </section>
+<section id="usage" class="level2">
+<h2 class="anchored" data-anchor-id="usage">Usage</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">freud.exe</span> <span class="at">-f</span> ./images/input/image.jpeg <span class="at">-c</span> first_pixel </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="output" class="level2">
+<h2 class="anchored" data-anchor-id="output">Output</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">first_pixel:</span> 89, 139, 164</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="describe-tips-for-implementing-feature" class="level2">
+<h2 class="anchored" data-anchor-id="describe-tips-for-implementing-feature">Describe tips for implementing feature</h2>
+<p>Define first_pixel in <code>src/features.h</code>. Implement first_pixel in <code>src/features.c</code>. Use the <code>data</code> from the function <code>read_image_data</code> from <code>&lt;estia-image.h&gt;</code>.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> read_image_data<span class="op">(</span><span class="dt">const</span> <span class="dt">char</span> <span class="op">*</span>filename<span class="op">,</span> <span class="dt">unsigned</span> <span class="dt">char</span> <span class="op">**</span>data<span class="op">,</span> <span class="dt">int</span> <span class="op">*</span>width<span class="op">,</span> <span class="dt">int</span> <span class="op">*</span>height<span class="op">,</span> <span class="dt">int</span> <span class="op">*</span>channel_count<span class="op">);</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The components R, G, B of the first pixel are the three first values of <code>data</code> unsigned char array. Read the <a href="https://github.com/Estia-1a/projetGenieInfo_public/wiki/Image">wiki</a> Call <code>first_pixel</code> in <code>src/main.c</code>. See the <code>helloworld</code> example to correctly call the function.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span> strncmp<span class="op">(</span> configuration<span class="op">.</span>command<span class="op">,</span> <span class="st">"first_pixel"</span><span class="op">,</span> <span class="dv">11</span> <span class="op">)</span> <span class="op">==</span> <span class="dv">0</span> <span class="op">)</span> <span class="op">{</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">/* first_pixel() function is defined in feature.h and implemented in feature.c */</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    first_pixel<span class="op">();</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+
 </section>
 
 </main> <!-- /main -->

@@ -388,6 +388,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../Resources/Conventional-Commits.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Conventional Commits</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../Resources/CLI.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Command Line</span></a>
   </div>
@@ -470,7 +476,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#feature-14-color-in-green" id="toc-feature-14-color-in-green" class="nav-link active" data-scroll-target="#feature-14-color-in-green">Feature #14: Color in green</a>
   <ul class="collapse">
-  <li><a href="#description" id="toc-description" class="nav-link" data-scroll-target="#description">Description</a></li>
+  <li><a href="#description" id="toc-description" class="nav-link" data-scroll-target="#description">Description</a>
+  <ul class="collapse">
+  <li><a href="#feature-description" id="toc-feature-description" class="nav-link" data-scroll-target="#feature-description">Feature description</a></li>
+  </ul></li>
+  <li><a href="#usage" id="toc-usage" class="nav-link" data-scroll-target="#usage">Usage</a></li>
+  <li><a href="#output" id="toc-output" class="nav-link" data-scroll-target="#output">Output</a></li>
+  <li><a href="#describe-tips-for-implementing-feature" id="toc-describe-tips-for-implementing-feature" class="nav-link" data-scroll-target="#describe-tips-for-implementing-feature">Describe tips for implementing feature</a>
+  <ul class="collapse">
+  <li><a href="#additional-information" id="toc-additional-information" class="nav-link" data-scroll-target="#additional-information">Additional information</a></li>
+  </ul></li>
   </ul></li>
   </ul>
 </nav>
@@ -494,7 +509,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <section id="description" class="level2">
 <h2 class="anchored" data-anchor-id="description">Description</h2>
-<p><strong>Feature description</strong> Transform the image to keep only the green component.</p>
+<section id="feature-description" class="level3">
+<h3 class="anchored" data-anchor-id="feature-description">Feature description</h3>
+<p>Transform the image to keep only the green component.</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 50%">
@@ -525,10 +542,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 </tbody>
 </table>
-<p><strong>Usage</strong></p>
+</section>
+</section>
+<section id="usage" class="level2">
+<h2 class="anchored" data-anchor-id="usage">Usage</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">./freud.exe</span> <span class="at">-f</span> images/input/image.jpeg <span class="at">-c</span> color_green</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Output</strong> A new image <code>image_out.bmp</code> that keeps only the green component of the input image</p>
-<p><strong>Describe tips for implementing feature</strong> Use write_image_data from &lt;estia-image.h&gt; to create new image with the new values.</p>
+</section>
+<section id="output" class="level2">
+<h2 class="anchored" data-anchor-id="output">Output</h2>
+<p>A new image <code>image_out.bmp</code> that keeps only the green component of the input image</p>
+</section>
+<section id="describe-tips-for-implementing-feature" class="level2">
+<h2 class="anchored" data-anchor-id="describe-tips-for-implementing-feature">Describe tips for implementing feature</h2>
+<p>Use write_image_data from &lt;estia-image.h&gt; to create new image with the new values.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">/**</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"> * Writes into an image file</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"> * </span><span class="an">@param[in]</span><span class="co"> </span><span class="cv">filename</span><span class="co"> Name of the file to be written into</span></span>
@@ -538,9 +564,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"> * </span><span class="an">@return</span><span class="co"> 0 on failure and non-0 on success.</span></span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"> */</span></span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> write_image_data<span class="op">(</span><span class="dt">const</span> <span class="dt">char</span> <span class="op">*</span>filename<span class="op">,</span> <span class="dt">unsigned</span> <span class="dt">char</span> <span class="op">*</span>data<span class="op">,</span> <span class="dt">int</span> width<span class="op">,</span> <span class="dt">int</span> height<span class="op">);</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Additional information</strong> Example: |Input|Output| |—|—| |<img src="https://user-images.githubusercontent.com/14878561/171637527-c63fb289-c5a0-43d2-a04f-fe75ff7a51dd.jpeg" width="250px">|<img src="https://user-images.githubusercontent.com/14878561/171639573-30c6b5ae-8857-42e7-b382-b93299d3f157.jpg" width="250px">|</p>
+<section id="additional-information" class="level3">
+<h3 class="anchored" data-anchor-id="additional-information">Additional information</h3>
+<p>Example:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Input</th>
+<th>Output</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><img src="https://user-images.githubusercontent.com/14878561/171637527-c63fb289-c5a0-43d2-a04f-fe75ff7a51dd.jpeg" width="250px"></td>
+<td><img src="https://user-images.githubusercontent.com/14878561/171639573-30c6b5ae-8857-42e7-b382-b93299d3f157.jpg" width="250px"></td>
+</tr>
+</tbody>
+</table>
 
 
+</section>
 </section>
 </section>
 

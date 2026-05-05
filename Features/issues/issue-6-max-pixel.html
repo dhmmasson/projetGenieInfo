@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="description" content="Print the pixel with the with the largest sum of RGB components in the output terminal.">
 
-<title>feature-8-max-pixel – Projet Génie Info</title>
+<title>Feature #6: Max pixel – Projet Génie Info</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -261,7 +262,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Feature #6: Max pixel</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -388,6 +389,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../Resources/Conventional-Commits.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Conventional Commits</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../Resources/CLI.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Command Line</span></a>
   </div>
@@ -468,33 +475,43 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#feature-8-max-pixel" id="toc-feature-8-max-pixel" class="nav-link active" data-scroll-target="#feature-8-max-pixel">Feature #8: Max pixel</a>
-  <ul class="collapse">
-  <li><a href="#description" id="toc-description" class="nav-link" data-scroll-target="#description">Description</a></li>
-  </ul></li>
+  <li><a href="#feature-description" id="toc-feature-description" class="nav-link active" data-scroll-target="#feature-description">Feature description</a></li>
+  <li><a href="#usage" id="toc-usage" class="nav-link" data-scroll-target="#usage">Usage</a></li>
+  <li><a href="#output" id="toc-output" class="nav-link" data-scroll-target="#output">Output</a></li>
+  <li><a href="#describe-tips-for-implementing-feature" id="toc-describe-tips-for-implementing-feature" class="nav-link" data-scroll-target="#describe-tips-for-implementing-feature">Describe tips for implementing feature</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Feature #6: Max pixel</h1>
+</div>
+
+<div>
+  <div class="description">
+    Print the pixel with the with the largest sum of RGB components in the output terminal.
+  </div>
+</div>
 
 
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
 
 
-<section id="feature-8-max-pixel" class="level1">
-<h1>Feature #8: Max pixel</h1>
-<ul>
-<li>State: open</li>
-<li>Milestone: Milestone 2: Statistics</li>
-<li>Labels: export, statistics</li>
-<li>Assignees: None</li>
-<li>Created: 2022-06-02T12:35:28Z</li>
-<li>Updated: 2022-06-14T07:17:14Z</li>
-<li>URL: https://github.com/Estia-1a/projetGenieInfo_template/issues/8</li>
-</ul>
-<section id="description" class="level2">
-<h2 class="anchored" data-anchor-id="description">Description</h2>
-<p><strong>Feature description</strong> Print the pixel with the with the largest sum of RGB components in the output terminal. If multiple pixels are equals to the maximum, return the first pixel encountered (i.e.&nbsp;min (x,y)).</p>
+</header>
+
+
+<section id="feature-description" class="level2">
+<h2 class="anchored" data-anchor-id="feature-description">Feature description</h2>
+<p>Print the pixel with the with the largest sum of RGB components in the output terminal. If multiple pixels are equals to the maximum, return the first pixel encountered (i.e.&nbsp;min (x,y)).</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -521,14 +538,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 </tbody>
 </table>
-<p><strong>Usage</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">freud.exe</span> <span class="at">-f</span> /images/input/image.jpeg <span class="at">-c</span> max_pixel</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Output</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">max_pixel</span> <span class="er">(</span><span class="ex">528,</span> 721<span class="kw">)</span><span class="bu">:</span> 255, 254, 255</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Describe tips for implementing feature</strong> Use the result from the function <code>read_image_data</code> from <code>estia-image.h</code>, <code>pixelRGB</code> struct, and its functions.</p>
-
-
 </section>
+<section id="usage" class="level2">
+<h2 class="anchored" data-anchor-id="usage">Usage</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">freud.exe</span> <span class="at">-f</span> /images/input/image.jpeg <span class="at">-c</span> max_pixel</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="output" class="level2">
+<h2 class="anchored" data-anchor-id="output">Output</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">max_pixel</span> <span class="er">(</span><span class="ex">528,</span> 721<span class="kw">)</span><span class="bu">:</span> 255, 254, 255</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="describe-tips-for-implementing-feature" class="level2">
+<h2 class="anchored" data-anchor-id="describe-tips-for-implementing-feature">Describe tips for implementing feature</h2>
+<p>Use the result from the function <code>read_image_data</code> from <code>estia-image.h</code>, <code>pixelRGB</code> struct, and its functions.</p>
+
+
 </section>
 
 </main> <!-- /main -->

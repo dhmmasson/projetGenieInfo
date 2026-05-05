@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="description" content="Transform the image with a rotation effect: 90° anti-clockwise rotation.">
 
-<title>feature-26-scale-via-bilinear-interpolation – Projet Génie Info</title>
+<title>Feature #18: Rotate anti-clockwise 90° – Projet Génie Info</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -261,7 +262,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Feature #18: Rotate anti-clockwise 90°</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -388,6 +389,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../Resources/Conventional-Commits.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Conventional Commits</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../Resources/CLI.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Command Line</span></a>
   </div>
@@ -468,33 +475,42 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#feature-26-scale-via-bilinear-interpolation" id="toc-feature-26-scale-via-bilinear-interpolation" class="nav-link active" data-scroll-target="#feature-26-scale-via-bilinear-interpolation">Feature #26: Scale via bilinear interpolation</a>
-  <ul class="collapse">
-  <li><a href="#description" id="toc-description" class="nav-link" data-scroll-target="#description">Description</a></li>
-  </ul></li>
+  <li><a href="#feature-description" id="toc-feature-description" class="nav-link active" data-scroll-target="#feature-description">Feature description</a></li>
+  <li><a href="#usage" id="toc-usage" class="nav-link" data-scroll-target="#usage">Usage</a></li>
+  <li><a href="#output" id="toc-output" class="nav-link" data-scroll-target="#output">Output</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Feature #18: Rotate anti-clockwise 90°</h1>
+</div>
+
+<div>
+  <div class="description">
+    Transform the image with a rotation effect: 90° anti-clockwise rotation.
+  </div>
+</div>
 
 
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
 
 
-<section id="feature-26-scale-via-bilinear-interpolation" class="level1">
-<h1>Feature #26: Scale via bilinear interpolation</h1>
-<ul>
-<li>State: open</li>
-<li>Milestone: Milestone 5: Resize</li>
-<li>Labels: export, resize</li>
-<li>Assignees: None</li>
-<li>Created: 2022-06-02T16:14:25Z</li>
-<li>Updated: 2022-06-08T10:03:44Z</li>
-<li>URL: https://github.com/Estia-1a/projetGenieInfo_template/issues/26</li>
-</ul>
-<section id="description" class="level2">
-<h2 class="anchored" data-anchor-id="description">Description</h2>
-<p><strong>Feature description</strong> Scale the image (smaller or larger) via a smarter algorithm than nearest-neighbor.</p>
+</header>
+
+
+<section id="feature-description" class="level2">
+<h2 class="anchored" data-anchor-id="feature-description">Feature description</h2>
+<p>Transform the image with a rotation effect: 90° anti-clockwise rotation.</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 50%">
@@ -509,11 +525,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tbody>
 <tr class="odd">
 <td>name</td>
-<td>scale_bilinear</td>
+<td>rotate_acw</td>
 </tr>
 <tr class="even">
 <td>Command</td>
-<td><code>-c scale_bilinear X</code> (with X the scale, such as 0.5 or 3)</td>
+<td><code>-c rotate_acw</code></td>
 </tr>
 <tr class="odd">
 <td>Input</td>
@@ -521,38 +537,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 <tr class="even">
 <td>output</td>
-<td>a new image <code>image_out.bmp</code> scaled by X from the input image</td>
+<td>a new image <code>image_out.bmp</code> that is a 90° anti-clockwise rotation of the input image</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Usage</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">./freud.exe</span> <span class="at">-f</span> images/input/image.jpeg <span class="at">-c</span> scale_bilinear 3</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Output</strong> A new image <code>image_out.bmp</code>, but 3 times larger than the input image</p>
-<p><strong>Tips for implementing the feature</strong> Do not hesitate to look for resources online to find out how the algorithm works.</p>
-<p>For instance (https://towardsdatascience.com/image-processing-image-scaling-algorithms-ae29aaa6b36c): <img src="https://miro.medium.com/max/806/1*Vi4j20o_M14IJHeCgk2CaQ.png" class="img-fluid" alt="illustration of the algorithm"></p>
-<p><strong>Careful</strong>: there are several online resources that do not cover <em>every</em> aspects of the algorithm. You might end up with black pixels and holes in your resulting image.</p>
-<p><strong>Additional information</strong> Example (<code>scale=0.5</code>):</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Input</th>
-<th>Output</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><img src="https://user-images.githubusercontent.com/14878561/171637527-c63fb289-c5a0-43d2-a04f-fe75ff7a51dd.jpeg" width="250px"></td>
-<td><img src="https://user-images.githubusercontent.com/14878561/171676133-9abb949d-a1d2-40d0-a47b-bf18b12575ba.jpg" width="125px"></td>
-</tr>
-</tbody>
-</table>
-
-
 </section>
+<section id="usage" class="level2">
+<h2 class="anchored" data-anchor-id="usage">Usage</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">./freud.exe</span> <span class="at">-f</span> images/input/image.jpeg <span class="at">-c</span> rotate_acw </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="output" class="level2">
+<h2 class="anchored" data-anchor-id="output">Output</h2>
+<p>A new image <code>image_out.bmp</code> that is a 90° anti-clockwise rotation of the input image</p>
+
+
 </section>
 
 </main> <!-- /main -->

@@ -388,6 +388,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../Resources/Conventional-Commits.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Conventional Commits</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../Resources/CLI.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Command Line</span></a>
   </div>
@@ -567,39 +573,42 @@ For background on the project workflow, see <a href="../ProjectManagement/Workfl
 <section id="milestone-1-tutorial" class="level3">
 <h3 class="anchored" data-anchor-id="milestone-1-tutorial"><a href="../Features/milestone/milestone-1-tutorial.html">Milestone 1 — Tutorial</a></h3>
 <table class="caption-top table">
-<colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
-</colgroup>
 <thead>
 <tr class="header">
 <th>Command</th>
+<th>Feature</th>
 <th>Output</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td><code>helloworld</code></td>
+<td>-</td>
 <td>Prints <code>Hello World!</code></td>
 </tr>
 <tr class="even">
 <td><code>dimension</code></td>
+<td><a href="../Features/issues/issue-1-dimension.html">#1</a></td>
 <td><code>dimension: &lt;width&gt;, &lt;height&gt;</code></td>
 </tr>
 <tr class="odd">
 <td><code>color_first_pixel</code></td>
+<td><a href="../Features/issues/issue-2-color-of-the-first-pixel.html">#2</a></td>
 <td><code>color_first_pixel: R, G, B</code></td>
 </tr>
 <tr class="even">
 <td><code>color_10th_pixel</code></td>
+<td><a href="../Features/issues/issue-3-color-of-the-10th-pixel.html">#3</a></td>
 <td><code>color_10th_pixel: R, G, B</code></td>
 </tr>
 <tr class="odd">
 <td><code>color_first_pixel_second_line</code></td>
+<td><a href="../Features/issues/issue-4-color-of-the-first-pixel-on-the-second-line.html">#4</a></td>
 <td><code>color_first_pixel_second_line: R, G, B</code></td>
 </tr>
 <tr class="even">
 <td><code>pixelRGB</code></td>
+<td><a href="../Features/issues/issue-5-rgb-pixel-get-and-print-functions.html">#5</a></td>
 <td>Uses <code>pixelRGB</code> struct, get and print functions</td>
 </tr>
 </tbody>
@@ -611,28 +620,34 @@ For background on the project workflow, see <a href="../ProjectManagement/Workfl
 <thead>
 <tr class="header">
 <th>Command</th>
+<th>Feature</th>
 <th>Output</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td><code>max_pixel</code></td>
+<td><a href="../Features/issues/issue-6-max-pixel.html">#6</a></td>
 <td><code>max_pixel (x, y): R, G, B</code></td>
 </tr>
 <tr class="even">
 <td><code>min_pixel</code></td>
+<td><a href="../Features/issues/issue-7-min-pixel.html">#7</a></td>
 <td><code>min_pixel (x, y): R, G, B</code></td>
 </tr>
 <tr class="odd">
 <td><code>max_component</code></td>
+<td><a href="../Features/issues/issue-8-max-component.html">#8</a></td>
 <td><code>max_component: value</code></td>
 </tr>
 <tr class="even">
 <td><code>min_component</code></td>
+<td><a href="../Features/issues/issue-9-min-component.html">#9</a></td>
 <td><code>min_component: value</code></td>
 </tr>
 <tr class="odd">
 <td><code>full_report</code></td>
+<td><a href="../Features/issues/issue-10-full-report-in-a-txt-file.html">#10</a></td>
 <td>Writes a <code>.txt</code> file with all statistics</td>
 </tr>
 </tbody>
@@ -644,73 +659,88 @@ For background on the project workflow, see <a href="../ProjectManagement/Workfl
 <thead>
 <tr class="header">
 <th>Command</th>
+<th>Feature</th>
 <th>Output</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td><code>color_red</code></td>
+<td><a href="../Features/issues/issue-11-color-in-red.html">#11</a></td>
 <td>Image with only red channel kept</td>
 </tr>
 <tr class="even">
 <td><code>color_green</code></td>
+<td><a href="../Features/issues/issue-12-color-in-green.html">#12</a></td>
 <td>Image with only green channel kept</td>
 </tr>
 <tr class="odd">
 <td><code>color_blue</code></td>
+<td><a href="../Features/issues/issue-13-color-in-blue.html">#13</a></td>
 <td>Image with only blue channel kept</td>
 </tr>
 <tr class="even">
 <td><code>grayscale</code></td>
+<td><a href="../Features/issues/issue-14-color-in-gray-grayscale.html">#14</a></td>
 <td>Grayscale via channel averaging</td>
 </tr>
 <tr class="odd">
 <td><code>invert</code></td>
+<td><a href="../Features/issues/issue-15-invert-colors.html">#15</a></td>
 <td>Each channel inverted (255 − value)</td>
 </tr>
 <tr class="even">
 <td><code>luminance</code></td>
+<td><a href="../Features/issues/issue-16-color-in-gray-luminance.html">#16</a></td>
 <td>Grayscale via luminance formula</td>
 </tr>
 <tr class="odd">
 <td><code>desaturate</code></td>
+<td><a href="../Features/issues/issue-25-desaturate.html">#25</a></td>
 <td>Desaturated image</td>
 </tr>
 </tbody>
 </table>
 </section>
 <section id="milestone-4-transforms" class="level3">
-<h3 class="anchored" data-anchor-id="milestone-4-transforms"><a href="./milestone/milestone-4-transforms.md">Milestone 4 — Transforms</a></h3>
+<h3 class="anchored" data-anchor-id="milestone-4-transforms"><a href="../Features/milestone/milestone-4-transform.html">Milestone 4 — Transforms</a></h3>
 <table class="caption-top table">
 <thead>
 <tr class="header">
 <th>Command</th>
+<th>Feature</th>
 <th>Output</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td><code>rotate_cw</code></td>
+<td><a href="../Features/issues/issue-17-rotate-clockwise-90.html">#17</a></td>
 <td>Image rotated 90° clockwise</td>
 </tr>
 <tr class="even">
 <td><code>rotate_ccw</code></td>
+<td><a href="../Features/issues/issue-18-rotate-anti-clockwise-90.html">#18</a></td>
 <td>Image rotated 90° counter-clockwise</td>
 </tr>
 <tr class="odd">
 <td><code>mirror_h</code></td>
+<td><a href="../Features/issues/issue-19-mirror-effect-horizontal-symmetry.html">#19</a></td>
 <td>Mirror effect — horizontal symmetry</td>
 </tr>
 <tr class="even">
 <td><code>mirror_v</code></td>
+<td><a href="../Features/issues/issue-20-mirror-effect-vertical-symmetry.html">#20</a></td>
 <td>Mirror effect — vertical symmetry</td>
 </tr>
 <tr class="odd">
 <td><code>mirror</code></td>
+<td><a href="../Features/issues/issue-21-mirror-effect.html">#21</a></td>
 <td>Mirror effect (combined)</td>
 </tr>
 <tr class="even">
 <td><code>crop</code></td>
+<td><a href="../Features/issues/issue-22-crop.html">#22</a></td>
 <td>Cropped image</td>
 </tr>
 </tbody>
@@ -722,16 +752,19 @@ For background on the project workflow, see <a href="../ProjectManagement/Workfl
 <thead>
 <tr class="header">
 <th>Command</th>
+<th>Feature</th>
 <th>Output</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td><code>scale_nn</code></td>
+<td><a href="../Features/issues/issue-23-scale-via-nearest-neighbor-interpolation.html">#23</a></td>
 <td>Scale via nearest-neighbor interpolation</td>
 </tr>
 <tr class="even">
 <td><code>scale_bilinear</code></td>
+<td><a href="../Features/issues/issue-24-scale-via-bilinear-interpolation.html">#24</a></td>
 <td>Scale via bilinear interpolation</td>
 </tr>
 </tbody>

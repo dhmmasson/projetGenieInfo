@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="description" content="Define and implement a function called stat_report to write in a text file the result of:">
 
-<title>feature-11-min-component – Projet Génie Info</title>
+<title>Feature #10: Full report in a txt file – Projet Génie Info</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -261,7 +262,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Feature #10: Full report in a txt file</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -388,6 +389,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../Resources/Conventional-Commits.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Conventional Commits</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../Resources/CLI.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Command Line</span></a>
   </div>
@@ -468,33 +475,53 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#feature-11-min-component" id="toc-feature-11-min-component" class="nav-link active" data-scroll-target="#feature-11-min-component">Feature #11: Min component</a>
-  <ul class="collapse">
-  <li><a href="#description" id="toc-description" class="nav-link" data-scroll-target="#description">Description</a></li>
-  </ul></li>
+  <li><a href="#feature-description" id="toc-feature-description" class="nav-link active" data-scroll-target="#feature-description">Feature description</a></li>
+  <li><a href="#usage" id="toc-usage" class="nav-link" data-scroll-target="#usage">Usage</a></li>
+  <li><a href="#output" id="toc-output" class="nav-link" data-scroll-target="#output">Output</a></li>
+  <li><a href="#describe-tips-for-implementing-feature" id="toc-describe-tips-for-implementing-feature" class="nav-link" data-scroll-target="#describe-tips-for-implementing-feature">Describe tips for implementing feature</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Feature #10: Full report in a txt file</h1>
+</div>
+
+<div>
+  <div class="description">
+    Define and implement a function called <code>stat_report</code> to write in a text file the result of:
+  </div>
+</div>
 
 
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
 
 
-<section id="feature-11-min-component" class="level1">
-<h1>Feature #11: Min component</h1>
+</header>
+
+
+<section id="feature-description" class="level2">
+<h2 class="anchored" data-anchor-id="feature-description">Feature description</h2>
+<p>Define and implement a function called <code>stat_report</code> to write in a text file the result of:</p>
 <ul>
-<li>State: open</li>
-<li>Milestone: Milestone 2: Statistics</li>
-<li>Labels: export, statistics</li>
-<li>Assignees: None</li>
-<li>Created: 2022-06-02T13:01:14Z</li>
-<li>Updated: 2022-06-22T08:07:44Z</li>
-<li>URL: https://github.com/Estia-1a/projetGenieInfo_template/issues/11</li>
+<li>max_pixel</li>
+<li>min_pixel</li>
+<li>max_component R</li>
+<li>max_component G</li>
+<li>max_component B</li>
+<li>min_component R</li>
+<li>min_component G</li>
+<li>min_component B</li>
 </ul>
-<section id="description" class="level2">
-<h2 class="anchored" data-anchor-id="description">Description</h2>
-<p><strong>Feature description</strong> Print the pixel with the minimum R, G, or B value in the output terminal. If multiple pixels are equals to the minimum, return the first pixel encountered (i.e.&nbsp;min (x,y)).</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -505,11 +532,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tbody>
 <tr class="odd">
 <td>name</td>
-<td>min_component</td>
+<td>stat_report</td>
 </tr>
 <tr class="even">
 <td>Command</td>
-<td><code>-c min_component [R or G or B]</code></td>
+<td><code>-c stat_report</code></td>
 </tr>
 <tr class="odd">
 <td>Input</td>
@@ -517,26 +544,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 <tr class="even">
 <td>output</td>
-<td><code>min_component [R or G or B] (x,y): value</code></td>
+<td>a text file</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Usage</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">freud.exe</span> <span class="at">-f</span> ./images/input/image.jpeg <span class="at">-c</span> min_component R</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">or</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">freud.exe</span> <span class="at">-f</span> ./images/input/image.jpeg <span class="at">-c</span> min_component G</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ex">or</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="ex">freud.exe</span> <span class="at">-f</span> ./images/input/image.jpeg <span class="at">-c</span> min_component B</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Output</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">min_component</span> R <span class="er">(</span><span class="ex">1098,</span> 897<span class="kw">)</span><span class="bu">:</span> 11</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">or</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">min_component</span> G <span class="er">(</span><span class="ex">35,</span> 1337<span class="kw">)</span><span class="bu">:</span> 0</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ex">or</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="ex">min_component</span> B <span class="er">(</span><span class="ex">1078,</span> 956<span class="kw">)</span><span class="bu">:</span> 0</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Describe tips for implementing feature</strong> Use the result from the function <code>read_image_data</code> from <code>estia-image.h</code>, <code>pixelRGB</code> struct, and its functions.</p>
-
-
 </section>
+<section id="usage" class="level2">
+<h2 class="anchored" data-anchor-id="usage">Usage</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">freud.exe</span> <span class="at">-f</span> ./images/input/image.jpeg <span class="at">-c</span> stat_report</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="output" class="level2">
+<h2 class="anchored" data-anchor-id="output">Output</h2>
+<p>A text file is created at the root of the project. Skip a line between each function result.</p>
+</section>
+<section id="describe-tips-for-implementing-feature" class="level2">
+<h2 class="anchored" data-anchor-id="describe-tips-for-implementing-feature">Describe tips for implementing feature</h2>
+<p>Use the function <code>read_image_data</code> from <code>estia-image</code> and functions implemented previously.</p>
+
+
 </section>
 
 </main> <!-- /main -->
