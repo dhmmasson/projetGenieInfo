@@ -489,6 +489,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#reading-compiler-errors" id="toc-reading-compiler-errors" class="nav-link" data-scroll-target="#reading-compiler-errors">Reading compiler errors</a></li>
   <li><a href="#feature-compiles-but-freud.exe--c-my_feature-does-nothing" id="toc-feature-compiles-but-freud.exe--c-my_feature-does-nothing" class="nav-link" data-scroll-target="#feature-compiles-but-freud.exe--c-my_feature-does-nothing">Feature compiles but <code>freud.exe -c my_feature</code> does nothing</a></li>
   <li><a href="#feature-is-not-tested-by-the-ci" id="toc-feature-is-not-tested-by-the-ci" class="nav-link" data-scroll-target="#feature-is-not-tested-by-the-ci">Feature is not tested by the CI</a></li>
+  <li><a href="#sec-wrong-compiler" id="toc-sec-wrong-compiler" class="nav-link" data-scroll-target="#sec-wrong-compiler"><code>cmake: argument numérique non valide '/Wextra'</code></a></li>
+  <li><a href="#sec-dependinfo" id="toc-sec-dependinfo" class="nav-link" data-scroll-target="#sec-dependinfo"><code>DependInfo.cmake: No such file or directory</code></a></li>
   </ul></li>
   <li><a href="#sec-runtime" id="toc-sec-runtime" class="nav-link" data-scroll-target="#sec-runtime">3. Code runs but behaves wrong</a></li>
   <li><a href="#code-compiles-but-the-the-output-never-changes-when-i-do-changes" id="toc-code-compiles-but-the-the-output-never-changes-when-i-do-changes" class="nav-link" data-scroll-target="#code-compiles-but-the-the-output-never-changes-when-i-do-changes">Code compiles but the the output never changes when I do changes</a>
@@ -554,7 +556,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Jump to the right section:</p>
 <ul>
 <li><strong><a href="#sec-environment">Can’t get started</a></strong> — Git not recognized, path errors, MinGW, libraries not found</li>
-<li><strong><a href="#sec-build">Code won’t compile</a></strong> — CMake errors, compiler errors, feature not dispatched</li>
+<li><strong><a href="#sec-build">Code won’t compile</a></strong> — CMake errors, wrong compiler kit, <code>DependInfo.cmake</code> not found, feature not dispatched</li>
 <li><strong><a href="#sec-runtime">Code runs but behaves wrong</a></strong> — black image, crash, wrong output</li>
 <li><strong><a href="#sec-git">Git or GitHub problem</a></strong> — push rejected, merge conflict, issues not visible, CI failing</li>
 <li><strong><a href="#sec-team">Team coordination question</a></strong> — workflow activation, issue import, Milestone 1</li>
@@ -747,6 +749,53 @@ my_feature</code></pre>
 <p>No spaces, no quotes, no extra characters. The CI reads this file to discover which features to test. If the entry is missing, the CI skips your feature entirely.</p>
 <hr>
 </section>
+<section id="sec-wrong-compiler" class="level3">
+<h3 class="anchored" data-anchor-id="sec-wrong-compiler"><code>cmake: argument numérique non valide '/Wextra'</code></h3>
+<p>CMake may report <code>D8021</code>, <code>argument numérique non valide '/Wextra'</code>, or similar <code>/W</code>-prefixed flag errors.</p>
+<p><strong>Cause</strong></p>
+<p>Your CMake configuration is using <strong>MSVC</strong> (Microsoft Visual Studio) instead of <strong>MinGW/GCC</strong>.<br>
+The <code>/W</code> flags are MSVC-style; MinGW uses <code>-W</code> flags. The two compilers are incompatible.</p>
+<p><strong>Fix / Correction</strong></p>
+<ol type="1">
+<li>Delete the <code>build/</code> directory.</li>
+</ol>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span> <span class="at">-rf</span> build</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ol start="2" type="1">
+<li>Configure with MinGW/GCC explicitly from the command line (no extension required):</li>
+</ol>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="va">CC</span><span class="op">=</span>gcc <span class="fu">cmake</span> <span class="at">-B</span> build <span class="at">-G</span> <span class="st">"Unix Makefiles"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>If needed, also force the compiler path:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cmake</span> <span class="at">-B</span> build <span class="at">-G</span> <span class="st">"Unix Makefiles"</span> <span class="at">-DCMAKE_C_COMPILER</span><span class="op">=</span>gcc</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>On some setups, <code>-G "Unix Makefiles"</code> is required, otherwise CMake picks a Windows/MSVC generator again.</p>
+<p>Alternative with the VS Code CMake extension: Open the command palette (<code>Ctrl+Shift+P</code>) and run <strong>CMake: Select a Kit</strong>, then choose a <strong>GCC/MinGW</strong> kit.</p>
+<ol start="3" type="1">
+<li>Build:</li>
+</ol>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cmake</span> <span class="at">--build</span> build</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+<section id="sec-dependinfo" class="level3">
+<h3 class="anchored" data-anchor-id="sec-dependinfo"><code>DependInfo.cmake: No such file or directory</code></h3>
+<p><strong>Cause</strong></p>
+<p>Same root cause as above: wrong generator/compiler was selected, and <code>build/</code> is now inconsistent.</p>
+<p><strong>Fix / Correction</strong></p>
+<ol type="1">
+<li>Delete <code>build/</code>:</li>
+</ol>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span> <span class="at">-rf</span> build</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ol start="2" type="1">
+<li>Reconfigure with MinGW/GCC from command line:</li>
+</ol>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="va">CC</span><span class="op">=</span>gcc <span class="fu">cmake</span> <span class="at">-B</span> build <span class="at">-G</span> <span class="st">"Unix Makefiles"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>If needed:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cmake</span> <span class="at">-B</span> build <span class="at">-G</span> <span class="st">"Unix Makefiles"</span> <span class="at">-DCMAKE_C_COMPILER</span><span class="op">=</span>gcc</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>If you use the VS Code extension, you can also select a GCC/MinGW kit via <strong>CMake: Select a Kit</strong>.</p>
+<ol start="3" type="1">
+<li>Build:</li>
+</ol>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cmake</span> <span class="at">--build</span> build</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
 </section>
 <section id="sec-runtime" class="level2">
 <h2 class="anchored" data-anchor-id="sec-runtime">3. Code runs but behaves wrong</h2>
@@ -762,9 +811,9 @@ my_feature</code></pre>
 <section id="output-image-is-black-or-all-zeros" class="level3">
 <h3 class="anchored" data-anchor-id="output-image-is-black-or-all-zeros">Output image is black or all zeros</h3>
 <p>You allocated the output buffer but never wrote to it:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="dt">unsigned</span> <span class="dt">char</span> <span class="op">*</span>out <span class="op">=</span> malloc<span class="op">(</span>width <span class="op">*</span> height <span class="op">*</span> <span class="dv">3</span><span class="op">);</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co">// Nothing written → garbage or zeros</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>write_image_data<span class="op">(</span>output_path<span class="op">,</span> out<span class="op">,</span> width<span class="op">,</span> height<span class="op">);</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="dt">unsigned</span> <span class="dt">char</span> <span class="op">*</span>out <span class="op">=</span> malloc<span class="op">(</span>width <span class="op">*</span> height <span class="op">*</span> <span class="dv">3</span><span class="op">);</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="co">// Nothing written → garbage or zeros</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>write_image_data<span class="op">(</span>output_path<span class="op">,</span> out<span class="op">,</span> width<span class="op">,</span> height<span class="op">);</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Make sure you fill every pixel before calling <code>write_image_data</code>.</p>
 <hr>
 </section>
@@ -777,24 +826,24 @@ my_feature</code></pre>
 <h3 class="anchored" data-anchor-id="program-crashes-segmentation-fault">Program crashes — segmentation fault</h3>
 <p>A segfault means your code accessed memory it doesn’t own. Three most common causes:</p>
 <p><strong>1. Off-by-one when iterating</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">// WRONG — goes one byte past the end</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;=</span> width <span class="op">*</span> height <span class="op">*</span> <span class="dv">3</span><span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span> <span class="op">...</span> <span class="op">}</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co">// CORRECT</span></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> width <span class="op">*</span> height <span class="op">*</span> <span class="dv">3</span><span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span> <span class="op">...</span> <span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co">// WRONG — goes one byte past the end</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;=</span> width <span class="op">*</span> height <span class="op">*</span> <span class="dv">3</span><span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span> <span class="op">...</span> <span class="op">}</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="co">// CORRECT</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> width <span class="op">*</span> height <span class="op">*</span> <span class="dv">3</span><span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span> <span class="op">...</span> <span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>2. Array index out of bounds</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Pixel at (x, y): index = (y * width + x) * 3</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> index <span class="op">=</span> <span class="op">(</span>y <span class="op">*</span> width <span class="op">+</span> x<span class="op">)</span> <span class="op">*</span> <span class="dv">3</span><span class="op">;</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co">// Always verify: x &lt; width, y &lt; height, index + 2 &lt; width * height * 3</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Pixel at (x, y): index = (y * width + x) * 3</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> index <span class="op">=</span> <span class="op">(</span>y <span class="op">*</span> width <span class="op">+</span> x<span class="op">)</span> <span class="op">*</span> <span class="dv">3</span><span class="op">;</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="co">// Always verify: x &lt; width, y &lt; height, index + 2 &lt; width * height * 3</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>3. Null pointer — <code>read_image_data</code> failed</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="dt">unsigned</span> <span class="dt">char</span> <span class="op">*</span>data <span class="op">=</span> NULL<span class="op">;</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> width<span class="op">,</span> height<span class="op">,</span> channels<span class="op">;</span></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> error <span class="op">=</span> read_image_data<span class="op">(</span>filename<span class="op">,</span> <span class="op">&amp;</span>data<span class="op">,</span> <span class="op">&amp;</span>width<span class="op">,</span> <span class="op">&amp;</span>height<span class="op">,</span> <span class="op">&amp;</span>channels<span class="op">);</span></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>error<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    fprintf<span class="op">(</span>stderr<span class="op">,</span> <span class="st">"Error: could not read image</span><span class="sc">\n</span><span class="st">"</span><span class="op">);</span></span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span><span class="op">;</span></span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="co">// Only use data here, after the check</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="dt">unsigned</span> <span class="dt">char</span> <span class="op">*</span>data <span class="op">=</span> NULL<span class="op">;</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> width<span class="op">,</span> height<span class="op">,</span> channels<span class="op">;</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> error <span class="op">=</span> read_image_data<span class="op">(</span>filename<span class="op">,</span> <span class="op">&amp;</span>data<span class="op">,</span> <span class="op">&amp;</span>width<span class="op">,</span> <span class="op">&amp;</span>height<span class="op">,</span> <span class="op">&amp;</span>channels<span class="op">);</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>error<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>    fprintf<span class="op">(</span>stderr<span class="op">,</span> <span class="st">"Error: could not read image</span><span class="sc">\n</span><span class="st">"</span><span class="op">);</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span><span class="op">;</span></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a><span class="co">// Only use data here, after the check</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Always check the return value of <code>read_image_data</code> before using <code>data</code>.</p>
 <hr>
 </section>
@@ -816,9 +865,9 @@ my_feature</code></pre>
 <h3 class="anchored" data-anchor-id="push-rejected">Push rejected</h3>
 <pre><code>error: failed to push some refs to 'origin/main'</code></pre>
 <p>Your teammate pushed after your last <code>git pull</code>. Fix:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull <span class="at">--rebase</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co"># resolve any conflicts, then:</span></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull <span class="at">--rebase</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="co"># resolve any conflicts, then:</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
 <section id="merge-conflict" class="level3">
@@ -847,10 +896,10 @@ Tip
 </section>
 <section id="accidentally-committed-to-the-wrong-branch" class="level3">
 <h3 class="anchored" data-anchor-id="accidentally-committed-to-the-wrong-branch">Accidentally committed to the wrong branch</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> reset <span class="at">--soft</span> HEAD~1  <span class="co"># undo last commit but keep changes</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout right_branch       <span class="co"># switch to the right branch (change the name to the branch you want)</span></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .                <span class="co"># stage changes again</span></span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Your commit message"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> reset <span class="at">--soft</span> HEAD~1  <span class="co"># undo last commit but keep changes</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout right_branch       <span class="co"># switch to the right branch (change the name to the branch you want)</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .                <span class="co"># stage changes again</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Your commit message"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
 <section id="i-dont-see-the-modification-of-my-teammate" class="level3">
@@ -894,7 +943,7 @@ Tip
 <section id="what-does-the-team-leader-need-to-do" class="level3">
 <h3 class="anchored" data-anchor-id="what-does-the-team-leader-need-to-do">What does the team leader need to do?</h3>
 <p>Exactly one thing no one else should do: run workflow activation <strong>once</strong>, after every teammate has successfully run <code>bash validconfig.sh</code> and built <code>helloworld</code>.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> validconfig.sh <span class="at">--activate-workflows</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> validconfig.sh <span class="at">--activate-workflows</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>This renames disabled workflow files and pushes an onboarding commit. Announce to your team — everyone else runs <code>git pull</code>.</p>
 <hr>
 </section>
