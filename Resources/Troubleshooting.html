@@ -757,7 +757,7 @@ my_feature</code></pre>
 The <code>/W</code> flags are MSVC-style; MinGW uses <code>-W</code> flags. The two compilers are incompatible.</p>
 <p><strong>Fix / Correction</strong></p>
 <ol type="1">
-<li>Delete the <code>build/</code> directory.</li>
+<li>Delete the <code>./build/</code> directory.</li>
 </ol>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span> <span class="at">-rf</span> build</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ol start="2" type="1">
@@ -777,10 +777,10 @@ The <code>/W</code> flags are MSVC-style; MinGW uses <code>-W</code> flags. The 
 <section id="sec-dependinfo" class="level3">
 <h3 class="anchored" data-anchor-id="sec-dependinfo"><code>DependInfo.cmake: No such file or directory</code></h3>
 <p><strong>Cause</strong></p>
-<p>Same root cause as above: wrong generator/compiler was selected, and <code>build/</code> is now inconsistent.</p>
+<p>Same root cause as above: wrong generator/compiler was selected, and <code>./build/</code> is now inconsistent.</p>
 <p><strong>Fix / Correction</strong></p>
 <ol type="1">
-<li>Delete <code>build/</code>:</li>
+<li>Delete <code>./build/</code>:</li>
 </ol>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span> <span class="at">-rf</span> build</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ol start="2" type="1">
@@ -805,7 +805,7 @@ The <code>/W</code> flags are MSVC-style; MinGW uses <code>-W</code> flags. The 
 <ul class="task-list">
 <li><label><input type="checkbox">Check that all your files are saved (unsaved changes are not compiled).</label></li>
 <li><label><input type="checkbox">Check that you have compiled the project after your changes (<code>cmake --build build</code>).</label></li>
-<li><label><input type="checkbox">Check that you are running the latest compiled version (<code>build/freud.exe</code>), not an old binary (<code>./freud.exe</code> which only updates if you <code>cmake --install</code>).</label></li>
+<li><label><input type="checkbox">Check that you are running the latest compiled version (<code>./build/freud.exe</code>), not an old binary (<code>./freud.exe</code> which only updates if you <code>cmake --install</code>).</label></li>
 </ul>
 <p><em>Problems after a successful build: wrong output, black image, crash.</em></p>
 <section id="output-image-is-black-or-all-zeros" class="level3">

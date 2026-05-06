@@ -522,9 +522,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Each command you type follows the same structure:</p>
 <pre><code>prompt  command  options  arguments</code></pre>
 <p>For example:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> build/freud.exe <span class="at">-f</span> images/input/test.jpg <span class="at">-c</span> color_blue</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ./build/freud.exe <span class="at">-f</span> images/input/test.jpg <span class="at">-c</span> color_blue</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ul>
-<li><code>build/freud.exe</code> — the program to run</li>
+<li><code>./build/freud.exe</code> — the program to run</li>
 <li><code>-f images/input/test.jpg</code> — an option with a parameter (the input image file)</li>
 <li><code>-c color_blue</code> — an option with a parameter (the feature to apply)</li>
 </ul>
@@ -538,7 +538,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>Long options</strong> are a full word preceded by <code>--</code>:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">--debug</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>Positional arguments</strong> follow the options without a flag — some freud features use them:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> build/freud.exe <span class="at">-f</span> input.jpg <span class="at">-c</span> max_component R</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ./build/freud.exe <span class="at">-f</span> input.jpg <span class="at">-c</span> max_component R</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Here <code>R</code> is a positional argument passed to the <code>max_component</code> feature.</p>
 </section>
 <section id="freud-synopsis" class="level2">
@@ -577,13 +577,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="examples" class="level3">
 <h3 class="anchored" data-anchor-id="examples">Examples</h3>
 <p>Apply blue tint to an image:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> build/freud.exe <span class="at">-f</span> images/input/test.jpg <span class="at">-c</span> color_blue</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ./build/freud.exe <span class="at">-f</span> images/input/test.jpg <span class="at">-c</span> color_blue</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Keep only the red channel (max component):</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> build/freud.exe <span class="at">-f</span> images/input/test.jpg <span class="at">-c</span> max_component R</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ./build/freud.exe <span class="at">-f</span> images/input/test.jpg <span class="at">-c</span> max_component R</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Convert to grayscale using luminance:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> build/freud.exe <span class="at">-f</span> images/input/test.jpg <span class="at">-c</span> grayscale_luminance</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ./build/freud.exe <span class="at">-f</span> images/input/test.jpg <span class="at">-c</span> grayscale_luminance</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Run with debug output:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> build/freud.exe <span class="at">-f</span> images/input/test.jpg <span class="at">-c</span> color_blue <span class="at">--debug</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ./build/freud.exe <span class="at">-f</span> images/input/test.jpg <span class="at">-c</span> color_blue <span class="at">--debug</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="output" class="level3">
 <h3 class="anchored" data-anchor-id="output">Output</h3>
@@ -596,25 +596,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="step-1-configure-once" class="level3">
 <h3 class="anchored" data-anchor-id="step-1-configure-once">Step 1 — Configure (once)</h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cmake</span> <span class="at">-B</span> build</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>This reads <code>CMakeLists.txt</code> and prepares the build system in the <code>build/</code> folder. Run this once after cloning, or again if you add/remove source files.</p>
+<p>This reads <code>CMakeLists.txt</code> and prepares the build system in the <code>./build/</code> folder. Run this once after cloning, or again if you add/remove source files.</p>
 </section>
 <section id="step-2-compile" class="level3">
 <h3 class="anchored" data-anchor-id="step-2-compile">Step 2 — Compile</h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cmake</span> <span class="at">--build</span> build</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>This compiles your C sources and produces the executable at:</p>
-<pre><code>build/freud.exe</code></pre>
+<pre><code>./build/freud.exe</code></pre>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Warning</span>Always use <code>build/freud.exe</code>, not <code>./freud.exe</code>
+<span class="screen-reader-only">Warning</span>Always use <code>./build/freud.exe</code>, not <code>./freud.exe</code>
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Running <code>cmake --build build</code> updates <code>build/freud.exe</code>. There is also a <code>./freud.exe</code> at the project root, but it only gets updated when you run <code>cmake --install build</code>. If you do not run <code>cmake --install</code>, the root-level <code>./freud.exe</code> is <strong>stale</strong> and does not reflect your latest code.</p>
-<p><strong>Always test with <code>build/freud.exe</code></strong> after a <code>cmake --build build</code>.</p>
+<p>Running <code>cmake --build build</code> updates <code>./build/freud.exe</code>. There is also a <code>./freud.exe</code> at the project root, but it only gets updated when you run <code>cmake --install build</code>. If you do not run <code>cmake --install</code>, the root-level <code>./freud.exe</code> is <strong>stale</strong> and does not reflect your latest code.</p>
+<p><strong>Always test with <code>./build/freud.exe</code></strong> after a <code>cmake --build build</code>.</p>
 </div>
 </div>
 </section>
@@ -622,7 +622,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="full-build-workflow">Full build workflow</h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># After editing source files:</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cmake</span> <span class="at">--build</span> build</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="ex">build/freud.exe</span> <span class="at">-f</span> images/input/test.jpg <span class="at">-c</span> your_feature</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="ex">./build/freud.exe</span> <span class="at">-f</span> images/input/test.jpg <span class="at">-c</span> your_feature</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>If there are compilation errors, CMake prints them with the file name and line number. Fix the error and run <code>cmake --build build</code> again.</p>
 </section>
 </section>

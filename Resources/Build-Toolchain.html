@@ -511,7 +511,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="why-a-compile-chain-exists" class="level2">
 <h2 class="anchored" data-anchor-id="why-a-compile-chain-exists">Why a compile chain exists</h2>
 <p>Your <code>.c</code> and <code>.h</code> files are source code for humans and compilers. They are not directly executable.</p>
-<p>To obtain a program such as <code>build/freud.exe</code>, you need a toolchain that can compile source files, link libraries, and organize the build process.</p>
+<p>To obtain a program such as <code>./build/freud.exe</code>, you need a toolchain that can compile source files, link libraries, and organize the build process.</p>
 <p>In this project, that chain is mainly based on GCC, Make, and CMake.</p>
 </section>
 <section id="gcc" class="level2">
@@ -542,10 +542,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="useful-commands">Useful commands</h3>
 <p>Configure the project:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cmake</span> <span class="at">-B</span> build</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>This creates or refreshes the <code>build/</code> folder.</p>
+<p>This creates or refreshes the <code>./build/</code> folder.</p>
 <p>Build the project:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cmake</span> <span class="at">--build</span> build</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>This compiles the code and produces the executable in <code>build/</code>.</p>
+<p>This compiles the code and produces the executable in <code>./build/</code>.</p>
 <p>Install the project:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cmake</span> <span class="at">--install</span> build</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>This copies the built result to the install location defined by the project. For day-to-day work, you mainly need configure plus build.</p>
@@ -555,14 +555,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="the-usual-local-workflow">The usual local workflow</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cmake</span> <span class="at">-B</span> build</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cmake</span> <span class="at">--build</span> build</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="ex">build/freud.exe</span> <span class="at">-f</span> images/input/test.jpg <span class="at">-c</span> color_blue</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="ex">./build/freud.exe</span> <span class="at">-f</span> images/input/test.jpg <span class="at">-c</span> color_blue</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>The first command is needed once after cloning, and again when build configuration changes. The second command is the one you will run repeatedly after editing the code.</p>
 </section>
 <section id="running-the-resulting-command" class="level2">
 <h2 class="anchored" data-anchor-id="running-the-resulting-command">Running the resulting command</h2>
-<p>Once the build succeeds, you run the executable produced in the <code>build/</code> directory.</p>
+<p>Once the build succeeds, you run the executable produced in the <code>./build/</code> directory.</p>
 <p>Example:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">build/freud.exe</span> <span class="at">-f</span> images/input/test.jpg <span class="at">-c</span> grayscale</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">./build/freud.exe</span> <span class="at">-f</span> images/input/test.jpg <span class="at">-c</span> grayscale</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>This is how you verify that your implementation really works on a concrete input.</p>
 <p>For more details on command syntax, see <a href="../Resources/CLI.html">Using the Command Line</a>.</p>
 
