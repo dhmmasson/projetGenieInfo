@@ -39,7 +39,7 @@ VS Code is not only an editor window. It can be the main place where you:
 - open a terminal
 - run the onboarding script
 - compile the project
-- run `build/freud.exe`
+- run `./build/freud.exe`
 
 That makes the edit-build-run loop much faster.
 
@@ -51,10 +51,15 @@ VS Code includes a terminal panel. Use it to run commands such as:
 ./validconfig.sh
 cmake -B build
 cmake --build build
-build/freud.exe -f images/input/test.jpg -c color_blue
+./build/freud.exe -f images/input/test.jpg -c color_blue
 ```
 
 Keeping the terminal inside the editor is practical because you can move directly from an error message to the corresponding source file.
+
+## VS Code run configuration
+
+To avoid retyping the command every time, update `cmake.debugConfig.args` in `.vscode/settings.json` with your target image path and command. The VS Code Run button will then use those arguments directly.
+
 
 ## About AI-first coding tools
 

@@ -4,7 +4,8 @@ title: "Freud CLI Reference"
 
 This page is a quick reference for the `freud` command-line tool: how to invoke it, what flags it accepts, and how each feature should behave.
 
-For how to **implement** a new feature, see [First Steps](../Getting-Started/First-Steps.qmd) and [Workflows & Milestones](../ProjectManagement/Workflows.qmd).
+For how to **implement** a new feature — adding a function, wiring the dispatch, reading and writing images — see [Freud Internals](Freud-Internals.qmd).  
+For background on the project workflow, see [Workflows & Milestones](../ProjectManagement/Workflows.qmd).
 
 ---
 
@@ -44,56 +45,56 @@ For how to **implement** a new feature, see [First Steps](../Getting-Started/Fir
 
 ## Feature index
 
-### Milestone 1 — Tutorial
+### [Milestone 1 — Tutorial](./milestone/milestone-1-tutorial.md)
 
-| Command | Output |
-|---|---|
-| `helloworld` | Prints `Hello World!` |
-| `dimension` | `dimension: <width>, <height>` |
-| `color_first_pixel` | `color_first_pixel: R, G, B` |
-| `color_10th_pixel` | `color_10th_pixel: R, G, B` |
-| `color_first_pixel_second_line` | `color_first_pixel_second_line: R, G, B` |
-| `pixelRGB` | Uses `pixelRGB` struct, get and print functions |
+| Command | Feature | Output |
+|---|---|---|
+| `helloworld` | - | Prints `Hello World!` |
+| `dimension` | [#1](./issues/issue-1-dimension.md) | `dimension: <width>, <height>` |
+| `color_first_pixel` | [#2](./issues/issue-2-color-of-the-first-pixel.md) | `color_first_pixel: R, G, B` |
+| `color_10th_pixel` | [#3](./issues/issue-3-color-of-the-10th-pixel.md) | `color_10th_pixel: R, G, B` |
+| `color_first_pixel_second_line` | [#4](./issues/issue-4-color-of-the-first-pixel-on-the-second-line.md) | `color_first_pixel_second_line: R, G, B` |
+| `pixelRGB` | [#5](./issues/issue-5-rgb-pixel-get-and-print-functions.md) | Uses `pixelRGB` struct, get and print functions |
 
-### Milestone 2 — Statistics
+### [Milestone 2 — Statistics](./milestone/milestone-2-statistics.md)   
 
-| Command | Output |
-|---|---|
-| `max_pixel` | `max_pixel (x, y): R, G, B` |
-| `min_pixel` | `min_pixel (x, y): R, G, B` |
-| `max_component` | `max_component: value` |
-| `min_component` | `min_component: value` |
-| `full_report` | Writes a `.txt` file with all statistics |
+| Command | Feature | Output |
+|---|---|---|
+| `max_pixel` | [#6](./issues/issue-6-max-pixel.md) | `max_pixel (x, y): R, G, B` |
+| `min_pixel` | [#7](./issues/issue-7-min-pixel.md) | `min_pixel (x, y): R, G, B` |
+| `max_component` | [#8](./issues/issue-8-max-component.md) | `max_component: value` |
+| `min_component` | [#9](./issues/issue-9-min-component.md) | `min_component: value` |
+| `full_report` | [#10](./issues/issue-10-full-report-in-a-txt-file.md) | Writes a `.txt` file with all statistics |
 
-### Milestone 3 — Colors
+### [Milestone 3 — Colors](./milestone/milestone-3-colors.md)
 
-| Command | Output |
-|---|---|
-| `color_red` | Image with only red channel kept |
-| `color_green` | Image with only green channel kept |
-| `color_blue` | Image with only blue channel kept |
-| `grayscale` | Grayscale via channel averaging |
-| `invert` | Each channel inverted (255 − value) |
-| `luminance` | Grayscale via luminance formula |
-| `desaturate` | Desaturated image |
+| Command | Feature | Output |
+|---|---|---|
+| `color_red` | [#11](./issues/issue-11-color-in-red.md) | Image with only red channel kept |
+| `color_green` | [#12](./issues/issue-12-color-in-green.md) | Image with only green channel kept |
+| `color_blue` | [#13](./issues/issue-13-color-in-blue.md) | Image with only blue channel kept |
+| `grayscale` | [#14](./issues/issue-14-color-in-gray-grayscale.md) | Grayscale via channel averaging |
+| `invert` | [#15](./issues/issue-15-invert-colors.md) | Each channel inverted (255 − value) |
+| `luminance` | [#16](./issues/issue-16-color-in-gray-luminance.md) | Grayscale via luminance formula |
+| `desaturate` | [#25](./issues/issue-25-desaturate.md) | Desaturated image |
 
-### Milestone 4 — Transforms
+### [Milestone 4 — Transforms](./milestone/milestone-4-transform.md)
 
-| Command | Output |
-|---|---|
-| `rotate_cw` | Image rotated 90° clockwise |
-| `rotate_ccw` | Image rotated 90° counter-clockwise |
-| `mirror_h` | Mirror effect — horizontal symmetry |
-| `mirror_v` | Mirror effect — vertical symmetry |
-| `mirror` | Mirror effect (combined) |
-| `crop` | Cropped image |
+| Command | Feature | Output |
+|---|---|---|
+| `rotate_cw` | [#17](./issues/issue-17-rotate-clockwise-90.md) | Image rotated 90° clockwise |
+| `rotate_ccw` | [#18](./issues/issue-18-rotate-anti-clockwise-90.md) | Image rotated 90° counter-clockwise |
+| `mirror_h` | [#19](./issues/issue-19-mirror-effect-horizontal-symmetry.md) | Mirror effect — horizontal symmetry |
+| `mirror_v` | [#20](./issues/issue-20-mirror-effect-vertical-symmetry.md) | Mirror effect — vertical symmetry |
+| `mirror` | [#21](./issues/issue-21-mirror-effect.md) | Mirror effect (combined) |
+| `crop` | [#22](./issues/issue-22-crop.md) | Cropped image |
 
-### Milestone 5 — Resize
+### [Milestone 5 — Resize](./milestone/milestone-5-resize.md)
 
-| Command | Output |
-|---|---|
-| `scale_nn` | Scale via nearest-neighbor interpolation |
-| `scale_bilinear` | Scale via bilinear interpolation |
+| Command | Feature | Output |
+|---|---|---|
+| `scale_nn` | [#23](./issues/issue-23-scale-via-nearest-neighbor-interpolation.md) | Scale via nearest-neighbor interpolation |
+| `scale_bilinear` | [#24](./issues/issue-24-scale-via-bilinear-interpolation.md) | Scale via bilinear interpolation |
 
 > **Note:** Check each feature's issue file in [Features](Features.qmd) for the exact expected output format. The CI compares output character by character — spacing and capitalization must match exactly.
 
@@ -118,86 +119,6 @@ color_red
 
 ---
 
-## Adding a new feature — the pattern
-
-Every new feature requires **four changes**:
-
-### 1. Declare in `src/features.h`
-
-```c
-void my_feature(char *source_path);
-```
-
-### 2. Implement in `src/features.c`
-
-```c
-void my_feature(char *source_path) {
-    unsigned char *data = NULL;
-    int width, height, channels;
-    read_image_data(source_path, &data, &width, &height, &channels);
-    // ... your logic ...
-    free(data);
-}
-```
-
-### 3. Dispatch in `src/main.c`
-
-```c
-if (strcmp(conf.command, "my_feature") == 0) {
-    my_feature(conf.filenames[0]);
-}
-```
-
-### 4. Register in `freud.manifest`
-
-```
-my_feature
-```
-
-Miss any one of these four steps and the feature either won't compile, won't run, or won't be tested by the CI.
-
----
-
-## The `Config` struct
-
-`src/configp.h` defines the configuration parsed from command-line arguments:
-
-```c
-typedef struct _config {
-    int    debug_mode;                       // --debug flag
-    char   command[MAX_LENGTH_COMMAND];      // -c <command>
-    char*  filenames[MAX_FILE_COUNT];        // -f <path> (can repeat)
-    char*  arguments[MAX_ARGUMENT_COUNT];   // additional arguments
-} Config;
-```
-
-`conf.filenames[0]` is the first `-f` argument — the input image path.
-
----
-
-## Key library functions
-
-From `estia-image/include/estia-image.h`:
-
-```c
-// Read image from file. Returns 0 on success.
-int read_image_data(const char *filename,
-                    unsigned char **data,
-                    int *width, int *height, int *nbChannels);
-
-// Write image to file. Returns 0 on success.
-int write_image_data(const char *filename,
-                     unsigned char *data,
-                     int width, int height);
-```
-
-Pixel access pattern (RGB, 3 channels):
-
-```c
-int index = (y * width + x) * 3;
-unsigned char R = data[index];
-unsigned char G = data[index + 1];
-unsigned char B = data[index + 2];
-```
-
-See [Image Data Structure](../Resources/Image-Data-Structure.qmd) for a full explanation of how pixels are laid out in memory.
+::: {.callout-tip}
+Ready to write code? See [Freud Internals](Freud-Internals.qmd) for the template file layout, the `Config` struct, image I/O, and the four-step feature wiring pattern.
+:::

@@ -1,5 +1,14 @@
 ---
 title: "Milestones and Issues"
+listing: 
+    contents: issues/*.md
+
+    sort: 
+      - Issue      
+    type: grid
+    fields: 
+      - title
+      - description
 ---
 
 ## Overview
@@ -15,6 +24,4 @@ Feature specifications are maintained as local markdown files generated from tem
 - [Milestone 5: Resize](./milestone/milestone-5-resize.md)
 
 ## Features index
-
-- [Features index](./issues/README.md)
 

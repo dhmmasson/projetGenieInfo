@@ -6,7 +6,7 @@ title: "Compile Chain"
 
 Your `.c` and `.h` files are source code for humans and compilers. They are not directly executable.
 
-To obtain a program such as `build/freud.exe`, you need a toolchain that can compile source files, link libraries, and organize the build process.
+To obtain a program such as `./build/freud.exe`, you need a toolchain that can compile source files, link libraries, and organize the build process.
 
 In this project, that chain is mainly based on GCC, Make, and CMake.
 
@@ -49,7 +49,7 @@ Configure the project:
 cmake -B build
 ```
 
-This creates or refreshes the `build/` folder.
+This creates or refreshes the `./build/` folder.
 
 Build the project:
 
@@ -57,7 +57,7 @@ Build the project:
 cmake --build build
 ```
 
-This compiles the code and produces the executable in `build/`.
+This compiles the code and produces the executable in `./build/`.
 
 Install the project:
 
@@ -72,19 +72,19 @@ This copies the built result to the install location defined by the project. For
 ```bash
 cmake -B build
 cmake --build build
-build/freud.exe -f images/input/test.jpg -c color_blue
+./build/freud.exe -f images/input/test.jpg -c color_blue
 ```
 
 The first command is needed once after cloning, and again when build configuration changes. The second command is the one you will run repeatedly after editing the code.
 
 ## Running the resulting command
 
-Once the build succeeds, you run the executable produced in the `build/` directory.
+Once the build succeeds, you run the executable produced in the `./build/` directory.
 
 Example:
 
 ```bash
-build/freud.exe -f images/input/test.jpg -c grayscale
+./build/freud.exe -f images/input/test.jpg -c grayscale
 ```
 
 This is how you verify that your implementation really works on a concrete input.

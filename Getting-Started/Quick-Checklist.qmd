@@ -19,16 +19,17 @@ Use this checklist after completing [Setup](Setup.qmd). Every item must be green
 
 - [ ] Repository cloned locally (no accents or spaces in the path)
 - [ ] VS Code opened on the cloned folder
-- [ ] Recommended extensions installed (C/C++, CMake, GitHub Pull Requests)
+- [ ] Recommended extensions installed (C/C++, CMake, CMake Tools, GitHub Pull Requests)
 - [ ] `gcc` available — verify: `gcc --version` prints a version number
 - [ ] CMake available — verify: `cmake --version` prints a version number
+- [ ] The Correct compiler selected in VS Code (CMake: Select a Kit → select a GCC/MinGW kit)
 
 ---
 
 ## ✅ Libraries
 
-- [ ] `estia-image` library installed (run `cmake --install build` from the library directory)
-- [ ] `getopt` library installed
+- [ ] the correct `estia-image` library for my architecture installed directly in the project root (`estia-image/include/` and `estia-image/lib/` exist)
+- [ ] `getopt` library installed (`getopt/include/` and `getopt/lib/` exist)
 - [ ] Running `cmake -B build` in the project root completes without errors
 
 ---
@@ -36,14 +37,14 @@ Use this checklist after completing [Setup](Setup.qmd). Every item must be green
 ## ✅ First build
 
 - [ ] `cmake --build build` succeeds
-- [ ] `cmake --install build` succeeds
-- [ ] `./freud.exe --debug -f images/input/image.jpeg -c helloworld` prints output and creates an image
+- [ ] `./build/freud.exe --debug -f images/input/image.jpeg -c helloworld` prints hello world 
 
 ---
 
 ## ✅ GitHub workflows
 
-- [ ] Issues loaded into your repository (the `create-issues` workflow completed)
+- [ ] `create-issues` workflow enabled (with the onboarding script `bash validconfig.sh --activate-workflows`or manually renamed and pushed)
+- [ ] Issues loaded into your repository (the `create-issues` workflow run from the actions tab and completed)
 - [ ] Milestones visible in your repository under `Issues → Milestones`
 - [ ] At least one issue open and assigned
 
@@ -51,6 +52,7 @@ Use this checklist after completing [Setup](Setup.qmd). Every item must be green
 
 ## ✅ Git cycle works
 
+- [ ] Your git is configured with your name and email (`git config user.name` and `git config user.email` show correct values)
 - [ ] You can make a change, `git commit`, and `git push` without errors
 - [ ] Your teammates can `git pull` and see your changes
 - [ ] GitHub Actions triggered after your push (visible under the `Actions` tab)

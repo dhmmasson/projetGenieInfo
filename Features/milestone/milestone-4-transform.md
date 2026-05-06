@@ -5,8 +5,8 @@ Those features will manipulate pixel data to create a new image with modified ge
 
 
 ## Issues
-- [#19](../issues/feature-19-rotate-clockwise-90.md) Rotate clockwise 90° 
-- [#20](../issues/feature-20-rotate-anti-clockwise-90.md) Rotate anti-clockwise 90° 
-- [#21](../issues/feature-21-mirror-effect-horizontal-symmetry.md) Mirror effect - horizontal symmetry 
-- [#22](../issues/feature-22-mirror-effect-vertical-symmetry.md) Mirror effect - vertical symmetry 
-- [#23](../issues/feature-23-mirror-effect.md) Mirror effect 
+- [#17](../issues/issue-17-rotate-clockwise-90.md) Rotate clockwise 90° 
+- [#18](../issues/issue-18-rotate-anti-clockwise-90.md) Rotate anti-clockwise 90° 
+- [#19](../issues/issue-19-mirror-effect-horizontal-symmetry.md) Mirror effect - horizontal symmetry 
+- [#20](../issues/issue-20-mirror-effect-vertical-symmetry.md) Mirror effect - vertical symmetry 
+- [#21](../issues/issue-21-mirror-effect.md) Mirror effect 

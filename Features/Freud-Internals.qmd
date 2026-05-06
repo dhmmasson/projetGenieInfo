@@ -1,0 +1,92 @@
+---
+title: "Freud Internals"
+---
+
+This page describes the internal structure of the Freud template: what files you touch, what each one is for, and how to wire a new feature end to end.
+
+For the external command contract (flags, commands, expected output), see [Freud CLI Reference](Freud-References.qmd).
+
+---
+
+## Template source layout
+
+```
+src/
+├── main.c        ← entry point; parses args, dispatches to features
+├── argsparse.c   ← CLI argument parsing (don't modify)
+├── argsparse.h
+├── configp.h     ← Config struct definition (read-only)
+├── features.c    ← your feature implementations go here
+├── features.h    ← your function declarations go here
+├── utils.c       ← shared helpers (you may add helpers here)
+└── utils.h
+freud.manifest     ← list of commands to test against (add new commands here)
+```
+
+In general **You modify:** `features.h`, `features.c`, `main.c`, and `freud.manifest`, you may modify `utils.c` and `utils.h` to add helpers functions or `argsparse.c`, `argsparse.h`, `configp.h` if you need to implement more CLI options (respect the [Freud CLI Reference](Freud-References.qmd)). You can add new source files, if you desire to structure your code differently, don't forget to update the build system with `cmake -B build` if you do.
+
+---
+
+## The `Config` struct
+
+`src/configp.h` defines the configuration parsed from command-line arguments.
+You receive a fully populated `Config` in `main.c` — never parse `argv` yourself.
+
+```c
+typedef struct _config {
+    int    debug_mode;                       // --debug flag
+    char   command[MAX_LENGTH_COMMAND];      // -c <command>
+    char*  filenames[MAX_FILE_COUNT];        // -f <path> (can repeat)
+    char*  arguments[MAX_ARGUMENT_COUNT];   // additional arguments
+} Config;
+```
+
+`conf.filenames[0]` is the first `-f` argument — the input image path.  
+`conf.filenames[1]` is the second `-f` (for commands that take two images).
+
+---
+
+## Reading and writing images
+
+All image I/O goes through the **estia-image** library.
+See [Libraries](../Resources/Libraries.qmd) for the full API and [Image Data Structure](../Resources/Image-Data-Structure.qmd) for how pixels are laid out in memory.
+
+---
+
+## Adding a new feature — the pattern
+
+Every new feature requires **four changes**. Miss any one and the feature either won't compile, won't run, or won't be tested by the CI.
+
+### 1. Declare in `src/features.h`
+
+```c
+void my_feature(char *source_path);
+```
+
+### 2. Implement in `src/features.c`
+
+```c
+void my_feature(char *source_path) {
+    unsigned char *data = NULL;
+    int width, height, channels;
+    read_image_data(source_path, &data, &width, &height, &channels);
+
+    // ... your logic ...
+
+    free(data);
+}
+```
+
+### 3. Dispatch in `src/main.c`
+
+```c
+if (strncmp(configuration.command, "my_feature", 10) == 0) {
+    my_feature(conf.filenames[0]);
+}
+```
+
+### 4. Register in `freud.manifest`
+
+```
+my_feature
+```

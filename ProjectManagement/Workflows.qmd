@@ -103,7 +103,7 @@ An issue should only be closed when:
 
 1. The feature is **implemented** in `src/features.c`.
 2. It **compiles** without errors.
-3. You have **tested it locally** with `build/freud.exe` and the output matches the specification.
+3. You have **tested it locally** with `./build/freud.exe` and the output matches the specification.
 
 You can close the issue from the GitHub interface, or automatically from a commit message.
 

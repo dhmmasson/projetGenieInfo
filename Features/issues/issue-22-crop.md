@@ -1,16 +1,12 @@
-# Feature #24: Crop
+---
+title: "Feature #22: Crop"
+description: "Crop the image. The result is the intersection of a cropping box (defined by a it center and dimension) and the original image"
+Milestone: 5
+Issue: 22
+---
 
-- State: open
-- Milestone: Milestone 5: Resize
-- Labels: export, resize
-- Assignees: None
-- Created: 2022-06-02T15:13:13Z
-- Updated: 2025-06-19T11:59:00Z
-- URL: https://github.com/Estia-1a/projetGenieInfo_template/issues/24
+## Feature description
 
-## Description
-
-**Feature description**
 Crop the image. The result is the intersection of a cropping box (defined by a it center and dimension) and the original image
 
 Parameters|value
@@ -20,11 +16,13 @@ Command | `-c scale_crop center_x center_y width height`
 Input          | an image 
 output       | a new image `image_out.bmp` based on the input image with a box (size = `width`px, `height`px) centered around the pixel with coordinates `(center_x, center_y)` 
 
-**Usage**
+## Usage
+
 ```bash
 ./freud.exe -f images/input/image.jpeg -c scale_crop 500 600 300 400
 ```
-**Output**
+## Output
+
 A new image `image_out.bmp` based on the input image with a box (size = 300×400px) centered around the pixel with coordinates (500, 600). 
 
 
@@ -34,7 +32,8 @@ Make sure that even if the boundaries exit the original image (e.g., `center_x =
 
 
 
-**Additional information**
+### Additional information
+
 Example:
 `freud.exe -f images/input/image.jpeg -c scale_crop 200 1000 200 400`
 

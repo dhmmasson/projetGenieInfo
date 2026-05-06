@@ -1,16 +1,11 @@
-# Feature #3: Dimension
+---
+title: "Feature #1: Dimension"
+description: "Print the dimension of the input image in the output terminal."
+Milestone: 1
+Issue: 1
+---
 
-- State: open
-- Milestone: Milestone 1: Tutorial
-- Labels: export, tutorial
-- Assignees: None
-- Created: 2022-06-02T12:13:23Z
-- Updated: 2025-06-18T15:20:09Z
-- URL: https://github.com/Estia-1a/projetGenieInfo_template/issues/3
-
-## Description
-
-### Feature description
+## Feature description
 
 Print the dimension of the input image in the output terminal.
 
@@ -57,4 +52,3 @@ if ( strncmp( configuration.command, "dimension", 9 ) == 0 ) {
 ## Possible Variation
 Space are permitted between the `dimension:` and the actual value. 
 Space are permitted around the `,`
-

@@ -10,7 +10,8 @@
 
 ## Description
 
-**Feature description**
+### Feature description
+
 Transform the image to keep only the blue component.
 
 Parameters|value
@@ -20,15 +21,19 @@ Command | `-c color_blue`
 Input          | an image 
 output       | a new image `image_out.bmp` that keeps only the blue component of the input image
 
-**Usage**
+## Usage
+
 ```bash
 ./freud.exe -f images/input/image.jpeg -c color_blue
 ```
-**Output**
+
+## Output
+
 A new image `image_out.bmp`that keeps only the blue component of the input image
 
 
-**Describe tips for implementing feature**
+## Describe tips for implementing feature
+
 Use write_image_data from <estia-image.h> to create new image with the new values.
 
 ```c
@@ -43,8 +48,10 @@ Use write_image_data from <estia-image.h> to create new image with the new value
 int write_image_data(const char *filename, unsigned char *data, int width, int height);
 ```
 
-**Additional information**
+### Additional information
+
 Example:
+
 |Input|Output|
 |---|---|
 |<img src="https://user-images.githubusercontent.com/14878561/171637527-c63fb289-c5a0-43d2-a04f-fe75ff7a51dd.jpeg" width="250px">|<img src="https://user-images.githubusercontent.com/14878561/171639979-c5b665f0-6ece-4487-8200-e9f279fc596c.jpg" width="250px">|

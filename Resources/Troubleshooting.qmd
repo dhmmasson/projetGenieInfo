@@ -2,22 +2,100 @@
 title: "Debugging & Troubleshooting"
 ---
 
-This page covers the most common problems students encounter during the project, organized by when they tend to appear.
+::: {.callout-note}
+## Where are you stuck?
 
-For **setup issues** (library not found, path errors, workflow activation), see the [FAQ](FAQ.qmd).
+Jump to the right section:
+
+- **[Can't get started](#sec-environment)** — Git not recognized, path errors, MinGW, libraries not found
+- **[Code won't compile](#sec-build)** — CMake errors, wrong compiler kit, `DependInfo.cmake` not found, feature not dispatched
+- **[Code runs but behaves wrong](#sec-runtime)** — black image, crash, wrong output
+- **[Git or GitHub problem](#sec-git)** — push rejected, merge conflict, issues not visible, CI failing
+- **[Team coordination question](#sec-team)** — workflow activation, issue import, Milestone 1
+:::
+
+::: {.callout-warning}
+# SAVE YOUR FILES
+95% of your problems are caused by not saving files ! Always check that your files are saved before compiling or running or pushing/pulling.
+
+ -  Unsaved changes are not compiled, so you may be running an old version of your code without realizing it.
+ - Unsaved changes are not pushed, so your teammates don't see them until you save and push.
+ - vscode don't reflect modified files from git if you have unsaved changes, which can lead to confusion when you pull changes from teammates and don't see them in the editor. Always save your files to ensure you are working with the latest version of the code.
+
+:::
 
 ---
 
-## Build errors
+## 1. Can't get started {#sec-environment}
 
-### `cmake -B build` fails — CMake cannot find a library
+*Problems before you write any code: environment, tools, libraries.*
+
+### Path and encoding — project won't compile
+
+**No accents or special characters** anywhere in your path.
+
+```
+✗ C:\Users\elodie.bouzekri\Documents\Ma bibliothèque\Génie Info\
+✓ C:\projetInfo\pgi-2026-your-team\
+```
+
+Clone your project into a short, accent-free path like `C:\projetInfo\pgi-2026-your-team`.
+
+---
+
+### MinGW not found or too old
+
+Check that MinGW is installed at `C:\MinGW\bin`:
+
+- If missing, download: [mingw-19.0.exe](https://nuwen.net/files/mingw/mingw-19.0.exe)
+- If present but not working, add `C:\MinGW\bin` to your `Path` environment variable, then restart VS Code
+
+---
+
+### Git not recognized in VS Code
+
+If `Git: Clone` does nothing in the command palette:
+
+1. Check that Git is installed at `C:\MinGW\git\bin`
+   - If missing, download: [Git-2.36.1-64-bit.exe](https://github.com/git-for-windows/git/releases/download/v2.36.1.windows.1/Git-2.36.1-64-bit.exe)
+   - If present, add `C:\MinGW\git\bin` to your `Path` environment variable
+2. Check that your folder is marked as trusted in VS Code:
+   - Click the gear icon (bottom-left) → **Manage Workspace Trust** → **Trust**
+
+---
+
+### Git authentication fails
+
+If Git asks for credentials repeatedly or is not authorized with GitHub:
+
+```bash
+git config --global credential.useHttpPath true
+```
+
+This forces Git to open a browser to set up authentication.
+
+---
+
+### CMake version too old
+
+If CMake reports a version mismatch, lower the minimum required version in `CMakeLists.txt`:
+
+```cmake
+# Change:
+cmake_minimum_required(VERSION 3.20)
+# To:
+cmake_minimum_required(VERSION 3.15)
+```
+
+---
+
+### Libraries not found by CMake
 
 ```
 CMake Error: Could not find a package configuration file provided by "estia-image"
 ```
 
-**Cause:** The `estia-image/` or `getopt/` folder is missing or misplaced.  
-**Fix:** Check that both folders exist at the root of your project (next to `src/`, `CMakeLists.txt`):
+Check that both library folders exist at the **root** of your project (next to `src/`, `CMakeLists.txt`):
 
 ```text
 pgi-2026-your-team/
@@ -31,33 +109,72 @@ pgi-2026-your-team/
 └── CMakeLists.txt
 ```
 
-If the structure is wrong, re-read [Setup — Phase 3](../Getting-Started/Setup.qmd#phase-3).
+If you extracted the zip and the folder is wrapped in an outer folder, move only the **inner** folder:
+
+```text
+✗ Wrong:
+estia-image-v2.0.1-win10-mingw32/
+    estia-image/         ← this is what you need
+        include/
+        lib/
+
+✓ Correct — estia-image/ sits directly in the project root
+```
+
+See [Setup — Phase 3](../Getting-Started/Setup.qmd#phase-3) for full instructions.
 
 ---
 
-### `cmake --build build` fails — compiler error
+### How do I choose the right library package?
 
-Before reading the full error log, run `bash validconfig.sh` — it checks common configuration mistakes and gives actionable messages.
+The deciding factor is the **CPU architecture prefix**, not the mingw suffix:
 
-The compiler always reports the **first** error. Fix it, rebuild, then move to the next.
+```bash
+gcc -dumpmachine
+```
 
-**Common patterns:**
+| Output starts with | Download |
+|---|---|
+| `x86_64` | `*-win10-mingw64.zip` |
+| `i686` | `*-win10-mingw32.zip` |
+
+`x86_64-w64-mingw32` → the `x86_64` prefix means 64-bit → download **mingw64**.
+
+Packages: [v2.0.1 release](https://github.com/Estia-1a/projetGenieInfo_public/releases/tag/v2.0.1).
+
+---
+
+## 2. Code won't compile {#sec-build}
+
+*Problems during `cmake -B build` or `cmake --build build`.*
+
+**First step — always run:**
+
+```bash
+bash validconfig.sh
+```
+
+This checks common configuration mistakes and gives actionable messages before you dig into the raw error log.
+
+---
+
+### Reading compiler errors
+
+The compiler reports the **first** error. Fix it, rebuild, then move to the next. Do not try to fix multiple errors at once.
 
 | Error message | Likely cause |
 |---|---|
-| `implicit declaration of function 'foo'` | `foo` declared in `.h` but not included in `.c` |
-| `undeclared identifier 'foo'` | Missing `#include` or typo in name |
-| `error: expected ';'` | Missing semicolon — usually one line before the error |
+| `implicit declaration of function 'foo'` | `foo` declared in `.h` but the `.h` is not `#include`d in your `.c` |
+| `undeclared identifier 'foo'` | Missing `#include` or typo in the name |
+| `error: expected ';'` | Missing semicolon — usually one line **before** the reported line |
 | `undefined reference to 'foo'` | Function declared but not implemented, or not listed in `CMakeLists.txt` |
-| `too few/many arguments` | Function signature in `.h` does not match the call |
+| `too few/many arguments` | Function signature in `.h` does not match the call site |
 
 ---
 
-### Feature builds but is not dispatched
+### Feature compiles but `freud.exe -c my_feature` does nothing
 
-Your feature compiles but `freud.exe -c my_feature` prints nothing or the wrong output.
-
-**Check `main.c`:** Every feature requires a dispatch branch:
+**Check `main.c`** — every feature needs a dispatch branch:
 
 ```c
 if (strcmp(conf.command, "my_feature") == 0) {
@@ -65,13 +182,13 @@ if (strcmp(conf.command, "my_feature") == 0) {
 }
 ```
 
-If this `if` block is missing, your function is never called.
+If this block is missing, your function is never called regardless of how correct it is.
 
 ---
 
-### Feature builds but is not recognized by the CI
+### Feature is not tested by the CI
 
-**Check `freud.manifest`:** The command name must appear exactly on its own line:
+**Check `freud.manifest`** — the command name must appear on its own line, exactly:
 
 ```
 helloworld
@@ -79,73 +196,171 @@ dimension
 my_feature
 ```
 
-No spaces, no quotes, no extra characters. The CI reads this file to know which features to test.
+No spaces, no quotes, no extra characters. The CI reads this file to discover which features to test. If the entry is missing, the CI skips your feature entirely.
 
 ---
 
-## C runtime errors
+### `cmake: argument numérique non valide '/Wextra'` {#sec-wrong-compiler}
 
-### Program crashes (segmentation fault)
+CMake may report `D8021`, `argument numérique non valide '/Wextra'`, or similar `/W`-prefixed flag errors.
 
-A segfault means you accessed memory you don't own. Most common causes:
+**Cause**
 
-**1. Array index out of bounds**
+Your CMake configuration is using **MSVC** (Microsoft Visual Studio) instead of **MinGW/GCC**.  
+The `/W` flags are MSVC-style; MinGW uses `-W` flags. The two compilers are incompatible.
 
-```c
-// Image is width * height * 3 bytes
-// Accessing pixel (x, y): index = (y * width + x) * 3
-int index = (y * width + x) * 3;
-data[index];     // OK if x < width and y < height
-data[index + 2]; // Always check you don't go past data[width*height*3 - 1]
+**Fix / Correction**
+
+1. Delete the `./build/` directory.
+
+```bash
+rm -rf build
 ```
 
-**2. Null pointer from `read_image_data`**
+2. Configure with MinGW/GCC explicitly from the command line (no extension required):
 
-```c
-unsigned char *data = NULL;
-int width, height, channels;
-int result = read_image_data(filename, &data, &width, &height, &channels);
-if (result != 0 || data == NULL) {
-    fprintf(stderr, "Error: could not read image\n");
-    return;
-}
+```bash
+CC=gcc cmake -B build -G "Unix Makefiles"
 ```
 
-Always check the return value before using `data`.
+If needed, also force the compiler path:
 
-**3. Off-by-one when iterating pixels**
+```bash
+cmake -B build -G "Unix Makefiles" -DCMAKE_C_COMPILER=gcc
+```
+
+On some setups, `-G "Unix Makefiles"` is required, otherwise CMake picks a Windows/MSVC generator again.
+
+Alternative with the VS Code CMake extension:
+Open the command palette (`Ctrl+Shift+P`) and run **CMake: Select a Kit**, then choose a **GCC/MinGW** kit.
+
+3. Build:
+
+```bash
+cmake --build build
+```
+
+---
+
+### `DependInfo.cmake: No such file or directory` {#sec-dependinfo}
+
+**Cause**
+
+Same root cause as above: wrong generator/compiler was selected, and `./build/` is now inconsistent.
+
+**Fix / Correction**
+
+1. Delete `./build/`:
+
+```bash
+rm -rf build
+```
+
+2. Reconfigure with MinGW/GCC from command line:
+
+```bash
+CC=gcc cmake -B build -G "Unix Makefiles"
+```
+
+If needed:
+
+```bash
+cmake -B build -G "Unix Makefiles" -DCMAKE_C_COMPILER=gcc
+```
+
+If you use the VS Code extensions (CMake and CMake Tools), you can also select a GCC/MinGW kit via **CMake: Select a Kit**.
+
+3. Build:
+
+```bash
+cmake --build build
+```
+
+---
+
+## 3. Code runs but behaves wrong {#sec-runtime}
+
+## Code compiles but the the output never changes when I do changes
+
+- [ ] Check that all your files are saved (unsaved changes are not compiled).
+- [ ] Check that you have compiled the project after your changes (`cmake --build build`).
+- [ ] Check that you are running the latest compiled version (`./build/freud.exe`), not an old binary (`./freud.exe` which only updates if you `cmake --install`).
+
+
+*Problems after a successful build: wrong output, black image, crash.*
+
+### Output image is black or all zeros
+
+You allocated the output buffer but never wrote to it:
 
 ```c
-// WRONG: goes past the last pixel
+unsigned char *out = malloc(width * height * 3);
+// Nothing written → garbage or zeros
+write_image_data(output_path, out, width, height);
+```
+
+Make sure you fill every pixel before calling `write_image_data`.
+
+---
+
+### Output image dimensions are wrong
+
+`write_image_data` requires the correct width and height for the **output** buffer. If you change dimensions (crop, rotate, scale), you must pass the new dimensions — not the original ones.
+
+---
+
+### Program crashes — segmentation fault
+
+A segfault means your code accessed memory it doesn't own. Three most common causes:
+
+**1. Off-by-one when iterating**
+
+```c
+// WRONG — goes one byte past the end
 for (int i = 0; i <= width * height * 3; i++) { ... }
 
 // CORRECT
 for (int i = 0; i < width * height * 3; i++) { ... }
 ```
 
----
-
-### Output image is black / all zeros
-
-You created the output buffer but forgot to copy or modify pixels:
+**2. Array index out of bounds**
 
 ```c
-unsigned char *out = malloc(width * height * 3);
-// Without writing to out, it's garbage memory or all zeros
-write_image_data(output_path, out, width, height);
+// Pixel at (x, y): index = (y * width + x) * 3
+int index = (y * width + x) * 3;
+// Always verify: x < width, y < height, index + 2 < width * height * 3
 ```
 
-Make sure you write to every pixel before calling `write_image_data`.
+**3. Null pointer — `read_image_data` failed**
+
+```c
+unsigned char *data = NULL;
+int width, height, channels;
+int error = read_image_data(filename, &data, &width, &height, &channels);
+if (error) {
+    fprintf(stderr, "Error: could not read image\n");
+    return;
+}
+// Only use data here, after the check
+```
+
+Always check the return value of `read_image_data` before using `data`.
 
 ---
 
-### Output image dimensions are wrong
+### Output format doesn't match — CI test fails
 
-`write_image_data` needs the **original** width and height unless you're implementing a resize/crop. If you change dimensions, you must also change what you pass to `write_image_data`.
+The CI compares your output **character by character** against the reference. Check:
+
+- Exact spacing: `dimension: 1488, 1488` not `dimension: 1488,1488`
+- Exact capitalization: `max_pixel` not `Max_Pixel`
+- No trailing spaces or extra newlines
+
+Re-read the feature's issue file for the exact expected format.
 
 ---
 
-## Git problems
+## 4. Git & GitHub {#sec-git}
 
 ### Push rejected
 
@@ -153,8 +368,7 @@ Make sure you write to every pixel before calling `write_image_data`.
 error: failed to push some refs to 'origin/main'
 ```
 
-**Cause:** Your teammate pushed something after your last `git pull`.  
-**Fix:**
+Your teammate pushed after your last `git pull`. Fix:
 
 ```bash
 git pull --rebase
@@ -166,16 +380,15 @@ git push
 
 ### Merge conflict
 
-Git shows `<<<<<<` / `=======` / `>>>>>>>` markers in a file. This means two people edited the same lines.
+Git shows `<<<<<<` / `=======` / `>>>>>>>` markers. Two people edited the same lines.
 
-1. Open the file in VS Code — it highlights conflicts.
+1. Open the file in VS Code — conflicts are highlighted.
 2. Choose which version to keep (or combine both).
 3. Remove all conflict markers.
-4. `git add` the resolved file.
-5. `git commit`.
+4. `git add` the resolved file, then `git commit`.
 
 ::: {.callout-tip}
-Conflicts on `features.c` and `features.h` are common when two people implement different features. To avoid them: coordinate — one person per file at a time, and pull before starting each session.
+Conflicts on `features.c` and `features.h` are common when two people work in parallel. Prevent them: one person per file at a time, always `git pull` before starting a session.
 :::
 
 ---
@@ -183,37 +396,85 @@ Conflicts on `features.c` and `features.h` are common when two people implement 
 ### Accidentally committed to the wrong branch
 
 ```bash
-git log --oneline -3    # check what you committed
-git stash               # if not committed yet, stash changes
-git checkout main       # switch to the right branch
-git stash pop           # re-apply your changes
+git reset --soft HEAD~1  # undo last commit but keep changes
+git checkout right_branch       # switch to the right branch (change the name to the branch you want)
+git add .                # stage changes again
+git commit -m "Your commit message"
 ```
 
 ---
 
-## CI failures
+### I don't see the modification of my teammate
 
-### CI fails but it works locally
+- [ ] Check that your teammate pushed to `main` (not a feature branch). 
+- [ ] Check that all your files are saved 
+- [ ] Check that all your changes are committed (clean working directory, no uncommitted changes).
+- [ ] Check that you are on the right branch (`main`). 
+- [ ] Run `git pull` to fetch the latest changes.
+- [ ] Check that you are not in a merge conflict state (Git will prevent you from pulling if you have uncommitted changes that conflict with the incoming changes). (`git status` in the terminal will show if you are in a merge conflict state).
 
-1. Read the workflow output in the `Actions` tab on GitHub.
-2. Check that your `main` branch has the latest commit (not just a feature branch).
-3. Ensure your output format matches **exactly** — spacing, capitalization, and line endings matter.
 
-Example: if the expected output is `dimension: 1488, 1488`, then `Dimension: 1488,1488` will fail.
+### Issues not appearing in my repository
+
+1. Go to your repository on GitHub → **Actions** tab.
+2. Run `Import issues from Template` manually → **Run workflow**.
+3. Wait for the green checkmark.
+4. Refresh the **Issues** tab.
 
 ---
 
-### CI passes but grade does not update
+### CI fails but code works locally
 
-Evaluation runs on a daily schedule triggered by the teacher, not on every push. Wait until the next evaluation run. You can check the last run time in the `Actions` tab.
+1. Open the **Actions** tab on GitHub and read the workflow output.
+2. Confirm your latest commit is on `main` (not a feature branch).
+3. Check your output format matches **exactly** — spacing, capitalization, line endings all matter.
 
 ---
 
-## Getting further help
+### CI passes but grade doesn't update
 
-If none of the above solves your problem:
+Evaluation runs on a daily schedule triggered by the teacher — not on every push. Wait for the next run. You can check the last run time in the **Actions** tab.
 
-1. Try to reproduce the problem with the **smallest possible input** (one tiny image, one feature).
-2. Read the full compiler output — the last few lines usually contain the real error.
-3. Ask a teammate or TA. Describe: what you did, what you expected, what happened.
-4. If you believe the reference implementation or test has a bug, open a GitHub Issue in your repository.
+---
+
+## 5. Team coordination {#sec-team}
+
+### What does the team leader need to do?
+
+Exactly one thing no one else should do: run workflow activation **once**, after every teammate has successfully run `bash validconfig.sh` and built `helloworld`.
+
+```bash
+bash validconfig.sh --activate-workflows
+```
+
+This renames disabled workflow files and pushes an onboarding commit. Announce to your team — everyone else runs `git pull`.
+
+---
+
+### My teammate already activated workflows
+
+Run `git pull`. You do not need to run `--activate-workflows` yourself.
+
+---
+
+### Who triggers the issue import?
+
+One person only. GitHub → **Actions** → `Import issues from Template` → **Run workflow**. Everyone else waits, then runs `git pull` once issues appear.
+
+---
+
+### Can we split Milestone 1 issues and work in parallel?
+
+No. Milestone 1 is mob programming — all three of you on the same machine, rotating who types. See [First Steps — Milestone 1](../Getting-Started/First-Steps.qmd#milestone-1).
+
+Splitting Milestone 1 means some teammates never learn to open an image, access pixels, or add a feature — which directly hurts them in the individual final exam.
+
+---
+
+## Still stuck?
+
+1. Reproduce the problem with the **smallest possible input** — one tiny image, one feature.
+2. Read the **full** compiler output — the real error is usually near the top of the first error block.
+3. Ask a teammate or TA: describe what you did, what you expected, and what actually happened.
+4. If you suspect a bug in the reference implementation or test, open a GitHub Issue in your repository — if confirmed, your contribution is noted positively.
+

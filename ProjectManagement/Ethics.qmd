@@ -8,6 +8,7 @@ The purpose of this project is to help you learn how to design, write, debug, an
 That is the point to keep in mind when deciding whether a tool or a shortcut is acceptable.
 
 ::: {.callout-important}
+## A metaphor to keep in mind
 
 Think about your project like going to the gym. The point isn’t just to lift weights—it’s to get stronger. In the same way, the goal of this project isn’t simply to end up with working code, but to improve your own programming skills.
 

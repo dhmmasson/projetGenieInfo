@@ -1,6 +1,9 @@
 ---
 title: "FAQ"
+redirect: "Troubleshooting.qmd"
 ---
+
+This page has been merged into [Debugging & Troubleshooting](Troubleshooting.qmd).
 
 ## Team coordination
 

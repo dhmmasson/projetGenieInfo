@@ -17,10 +17,10 @@ prompt  command  options  arguments
 For example:
 
 ```bash
-$ build/freud.exe -f images/input/test.jpg -c color_blue
+$ ./build/freud.exe -f images/input/test.jpg -c color_blue
 ```
 
-- `build/freud.exe` — the program to run
+- `./build/freud.exe` — the program to run
 - `-f images/input/test.jpg` — an option with a parameter (the input image file)
 - `-c color_blue` — an option with a parameter (the feature to apply)
 
@@ -44,7 +44,7 @@ The `$` is the **prompt** shown by your terminal — you do not type it.
 **Positional arguments** follow the options without a flag — some freud features use them:
 
 ```bash
-$ build/freud.exe -f input.jpg -c max_component R
+$ ./build/freud.exe -f input.jpg -c max_component R
 ```
 
 Here `R` is a positional argument passed to the `max_component` feature.
@@ -70,25 +70,25 @@ Additional positional arguments after the options are passed to the feature impl
 Apply blue tint to an image:
 
 ```bash
-$ build/freud.exe -f images/input/test.jpg -c color_blue
+$ ./build/freud.exe -f images/input/test.jpg -c color_blue
 ```
 
 Keep only the red channel (max component):
 
 ```bash
-$ build/freud.exe -f images/input/test.jpg -c max_component R
+$ ./build/freud.exe -f images/input/test.jpg -c max_component R
 ```
 
 Convert to grayscale using luminance:
 
 ```bash
-$ build/freud.exe -f images/input/test.jpg -c grayscale_luminance
+$ ./build/freud.exe -f images/input/test.jpg -c grayscale_luminance
 ```
 
 Run with debug output:
 
 ```bash
-$ build/freud.exe -f images/input/test.jpg -c color_blue --debug
+$ ./build/freud.exe -f images/input/test.jpg -c color_blue --debug
 ```
 
 ### Output
@@ -105,7 +105,7 @@ freud uses **CMake** as its build system. There are two steps:
 cmake -B build
 ```
 
-This reads `CMakeLists.txt` and prepares the build system in the `build/` folder. Run this once after cloning, or again if you add/remove source files.
+This reads `CMakeLists.txt` and prepares the build system in the `./build/` folder. Run this once after cloning, or again if you add/remove source files.
 
 ### Step 2 — Compile
 
@@ -116,15 +116,15 @@ cmake --build build
 This compiles your C sources and produces the executable at:
 
 ```
-build/freud.exe
+./build/freud.exe
 ```
 
 ::: {.callout-warning}
-## Always use `build/freud.exe`, not `./freud.exe`
+## Always use `./build/freud.exe`, not `./freud.exe`
 
-Running `cmake --build build` updates `build/freud.exe`. There is also a `./freud.exe` at the project root, but it only gets updated when you run `cmake --install build`. If you do not run `cmake --install`, the root-level `./freud.exe` is **stale** and does not reflect your latest code.
+Running `cmake --build build` updates `./build/freud.exe`. There is also a `./freud.exe` at the project root, but it only gets updated when you run `cmake --install build`. If you do not run `cmake --install`, the root-level `./freud.exe` is **stale** and does not reflect your latest code.
 
-**Always test with `build/freud.exe`** after a `cmake --build build`.
+**Always test with `./build/freud.exe`** after a `cmake --build build`.
 :::
 
 ### Full build workflow
@@ -132,7 +132,7 @@ Running `cmake --build build` updates `build/freud.exe`. There is also a `./freu
 ```bash
 # After editing source files:
 cmake --build build
-build/freud.exe -f images/input/test.jpg -c your_feature
+./build/freud.exe -f images/input/test.jpg -c your_feature
 ```
 
 If there are compilation errors, CMake prints them with the file name and line number. Fix the error and run `cmake --build build` again.

@@ -131,11 +131,14 @@ From VS Code: `Tasks: Run Task` → `Estia: Validate your installation`
 
 ### Build and run helloworld
 
+The project is built with CMake [ToolChain](../Resources/Build-Toolchain.qmd). CMake needs to pick the right compiler. You can select the correct kit in VS Code (`Ctrl+Shift+P` → **CMake: Select a Kit**), or manually specify it. 
+
+Then run:
+
 ```bash
-cmake -B build
+cmake -B build  -G "Unix Makefiles"
 cmake --build build
-cmake --install build
-./freud.exe -f images/input/image.jpeg -c helloworld
+./build/freud.exe -f images/input/image.jpeg -c helloworld
 ```
 
 **✓ Checkpoint:** The helloworld output appears in your terminal with no errors. Every teammate repeats this on their own machine.

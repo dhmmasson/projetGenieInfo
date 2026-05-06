@@ -9,7 +9,7 @@ title: "Projet Génie Informatique — Freud Image Analyst"
 You will build this tool in C, working as a team of three. The project is organized into **milestones** (groups of related features) and **issues** (individual features). You implement features one by one, incrementally, validating each against automated tests.
 
 ```
-$ build/freud.exe -f images/input/test.jpg -c color_blue
+$ ./build/freud.exe -f images/input/test.jpg -c color_blue
 ```
 
 > Not sure what a command line is? Start with [Using the Command Line](Resources/CLI.qmd).
@@ -19,7 +19,7 @@ $ build/freud.exe -f images/input/test.jpg -c color_blue
 - Learn to **write C code** — structure, pointers, files, functions — by doing
 - Organize a software project with milestones and issues
 - Work as a team with Git and GitHub
-- Build and validate a C project with CMake
+- Build and validate a C project against a set of specifications and automated tests
 - **Prepare for the individual exam**: coding in a sandbox, answering questions about the project
 
 ::: {.callout-important}
@@ -99,7 +99,7 @@ Understand the milestone system, CI evaluation, and academic integrity policy.
 
 ::: {.g-col-12 .g-col-md-6}
 ### 📚 Want to understand deeper?
-Image data structure, the build system, and C patterns explained.
+Image data structure, the build system, how to collaborate with git.
 
 → [Learn](Resources/Image-Data-Structure.qmd)
 :::
