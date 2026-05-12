@@ -402,7 +402,7 @@
     "href": "Features/issues/issue-3-color-of-the-10th-pixel.html#describe-tips-for-implementing-feature",
     "title": "Feature #3: Color of the 10th pixel",
     "section": "Describe tips for implementing feature",
-    "text": "Describe tips for implementing feature\nUse the data from the function read_image_data from &lt;estia-image.h&gt;.\nint read_image_data(const char *filename, unsigned char **data, int *width, int *height, int *channel_count);\nThe components R, G, B of the tenth pixel are the located at 27, 28 and 29 in the data array. (the first pixel is index 0, so the tenth is index 9). Read the wiki Call tenth_pixel in src/main.c. See the helloworld example to correctly call the function."
+    "text": "Describe tips for implementing feature\nUse the data from the function read_image_data from &lt;estia-image.h&gt;.\nint read_image_data(const char *filename, unsigned char **data, int *width, int *height, int *channel_count);\nThe components R, G, B of the tenth pixel are the located at 27, 28 and 29 in the data array. (the first pixel is index 0, so the tenth is index 9). Read the page about how images are stored and the estia-image documentation. Call tenth_pixel in src/main.c. See the helloworld example to correctly call the function."
   },
   {
     "objectID": "Features/issues/issue-13-color-in-blue.html",
@@ -472,7 +472,7 @@
     "href": "Features/issues/issue-5-rgb-pixel-get-and-print-functions.html#describe-tips-for-implementing-feature",
     "title": "Feature #5: RGB pixel, get and print functions",
     "section": "Describe tips for implementing feature",
-    "text": "Describe tips for implementing feature\nRead the wiki to see the structure of the data array buffer, and also how the structure can relate to the array."
+    "text": "Describe tips for implementing feature\nRead the page about how images are stored and the estia-image documentation."
   },
   {
     "objectID": "Features/issues/issue-20-mirror-effect-vertical-symmetry.html",
@@ -535,7 +535,7 @@
     "href": "Features/issues/issue-4-color-of-the-first-pixel-on-the-second-line.html#describe-tips-for-implementing-feature",
     "title": "Feature #4: Color of the first pixel on the second line",
     "section": "Describe tips for implementing feature",
-    "text": "Describe tips for implementing feature\nUse the data from the function read_image_data from estia-image.h.\nint read_image_data(const char *filename, unsigned char **data, int *width, int *height, int *channel_count);\nThe components R, G, B of the first pixel of the second line are located at 3width, 3width+1 and 3*width+2 in the data array(the first line has width pixel of 3 channels). Read the wiki"
+    "text": "Describe tips for implementing feature\nUse the data from the function read_image_data from estia-image.h.\nint read_image_data(const char *filename, unsigned char **data, int *width, int *height, int *channel_count);\nThe components R, G, B of the first pixel of the second line are located at 3width, 3width+1 and 3*width+2 in the data array(the first line has width pixel of 3 channels). Read the estia-image documentation"
   },
   {
     "objectID": "Features/issues/issue-14-color-in-gray-grayscale.html",
@@ -766,7 +766,7 @@
     "href": "Features/issues/issue-2-color-of-the-first-pixel.html#describe-tips-for-implementing-feature",
     "title": "Feature #2: Color of the first pixel",
     "section": "Describe tips for implementing feature",
-    "text": "Describe tips for implementing feature\nDefine first_pixel in src/features.h. Implement first_pixel in src/features.c. Use the data from the function read_image_data from &lt;estia-image.h&gt;.\nint read_image_data(const char *filename, unsigned char **data, int *width, int *height, int *channel_count);\nThe components R, G, B of the first pixel are the three first values of data unsigned char array. Read the wiki Call first_pixel in src/main.c. See the helloworld example to correctly call the function.\nif ( strncmp( configuration.command, \"first_pixel\", 11 ) == 0 ) {\n    /* first_pixel() function is defined in feature.h and implemented in feature.c */\n    first_pixel();\n}"
+    "text": "Describe tips for implementing feature\nDefine first_pixel in src/features.h. Implement first_pixel in src/features.c. Use the data from the function read_image_data from &lt;estia-image.h&gt;.\nint read_image_data(const char *filename, unsigned char **data, int *width, int *height, int *channel_count);\nThe components R, G, B of the first pixel are the three first values of data unsigned char array. Read the page about how images are stored and the estia-image documentation. Call first_pixel in src/main.c. See the helloworld example to correctly call the function.\nif ( strncmp( configuration.command, \"first_pixel\", 11 ) == 0 ) {\n    /* first_pixel() function is defined in feature.h and implemented in feature.c */\n    first_pixel();\n}"
   },
   {
     "objectID": "Features/issues/issue-21-mirror-effect.html",
